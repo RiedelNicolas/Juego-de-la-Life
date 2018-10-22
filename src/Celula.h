@@ -17,6 +17,6 @@ class Celula{
 		//LA PUTISIMA MADRE QUE LO RE PARIO
 };
 
-Aguante el Duki
+//Aguante el Duki
 
 #endif /* CELULA_H_ */
