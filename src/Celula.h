@@ -14,9 +14,6 @@ class Celula{
 		bool getEstaViva;
 		float getVida;
 		//Rgb getColor();
-		//LA PUTISIMA MADRE QUE LO RE PARIO
 };
-
-//Aguante el Duki
 
 #endif /* CELULA_H_ */
