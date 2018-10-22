@@ -14,6 +14,7 @@ class Celula{
 		bool getEstaViva;
 		float getVida;
 		//Rgb getColor();
+		//LA PUTISIMA MADRE QUE LO RE PARIO
 };
 
 
