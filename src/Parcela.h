@@ -17,6 +17,7 @@ class Parcela {
 		~Parcela();
 		float getFactorDeNacimiento();
 		float getFactordeMortalidad();
+		Celula getCelula();
 };
 
 
