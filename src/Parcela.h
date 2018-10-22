@@ -7,7 +7,6 @@
 
 class Parcela {
 	private:
-		int numeroDeColumna;
 		float indiceDeNacimiento;
 		float indiceDeMortalidad;
 		Celula celula;
