@@ -16,6 +16,6 @@ class Celula{
 		//Rgb getColor();
 };
 
-
+Aguante el Duki
 
 #endif /* CELULA_H_ */
