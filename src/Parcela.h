@@ -9,7 +9,7 @@ class Parcela {
 	private:
 		float indiceDeNacimiento;
 		float indiceDeMortalidad;
-		Celula celula;
+		Celula* celula;
 		Portal* portal;
 
 	public:
@@ -17,7 +17,7 @@ class Parcela {
 		~Parcela();
 		float getFactorDeNacimiento();
 		float getFactordeMortalidad();
-		Celula getCelula();
+		Celula* getCelula();
 };
 
 
