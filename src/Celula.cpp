@@ -14,7 +14,6 @@ void Celula::modificarEstado(bool nuevoEstado){
 	estaViva = nuevoEstado;
 }
 
-
 float Celula::conseguirVida(){
 	return vida;
 }
