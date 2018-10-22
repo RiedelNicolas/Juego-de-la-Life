@@ -10,6 +10,8 @@ class Tablero {
 		std::string nombre;
 		int ancho;
 		int alto;
+		int celulasVivas;
+		int celulasVivasTurnoAnterior;
 		Parcela* parcelas;
 
 	public:
@@ -18,9 +20,7 @@ class Tablero {
 		int getCantidadDeCelulasVivas();
 		int getCelulasNacidasEnUltimoTurno();
 		int getCelulasMuertasEnUltimoTurno();
-		int getPromedioNacimientos();
-		int getPromedioMuertes();
-		bool seCongeloJuego();
+
 };
 
 
