@@ -1,12 +1,18 @@
 #include "Tablero.h"
 
 Tablero::Tablero(){
+
 	nombre = "boca la concha de tu madre";
 	ancho = 20;
 	alto = 20;
 	celulasVivas = 0;
 	celulasVivasTurnoAnterior = 0;
-	parcelas = new Parcela[ancho][alto];
+
+	parcelas = new Parcela*[alto];
+
+	for(int i = 0; i < alto; i++){
+		parcelas[i] = new Parcela[ancho];
+	}
 }
 
 Tablero::~Tablero(){
