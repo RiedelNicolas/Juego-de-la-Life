@@ -7,7 +7,6 @@ Tablero::Tablero(){
 	alto = 20;
 	celulasVivas = 0;
 	celulasVivasTurnoAnterior = 0;
-
 	parcelas = new Parcela*[alto];
 
 	for(int i = 0; i < alto; i++){
@@ -31,7 +30,7 @@ int Tablero::getCantidadDeCelulasVivas(){
 			parcela = parcelas[i][j];
 			celula = parcela.getCelula();
 
-			if(celula.estaViva()){
+			if(celula.saberSiEstaViva()){
 				celulasVivas++;
 			}
 		}
