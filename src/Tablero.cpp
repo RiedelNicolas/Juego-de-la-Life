@@ -2,7 +2,7 @@
 
 Tablero::Tablero(){
 
-	nombre = "boca la concha de tu madre";
+	nombre = "boca";
 	ancho = 20;
 	alto = 20;
 	celulasVivas = 0;
@@ -39,7 +39,6 @@ int Tablero::getCantidadDeCelulasVivas(){
 			}
 		}
 	}
-	std::cout << celulasVivas;
 	return celulasVivas;
 }
 
