@@ -12,7 +12,7 @@ class Tablero {
 		int alto;
 		int celulasVivas;
 		int celulasVivasTurnoAnterior;
-		Parcela** parcelas;
+		Parcela* parcelas;
 
 	public:
 		Tablero();

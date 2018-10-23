@@ -5,7 +5,6 @@ Parcela::Parcela(){
 	this->indiceDeNacimiento = 0.0;
 	this->indiceDeMortalidad = 0.0;
 	this->portal = NULL;
-	this->celula = NULL;
 }
 
 float Parcela::getFactorDeNacimiento(){
@@ -16,6 +15,6 @@ float Parcela::getFactordeMortalidad(){
 	return this->indiceDeMortalidad;
 }
 
-Celula* Parcela::getCelula(){
+Celula Parcela::getCelula(){
 	return this->celula;
 }
