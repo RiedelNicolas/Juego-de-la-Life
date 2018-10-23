@@ -39,6 +39,7 @@ int Tablero::getCantidadDeCelulasVivas(){
 			}
 		}
 	}
+	std::cout << celulasVivas;
 	return celulasVivas;
 }
 

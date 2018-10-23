@@ -5,9 +5,9 @@ int main(){
 
 	Tablero tablero;
 
-	tablero.~Tablero();
+	cout << tablero.getCantidadDeCelulasVivas() << endl;
 
-	cout << "El primer print" << endl;
+	tablero.~Tablero();
 
 	return 0;
 }

@@ -11,10 +11,11 @@ char Portal::tipoDePortal(){
 	return estado;
 }
 
-Parcela* Portal::entradaDelPortal(){
+/*Parcela* Portal::entradaDelPortal(){
 	return entrada;
 }
 
 Parcela* Portal::salidaDelPortal(){
 	return salida;
 }
+*/
