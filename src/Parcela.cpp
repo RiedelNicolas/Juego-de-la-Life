@@ -18,3 +18,7 @@ float Parcela::getFactordeMortalidad(){
 Celula Parcela::getCelula(){
 	return this->celula;
 }
+
+Parcela::~Parcela(){
+
+}

@@ -15,7 +15,11 @@ Tablero::Tablero(){
 }
 
 Tablero::~Tablero(){
-	delete []parcelas;
+
+	for(int i = 0; i < alto; i++){
+		delete[] parcelas[i];
+	}
+	delete[] parcelas;
 }
 
 int Tablero::getCantidadDeCelulasVivas(){
