@@ -20,3 +20,4 @@ float Celula::getVida(){
 void Celula::setVida(float nuevaVida){
 	vida = nuevaVida;
 }
+

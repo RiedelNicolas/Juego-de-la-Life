@@ -12,7 +12,7 @@
  */
 void verificarRango(int color);
 
-Rgb::Rgb(int rojo =0 ,int verde = 0,int azul=0){
+Color::Color(int rojo =0 ,int verde = 0,int azul=0){
 	verificarRango(rojo);
 	verificarRango(verde);
 	verificarRango(azul);
@@ -21,30 +21,48 @@ Rgb::Rgb(int rojo =0 ,int verde = 0,int azul=0){
 	this->colores[POS_AZUL] =azul;
 }
 
-void Rgb:: setRojo(int colorIngresado){
+void Color::setColor(int colorIngresado, std::string color){
+	verificarRango(colorIngresado);
+	int pos;
+	switch(color){
+		case "ROJO":
+			pos= POS_ROJO;
+			break;
+		case "VERDE":
+			pos= POS_VERDE;
+			break;
+		case "AZUL":
+			pos= POS_AZUL;
+			break;
+	colores[pos]=colorIngresado;
+	}
+
+}
+
+void Color:: setRojo(int colorIngresado){
 	verificarRango(colorIngresado);
 	colores[POS_ROJO]=colorIngresado;
 }
 
-void Rgb:: setVerde(int colorIngresado){
+void Color::setVerde(int colorIngresado){
 	verificarRango(colorIngresado);
 	colores[POS_VERDE]=colorIngresado;
 }
 
-void Rgb:: setAzul(int colorIngresado){
+void Color::setAzul(int colorIngresado){
 	verificarRango(colorIngresado);
 	colores[POS_AZUL]=colorIngresado;
 }
 
-int Rgb:: getRojo(){
+int Color::getRojo(){
 	return colores[POS_ROJO];
 }
 
-int Rgb:: getVerde(){
+int Color::getVerde(){
 	return colores[POS_VERDE];
 }
 
-int Rgb:: getAzul(){
+int Color::getAzul(){
 	return colores[POS_AZUL];
 }
 
