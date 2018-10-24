@@ -22,7 +22,7 @@ class Malla {
 		// Post: Libera los recursos pedidos
 		~Malla();
 
-		/* Pre: Malla creada y punteroAMalla válido.
+		/* Pre: Malla creada y nuevaMalla válida.
 		 * Post: mallaSiguiente apuntará a nuevaMalla.
 		 */
 		void setSiguienteMalla(Malla* nuevaMalla);

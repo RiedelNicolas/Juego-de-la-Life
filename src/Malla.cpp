@@ -26,6 +26,14 @@ Malla::~Malla(){
 	delete[] parcelas;
 }
 
+void Malla::setSiguienteMalla(Malla* nuevaMalla){
+	mallaSiguiente = nuevaMalla;
+}
+
+Malla* Malla::getSiguienteMalla(){
+	return mallaSiguiente;
+}
+
 int Malla::getCantidadDeCelulasVivas(){
 
 	celulasVivas = 0;
