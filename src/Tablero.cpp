@@ -1,10 +1,12 @@
 #include "Tablero.h"
 
-Tablero::Tablero(){
+using namespace  std;
 
-	nombre = "boca";
-	ancho = 20;
-	alto = 20;
+Tablero::Tablero(int filas, int columnas, string nombre){
+
+	this->nombre = nombre;
+	ancho = columnas;
+	alto = filas;
 	celulasVivas = 0;
 	celulasVivasTurnoAnterior = 0;
 	parcelas = new Parcela*[alto];
@@ -13,6 +15,7 @@ Tablero::Tablero(){
 		parcelas[i] = new Parcela[ancho];
 	}
 }
+
 
 Tablero::~Tablero(){
 

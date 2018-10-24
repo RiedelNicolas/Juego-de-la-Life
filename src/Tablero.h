@@ -1,9 +1,8 @@
 #ifndef TABLERO_H_
 #define TABLERO_H_
 
-#include <string>
 #include "Parcela.h"
-
+#include <iostream>
 class Tablero {
 
 	private:
@@ -15,15 +14,12 @@ class Tablero {
 		Parcela** parcelas;
 
 	public:
-		Tablero();
+		Tablero(int filas ,int columnas, std::string nombre);
 		~Tablero();
 		int getCantidadDeCelulasVivas();
 		int getCelulasNacidasEnUltimoTurno();
 		int getCelulasMuertasEnUltimoTurno();
 
 };
-
-
-
 
 #endif /* TABLERO_H_ */
