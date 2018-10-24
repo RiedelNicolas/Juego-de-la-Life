@@ -1,4 +1,4 @@
-#include "Archivo.hpp"
+#include "Archivo.h"
 
 unsigned Archivo::getCantidadDeTableros(){
 	return cantidadDeTableros;

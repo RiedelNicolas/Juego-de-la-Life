@@ -1,15 +1,7 @@
-/*
- * Rgb.hpp
- *
- *  Created on: Oct 12, 2018
- *      Author: riedel
- */
-
 #ifndef RGB_HPP_
 #define RGB_HPP_
 #define CANTIDAD_COLORES 3
 #include<iostream>
-#include<locale>
 
 class Color{
 

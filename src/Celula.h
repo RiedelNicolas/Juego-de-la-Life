@@ -3,7 +3,8 @@
 
 
 #include <iostream>
-#include "Rgb.hpp"
+
+#include "Rgb.h"
 
 class Celula{
 	private:

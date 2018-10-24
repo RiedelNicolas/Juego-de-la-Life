@@ -1,7 +1,8 @@
 
 #include <fstream>
 #include <iostream>
-#include "Tablero.h"
+
+#include "Malla.h"
 
 class Archivo{
 	private:
