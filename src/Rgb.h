@@ -25,6 +25,7 @@ class Color{
 
 		/*post: Devuelve un entero correspondiente al valor de dicho color en el RGB.
 		 */
+		int getColor(std::string);
 		int getRojo();
 		int getVerde();
 		int getAzul();
