@@ -3,7 +3,7 @@
 
 #include "Parcela.h"
 #include <iostream>
-class Tablero {
+class Malla {
 
 	private:
 		std::string nombre;
@@ -12,16 +12,17 @@ class Tablero {
 		int celulasVivas;
 		int celulasVivasTurnoAnterior;
 		Parcela** parcelas;
+		Malla* MallaSiguiente;
 
 	public:
 
-		// Crea un tablero con un numero de filas y columnas indicadas y cuyo nombre es "nombre"
-		Tablero(int filas ,int columnas, std::string nombre);
+		// Crea un Malla con un numero de filas y columnas indicadas y cuyo nombre es "nombre"
+		Malla(int filas ,int columnas, std::string nombre);
 
 		// Post: Libera los recursos pedidos
-		~Tablero();
+		~Malla();
 
-		//Post: Devuelve la cantidad de celulas vivas que hay en el tablero
+		//Post: Devuelve la cantidad de celulas vivas que hay en el Malla
 		int getCantidadDeCelulasVivas();
 
 		//Post: Devuelve la cantidad de celulas que nacieron en el ultimo turno
@@ -32,4 +33,4 @@ class Tablero {
 
 };
 
-#endif /* TABLERO_H_ */
+#endif /* Malla_H_ */

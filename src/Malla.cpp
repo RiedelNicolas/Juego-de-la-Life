@@ -2,7 +2,7 @@
 
 using namespace  std;
 
-Tablero::Tablero(int filas, int columnas, string nombre){
+Malla::Malla(int filas, int columnas, string nombre){
 
 	this->nombre = nombre;
 	ancho = columnas;
@@ -17,7 +17,7 @@ Tablero::Tablero(int filas, int columnas, string nombre){
 }
 
 
-Tablero::~Tablero(){
+Malla::~Malla(){
 
 	for(int i = 0; i < alto; i++){
 		delete[] parcelas[i];
@@ -25,7 +25,7 @@ Tablero::~Tablero(){
 	delete[] parcelas;
 }
 
-int Tablero::getCantidadDeCelulasVivas(){
+int Malla::getCantidadDeCelulasVivas(){
 
 	celulasVivas = 0;
 	Parcela parcela;
