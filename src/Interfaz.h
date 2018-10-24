@@ -4,6 +4,7 @@
 
 #include <iostream>
 
+
 class Interfaz{
 	private:
 		bool reinicio;
