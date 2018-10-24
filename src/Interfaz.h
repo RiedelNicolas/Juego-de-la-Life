@@ -7,10 +7,9 @@
 
 class Interfaz{
 	private:
-		bool reinicio;
-		bool fin;
+		char estadoDeJuego;
 	public:
-
+// C = continuar; R=reiniciar; T=terminar
 
 		/*
 		 * Post: Crea una interfaz con reinicio y fin en false
@@ -18,23 +17,35 @@ class Interfaz{
 		Interfaz();
 
 		/*
-		 * Post: Se ejecutan "cantidadDeTurnos" turnos
+		 *
 		 */
-		void ejecutarTurnos(int cantidadDeTurnos);
+		void nuevoTurno();
 
 		/*
-		 *Post: cambia "reinicio" a true
+		 *Post: cambia el estado del juego a Reiniciar
 		 */
 		void reiniciarJuego();
 
 		/*
-		 * Post: cambia "fin" a true
+		 * Post: Cambia el estado del juego a Terminar
 		 */
 		void finalizarJuego();
 
-	private:
-		bool turnoValido(int cantidadDeTurnos);
 
+	private:
+		/*
+		 * Post: Valida si la cantidad de turnos a ejecutarse es mayor a 0
+		 */
+		bool turnoValido(int cantidadDeTurnos);
+		/*
+		 * Post: Pide una cantidad de turnos al usuario y la devuelve
+		 */
+		int pedirCantidadDeTurnos();
+
+		/*
+		 * Post: Se ejecutan "cantidadDeTurnos" turnos
+		 */
+		void ejecutarTurnos(int cantidadDeTurnos);
 };
 
 
