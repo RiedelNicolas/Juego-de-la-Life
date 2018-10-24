@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
 
-	Tablero tablero;
+	Malla tablero;
 	cout << tablero.getCantidadDeCelulasVivas() << endl;
 
 	//NicoCarolo
