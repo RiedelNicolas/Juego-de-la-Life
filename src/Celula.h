@@ -15,16 +15,16 @@ class Celula{
 		Celula();
 
 		// Post: Devuelve un bool que responde a la pregunta "Esta viva?"
-		bool saberSiEstaViva();
+		bool getEstaViva();
 
 		//Post: Modifica el parametro "estaViva" y lo cambia por "nuevoEstado'
-		void modificarEstado(bool nuevoEstado);
+		void setEstado(bool nuevoEstado);
 
 		//Post: Devuelve la vida de la celula
-		float conseguirVida();
+		float getVida();
 
 		//Post: Modifica el parametro "vida" por nueva "nuevaVida"
-		void modificarVida(float nuevaVida);
+		void setVida(float nuevaVida);
 
 
 		//Rgb getColor();

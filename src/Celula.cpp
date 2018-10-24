@@ -6,18 +6,18 @@ Celula::Celula(){
 	vida = 0.0;
 }
 
-bool Celula::saberSiEstaViva(){
+bool Celula::getEstaViva(){
 	return estaViva;
 }
 
-void Celula::modificarEstado(bool nuevoEstado){
+void Celula::setEstado(bool nuevoEstado){
 	estaViva = nuevoEstado;
 }
 
-float Celula::conseguirVida(){
+float Celula::getVida(){
 	return vida;
 }
 
-void Celula::modificarVida(float nuevaVida){
+void Celula::setVida(float nuevaVida){
 	vida = nuevaVida;
 }
