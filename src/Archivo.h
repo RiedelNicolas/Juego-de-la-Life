@@ -1,4 +1,7 @@
 
+#ifndef ARCHIVO_H_
+#define ARCHIVO_H_
+
 #include <fstream>
 #include <iostream>
 
@@ -8,7 +11,7 @@ class Archivo{
 	private:
 		std::ifstream file;
 		std::string ruta;
-		unsigned cantidadDeTableros;
+		unsigned cantidadDeMallas;
 		Malla* mallas;
 
 	public:
@@ -19,12 +22,17 @@ class Archivo{
 		Archivo(std::string ruta);
 
 		/*post :devuelve la cantidad de tableros que se pudo levantar del archivo*/
-		unsigned getCantidadDeTableros();
+		unsigned getCantidadDeMallas();
 
 		/*post : devuelve la direccion al primer elemento del array de tableros*/
-		Malla* getMallas();
+		 Malla* getMallas();
 
+		//destructor
+		~Archivo();
 	private:
 		/*crea dicho tableros dinamicos y asigna la direccion de memoria correspondiente a el inicio del array a "tableros"*/
 		void crearTableros();
+		unsigned contarCantidadDeMallas();
 };
+
+#endif /* ARCHIVO_H_ */
