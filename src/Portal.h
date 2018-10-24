@@ -16,13 +16,13 @@ class Portal{
 		Portal(char tipoDePortal, Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
 
 		//Post: Devuelve el tipo de portal
-		char tipoDePortal();
+		char getTipo();
 
-		//Post: Devuelve la entrada del portal
-		Parcela* entradaDelPortal();
+		//Post: Devuelve un puntero a la parcela de entrada del portal
+		Parcela* getEntrada();
 
-		//Post: Devuelve la salida del portal
-		Parcela* salidaDelPortal();
+		//Post: Devuelve un puntero a la parcela de salida del portal
+		Parcela* getSalida();
 };
 
 

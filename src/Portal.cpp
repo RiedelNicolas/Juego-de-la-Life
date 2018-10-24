@@ -7,15 +7,15 @@ Portal::Portal(char tipoDePortal, Parcela* parcelaDeEntrada, Parcela* parcelaDeS
 	salida = parcelaDeSalida;
 }
 
-char Portal::tipoDePortal(){
+char Portal::getTipo(){
 	return estado;
 }
 
-/*Parcela* Portal::entradaDelPortal(){
+Parcela* Portal::getEntrada(){
 	return entrada;
 }
 
-Parcela* Portal::salidaDelPortal(){
+Parcela* Portal::getSalida(){
 	return salida;
 }
-*/
+
