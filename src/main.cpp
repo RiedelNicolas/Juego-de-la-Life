@@ -1,4 +1,4 @@
-#include "Tablero.h"
+#include "Malla.h"
 using namespace std;
 
 int main(){

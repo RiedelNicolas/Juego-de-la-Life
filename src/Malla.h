@@ -1,5 +1,5 @@
-#ifndef TABLERO_H_
-#define TABLERO_H_
+#ifndef MALLA_H_
+#define MALLA_H_
 
 #include "Parcela.h"
 #include <iostream>
