@@ -1,7 +1,6 @@
 #ifndef CELULA_H_
 #define CELULA_H_
 
-
 #include <iostream>
 
 #include "Color.h"
