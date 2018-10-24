@@ -22,6 +22,23 @@ class Malla {
 		// Post: Libera los recursos pedidos
 		~Malla();
 
+		/* Pre: Malla creada y punteroAMalla válido.
+		 * Post: mallaSiguiente apuntará a nuevaMalla.
+		 */
+		void setSiguienteMalla(Malla* nuevaMalla);
+
+		/* Pre: Malla creada.
+		 * Post: Devuelve el puntero al siguiente nodo.
+		 * 		 Si es el último devuelve NULL.
+		 */
+		Malla* getSiguienteMalla();
+
+		/* Pre: Malla creada.
+		 * Post: Responde a la pregunta: ¿Existe una siguiente malla?
+		 * 		 Devuelve true si existe, false en caso contrario.
+		 */
+		bool existeSiguienteMalla();
+
 		//Post: Devuelve la cantidad de celulas vivas que hay en el Malla
 		int getCantidadDeCelulasVivas();
 
