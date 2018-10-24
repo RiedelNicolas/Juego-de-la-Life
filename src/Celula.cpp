@@ -1,4 +1,3 @@
-# include <iostream>
 #include "Celula.h"
 
 Celula::Celula(){

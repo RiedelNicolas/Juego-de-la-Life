@@ -3,12 +3,13 @@
 
 
 #include <iostream>
+#include "Rgb.hpp"
 
 class Celula{
 	private:
 		bool estaViva;
 		float vida;
-		//Rgb color;
+		Rgb color;
 	public:
 
 		// Post: Se crea una celula muerta y con 0.0 de vida
