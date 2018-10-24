@@ -12,7 +12,7 @@ class Malla {
 		int celulasVivas;
 		int celulasVivasTurnoAnterior;
 		Parcela** parcelas;
-		Malla* MallaSiguiente;
+		Malla* mallaSiguiente;
 
 	public:
 
