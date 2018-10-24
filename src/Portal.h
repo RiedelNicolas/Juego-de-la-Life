@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "Parcela.h"
+class Parcela;
 
 class Portal{
 	private:
