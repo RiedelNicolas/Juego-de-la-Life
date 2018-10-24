@@ -84,7 +84,7 @@ int Color::getAzul(){
 
 void verificarRango(int color){
 	if( !(color<=MAX_RGB && color>=MIN_RGB) ){
-		throw;
+		throw std::string("Se recibio un color fuera de rango");
 	}
 }
 
