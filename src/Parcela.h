@@ -15,7 +15,6 @@ class Parcela {
 
 	public:
 
-
 		//Post: Crea una parcela con indice de nacimiento "nacimiento" e indice de mortalidad "mortalidad"
 		Parcela(float nacimiento, float mortalidad);
 

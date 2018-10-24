@@ -46,7 +46,7 @@ int Malla::getCantidadDeCelulasVivas(){
 			parcela = parcelas[i][j];
 			celula = parcela.getCelula();
 
-			if(celula.getEstaViva()){
+			if(celula.getEstado()){
 				celulasVivas++;
 			}
 		}
