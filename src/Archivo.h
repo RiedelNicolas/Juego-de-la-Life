@@ -9,7 +9,7 @@ class Archivo{
 		std::ifstream file;
 		std::string ruta;
 		unsigned cantidadDeTableros;
-		//Tablero* tableros;
+		Malla* mallas;
 
 	public:
 
@@ -22,7 +22,7 @@ class Archivo{
 		unsigned getCantidadDeTableros();
 
 		/*post : devuelve la direccion al primer elemento del array de tableros*/
-		//Tablero* getTableros();
+		Malla* getMallas();
 
 	private:
 		/*crea dicho tableros dinamicos y asigna la direccion de memoria correspondiente a el inicio del array a "tableros"*/
