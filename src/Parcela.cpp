@@ -1,20 +1,20 @@
 #include "Parcela.h"
 
-Parcela::Parcela(){
+Parcela::Parcela(float nacimiento, float mortalidad){
 
-	this->indiceDeNacimiento = 0.0;
-	this->indiceDeMortalidad = 0.0;
-	this->portal = NULL;
+	indiceDeNacimiento = nacimiento;
+	indiceDeMortalidad = mortalidad;
+	portal = NULL;
 }
 
 float Parcela::getFactorDeNacimiento(){
-	return this->indiceDeNacimiento;
+	return indiceDeNacimiento;
 }
 
 float Parcela::getFactordeMortalidad(){
-	return this->indiceDeMortalidad;
+	return indiceDeMortalidad;
 }
 
 Celula Parcela::getCelula(){
-	return this->celula;
+	return celula;
 }

@@ -15,20 +15,16 @@ class Parcela {
 
 	public:
 
+		//Post: Crea una parcela con indice de nacimiento "nacimiento" e indice de mortalidad "mortalidad"
+		Parcela(float nacimiento, float mortalidad);
 
-		Parcela();
-
-
+		//Post: Retorna el factor de nacimiento
 		float getFactorDeNacimiento();
 
-
+		//Post: Retorna el factor de mortalidad
 		float getFactordeMortalidad();
 
-
+		//Post: Retorno la celula que se haya en la parcela
 		Celula getCelula();
 };
-
-
-
-
 #endif /* PARCELA_H_ */
