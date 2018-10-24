@@ -4,7 +4,7 @@ unsigned Archivo::getCantidadDeTableros(){
 	return cantidadDeTableros;
 }
 
-Tablero* Archivo::getTableros(){
+/*Tablero* Archivo::getTableros(){
 	return tableros;
 }
-
+/*
