@@ -36,7 +36,6 @@ void Color::setColor(int colorIngresado, std::string color){
 			break;
 	colores[pos]=colorIngresado;
 	}
-
 }
 
 void Color:: setRojo(int colorIngresado){
@@ -52,6 +51,22 @@ void Color::setVerde(int colorIngresado){
 void Color::setAzul(int colorIngresado){
 	verificarRango(colorIngresado);
 	colores[POS_AZUL]=colorIngresado;
+}
+
+int Color::getColor(std::string color){
+	int pos;
+	switch(color){
+		case "ROJO":
+			pos= POS_ROJO;
+			break;
+		case "VERDE":
+			pos= POS_VERDE;
+			break;
+		case "AZUL":
+			pos= POS_AZUL;
+			break;
+	}
+	return colores[pos];
 }
 
 int Color::getRojo(){
