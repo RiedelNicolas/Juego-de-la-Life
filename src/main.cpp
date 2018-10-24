@@ -1,9 +1,12 @@
-#include <iostream>
+#include "Tablero.h"
 using namespace std;
 
 int main(){
 
-	cout << "El primer print" << endl;
+	Tablero tablero;
+	cout << tablero.getCantidadDeCelulasVivas() << endl;
+
+	//NicoCarolo
 
 	return 0;
 }

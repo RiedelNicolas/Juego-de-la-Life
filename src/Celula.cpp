@@ -2,7 +2,7 @@
 #include "Celula.h"
 
 Celula::Celula(){
-	estaViva = false;
+	estaViva = true;
 	vida = 0.0;
 }
 

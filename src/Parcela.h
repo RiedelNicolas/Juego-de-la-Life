@@ -3,21 +3,20 @@
 
 #include <iostream>
 #include "Celula.h"
-#include "Portal.h"
+//#include "Portal.h"
 
 class Parcela {
 	private:
-		int numeroDeColumna;
 		float indiceDeNacimiento;
 		float indiceDeMortalidad;
 		Celula celula;
-		Portal* portal;
+		//Portal* portal;
 
 	public:
 		Parcela();
-		~Parcela();
 		float getFactorDeNacimiento();
 		float getFactordeMortalidad();
+		Celula getCelula();
 };
 
 
