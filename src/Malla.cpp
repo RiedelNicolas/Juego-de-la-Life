@@ -34,6 +34,18 @@ Malla* Malla::getSiguienteMalla(){
 	return mallaSiguiente;
 }
 
+int Malla::getCantidadDeFilas(){
+	return alto;
+}
+
+int Malla::getCantidadDeColumnas(){
+	return ancho;
+}
+
+std::string Malla::getNombre(){
+	return nombre;
+}
+
 int Malla::getCantidadDeCelulasVivas(){
 
 	celulasVivas = 0;

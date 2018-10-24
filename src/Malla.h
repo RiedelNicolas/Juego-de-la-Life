@@ -46,12 +46,12 @@ class Malla {
 
 
 		/* Pre: Malla creada.
-		*  Post: Responde a la pregunta: ¿Existe una siguiente malla?
+		*  Post: Devuelve la cantidad de columnas de la malla.
 		*/
 		int getCantidadDeColumnas();
 
 		/* Pre: Malla creada.
-		*  Post: Responde a la pregunta: ¿Existe una siguiente malla?
+		*  Post: Devuelve el nombre de la malla.
 		*/
 		std::string getNombre();
 
