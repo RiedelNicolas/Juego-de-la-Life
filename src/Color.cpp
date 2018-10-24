@@ -1,5 +1,5 @@
 
-#include "Rgb.h"
+#include "Color.h"
 
 #define POS_ROJO 0
 #define POS_VERDE 1

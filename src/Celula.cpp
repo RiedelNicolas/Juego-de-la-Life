@@ -1,16 +1,16 @@
 #include "Celula.h"
 
 Celula::Celula(){
-	estaViva = true;
-	vida = 0.0;
+	this->estaViva = false;
+	this->vida = 0.0;
 }
 
-bool Celula::getEstaViva(){
+bool Celula::getEstado(){
 	return estaViva;
 }
 
 void Celula::setEstado(bool nuevoEstado){
-	estaViva = nuevoEstado;
+	this->estaViva = nuevoEstado;
 }
 
 float Celula::getVida(){
@@ -18,6 +18,14 @@ float Celula::getVida(){
 }
 
 void Celula::setVida(float nuevaVida){
-	vida = nuevaVida;
+	this->vida = nuevaVida;
+}
+
+Color Celula::getColor(){
+	return color;
+}
+
+void Celula::setColor(Color nuevoColor){
+	this->color = nuevoColor;
 }
 

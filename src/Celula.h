@@ -4,31 +4,52 @@
 
 #include <iostream>
 
-#include "Rgb.h"
+#include "Color.h"
 
 class Celula{
+
 	private:
+
 		bool estaViva;
 		float vida;
 		Color color;
+
 	public:
 
-		// Post: Se crea una celula muerta y con 0.0 de vida
+		/*
+		 * Post: Se crea una celula "muerta" y con 0.0 de vida.
+		 */
 		Celula();
 
-		// Post: Devuelve un bool que responde a la pregunta "Esta viva?"
-		bool getEstaViva();
+		/*
+		 * Post: Devuelve un bool que responde a la pregunta "Esta viva?".
+		 */
+		bool getEstado();
 
-		//Post: Modifica el parametro "estaViva" y lo cambia por "nuevoEstado'
+		/*
+		 * Post: Modifica el parametro "estaViva" y lo cambia por "nuevoEstado".
+		 */
 		void setEstado(bool nuevoEstado);
 
-		//Post: Devuelve la vida de la celula
+		/*
+		 * Post: Devuelve un float con la vida de la celula.
+		 */
 		float getVida();
 
-		//Post: Modifica el parametro "vida" por nueva "nuevaVida"
+		/*
+		 * Post: Modifica el parametro "vida" por nueva "nuevaVida".
+		 */
 		void setVida(float nuevaVida);
 
+		/*
+		 * Post: Devuelve una clase "Color" con la informacion del color de la celula.
+		 */
 		Color getColor();
+
+		/*
+		 * Post: Modifica el parametro "color" por "nuevoColor".
+		 */
+		void setColor(Color nuevoColor);
 };
 
 #endif /* CELULA_H_ */
