@@ -14,7 +14,6 @@ class Parcela {
 
 	public:
 		Parcela();
-		~Parcela();
 		float getFactorDeNacimiento();
 		float getFactordeMortalidad();
 		Celula getCelula();
