@@ -26,7 +26,6 @@ class Celula{
 		//Post: Modifica el parametro "vida" por nueva "nuevaVida"
 		void setVida(float nuevaVida);
 
-
 		//Rgb getColor();
 };
 

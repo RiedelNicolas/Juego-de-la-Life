@@ -14,10 +14,20 @@ class Tablero {
 		Parcela** parcelas;
 
 	public:
+
+		// Crea un tablero con un numero de filas y columnas indicadas y cuyo nombre es "nombre"
 		Tablero(int filas ,int columnas, std::string nombre);
+
+		// Post: Libera los recursos pedidos
 		~Tablero();
+
+		//Post: Devuelve la cantidad de celulas vivas que hay en el tablero
 		int getCantidadDeCelulasVivas();
+
+		//Post: Devuelve la cantidad de celulas que nacieron en el ultimo turno
 		int getCelulasNacidasEnUltimoTurno();
+
+		//Post: Devuelve la cantidad de celulas que murieron en el ultimo turno
 		int getCelulasMuertasEnUltimoTurno();
 
 };

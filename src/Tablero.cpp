@@ -37,7 +37,7 @@ int Tablero::getCantidadDeCelulasVivas(){
 			parcela = parcelas[i][j];
 			celula = parcela.getCelula();
 
-			if(celula.saberSiEstaViva()){
+			if(celula.getEstaViva()){
 				celulasVivas++;
 			}
 		}

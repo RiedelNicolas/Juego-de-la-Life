@@ -6,6 +6,7 @@
 //#include "Portal.h"
 
 class Parcela {
+
 	private:
 		float indiceDeNacimiento;
 		float indiceDeMortalidad;
@@ -13,9 +14,17 @@ class Parcela {
 		//Portal* portal;
 
 	public:
+
+
 		Parcela();
+
+
 		float getFactorDeNacimiento();
+
+
 		float getFactordeMortalidad();
+
+
 		Celula getCelula();
 };
 
