@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Portal.h"
 
 Portal::Portal(char tipoDePortal, Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
