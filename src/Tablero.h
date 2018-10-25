@@ -20,7 +20,7 @@ public:
 //	Post: Libera todos los recursos de la lista
 	~Tablero();
 
-//	Verifica si la lista esta vacía o no
+//	Verifica si la lista esta vacía o no,responde la pregunta.
 //	Pre: Lista creada
 //	Post: Devuelve verdadero si la lista está vacía, y falso en caso contrario
 	bool tableroVacio();
