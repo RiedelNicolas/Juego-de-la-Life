@@ -10,7 +10,7 @@ Malla* Archivo::getMallas(){
 }
 
 Archivo::Archivo(std::string ruta){
-	file.open(ruta.c_str());
+	file.open( ruta.c_str() );
 	if( !file.is_open() ){
 		throw std::string( "No se pudo abrir el archivo");
 	}

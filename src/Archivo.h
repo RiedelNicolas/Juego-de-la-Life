@@ -1,7 +1,7 @@
 
 #ifndef ARCHIVO_H_
 #define ARCHIVO_H_
-
+//skere dijo el duketo
 #include <fstream>
 #include <iostream>
 
