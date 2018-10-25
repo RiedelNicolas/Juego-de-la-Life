@@ -30,7 +30,7 @@ bool Interfaz::turnoValido(int cantidadDeTurnos){
 int Interfaz::pedirCantidadDeTurnos(){
 	int turno;
 	cout <<"Ingrese la cantidad de turnos a ejecutar:";
-	cin << turno;
+	cin >> turno;
 	return turno;
 }
 
