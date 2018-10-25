@@ -1,5 +1,5 @@
 
-#include "Color.h"
+#include "Rgb.hpp"
 
 #define POS_ROJO 0
 #define POS_VERDE 1
@@ -12,7 +12,7 @@
  */
 void verificarRango(int color);
 
-Color::Color(int rojo =0 ,int verde = 0,int azul=0){
+Rgb::Rgb(int rojo =0 ,int verde = 0,int azul=0){
 	verificarRango(rojo);
 	verificarRango(verde);
 	verificarRango(azul);
@@ -21,70 +21,37 @@ Color::Color(int rojo =0 ,int verde = 0,int azul=0){
 	this->colores[POS_AZUL] =azul;
 }
 
-void Color::setColor(int colorIngresado, std::string color){
-	verificarRango(colorIngresado);
-	int pos;
-	switch(color){
-		case "ROJO":
-			pos= POS_ROJO;
-			break;
-		case "VERDE":
-			pos= POS_VERDE;
-			break;
-		case "AZUL":
-			pos= POS_AZUL;
-			break;
-	colores[pos]=colorIngresado;
-	}
-}
-
-void Color:: setRojo(int colorIngresado){
+void Rgb:: setRojo(int colorIngresado){
 	verificarRango(colorIngresado);
 	colores[POS_ROJO]=colorIngresado;
 }
 
-void Color::setVerde(int colorIngresado){
+void Rgb:: setVerde(int colorIngresado){
 	verificarRango(colorIngresado);
 	colores[POS_VERDE]=colorIngresado;
 }
 
-void Color::setAzul(int colorIngresado){
+void Rgb:: setAzul(int colorIngresado){
 	verificarRango(colorIngresado);
 	colores[POS_AZUL]=colorIngresado;
 }
 
-int Color::getColor(std::string color){
-	int pos;
-	switch(color){
-		case "ROJO":
-			pos= POS_ROJO;
-			break;
-		case "VERDE":
-			pos= POS_VERDE;
-			break;
-		case "AZUL":
-			pos= POS_AZUL;
-			break;
-	}
-	return colores[pos];
-}
-
-int Color::getRojo(){
+int Rgb:: getRojo(){
 	return colores[POS_ROJO];
 }
 
-int Color::getVerde(){
+int Rgb:: getVerde(){
 	return colores[POS_VERDE];
 }
 
-int Color::getAzul(){
+int Rgb:: getAzul(){
 	return colores[POS_AZUL];
 }
 
 
 void verificarRango(int color){
 	if( !(color<=MAX_RGB && color>=MIN_RGB) ){
-		throw std::string("Se recibio un color fuera de rango");
+		throw;
 	}
 }
 

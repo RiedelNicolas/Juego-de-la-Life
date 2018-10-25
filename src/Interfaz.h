@@ -8,6 +8,7 @@
 class Interfaz{
 	private:
 		char estadoDeJuego;
+		unsigned turno;
 	public:
 // C = continuar; R=reiniciar; T=terminar
 
@@ -16,9 +17,6 @@ class Interfaz{
 		 */
 		Interfaz();
 
-		/*
-		 *
-		 */
 		void nuevoTurno();
 
 		/*
@@ -46,6 +44,10 @@ class Interfaz{
 		 * Post: Se ejecutan "cantidadDeTurnos" turnos
 		 */
 		void ejecutarTurnos(int cantidadDeTurnos);
+		/*
+		 * Post: Devuelve el promedio de "numero" por la cantidad de turnos
+		 */
+		float calcularPromedio(int numero);
 };
 
 

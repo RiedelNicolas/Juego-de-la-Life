@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "Color.h"
+#include "Rgb.hpp"
 
 class Celula{
 
@@ -11,7 +11,7 @@ class Celula{
 
 		bool estaViva;
 		float vida;
-		Color color;
+		Rgb color;
 
 	public:
 
@@ -43,12 +43,12 @@ class Celula{
 		/*
 		 * Post: Devuelve una clase "Color" con la informacion del color de la celula.
 		 */
-		Color getColor();
+		Rgb getRgb();
 
 		/*
 		 * Post: Modifica el parametro "color" por "nuevoColor".
 		 */
-		void setColor(Color nuevoColor);
+		void setRgb(Rgb nuevoRgb);
 };
 
 #endif /* CELULA_H_ */
