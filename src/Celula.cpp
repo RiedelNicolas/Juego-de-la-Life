@@ -21,11 +21,11 @@ void Celula::setVida(float nuevaVida){
 	this->vida = nuevaVida;
 }
 
-Color Celula::getColor(){
+Rgb Celula::getRgb(){
 	return color;
 }
 
-void Celula::setColor(Color nuevoColor){
+void Celula::setRgb(Rgb nuevoColor){
 	this->color = nuevoColor;
 }
 
