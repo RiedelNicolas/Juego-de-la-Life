@@ -39,6 +39,22 @@ class Malla {
 		 */
 		bool existeSiguienteMalla();
 
+		/* Pre: Malla creada.
+		*  Post: Devuelve la cantidad de filas de la malla.
+		*/
+		int getCantidadDeFilas();
+
+
+		/* Pre: Malla creada.
+		*  Post: Devuelve la cantidad de columnas de la malla.
+		*/
+		int getCantidadDeColumnas();
+
+		/* Pre: Malla creada.
+		*  Post: Devuelve el nombre de la malla.
+		*/
+		std::string getNombre();
+
 		//Post: Devuelve la cantidad de celulas vivas que hay en el Malla
 		int getCantidadDeCelulasVivas();
 
