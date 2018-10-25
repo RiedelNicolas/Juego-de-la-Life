@@ -1,8 +1,10 @@
 #include "Interfaz.h"
 using namespace std;
 
+
 Interfaz::Interfaz(){
 	estadoDeJuego = 'C';
+	turno = 0;
 }
 
 void Interfaz::nuevoTurno(){
@@ -17,6 +19,7 @@ void Interfaz::nuevoTurno(){
 
 void Interfaz::reiniciarJuego(){
 	estadoDeJuego = 'R';
+	turno = 0;
 }
 
 void Interfaz::finalizarJuego(){
@@ -37,5 +40,21 @@ int Interfaz::pedirCantidadDeTurnos(){
 void Interfaz::ejecutarTurnos(int cantidadDeTurnos){
 	for(int i=0; i<cantidadDeTurnos; i++){
 		//EJECUTAR NUEVO TURNO
+		turno ++;
 	}
 }
+
+float Interfaz::calcularPromedio(int numero){
+	float promedio;
+	if(turno ==0){
+		promedio = 0;
+	}
+	else{
+		promedio = float(numero)/float(turno);
+	}
+	return promedio;
+}
+
+
+
+

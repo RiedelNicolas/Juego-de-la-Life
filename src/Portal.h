@@ -11,7 +11,9 @@ class Portal{
 		char estado;
 		Parcela* entrada;
 		Parcela* salida;
+
 	public:
+// P = pasivo; N = normal; A = Activo
 
 		//Post: Crea un portal de tipo "tipoDePortal" con entrada "parcelaDeEntrada" y salida "parcelaDeSalida"
 		Portal(char tipoDePortal, Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
@@ -24,6 +26,7 @@ class Portal{
 
 		//Post: Devuelve un puntero a la parcela de salida del portal
 		Parcela* getSalida();
+
 };
 
 

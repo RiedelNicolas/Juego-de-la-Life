@@ -1,6 +1,6 @@
 #include "Malla.h"
 
-using namespace  std;
+using namespace std;
 
 Malla::Malla(int filas, int columnas, string nombre){
 

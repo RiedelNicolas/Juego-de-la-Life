@@ -18,3 +18,4 @@ Parcela* Portal::getSalida(){
 	return salida;
 }
 
+
