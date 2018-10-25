@@ -31,13 +31,17 @@ void Parcela::setCelulaNacida(){
 	celula.setVida(vidaAlNacer);
 }
 
+void Parcela::setCelulaMuerta(){
+	celula.setEstado(false);
+	celula.setVida(0.0);
+}
+
 void Parcela::reducirVidaDeCelula(){
 	float nuevaVida;
 
 	nuevaVida =  celula.getVida()- vidaARestar;
 	if (nuevaVida<=0.0){
-		celula.setEstado(false);
-		celula.setVida(0.0);
+		setCelulaMuerta();
 	}
 	else{
 		celula.setVida(nuevaVida);
