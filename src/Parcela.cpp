@@ -27,6 +27,7 @@ bool Parcela::getEstadoDeCelula(){
 }
 
 void Parcela::setCelulaNacida(){
+	celula.setEstado(true);
 	celula.setVida(vidaAlNacer);
 }
 
@@ -34,7 +35,7 @@ void Parcela::reducirVidaDeCelula(){
 	float nuevaVida;
 
 	nuevaVida =  celula.getVida()- vidaARestar;
-	if (nuevaVida<0.0){
+	if (nuevaVida<=0.0){
 		celula.setEstado(false);
 		celula.setVida(0.0);
 	}
