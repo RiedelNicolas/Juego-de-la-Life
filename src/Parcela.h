@@ -17,7 +17,8 @@ class Parcela {
 
 	public:
 
-		//Post: Crea una parcela con indice de nacimiento "nacimiento" e indice de mortalidad "mortalidad"
+		//Post: Crea una parcela lista para usarse
+		//con indice de nacimiento "nacimiento" e indice de mortalidad "mortalidad"
 		Parcela(float nacimiento, float mortalidad);
 
 		//Post: Retorna el factor de nacimiento
@@ -36,9 +37,8 @@ class Parcela {
 		bool getEstadoDeCelula();
 
 		/*
-		 * Post: La celula esta viva y con una vida de 100 * indiceDeNacimiento
-		 * 	ej: Si el indiceDeNacimiento de la parcela es de 0.5 entonces
-		 * 	la celula tendra 50 de vida
+		 * Post: La que contiene celula esta viva y con una vida de 100 * indiceDeNacimiento
+		 * 	ej: Si el indiceDeNacimiento de la parcela es de 0.5 entonces la celula tendra 50 de vida
 		 */
 		void setCelulaNacida();
 
