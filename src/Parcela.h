@@ -12,7 +12,7 @@ class Parcela {
 		float vidaAlNacer;
 		float vidaARestar;
 		Celula celula;
-		Rgb* color;
+		Rgb color;
 		Portal* portal;
 
 	public:
@@ -28,14 +28,13 @@ class Parcela {
 		 */
 		bool getEstadoDeCelula();
 		/*
-		 * Post: La que contiene celula esta viva y con una vida de 100 * indiceDeNacimiento
+		 * Pre: Recibe un bool, indicando si la celula esta viva o muerta.
+		 * Post: si es true :La que contiene celula esta viva y
+		 * con una vida de 100 * indiceDeNacimiento
 		 * 	ej: Si el indiceDeNacimiento de la parcela es de 0.5 entonces la celula tendra 50 de vida
+		 * si es false:	 La celula que contiene esta muerta y con 0.0 de vida
 		 */
-		void setCelulaNacida();
-		/*
-		 * Post: La celula que contiene esta muerta y con 0.0 de vida
-		 */
-		void setCelulaMuerta();
+		void setEstadoDeCelula(bool estado);
 		/*
 		 * Post: Reduce la vida de la celula en 100 * indiceDeMortalidad.
 		 * En el caso de que no tuviera vida suficiente para ser reducida,
@@ -49,8 +48,6 @@ class Parcela {
 		/*
 		 *
 		 */
-		void setRojo(int rojo);
-		void setVerde(int verde);
-		void setAzul(int azul);
+		void setRgb(Rgb);
 };
 #endif /* PARCELA_H_ */
