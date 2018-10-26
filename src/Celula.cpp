@@ -3,7 +3,7 @@
 Celula::Celula(){
 	this->estaViva = false;
 	this->vida = 0.0;
-	this->color = NULL;
+	this->color = {0};
 }
 
 bool Celula::getEstado(){
@@ -26,7 +26,12 @@ Rgb Celula::getRgb(){
 	return color;
 }
 
-void Celula::setRgb(Rgb nuevoColor){
-	this->color = nuevoColor;
+void Celula::setRojo(int rojo){
+	color->setRojo(rojo);
 }
-
+void Celula::setVerde(int verde){
+	color->setVerde(verde);
+}
+void Celula::setAzul(int azul){
+	color->setAzul(azul);
+}

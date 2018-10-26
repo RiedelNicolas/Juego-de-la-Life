@@ -1,25 +1,10 @@
 #include "Parcela.h"
-#define CIEN 100
 
 Parcela::Parcela(float nacimiento, float mortalidad){
-
-	indiceDeNacimiento = nacimiento;
-	indiceDeMortalidad = mortalidad;
-	vidaAlNacer = CIEN * indiceDeNacimiento;
-	vidaARestar = CIEN* indiceDeMortalidad;
+	vidaAlNacer = 100 * nacimiento;
+	vidaARestar = 100 * mortalidad;
+	color = {0};
 	portal = NULL;
-}
-
-float Parcela::getFactorDeNacimiento(){
-	return indiceDeNacimiento;
-}
-
-float Parcela::getFactordeMortalidad(){
-	return indiceDeMortalidad;
-}
-
-Celula Parcela::getCelula(){
-	return celula;
 }
 
 bool Parcela::getEstadoDeCelula(){
@@ -46,4 +31,18 @@ void Parcela::reducirVidaDeCelula(){
 	else{
 		celula.setVida(nuevaVida);
 	}
+}
+
+Rgb Parcela::getRgb(){
+	return color;
+}
+
+void Parcela::setRojo(int rojo){
+	color->setRojo(rojo);
+}
+void Parcela::setVerde(int verde){
+	color->setVerde(verde);
+}
+void Parcela::setAzul(int azul){
+	color->setAzul(azul);
 }
