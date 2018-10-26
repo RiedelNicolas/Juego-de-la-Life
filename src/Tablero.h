@@ -27,16 +27,20 @@ class Tablero {
 	~Tablero();
 
 	/*
+	 * Pre: Lista creada
+	 * Post: Devuelve un bool con la respuesta a la pregunta... El tablero esta vacio??
+	 */
+	bool tableroVacio();
+
+	/*
 	 * Pre: Recibe una malla
 	 * Post: Agrega la malla a la lista.
 	 */
 	void agregarMalla(Malla* nuevaMalla);
 
-	/*
-	 * Pre: Lista creada
-	 * Post: Devuelve un bool con la respuesta a la pregunta... El tablero esta vacio??
-	 */
-	bool tableroVacio();
+	Malla* buscarMalla(std::string nombreMalla);
+
+
 
 
 

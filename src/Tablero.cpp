@@ -13,6 +13,11 @@ Tablero::~Tablero(){
 	}
 }
 
+bool Tablero::tableroVacio(){
+
+	return (primerElemento == NULL);
+}
+
 void Tablero::agregarMalla(Malla* nuevaMalla){
 
 	Nodo* aux = new Nodo(nuevaMalla);
@@ -21,10 +26,27 @@ void Tablero::agregarMalla(Malla* nuevaMalla){
 	this->tamanio++;
 }
 
-bool Tablero::tableroVacio(){
+Malla* Tablero::buscarMalla(std::string nombreMalla){
 
-	return (primerElemento == NULL);
+	bool mallaEncontrada = false;
+	Malla* mallaADevolver;
+	Nodo* auxiliar = primerElemento;
+
+	if(primerElemento){
+		while(auxiliar && !mallaEncontrada){
+			if(!auxiliar->getMalla()->getNombre().compare(nombreMalla)){
+				mallaADevolver = auxiliar->getMalla();
+				mallaEncontrada = true;
+			}
+			else{
+				auxiliar = auxiliar->getSigNodo();
+			}
+		}
+	}
+	return mallaADevolver;
 }
+
+
 
 
 
