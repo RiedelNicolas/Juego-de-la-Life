@@ -9,6 +9,7 @@ class Tablero {
 	private:
 
 		Nodo* primerElemento; // Primer elemento de la lista
+
 		unsigned tamanio; // Tamaño de la lista
 
 	public:
@@ -44,31 +45,12 @@ class Tablero {
 	 */
 	Malla* buscarMalla(std::string nombreMalla);
 
+	/*
+	 * Pre: Lista creada
+	 * Post: Devuelve el tamaño de la lista (cantidad de nodos de la lista)
+	 */
 
-
-
-
-
-
-//	Agrega un elemento a la lista
-//	Pre: Lista creada
-//	Post: Agrega un elemento (dentro de un nodo) al final de la lista y aumenta tamanio en 1
-	void insertar(int filas ,int columnas, std::string nombre);
-
-//	Obtener cantidad de filas que están en "posicion"
-//	Pre: Lista creada y no vacía
-//	Post: Devuelve la cantidad de filas que están en "posicion"
-	int getCantidadDeFilas(unsigned posicion);
-
-//	Obtener cantidad de columnas que están en "posicion"
-//	Pre: Lista creada y no vacía
-//	Post: Devuelve la cantidad columnas que están en "posicion"
-	int getCantidadDeColumnas(unsigned posicion);
-
-//	Obtener tamaño de la lista
-//	Pre: Lista  creada
-//	Devuelve tamanio (cantidad de nodos de la lista)
-	unsigned getTamanio();
+	int getTamanio();
 };
 
 #endif /* TABLERO_H_ */
