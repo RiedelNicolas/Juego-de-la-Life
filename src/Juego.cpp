@@ -9,6 +9,7 @@ Juego::Juego(Tablero* tablero){
 	this->tablero = tablero;
 }
 
+
 void Juego::actualizarTablero(){
 	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
