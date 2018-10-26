@@ -61,15 +61,15 @@ void Archivo::levantarTablero(){
 }
 
 void Archivo::levantarMalla(){
-	std::string nombre;//
+	std::string nombre;
 	int filas,columnas;
-	file>>nombre;
-	file>> columnas;
-	file>>filas;
-	tablero->insertar(filas,columnas,nombre);
+	file>>nombre>>columnas>>filas;
+	Malla* malla = new Malla (filas,columnas,nombre) ;
+	tablero->agregarMalla(malla);
 }
 
 void Archivo::levantarParcela(){
 	std::string nombreDelTablero;
 	file>>nombreDelTablero;
+
 }
