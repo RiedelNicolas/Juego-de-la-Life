@@ -10,7 +10,6 @@ class Malla {
 		int ancho;
 		int alto;
 		int celulasVivas;
-		int celulasVivasTurnoAnterior;
 		Parcela** parcelas;
 		Malla* mallaSiguiente;
 

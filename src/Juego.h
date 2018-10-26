@@ -4,7 +4,8 @@
 
 class Juego{
 	private:
-
+		int cantidadDeCelulasVivas;
+		int celulasVivasTurnoAnterior;
 	public:
 		/* Pre: el tablero está creado.
 		 * Post: Modifica el estado de las células teniendo en cuenta los índices
