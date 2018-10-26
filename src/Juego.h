@@ -1,6 +1,7 @@
 #ifndef JUEGO_H_
 #define JUEGO_H_
 #include "Tablero.h"
+#include "Malla.h"
 
 class Juego{
 	private:

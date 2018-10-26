@@ -8,7 +8,6 @@ Malla::Malla(int filas, int columnas, string nombre){
 	ancho = columnas;
 	alto = filas;
 	celulasVivas = 0;
-	celulasVivasTurnoAnterior = 0;
 	parcelas = new Parcela*[alto];
 	mallaSiguiente = NULL;
 
@@ -44,6 +43,10 @@ int Malla::getCantidadDeColumnas(){
 
 std::string Malla::getNombre(){
 	return nombre;
+}
+
+Parcela* Malla::getParcela(int fila,int columna){ //ESTO NO ESTA CHEQUEADO. WARNING!! EXPERIMENTAL.
+	return parcelas[fila][columna];
 }
 
 int Malla::getCantidadDeCelulasVivas(){

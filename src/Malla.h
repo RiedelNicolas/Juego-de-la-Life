@@ -54,9 +54,18 @@ class Malla {
 		*/
 		std::string getNombre();
 
+		/*
+		 * Post: devuelve un puntero a la parcela en la posición indicada.
+		 */
+		Parcela* getParcela(int fila,int columna);
+
 		//Post: Devuelve la cantidad de celulas vivas que hay en el Malla
 		int getCantidadDeCelulasVivas();
 
+		/* Pre: 'fila' y 'columna' deben ser mayores a 0 y encontrarse dentro de la malla NO TIENE MUCHO SENTIDO ESTA PRE PORQUE EL USUARIO NO METE MANO ACA, LO HACE TODO EL PROGRAMA
+ 		 * Post: devuelve la cantidad de células vivas alrededor de la célula dentro de la parcela especificada.
+		 */
+		int contarCelulasVivasLindantes(int fila, int columna);
 
 };
 
