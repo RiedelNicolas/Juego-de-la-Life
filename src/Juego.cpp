@@ -15,7 +15,7 @@ void Juego::actualizarTablero(){
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
 	Malla* malla = miTablero->getMalla();
-
+//OLI HUGUI
 	while(malla){ //REVISAR CUANDO TABLERO.H ESTÉ TERMINADO
 
 		celulasVivasTurnoAnterior += malla->getCantidadDeCelulasVivas();
