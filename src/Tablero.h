@@ -38,6 +38,10 @@ class Tablero {
 	 */
 	void agregarMalla(Malla* nuevaMalla);
 
+	/*
+	 * Pre: Recibe un string que tiene que ser el nombre de una de las mallas
+	 * Post: Devuelve un puntero a la malla con el nombre "nombreMalla"
+	 */
 	Malla* buscarMalla(std::string nombreMalla);
 
 
@@ -60,11 +64,6 @@ class Tablero {
 //	Pre: Lista creada y no vacía
 //	Post: Devuelve la cantidad columnas que están en "posicion"
 	int getCantidadDeColumnas(unsigned posicion);
-
-//	Obtener nombre de la malla que está en "posicion"
-//	Pre: Lista creada y no vacía
-//	Post: Devuelve el nombre de la malla que está en "posicion"
-	int getNombre(unsigned posicion);
 
 //	Obtener tamaño de la lista
 //	Pre: Lista  creada

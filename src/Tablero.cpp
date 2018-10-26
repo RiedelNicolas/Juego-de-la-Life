@@ -99,18 +99,6 @@ int Tablero::getCantidadDeColumnas(unsigned posicion){
 	return mallaAux->getCantidadDeColumnas();
 }
 
-int Tablero::getNombre(unsigned posicion){
-
-	Malla* mallaAux = primerElemento;
-	unsigned i = 1;
-
-	while((i < posicion) && (mallaAux->getSiguienteMalla())){
-		mallaAux = mallaAux->getSiguienteMalla();
-		i++;
-	}
-	return mallaAux->getNombre();
-}
-
 unsigned Tablero::getTamanio(){
 
 	return tamanio;
