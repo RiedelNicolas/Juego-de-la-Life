@@ -70,14 +70,20 @@ void Archivo::levantarMalla(){
 
 void Archivo::levantarParcela(){
 	std::string nombreDeLaMalla;
-	file>>nombreDeLaMalla;
-	Malla* malla = tablero->buscarMalla(nombreDeLaMalla);
-	int x,y;
-	file>>x>>y;
-	Rgb color = levantarColor();
 	float natalidad,mortalidad;
-	file>>natalidad>>mortalidad;
-	/*aca necesito la parte donde se guardo las cosas en la parcela */
+	int x,y;
+
+	file >> nombreDeLaMalla;
+	file >> x >> y;
+	Rgb color = levantarColor();
+	file >> natalidad >> mortalidad;
+
+	Malla* malla = tablero->buscarMalla(nombreDeLaMalla);
+	//argelar getParcela
+	Parcela* parcela = malla->getParcela(y-1,x-1);
+	parcela->setRgb(color);
+	parcela->setNatalidad(natalidad);
+	parcela->setMortalidad(mortalidad);
 }
 
 Rgb Archivo::levantarColor(){

@@ -20,7 +20,7 @@ class Parcela {
 		 * Post: Crea una parcela lista para usarse
 		 * con indice de nacimiento "nacimiento" e indice de mortalidad "mortalidad"
 		 */
-		Parcela(float nacimiento, float mortalidad);
+		Parcela();
 
 		/*
 		 * Post: Devuelve el estado de la celula que contiene
@@ -49,5 +49,9 @@ class Parcela {
 		 *
 		 */
 		void setRgb(Rgb);
+
+		void setNatalidad(float);
+		void setMortalidad(float);
+
 };
 #endif /* PARCELA_H_ */

@@ -8,6 +8,7 @@
 #include "Tablero.h"
 #include "Rgb.hpp"
 #include "Celula.h"
+#include "Parcela.h"
 
 class Archivo{
 	private:

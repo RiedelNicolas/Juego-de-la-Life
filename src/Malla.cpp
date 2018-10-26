@@ -46,7 +46,7 @@ std::string Malla::getNombre(){
 }
 
 Parcela* Malla::getParcela(int fila,int columna){ //ESTO NO ESTA CHEQUEADO. WARNING!! EXPERIMENTAL.
-	return parcelas[fila][columna];
+	return &(parcelas[fila][columna]);
 }
 
 int Malla::getCantidadDeCelulasVivas(){

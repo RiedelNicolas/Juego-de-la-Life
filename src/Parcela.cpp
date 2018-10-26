@@ -1,9 +1,9 @@
 #include "Parcela.h"
-
-Parcela::Parcela(float nacimiento, float mortalidad){
-	vidaAlNacer = 100 * nacimiento;
-	vidaARestar = 100 * mortalidad;
-	color = {0};
+#define  NATALIDAD_POR_DEFAULT  1.0
+#define  MORTALIDAD_POR_DEFAULT 1.0
+Parcela::Parcela(){
+	vidaAlNacer = 100 * NATALIDAD_POR_DEFAULT;
+	vidaARestar = 100 * MORTALIDAD_POR_DEFAULT;
 	portal = NULL;
 }
 
@@ -33,7 +33,12 @@ void Parcela::reducirVidaDeCelula(){
 		celula.setVida(nuevaVida);
 	}
 }
-
+void Parcela::setMortalidad(float mortalidad){
+	vidaARestar= 100*mortalidad;
+}
+void Parcela::setNatalidad(float natalidad){
+	vidaAlNacer=100*natalidad;
+}
 Rgb Parcela::getRgb(){
 	return color;
 }
