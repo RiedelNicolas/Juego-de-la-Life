@@ -78,7 +78,6 @@ void Archivo::levantarParcela(){
 	float natalidad,mortalidad;
 	file>>natalidad>>mortalidad;
 	/*aca necesito la parte donde se guardo las cosas en la parcela */
-
 }
 
 Rgb Archivo::levantarColor(){
