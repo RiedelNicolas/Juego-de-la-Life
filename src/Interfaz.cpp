@@ -9,21 +9,15 @@ Interfaz::Interfaz(){
 int Interfaz::pedirFila(Malla* n){
 	int fila, filaMax;
 	filaMax = n->getCantidadDeFilas();
-	cout << "Ingrese el numero de Fila";
-	fila = recibirCoordenada();
-	return fila;
+	cout << "Ingrese el numero de Fila (1-" << filaMax << ")";
+	cin >> fila;
+	return fila-1;
 }
 
 int Interfaz::pedirColumna(Malla* n){
 	int columna, columnaMax;
 	columnaMax = n->getCantidadDeColumnas();
-	cout << "Ingrese el numero de Columna";
-	columna = recibirCoordenada();
-	return columna;
-}
-
-int Interfaz::recibirCoordenada(){
-	int coordenada;
-	cin >> coordenada;
-	return coordenada -1;
+	cout << "Ingrese el número de Columna (1-" << columnaMax << ")";
+	cin >> columna;
+	return columna-1;
 }
