@@ -37,14 +37,12 @@ class Nodo {
 		 * Post: Devuelve un puntero al siguiente Nodo, en caso
 		 * de que no exista un siguiente Nodo, ese puntero va a ser NULL
 		 */
-
 		Nodo* getSigNodo();
 
 		/*
 		 * Pre: Recibe un puntero a un Nodo
 		 * Post: Asigna ese puntero a Nodo como siguiente Nodo
 		 */
-
 		void setSigNodo(Nodo* sig);
 };
 
