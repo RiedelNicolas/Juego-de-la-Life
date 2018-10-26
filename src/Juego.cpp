@@ -1,18 +1,19 @@
 #include "Juego.h"
 using namespace std;
 
-Juego::Juego(){
+Juego::Juego(Tablero* tablero){
 	estadoDeJuego = 'C';
 	turno = 0;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
+	this->tablero = tablero;
 }
 
-void Juego::actualizarTablero(Tablero* tablero){
+void Juego::actualizarTablero(){
 	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
-	Malla* malla = tablero->getMalla();
+	Malla* malla = miTablero->getMalla();
 
 	while(malla){ //REVISAR CUANDO TABLERO.H ESTÉ TERMINADO
 
@@ -50,7 +51,7 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 void Juego::nuevoTurno(){
 	int cantidadDeTurnos;
 	cantidadDeTurnos = pedirCantidadDeTurnos();
-	while(!turnoValido(cantidadDeTurnos)){
+	while(!cantidadDeTurnoEsValida(cantidadDeTurnos)){
 		cout<< "CANTIDAD DE TURNOS NO VALIDA"<<endl;
 		cantidadDeTurnos = pedirCantidadDeTurnos();
 	}
@@ -66,6 +67,13 @@ void Juego::finalizarJuego(){
 	estadoDeJuego = 'T';
 }
 
+void Juego::inicializarJuego(){
+	//ALGO
+}
+
+char Juego::getEstado(){
+	return estadoDeJuego;
+}
 
 bool Juego::cantidadDeTurnoEsValida(int cantidadDeTurnos){
 	return cantidadDeTurnos > 0;
@@ -80,7 +88,7 @@ int Juego::pedirCantidadDeTurnos(){
 
 void Juego::ejecutarTurnos(int cantidadDeTurnos){
 	for(int i=0; i<cantidadDeTurnos; i++){
-		//EJECUTAR NUEVO TURNO
+		actualizarTablero();
 		turno ++;
 	}
 }
@@ -95,5 +103,3 @@ float Juego::calcularPromedio(int numero){
 	}
 	return promedio;
 }
-
-

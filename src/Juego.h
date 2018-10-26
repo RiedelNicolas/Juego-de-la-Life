@@ -9,10 +9,11 @@ class Juego{
 		unsigned turno;
 		int cantidadDeCelulasVivas;
 		int celulasVivasTurnoAnterior;
+		Tablero* tablero;
 
 	public:
 
-		Juego();
+		Juego(Tablero* tablero);
 
 		void nuevoTurno();
 		/*
@@ -23,6 +24,14 @@ class Juego{
 		 * Post: Cambia el estado del juego a Terminar
 		 */
 		void finalizarJuego();
+		/*
+		 * Post: Devuelve el estado del juego
+		 */
+		char getEstado();
+		/*
+		 *Post: Inicializa el juego
+		 */
+		void inicializarJuego();
 
 	private:
 		/* Pre: el tablero está creado.
@@ -31,7 +40,7 @@ class Juego{
 		 * 		 Una célula muerta con 3 células vecinas vivas, nace.
 		 * 		 Una célula viva con 2 o 3 células vecinas vivas, permanece en ese estado.
 		 */
-		void actualizarTablero(Tablero* tablero);
+		void actualizarTablero();
 
 		/* Pre: -
 		*  Post: Modifica el estado de todas las células de una malla teniendo en cuenta los índices
