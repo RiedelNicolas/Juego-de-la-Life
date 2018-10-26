@@ -15,20 +15,16 @@ class Interfaz{
 		Interfaz();
 
 		/*
-		 * Post: Devuelve la columna ingresada por el usario - 1
+		 * Post: Devuelve la columna ingresada por el usuario
 		 */
 		int pedirFila(Malla*);
 
 		/*
-		 * Post: Devuelve la columna ingresada por el usario - 1
+		 * Post: Devuelve la columna ingresada por el usuario
 		 */
 		int pedirColumna(Malla*);
 
-	private:
-		/*
-		 * Post: recibe una coordenada y devuelve dicha coordenada - 1
-		 */
-		int recibirCoordenada();
+		void imprimirResumen();
 };
 
 
