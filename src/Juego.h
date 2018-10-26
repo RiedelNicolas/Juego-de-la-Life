@@ -5,10 +5,26 @@
 
 class Juego{
 	private:
+		char estadoDeJuego; // C = continuar; R=reiniciar; T=terminar
+		unsigned turno;
 		int cantidadDeCelulasVivas;
 		int celulasVivasTurnoAnterior;
 
 	public:
+
+		Juego();
+
+		void nuevoTurno();
+		/*
+		 *Post: cambia el estado del juego a Reiniciar
+		 */
+		void reiniciarJuego();
+		/*
+		 * Post: Cambia el estado del juego a Terminar
+		 */
+		void finalizarJuego();
+
+	private:
 		/* Pre: el tablero está creado.
 		 * Post: Modifica el estado de todas las células del juego teniendo en cuenta los índices
 		 * 		 de natalidad y mortalidad de cada parcela, así como los siguientes preceptos:
@@ -17,7 +33,6 @@ class Juego{
 		 */
 		void actualizarTablero(Tablero* tablero);
 
-	private:
 		/* Pre: -
 		*  Post: Modifica el estado de todas las células de una malla teniendo en cuenta los índices
 		* 		 de natalidad y mortalidad de cada parcela, así como los siguientes preceptos:
@@ -25,6 +40,23 @@ class Juego{
 		* 		 Una célula viva con 2 o 3 células vecinas vivas, permanece en ese estado.
 		*/
 		void actualizarMalla(int filas, int columnas, Malla* malla);
+
+		/*
+		 * Post: Valida si la cantidad de turnos a ejecutarse es mayor a 0
+		 */
+		bool cantidadDeTurnoEsValida(int cantidadDeTurnos);
+		/*
+		 * Post: Pide una cantidad de turnos al usuario y la devuelve
+		 */
+		int pedirCantidadDeTurnos();
+		/*
+		 * Post: Se ejecutan "cantidadDeTurnos" turnos
+		 */
+		void ejecutarTurnos(int cantidadDeTurnos);
+		/*
+		 * Post: Devuelve el promedio de "numero" por la cantidad de turnos
+		 */
+		float calcularPromedio(int numero);
 };
 
 
