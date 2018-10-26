@@ -33,6 +33,8 @@ class Juego{
 		 */
 		void inicializarJuego();
 
+		void imprimirResumen();
+
 	private:
 		/* Pre: el tablero está creado.
 		 * Post: Modifica el estado de todas las células del juego teniendo en cuenta los índices
