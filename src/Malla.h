@@ -58,11 +58,6 @@ class Malla {
 		//Post: Devuelve la cantidad de celulas vivas que hay en el Malla
 		int getCantidadDeCelulasVivas();
 
-		//Post: Devuelve la cantidad de celulas que nacieron en el ultimo turno
-		int getCelulasNacidasEnUltimoTurno();
-
-		//Post: Devuelve la cantidad de celulas que murieron en el ultimo turno
-		int getCelulasMuertasEnUltimoTurno();
 
 };
 
