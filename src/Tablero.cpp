@@ -8,8 +8,14 @@ Tablero::Tablero(){
 
 Tablero::~Tablero(){
 
-	while(!this->tableroVacio()){
-		this->eliminarTablero(1);
+	Nodo* auxiliar = primerElemento;
+
+	if(primerElemento){
+		while(auxiliar){
+			primerElemento = primerElemento->getSigNodo();
+			delete auxiliar;
+			auxiliar = primerElemento;
+		}
 	}
 }
 
