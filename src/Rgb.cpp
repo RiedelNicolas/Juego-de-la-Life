@@ -12,7 +12,7 @@
  */
 void verificarRango(int color);
 
-Rgb::Rgb(int rojo =0 ,int verde = 0,int azul=0){
+Rgb::Rgb(int rojo = 0, int verde = 0, int azul = 0){
 	verificarRango(rojo);
 	verificarRango(verde);
 	verificarRango(azul);

@@ -8,6 +8,7 @@
 #ifndef RGB_HPP_
 #define RGB_HPP_
 
+#include <iostream>
 #define CANTIDAD_COLORES 3
 class Rgb{
 private:

@@ -3,6 +3,7 @@
 Celula::Celula(){
 	this->estaViva = false;
 	this->vida = 0.0;
+	this->color = NULL;
 }
 
 bool Celula::getEstado(){

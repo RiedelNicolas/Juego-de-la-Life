@@ -11,7 +11,7 @@ class Celula{
 
 		bool estaViva;
 		float vida;
-		Rgb color;
+		Rgb* color;
 
 	public:
 

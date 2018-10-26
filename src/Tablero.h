@@ -2,28 +2,44 @@
 #define TABLERO_H_
 
 #include "Malla.h"
+#include "Nodo.h"
 
 class Tablero {
 
 private:
-	Malla* primerElemento; // primer elemento de la lista
-	unsigned tamanio; // tamaño de la lista
+	Nodo* primerElemento; // Primer elemento de la lista
+	unsigned tamanio; // Tamaño de la lista
 
 public:
-//	Constructor
-//	Pre: -
-//	Post: Construye una lista vacía
+
+	/*
+	 * Constructor
+	 * Post: Crea una lista vacia con el primer elemento apuntando a NULL;
+	 */
 	Tablero();
 
-//	Destructor
-//	Pre: Lista creada
-//	Post: Libera todos los recursos de la lista
+	/*
+	 * Destructor
+	 * Pre: Lista creada
+	 * Post: Libera los recursos utilizados por al lista.
+	 */
 	~Tablero();
 
-//	Verifica si la lista esta vacía o no,responde la pregunta.
-//	Pre: Lista creada
-//	Post: Devuelve verdadero si la lista está vacía, y falso en caso contrario
+	/*
+	 * Pre: Recibe una malla
+	 * Post: Agrega la malla a la lista.
+	 */
+	void agregarMalla(Malla* nuevaMalla);
+
+	/*
+	 * Pre: Lista creada
+	 * Post: Devuelve un bool con la respuesta a la pregunta... El tablero esta vacio??
+	 */
 	bool tableroVacio();
+
+
+
+
 
 //	Agrega un elemento a la lista
 //	Pre: Lista creada

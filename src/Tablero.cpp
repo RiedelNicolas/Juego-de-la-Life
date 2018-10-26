@@ -2,8 +2,8 @@
 
 Tablero::Tablero(){
 
-	primerElemento = 0;
-	tamanio = 0;
+	this->primerElemento = NULL;
+	this->tamanio = 0;
 }
 
 Tablero::~Tablero(){
@@ -13,10 +13,23 @@ Tablero::~Tablero(){
 	}
 }
 
+void Tablero::agregarMalla(Malla* nuevaMalla){
+
+	Nodo* aux = new Nodo(nuevaMalla);
+	aux->setSigNodo(primerElemento);
+	this->primerElemento = aux;
+	this->tamanio++;
+}
+
 bool Tablero::tableroVacio(){
 
-	return (primerElemento == 0);
+	return (primerElemento == NULL);
 }
+
+
+
+
+
 
 void Tablero::insertar(int filas ,int columnas, std::string nombre){
 
