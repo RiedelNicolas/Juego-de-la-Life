@@ -104,3 +104,10 @@ float Juego::calcularPromedio(int numero){
 	}
 	return promedio;
 }
+
+void imprimirResumen(){
+	int celulasNacidas = cantidadDeCelulasVivas - celulasVivasTurnoAnterior;
+	cout << "Cantidad de celulas vivas:" << cantidadDeCelulasVivas << endl;
+	cout << "Cantidad de celulas nacidas en el último turno:" <<
+}
+
