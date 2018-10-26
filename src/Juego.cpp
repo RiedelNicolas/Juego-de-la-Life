@@ -1,7 +1,7 @@
 #include "Juego.h"
 
 void Juego::actualizarTablero(Tablero* tablero){
-	int filas, columnas, celulasVivasLindantes;
+	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
 	Malla* malla = tablero->getMalla();
@@ -20,7 +20,7 @@ void Juego::actualizarTablero(Tablero* tablero){
 }
 
 void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
-
+	int contarCelulasLindantes;
 	bool estaViva;
 
 	for(int i=0; i<filas; i++){
