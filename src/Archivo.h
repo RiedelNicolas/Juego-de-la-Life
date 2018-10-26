@@ -20,7 +20,7 @@ class Archivo{
 		/*pre: Recibe el path donde esta ubicado el archivo en forma de string.
 	 	 post : intenta abrir dicha ruta en modo de lectura, en caso que no pueda
 	       	   tira una excepcion.*/
-		Archivo(std::string ruta);
+		Archivo(std::string ruta,Tablero*);
 
 		/*post :devuelve la cantidad de tableros que se pudo levantar del archivo*/
 		unsigned getCantidadDeMallas();
@@ -38,7 +38,7 @@ class Archivo{
 		unsigned contarCantidadDeMallas();
 
 		void levantarTablero();
-		/*levanta una malla del archivo, que en el archivo se llaman "Tablero".*/
+		/*levanta una malla del archivo , que en el archivo se llaman "Tablero".*/
 		void levantarMalla();
 		void levantarPortal();
 		void levantarParcela();

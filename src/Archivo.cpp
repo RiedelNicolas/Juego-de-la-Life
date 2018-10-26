@@ -15,18 +15,14 @@ Tablero* Archivo::getTablero(){
 	return tablero;
 }
 
-Archivo::Archivo(std::string ruta){
+Archivo::Archivo(std::string ruta,Tablero* tablero){
 	file.open( ruta.c_str() );
 	if( !file.is_open() ){
 		throw std::string( "No se pudo abrir el archivo");
 	}
 	cantidadDeMallas = contarCantidadDeMallas();
-	if(cantidadDeMallas == 0){ /*el archivo estaba vacio*/
-		tablero=NULL;
-	}
-	else{
-		tablero=levantarTablero();
-	}
+	this->tablero = tablero;
+	levantarTablero();
 }
 
 
@@ -62,4 +58,18 @@ void Archivo::levantarTablero(){
 			levantarParcela();
 		}
 	}
+}
+
+void Archivo::levantarMalla(){
+	std::string nombre;//
+	int filas,columnas;
+	file>>nombre;
+	file>> columnas;
+	file>>filas;
+	tablero->insertar(filas,columnas,nombre);
+}
+
+void Archivo::levantarParcela(){
+	std::string nombreDelTablero;
+	file>>nombreDelTablero;
 }
