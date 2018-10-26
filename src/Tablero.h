@@ -6,11 +6,12 @@
 
 class Tablero {
 
-private:
-	Nodo* primerElemento; // Primer elemento de la lista
-	unsigned tamanio; // Tamaño de la lista
+	private:
 
-public:
+		Nodo* primerElemento; // Primer elemento de la lista
+		unsigned tamanio; // Tamaño de la lista
+
+	public:
 
 	/*
 	 * Constructor
