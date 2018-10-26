@@ -66,11 +66,6 @@ class Tablero {
 //	Post: Devuelve el nombre de la malla que está en "posicion"
 	int getNombre(unsigned posicion);
 
-//	Elimina los datos que están en "posicion"
-//	Pre: Lista creada y no vacía / 0 < posicion <= tamanio
-//	Post: Libera el nodo "Malla" que está en "posicion" (se toma 1 como el primero)
-	void eliminarTablero(unsigned posicion);
-
 //	Obtener tamaño de la lista
 //	Pre: Lista  creada
 //	Devuelve tamanio (cantidad de nodos de la lista)

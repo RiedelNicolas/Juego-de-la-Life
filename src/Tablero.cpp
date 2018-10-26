@@ -10,7 +10,7 @@ Tablero::~Tablero(){
 
 	Nodo* auxiliar = primerElemento;
 
-	if(primerElemento){
+	if(!this->tableroVacio()){
 		while(auxiliar){
 			primerElemento = primerElemento->getSigNodo();
 			delete auxiliar;
@@ -109,26 +109,6 @@ int Tablero::getNombre(unsigned posicion){
 		i++;
 	}
 	return mallaAux->getNombre();
-}
-
-void Tablero::eliminarTablero(unsigned posicion){
-
-	Malla* mallaAux = primerElemento;
-	if((posicion == 1) && (!primerElemento->getSiguienteMalla())){
-		primerElemento = mallaAux->getSiguienteMalla();
-	} else {
-		unsigned i = 1;
-		Malla* mallaAnterior;
-
-		while((i < posicion) && (mallaAux->getSiguienteMalla())){
-			mallaAnterior = mallaAux;
-			mallaAux = mallaAux->getSiguienteMalla();
-			i++;
-		}
-		mallaAnterior->setSiguienteMalla(mallaAux->getSiguienteMalla());
-	}
-	delete mallaAux;
-	tamanio--;
 }
 
 unsigned Tablero::getTamanio(){
