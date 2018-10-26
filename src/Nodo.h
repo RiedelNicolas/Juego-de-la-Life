@@ -2,7 +2,7 @@
 #define SRC_NODO_H_
 
 #include <iostream>
-#include <Malla.h>
+#include "Malla.h"
 
 class Nodo {
 
