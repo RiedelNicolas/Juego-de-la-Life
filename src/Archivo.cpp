@@ -61,15 +61,30 @@ void Archivo::levantarTablero(){
 }
 
 void Archivo::levantarMalla(){
-	std::string nombre;//
+	std::string nombre;
 	int filas,columnas;
-	file>>nombre;
-	file>> columnas;
-	file>>filas;
-	tablero->insertar(filas,columnas,nombre);
+	file>>nombre>>columnas>>filas;
+	Malla* malla = new Malla (filas,columnas,nombre) ;
+	tablero->agregarMalla(malla);
 }
 
 void Archivo::levantarParcela(){
-	std::string nombreDelTablero;
-	file>>nombreDelTablero;
+	std::string nombreDeLaMalla;
+	file>>nombreDeLaMalla;
+	Malla* malla = tablero->buscarMalla(nombreDeLaMalla);
+	int x,y;
+	file>>x>>y;
+	Rgb color = levantarColor();
+	float natalidad,mortalidad;
+	file>>natalidad>>mortalidad;
+	/*aca necesito la parte donde se guardo las cosas en la parcela */
+
+}
+
+Rgb Archivo::levantarColor(){
+	Rgb color;
+	int rojo,azul,verde;
+	file>>rojo>>verde>>azul;
+	color.setRojo(rojo); color.setVerde(verde); color.setAzul(azul);
+	return color;
 }

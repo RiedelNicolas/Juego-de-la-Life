@@ -42,6 +42,7 @@ class Archivo{
 		void levantarMalla();
 		void levantarPortal();
 		void levantarParcela();
+		Rgb  levantarColor();
 };
 
 
