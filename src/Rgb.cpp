@@ -6,52 +6,52 @@
 #define POS_AZUL 2
 #define MIN_RGB 0
 #define MAX_RGB 255
-
+#define COLOR_DEFECTO 255
 /*pre: recibe un int, correspondiente al valor de un color.
  * post:si el valor del color no se encuentra en el rango, tira una excepción . Siendo el rango (MIN_RGB, MAX_RGB)
  */
 void verificarRango(int color);
 
-Rgb::Rgb(int rojo = 0, int verde = 0, int azul = 0){
-	verificarRango(rojo);
-	verificarRango(verde);
-	verificarRango(azul);
-	this->colores[POS_ROJO] = rojo;
-	this->colores[POS_VERDE] =verde;
-	this->colores[POS_AZUL] =azul;
+Rgb::Rgb(int rojoIngresado = COLOR_DEFECTO, int verdeIngresado = COLOR_DEFECTO, int azulIngresado = COLOR_DEFECTO){
+	verificarRango(rojoIngresado);
+	verificarRango(verdeIngresado);
+	verificarRango(azulIngresado);
+	rojo=rojoIngresado;
+	azul=azulIngresado;
+	verde=verdeIngresado;
 }
 
 void Rgb:: setRojo(int colorIngresado){
 	verificarRango(colorIngresado);
-	colores[POS_ROJO]=colorIngresado;
+	rojo=colorIngresado;
 }
 
 void Rgb:: setVerde(int colorIngresado){
 	verificarRango(colorIngresado);
-	colores[POS_VERDE]=colorIngresado;
+	verde=colorIngresado;
 }
 
 void Rgb:: setAzul(int colorIngresado){
 	verificarRango(colorIngresado);
-	colores[POS_AZUL]=colorIngresado;
+	azul=colorIngresado;
 }
 
 int Rgb:: getRojo(){
-	return colores[POS_ROJO];
+	return rojo;
 }
 
 int Rgb:: getVerde(){
-	return colores[POS_VERDE];
+	return verde;
 }
 
 int Rgb:: getAzul(){
-	return colores[POS_AZUL];
+	return azul;
 }
 
 
 void verificarRango(int color){
 	if( !(color<=MAX_RGB && color>=MIN_RGB) ){
-		throw;
+		throw std::string("RGB fuera de rango");
 	}
 }
 

@@ -52,54 +52,7 @@ Malla* Tablero::buscarMalla(std::string nombreMalla){
 	return mallaADevolver;
 }
 
-
-
-
-
-
-
-
-void Tablero::insertar(int filas ,int columnas, std::string nombre){
-
-	Malla* malla = new Malla(filas, columnas, nombre);
-	Malla* mallaAux = primerElemento;
-
-	if(this -> tableroVacio()){
-		primerElemento = malla;
-	} else {
-		while(mallaAux->getSiguienteMalla()){
-			mallaAux = mallaAux->getSiguienteMalla();
-		}
-		mallaAux->setSiguienteMalla(malla);
-	}
-	tamanio++;
-}
-
-int Tablero::getCantidadDeFilas(unsigned posicion){
-
-	Malla* mallaAux = primerElemento;
-	unsigned i = 1;
-
-	while((i < posicion) && (mallaAux->getSiguienteMalla())){
-		mallaAux = mallaAux->getSiguienteMalla();
-		i++;
-	}
-	return mallaAux->getCantidadDeFilas();
-}
-
-int Tablero::getCantidadDeColumnas(unsigned posicion){
-
-	Malla* mallaAux = primerElemento;
-	unsigned i = 1;
-
-	while((i < posicion) && (mallaAux->getSiguienteMalla())){
-		mallaAux = mallaAux->getSiguienteMalla();
-		i++;
-	}
-	return mallaAux->getCantidadDeColumnas();
-}
-
-unsigned Tablero::getTamanio(){
+int Tablero::getTamanio(){
 
 	return tamanio;
 }

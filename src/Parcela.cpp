@@ -11,22 +11,23 @@ bool Parcela::getEstadoDeCelula(){
 	return celula.getEstado();
 }
 
-void Parcela::setCelulaNacida(){
+void Parcela::setEstadoDeCelula(bool estado){
+	if (estado){
 	celula.setEstado(true);
 	celula.setVida(vidaAlNacer);
+	}else {
+		celula.setEstado(false);
+		celula.setVida(0.0);
+	}
 }
 
-void Parcela::setCelulaMuerta(){
-	celula.setEstado(false);
-	celula.setVida(0.0);
-}
 
 void Parcela::reducirVidaDeCelula(){
 	float nuevaVida;
 
 	nuevaVida =  celula.getVida()- vidaARestar;
 	if (nuevaVida<=0.0){
-		setCelulaMuerta();
+		setEstadoDeCelula(false);
 	}
 	else{
 		celula.setVida(nuevaVida);
@@ -37,12 +38,7 @@ Rgb Parcela::getRgb(){
 	return color;
 }
 
-void Parcela::setRojo(int rojo){
-	color->setRojo(rojo);
+void Parcela::setRgb(Rgb color){
+	this->color=color;
 }
-void Parcela::setVerde(int verde){
-	color->setVerde(verde);
-}
-void Parcela::setAzul(int azul){
-	color->setAzul(azul);
-}
+

@@ -12,7 +12,9 @@
 #define CANTIDAD_COLORES 3
 class Rgb{
 private:
-	int colores[CANTIDAD_COLORES];
+	int rojo;
+	int verde;
+	int azul;
 public:
 	/*constructor,
 	 * pre : recibe los 3 enteros correspondiente a los valores del Rgb. Rango(0-255), inicializa en 0 si no se reciben parametros.
@@ -34,7 +36,6 @@ public:
 	int getAzul();
 
 };
-
 
 
 #endif /* RGB_HPP_ */
