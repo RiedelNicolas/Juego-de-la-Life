@@ -35,7 +35,7 @@ Parcela* Portal::getSalida(){
 	return salida;
 }
 
-void Portal::activarPortal(Parcela* llamadoDesde){
+void Portal::atravesarPortal(Parcela* llamadoDesde){
 	if(estado == 'A'){
 		if(llamadoDesde->getEstadoDeCelula()){
 			salida->setEstadoDeCelula(true);

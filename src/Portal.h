@@ -46,7 +46,7 @@ class Portal{
 		/*
 		 *
 		 */
-		void activarPortal(Parcela* llamadoDesde);
+		void atravesarPortal(Parcela* llamadoDesde);
 
 	private:
 		/*
