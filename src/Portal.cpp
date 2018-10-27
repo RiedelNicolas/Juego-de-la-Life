@@ -1,9 +1,21 @@
 #include "Portal.h"
 
-Portal::Portal(char tipoDePortal, Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
-	estado = tipoDePortal;
+Portal::Portal(){
+	estado = 'I';
+	entrada = NULL;
+	salida = NULL;
+}
+
+void Portal::setEstado(char nuevoEstado){
+	estado = nuevoEstado;
+}
+
+void Portal::setEntrada(Parcela* parcelaDeEntrada){
 	entrada = parcelaDeEntrada;
-	salida = parcelaDeSalida;
+}
+
+void Portal::setSalida(Parcela* parcelaDeSalida){
+	entrada = parcelaDeSalida;
 }
 
 char Portal::getTipo(){

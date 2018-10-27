@@ -13,10 +13,16 @@ class Portal{
 		Parcela* salida;
 
 	public:
-// P = pasivo; N = normal; A = Activo
+// P = pasivo; N = normal; A = Activo; I=Inactivo
 
 		//Post: Crea un portal de tipo "tipoDePortal" con entrada "parcelaDeEntrada" y salida "parcelaDeSalida"
-		Portal(char tipoDePortal, Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
+		Portal();
+
+		void setEstado(char nuevoEstado);
+
+		void setEntrada(Parcela* parcelaDeEntrada);
+
+		void setSalida(Parcela* parcelaDeSalida);
 
 		//Post: Devuelve el tipo de portal
 		char getTipo();
