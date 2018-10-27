@@ -53,6 +53,16 @@ class Portal{
 		 * Post: Devuelve si el estado ingresado es un estado valido o no
 		 */
 		bool estadoEsValido(char estado);
+
+		void atravesarPortalActivo();
+
+		void atravesarPortalNormal();
+
+		void hacerNacerCelula(Parcela* entrada, Parcela* salida);
+
+		void matarCelula(Parcela* entrada, Parcela* salida);
+
+
 };
 
 
