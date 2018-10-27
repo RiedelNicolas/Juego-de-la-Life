@@ -54,6 +54,3 @@ void verificarRango(int color){
 		throw std::string("RGB fuera de rango");
 	}
 }
-
-
-

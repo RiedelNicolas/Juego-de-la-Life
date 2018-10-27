@@ -2,7 +2,6 @@
 #define CELULA_H_
 
 #include <iostream>
-
 #include "Rgb.hpp"
 
 class Celula{

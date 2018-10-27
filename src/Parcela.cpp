@@ -21,7 +21,6 @@ void Parcela::setEstadoDeCelula(bool estado){
 	}
 }
 
-
 void Parcela::reducirVidaDeCelula(){
 	float nuevaVida;
 
@@ -33,12 +32,15 @@ void Parcela::reducirVidaDeCelula(){
 		celula.setVida(nuevaVida);
 	}
 }
+
 void Parcela::setMortalidad(float mortalidad){
 	vidaARestar= 100*mortalidad;
 }
+
 void Parcela::setNatalidad(float natalidad){
 	vidaAlNacer=100*natalidad;
 }
+
 Rgb Parcela::getRgb(){
 	return color;
 }
