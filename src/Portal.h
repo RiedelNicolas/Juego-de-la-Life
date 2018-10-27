@@ -44,7 +44,8 @@ class Portal{
 		*/
 		Parcela* getSalida();
 		/*
-		 *
+		 * Post:
+		 * WARNING HABRIA QUE VER LO DE QUE COPIE LOS COLORES DE LAS CELULAS CIRCUNDANTES
 		 */
 		void atravesarPortal(Parcela* llamadoDesde);
 
@@ -53,14 +54,19 @@ class Portal{
 		 * Post: Devuelve si el estado ingresado es un estado valido o no
 		 */
 		bool estadoEsValido(char estado);
-
-		void atravesarPortalActivo();
-
+		/*
+		 * Post: Si la celula de la parcela de entrada nacio, nacera una celula en la parcela salida del portal
+		 * Si la celula de la entrada murio, morira la celula de la salida del portal
+		 * Los cambios de la celula de la salida del portal no afectan a la celula de la
+		 * parcela de entrada
+		 */
 		void atravesarPortalNormal();
+		/*
+		 *
+		 */
+		void hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
 
-		void hacerNacerCelula(Parcela* entrada, Parcela* salida);
-
-		void matarCelula(Parcela* entrada, Parcela* salida);
+		void matarCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
 
 
 };

@@ -1,7 +1,12 @@
 #include "Portal.h"
 
+#define INACTIVO 'I'
+#define ACTIVO 'A'
+#define NORMAL 'N'
+#define PASIVO 'P'
+
 Portal::Portal(){
-	estado = 'I';
+	estado = INACTIVO;
 	entrada = NULL;
 	salida = NULL;
 }
@@ -36,7 +41,7 @@ Parcela* Portal::getSalida(){
 }
 
 void Portal::atravesarPortal(Parcela* llamadoDesde){
-	if(estado == 'A'){
+	if(estado == ACTIVO){
 		if(entrada == llamadoDesde){
 			atravesarPortalNormal();
 		}
@@ -45,10 +50,10 @@ void Portal::atravesarPortal(Parcela* llamadoDesde){
 			matarCelula(salida, entrada);
 		}
 	}
-	else if(estado == 'N' && entrada == llamadoDesde){
+	else if(estado == NORMAL && entrada == llamadoDesde){
 		atravesarPortalNormal();
 	}
-	else if(estado== 'P' && entrada == llamadoDesde){
+	else if(estado== PASIVO && entrada == llamadoDesde){
 		hacerNacerCelula(entrada, salida);
 	}
 }
@@ -71,10 +76,5 @@ void Portal::matarCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
 }
 
 bool Portal::estadoEsValido(char estado){
-	return estado == 'A' || estado == 'N' || estado == 'P' || estado == 'I';
+	return estado == ACTIVO || estado == NORMAL || estado == PASIVO || estado == INACTIVO;
 }
-
-
-
-
-
