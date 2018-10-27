@@ -7,18 +7,25 @@
 #define MIN_RGB 0
 #define MAX_RGB 255
 #define COLOR_DEFECTO 255
+
 /*pre: recibe un int, correspondiente al valor de un color.
  * post:si el valor del color no se encuentra en el rango, tira una excepción . Siendo el rango (MIN_RGB, MAX_RGB)
  */
 void verificarRango(int color);
 
-Rgb::Rgb(int rojoIngresado = COLOR_DEFECTO, int verdeIngresado = COLOR_DEFECTO, int azulIngresado = COLOR_DEFECTO){
+Rgb::Rgb(int rojoIngresado, int verdeIngresado, int azulIngresado){
 	verificarRango(rojoIngresado);
 	verificarRango(verdeIngresado);
 	verificarRango(azulIngresado);
 	rojo=rojoIngresado;
 	azul=azulIngresado;
 	verde=verdeIngresado;
+}
+
+Rgb::Rgb(){
+	rojo=COLOR_DEFECTO;
+	azul=COLOR_DEFECTO;
+	verde=COLOR_DEFECTO;
 }
 
 void Rgb:: setRojo(int colorIngresado){

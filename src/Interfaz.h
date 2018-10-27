@@ -9,13 +9,11 @@ class Interfaz{
 	private:
 
 	public:
-		/*
-		 * Post: Crea una interfaz con reinicio y fin en false
-		 */
+
 		Interfaz();
 
 		/*
-		 * Post: Devuelve la columna ingresada por el usuario
+		 * Post: Devuelve la fila ingresada por el usuario
 		 */
 		int pedirFila(Malla*);
 
