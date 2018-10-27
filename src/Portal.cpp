@@ -1,7 +1,12 @@
 #include "Portal.h"
 
+#define INACTIVO 'I'
+#define ACTIVO 'A'
+#define NORMAL 'N'
+#define PASIVO 'P'
+
 Portal::Portal(){
-	estado = 'I';
+	estado = INACTIVO;
 	entrada = NULL;
 	salida = NULL;
 }
@@ -36,29 +41,40 @@ Parcela* Portal::getSalida(){
 }
 
 void Portal::atravesarPortal(Parcela* llamadoDesde){
-	if(estado == 'A'){
-		if(llamadoDesde->getEstadoDeCelula()){
-			salida->setEstadoDeCelula(true);
+	if(estado == ACTIVO){
+		if(entrada == llamadoDesde){
+			atravesarPortalNormal();
 		}
 		else{
-			salida->setEstadoDeCelula(false);
+			hacerNacerCelula(salida, entrada);
+			matarCelula(salida, entrada);
 		}
 	}
-	else if(estado == 'N' && entrada == llamadoDesde){
-		if(llamadoDesde->getEstadoDeCelula()){
-			salida->setEstadoDeCelula(true);
-		}
-		else{
-			salida->setEstadoDeCelula(false);
-		}
+	else if(estado == NORMAL && entrada == llamadoDesde){
+		atravesarPortalNormal();
 	}
-	else if(estado=='P' && entrada == llamadoDesde){
-		if(llamadoDesde->getEstadoDeCelula()){
-			salida->setEstadoDeCelula(true);
-		}
+	else if(estado== PASIVO && entrada == llamadoDesde){
+		hacerNacerCelula(entrada, salida);
+	}
+}
+
+void Portal::atravesarPortalNormal(){
+	hacerNacerCelula(entrada, salida);
+	matarCelula(entrada, salida);
+}
+
+void Portal::hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
+	if(parcelaDeEntrada->getEstadoDeCelula()){
+		parcelaDeSalida->setEstadoDeCelula(true);
+	}
+}
+
+void Portal::matarCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
+	if(!parcelaDeEntrada->getEstadoDeCelula()){
+		parcelaDeSalida->setEstadoDeCelula(false);
 	}
 }
 
 bool Portal::estadoEsValido(char estado){
-	return estado == 'A' || estado == 'N' || estado == 'P' || estado == 'I';
+	return estado == ACTIVO || estado == NORMAL || estado == PASIVO || estado == INACTIVO;
 }

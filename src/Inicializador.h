@@ -45,7 +45,6 @@ class Archivo{
 		void levantarParcela();
 		Rgb  levantarColor();
 
-
 };
 
 #endif /* ARCHIVO_H_ */
