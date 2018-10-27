@@ -3,13 +3,15 @@
 #include "Tablero.h"
 #include "Malla.h"
 
-#define REINICIAR 'C'
+#define REINICIAR 'R'
 #define TERMINAR 'T'
+#define CONTINUAR 'C'
 
 class Juego{
 	private:
-		char estadoDeJuego; // C = continuar; R=reiniciar; T=terminar
+		char estadoDeJuego; // 'C': continuar; 'R': reiniciar; 'T': terminar
 		unsigned turno;
+		int cantidadDeCelulasMuertas;
 		int cantidadDeCelulasVivas;
 		int totalCelulasMuertas;
 		int totalCelulasNacidas;
@@ -21,26 +23,34 @@ class Juego{
 		Juego(Tablero* tablero);
 
 		void nuevoTurno();
+
 		/*
 		 *Post: cambia el estado del juego a Reiniciar
 		 */
 		void reiniciarJuego();
+
 		/*
 		 * Post: Cambia el estado del juego a Terminar
 		 */
 		void finalizarJuego();
+
 		/*
 		 * Post: Devuelve el estado del juego
 		 */
 		char getEstado();
+
 		/*
 		 *Post: Inicializa el juego
 		 */
 		void inicializarJuego();
 
+		/*
+		 * Post: imprime el resumen de juego con cada ejecucion de turno
+		 */
 		void imprimirResumen();
 
 	private:
+
 		/* Pre: el tablero está creado.
 		 * Post: Modifica el estado de todas las células del juego teniendo en cuenta los índices
 		 * 		 de natalidad y mortalidad de cada parcela, así como los siguientes preceptos:
@@ -61,22 +71,31 @@ class Juego{
 		 * Post: Valida si la cantidad de turnos a ejecutarse es mayor a 0
 		 */
 		bool cantidadDeTurnoEsValida(int cantidadDeTurnos);
+
 		/*
 		 * Post: Pide una cantidad de turnos al usuario y la devuelve
 		 */
 		int pedirCantidadDeTurnos();
+
 		/*
 		 * Post: Se ejecutan "cantidadDeTurnos" turnos
 		 */
 		void ejecutarTurnos(int cantidadDeTurnos);
+
 		/*
 		 * Post: Devuelve el promedio de "numero" por la cantidad de turnos
 		 */
 		float calcularPromedio(int numero);
+
 		/*
 		 * Post: Devuelve un bool con la respuesta a la pregunta "¿El tablero está congelado?"
 		 */
 		bool tableroCongelado(int celulasNacidas, int celulasMuertas);
+
+		/*
+		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
+		 */
+		void validarCelulasNegativas(int cantidadDeCelulas);
 };
 
 

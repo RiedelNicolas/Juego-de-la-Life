@@ -57,5 +57,9 @@ class Parcela {
 		 * Post: modifica el indice de mortalidad de la parcela por "nuevaMortalidad"
 		 */
 		void setMortalidad(float nuevaMortalidad);
+
+		Portal* getPortal(){
+			return &portal;
+		}
 };
 #endif /* PARCELA_H_ */
