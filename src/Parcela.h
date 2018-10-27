@@ -13,7 +13,7 @@ class Parcela {
 		float vidaARestar;
 		Celula celula;
 		Rgb color;
-		Portal* portal;
+		Portal portal;
 
 	public:
 		/*
@@ -49,9 +49,13 @@ class Parcela {
 		 *
 		 */
 		void setRgb(Rgb);
-
-		void setNatalidad(float);
-		void setMortalidad(float);
-
+		/*
+		 * Post: modifica el indice de natalidad de la parcela por "nuavaNatalidad"
+		 */
+		void setNatalidad(float nuevaNatalidad);
+		/*
+		 * Post: modifica el indice de mortalidad de la parcela por "nuevaMortalidad"
+		 */
+		void setMortalidad(float nuevaMortalidad);
 };
 #endif /* PARCELA_H_ */

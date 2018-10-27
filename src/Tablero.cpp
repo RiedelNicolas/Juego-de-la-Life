@@ -57,6 +57,34 @@ int Tablero::getTamanio(){
 	return tamanio;
 }
 
+void Tablero::iniciarCursor(){
+	cursor=NULL;
+}
+
+bool Tablero::avanzarCursor(){
+
+	if(cursor == NULL){
+		cursor = primerElemento;
+	}
+
+	else{
+		cursor = cursor->getSigNodo();
+	}
+
+	return (cursor != NULL);
+}
+
+Malla* Tablero::obtenerCursor(){
+
+	Malla* malla;
+
+	if(cursor!=NULL){
+		malla = cursor->getMalla();
+	}
+
+	return malla;
+}
+
 
 
 
