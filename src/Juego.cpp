@@ -163,6 +163,7 @@ void Juego::imprimirMalla(Malla* malla){
 
 	for(i = 0; i < ANCHO_CELULA*malla->getCantidadDeColumnas(); i++){
 		for(j = 0; j < ALTO_CELULA*malla->getCantidadDeFilas(); j++){
+			//El color de fondo del tablero es por defecto blanco
 			Imagen(i, j) -> Red = 255;
 			Imagen(i, j) -> Green = 255;
 			Imagen(i, j) -> Blue = 255;
