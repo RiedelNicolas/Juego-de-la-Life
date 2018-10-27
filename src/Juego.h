@@ -3,11 +3,16 @@
 #include "Tablero.h"
 #include "Malla.h"
 
+#define REINICIAR 'C'
+#define TERMINAR 'T'
+
 class Juego{
 	private:
 		char estadoDeJuego; // C = continuar; R=reiniciar; T=terminar
 		unsigned turno;
 		int cantidadDeCelulasVivas;
+		int totalCelulasMuertas;
+		int totalCelulasNacidas;
 		int celulasVivasTurnoAnterior;
 		Tablero* tablero;
 
@@ -68,6 +73,10 @@ class Juego{
 		 * Post: Devuelve el promedio de "numero" por la cantidad de turnos
 		 */
 		float calcularPromedio(int numero);
+		/*
+		 * Post: Devuelve un bool con la respuesta a la pregunta "¿El tablero está congelado?"
+		 */
+		bool tableroCongelado(int celulasNacidas, int celulasMuertas);
 };
 
 
