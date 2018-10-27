@@ -14,7 +14,7 @@ void Juego::actualizarTablero(){
 	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
-	Malla* malla = miTablero->getMalla();
+	Malla* malla = tablero//TERMINAR;
 //OLI HUGUI
 	while(malla){ //REVISAR CUANDO TABLERO.H ESTÉ TERMINADO
 

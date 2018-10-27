@@ -12,6 +12,8 @@ class Tablero {
 
 		unsigned tamanio; // Tamaño de la lista
 
+		Nodo* cursor;
+
 	public:
 
 	/*
@@ -51,6 +53,31 @@ class Tablero {
 	 */
 
 	int getTamanio();
+
+	/*
+	 * Pre: deja el cursor del Tablero preparado para hacer un nuevo
+     *      recorrido sobre sus elementos.
+	 */
+	void iniciarCursor();
+
+	/*
+     * Pre : se ha iniciado un recorrido (invocando el método
+     *       iniciarCursor()) y desde entonces no se han agregado o
+     *       removido elementos del Tablero.
+     * Post: mueve el cursor y lo posiciona en el siguiente elemento
+     *       del recorrido.
+     *       Devuelve true si el cursor quedó posicionado sobre un elemento.
+     *       False en caso contrario.
+     */
+	bool avanzarCursor();
+
+	/*
+     * Pre : el cursor está posicionado sobre un elemento del Tablero,
+     *       (fue invocado el método avanzarCursor() y devolvió true)
+     * Post: devuelve el elemento en la posición del cursor.
+     *
+     */
+	Malla* obtenerCursor();
 };
 
 #endif /* TABLERO_H_ */

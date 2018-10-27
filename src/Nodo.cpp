@@ -9,7 +9,7 @@ Nodo::~Nodo(){
 }
 
 Malla* Nodo::getMalla(){
-	return this->malla;
+	return malla;
 }
 
 Nodo* Nodo::getSigNodo(){

@@ -10,7 +10,7 @@ class Nodo {
 
 		Malla* malla;
 
-		Nodo *sig;
+		Nodo* sig;
 
 	public:
 
