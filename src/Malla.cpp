@@ -53,19 +53,38 @@ int Malla::getCantidadDeCelulasVivas(){
 
 	celulasVivas = 0;
 	Parcela parcela;
-	Celula celula;
+	bool celulaViva;
 
 	for(int i=0; i<alto; i++){
 		for(int j=0; j<ancho; j++){
 
 			parcela = parcelas[i][j];
-			celula = parcela.getCelula();
+			celulaViva = parcela.getEstadoDeCelula();
 
-			if(celula.getEstado()){
+			if(celulaViva){
 				celulasVivas++;
 			}
 		}
 	}
 	return celulasVivas;
+}
+
+int Malla::contarCelulasVivasLindantes(int fila, int columna){
+	int contadorCelulasVivas = 0;
+
+	for(int i=-1; i<2; i++){
+			for(int j=-1; j<2; j++){
+				if((fila+i >= 0) && (fila+i < alto) && (columna+j >= 0) && (columna+j < ancho)){
+					if(parcelas[fila+i][columna+j].getEstadoDeCelula()){
+								contadorCelulasVivas++;
+					}
+				}
+			}
+		}
+
+		if(parcelas[fila][columna].getEstadoDeCelula()){
+			contadorCelulasVivas--;
+		}
+	return contadorCelulasVivas;
 }
 
