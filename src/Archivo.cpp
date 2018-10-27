@@ -1,7 +1,6 @@
 #include "Archivo.h"
 #include <iostream>
 
-
 #define MALLA "Tablero"
 #define PORTAL "Portal"
 #define PARCELA "Parcela"
@@ -86,6 +85,18 @@ void Archivo::levantarParcela(){
 	parcela->setMortalidad(mortalidad);
 }
 
+void Archivo ::levantarPortal(){
+	std::string nombreDeLaMallaOrigen, nombreDeLaMallaDestino;
+	int xOrigen,yOrigen,xDestino,yDestino;
+	char tipoDePortal;
+	file>>nombreDeLaMallaOrigen;
+	file>>xOrigen,yOrigen;
+	file>>tipoDePortal;
+	file>>nombreDeLaMallaDestino;
+	file>>xDestino,yDestino;
+	//cargar portal.
+	}
+
 Rgb Archivo::levantarColor(){
 	Rgb color;
 	int rojo,azul,verde;
@@ -93,3 +104,4 @@ Rgb Archivo::levantarColor(){
 	color.setRojo(rojo); color.setVerde(verde); color.setAzul(azul);
 	return color;
 }
+
