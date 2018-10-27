@@ -174,7 +174,7 @@ void Juego::imprimirMalla(Malla* malla){
 	for(i = 0; i < malla->getCantidadDeFilas(); i++){
 		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
 
-			if(malla->getParcela(i, j)->getCelula()->estaViva){
+			if(malla->getParcela(i, j)->getCelula()->getEstado()){
 
 				for(x = 1; x <= ANCHO_CELULA; x++){
 					for(y = 1; y <= ALTO_CELULA; y++){
