@@ -1,8 +1,8 @@
 #include "Celula.h"
 
 Celula::Celula(){
-	estaViva=false;
-	vida=0.0;
+	this->estaViva=false;
+	this->vida=0.0;
 }
 
 bool Celula::getEstado(){

@@ -6,6 +6,7 @@
 #include "Portal.h"
 #include "Rgb.hpp"
 
+class Portal;
 class Parcela {
 
 	private:
@@ -13,7 +14,7 @@ class Parcela {
 		float vidaARestar;
 		Celula celula;
 		Rgb color;
-		Portal portal;
+		Portal* portal;
 
 	public:
 		/*
@@ -59,7 +60,7 @@ class Parcela {
 		void setMortalidad(float nuevaMortalidad);
 
 		Portal* getPortal(){
-			return &portal;
+			return portal;
 		}
 
 		Celula* getCelula();

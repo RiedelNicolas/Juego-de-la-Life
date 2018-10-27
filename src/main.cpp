@@ -6,9 +6,10 @@ using namespace std;
 
 int main(){
 
-	Tablero tablero();
-	Inicializador leeArchivo("prueba.txt", &tablero);
-
+	Tablero tablero;
+	string texto = "/home/gonzams/git/Juego-de-la-Life/src/prueba.txt";
+	Inicializador leeArchivo( "/home/gonzams/git/Juego-de-la-Life/src/prueba.txt", &tablero);
+	cout << "No pasó nada raro." << endl;
 	return 0;
 }
 

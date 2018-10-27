@@ -15,7 +15,7 @@ class Inicializador{
 	private:
 		std::ifstream file;
 		std::string ruta;
-		unsigned cantidadDeMallas;
+		//unsigned cantidadDeMallas;
 		Tablero* tablero;
 	public:
 		/*pre: Recibe el path donde esta ubicado el Inicializador en forma de string.

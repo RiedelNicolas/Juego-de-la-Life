@@ -7,9 +7,9 @@
 #define PARCELA "Parcela"
 
 
-unsigned Inicializador::getCantidadDeMallas(){
+/*unsigned Inicializador::getCantidadDeMallas(){
 	return cantidadDeMallas;
-}
+}*/
 
 Tablero* Inicializador::getTablero(){
 	return tablero;
@@ -20,7 +20,7 @@ Inicializador::Inicializador(std::string ruta,Tablero* tablero){
 	if( !file.is_open() ){
 		throw std::string( "No se pudo abrir el Inicializador");
 	}
-	cantidadDeMallas = contarCantidadDeMallas();
+	//cantidadDeMallas = contarCantidadDeMallas();
 	this->tablero = tablero;
 	levantarTablero();
 }
@@ -47,6 +47,7 @@ void Inicializador::levantarTablero(){
 	std::string palabraAuxiliar;
 	while( !file.eof() ){
 		file>>palabraAuxiliar;
+		std::cout << palabraAuxiliar;
 		if( !palabraAuxiliar.compare(MALLA) ){
 			levantarMalla();
 		}

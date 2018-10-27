@@ -7,11 +7,12 @@
 class Celula{
 
 	private:
-		bool estaViva;
 		float vida;
 		Rgb color;
 
 	public:
+		//ver porque
+		bool estaViva;
 		/*
 		 * Post: Se crea una celula "muerta" y con 0.0 de vida.
 		 */

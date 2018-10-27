@@ -124,7 +124,7 @@ bool Juego::tableroCongelado(int celulasNacidas, int celulasMuertas){
 	return((celulasNacidas == 0) && (celulasMuertas == 0));
 }
 
-void validarCelulasNegativas(int cantidadDeCelulas){
+void Juego::validarCelulasNegativas(int cantidadDeCelulas){
 
 	if(cantidadDeCelulas < 0){
 			cantidadDeCelulas = 0;
@@ -157,7 +157,7 @@ void Juego::imprimirMalla(Malla* malla){
 
 	int i, j, x, y;
 	BMP Imagen;
-	std::string nombreMalla = malla->getNombre(); + ".bmp";
+	std::string nombreMalla = malla->getNombre() + ".bmp";
 
 	Imagen.SetSize(ANCHO_CELULA*malla->getCantidadDeColumnas(), ALTO_CELULA*malla->getCantidadDeFilas());
 
