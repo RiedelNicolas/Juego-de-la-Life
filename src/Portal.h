@@ -65,7 +65,9 @@ class Portal{
 		 *
 		 */
 		void hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
-
+		/*
+		 *
+		 */
 		void matarCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
 
 
