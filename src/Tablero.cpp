@@ -4,6 +4,7 @@ Tablero::Tablero(){
 
 	this->primerElemento = NULL;
 	this->tamanio = 0;
+	this->cursor = 0;
 }
 
 Tablero::~Tablero(){
