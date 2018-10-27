@@ -7,7 +7,12 @@ Portal::Portal(){
 }
 
 void Portal::setEstado(char nuevoEstado){
-	estado = nuevoEstado;
+	if(estadoValido(nuevoEstado)){
+		estado = nuevoEstado;
+	}
+	else{
+		throw std::string("Estado No Valido");
+	}
 }
 
 void Portal::setEntrada(Parcela* parcelaDeEntrada){
@@ -52,4 +57,8 @@ void Portal::activarPortal(Parcela* llamadoDesde){
 			salida->setEstadoDeCelula(true);
 		}
 	}
+}
+
+bool Portal::estadoValido(char estado){
+	return estado == 'A' || estado == 'N' || estado == 'P' || estado == 'I';
 }

@@ -13,7 +13,7 @@ class Parcela {
 		float vidaARestar;
 		Celula celula;
 		Rgb color;
-		Portal* portal;
+		Portal portal;
 
 	public:
 		/*

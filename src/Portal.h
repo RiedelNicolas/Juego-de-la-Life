@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "Parcela.h"
+#include <string>
 class Parcela;
 
 class Portal{
@@ -34,6 +35,9 @@ class Portal{
 		Parcela* getSalida();
 
 		void activarPortal(Parcela* llamadoDesde);
+
+	private:
+		bool estadoValido(char estado);
 
 };
 
