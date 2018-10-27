@@ -37,28 +37,44 @@ Parcela* Portal::getSalida(){
 
 void Portal::atravesarPortal(Parcela* llamadoDesde){
 	if(estado == 'A'){
-		if(llamadoDesde->getEstadoDeCelula()){
-			salida->setEstadoDeCelula(true);
+		if(entrada == llamadoDesde){
+			atravesarPortalNormal();
 		}
 		else{
-			salida->setEstadoDeCelula(false);
+			hacerNacerCelula(salida, entrada);
+			matarCelula(salida, entrada);
 		}
 	}
 	else if(estado == 'N' && entrada == llamadoDesde){
-		if(llamadoDesde->getEstadoDeCelula()){
-			salida->setEstadoDeCelula(true);
-		}
-		else{
-			salida->setEstadoDeCelula(false);
-		}
+		atravesarPortalNormal();
 	}
-	else if(estado=='P' && entrada == llamadoDesde){
-		if(llamadoDesde->getEstadoDeCelula()){
-			salida->setEstadoDeCelula(true);
-		}
+	else if(estado== 'P' && entrada == llamadoDesde){
+		hacerNacerCelula(entrada, salida);
+	}
+}
+
+void Portal::atravesarPortalNormal(){
+	hacerNacerCelula(entrada, salida);
+	matarCelula(entrada, salida);
+}
+
+void Portal::hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
+	if(parcelaDeEntrada->getEstadoDeCelula()){
+		parcelaDeSalida->setEstadoDeCelula(true);
+	}
+}
+
+void Portal::matarCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
+	if(!parcelaDeEntrada->getEstadoDeCelula()){
+		parcelaDeSalida->setEstadoDeCelula(false);
 	}
 }
 
 bool Portal::estadoEsValido(char estado){
 	return estado == 'A' || estado == 'N' || estado == 'P' || estado == 'I';
 }
+
+
+
+
+

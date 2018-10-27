@@ -3,9 +3,10 @@ using namespace std;
 
 Juego::Juego(Tablero* tablero){
 
-	estadoDeJuego = 'C';
+	estadoDeJuego = CONTINUAR;
 	turno = 0;
 	celulasVivasTurnoAnterior = 0;
+	cantidadDeCelulasMuertas= 0;
 	cantidadDeCelulasVivas = 0;
 	totalCelulasMuertas = 0;
 	totalCelulasNacidas = 0;
@@ -18,9 +19,14 @@ void Juego::actualizarTablero(){
 	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
-	Malla* malla = tablero//TERMINAR;
-//OLI HUGUI
-	while(malla){ //REVISAR CUANDO TABLERO.H ESTÉ TERMINADO
+	cantidadDeCelulasMuertas = 0;
+	Malla* malla;
+
+	tablero->iniciarCursor();
+
+	while(tablero->avanzarCursor()){
+
+		malla = tablero->obtenerCursor();
 
 		celulasVivasTurnoAnterior += malla->getCantidadDeCelulasVivas();
 		filas = malla->getCantidadDeFilas();
@@ -45,9 +51,12 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 
 			if(estaViva && (celulasVivasLindantes<2 || celulasVivasLindantes>3)){
 				malla->getParcela(i, j)->reducirVidaDeCelula();
+				if(!malla->getParcela(i, j)->getEstadoDeCelula()){
+					cantidadDeCelulasMuertas++;
+				}
 			}
 			else if(!estaViva && celulasVivasLindantes==3){
-				malla->getParcela(i, j)->setCelulaNacida();
+				malla->getParcela(i, j)->setEstadoDeCelula(false);
 			}
 		}
 	}
@@ -115,33 +124,31 @@ bool Juego::tableroCongelado(int celulasNacidas, int celulasMuertas){
 	return((celulasNacidas == 0) && (celulasMuertas == 0));
 }
 
-void validarCelulas(int celulas){
+void validarCelulasNegativas(int cantidadDeCelulas){
 
-	if(celulas < 0){
-			celulas = 0;
+	if(cantidadDeCelulas < 0){
+			cantidadDeCelulas = 0;
 		}
 }
 
 void Juego :: imprimirResumen(){
 
 	int celulasNacidas = (cantidadDeCelulasVivas - celulasVivasTurnoAnterior);
-	int celulasMuertas = (celulasVivasTurnoAnterior - cantidadDeCelulasVivas);
 
 	cout << "Cantidad de celulas vivas: " << cantidadDeCelulasVivas << endl;
 
-	validarCelulas(celulasNacidas);
+	validarCelulasNegativas(celulasNacidas);
 	cout << "Cantidad de celulas nacidas en el último turno: " << celulasNacidas << endl;
 
-	validarCelulas(celulasNacidas);
-	cout << "Cantidad de celulas que murieron en el último turno: " << celulasMuertas << endl;
+	cout << "Cantidad de celulas que murieron en el último turno: " << cantidadDeCelulasMuertas << endl;
 
 	totalCelulasNacidas += celulasNacidas;
 	cout << "Promedio de nacimientos a lo largo del juego: " << calcularPromedio(totalCelulasNacidas) << endl;
 
-	totalCelulasMuertas += celulasMuertas;
+	totalCelulasMuertas += cantidadDeCelulasMuertas;
 	cout << "Promedio de muertes a lo largo del juego: " << calcularPromedio(totalCelulasMuertas) << endl;
 
-	if(tableroCongelado(celulasNacidas, celulasMuertas)){
+	if(tableroCongelado(celulasNacidas, cantidadDeCelulasMuertas)){
 		cout << "Juego congelado, no sufrió modificaciones en dos turnos consecutivos";
 	}
 }
