@@ -61,5 +61,7 @@ class Parcela {
 		Portal* getPortal(){
 			return &portal;
 		}
+
+		Celula* getCelula();
 };
 #endif /* PARCELA_H_ */

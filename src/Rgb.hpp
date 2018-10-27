@@ -10,7 +10,7 @@
 
 //redefinir operador
 #include <iostream>
-#define CANTIDAD_COLORES 3
+
 class Rgb{
 private:
 	int rojo;

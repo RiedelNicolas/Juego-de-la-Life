@@ -48,3 +48,11 @@ Rgb Parcela::getRgb(){
 void Parcela::setRgb(Rgb color){
 	this->color=color;
 }
+
+//Esto no estoy seguro si funca, sino hay que hacer un metodo que ande que
+// devuelva un puntero a la celula o algo para poder modificar la celula.
+Celula* Parcela::getCelula(){
+	return (&celula);
+}
+
+

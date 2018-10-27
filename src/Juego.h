@@ -2,10 +2,13 @@
 #define JUEGO_H_
 #include "Tablero.h"
 #include "Malla.h"
+#include "EasyBMP.h"
 
 #define REINICIAR 'R'
 #define TERMINAR 'T'
 #define CONTINUAR 'C'
+#define ANCHO_CELULA 10
+#define ALTO_CELULA 10
 
 class Juego{
 	private:
@@ -48,6 +51,12 @@ class Juego{
 		 * Post: imprime el resumen de juego con cada ejecucion de turno
 		 */
 		void imprimirResumen();
+
+		/*
+		 * Pre: Recibe un puntero a malla inicializado
+		 * Post: Imprime la malla en una imagen con el formato nombreMalla.bmp
+		 */
+		void imprimirMalla(Malla* malla);
 
 	private:
 
