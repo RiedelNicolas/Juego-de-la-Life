@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "Parcela.h"
+#include <string>
 class Parcela;
 
 class Portal{
@@ -13,10 +14,16 @@ class Portal{
 		Parcela* salida;
 
 	public:
-// P = pasivo; N = normal; A = Activo
+// P = pasivo; N = normal; A = Activo; I=Inactivo
 
 		//Post: Crea un portal de tipo "tipoDePortal" con entrada "parcelaDeEntrada" y salida "parcelaDeSalida"
-		Portal(char tipoDePortal, Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
+		Portal();
+
+		void setEstado(char nuevoEstado);
+
+		void setEntrada(Parcela* parcelaDeEntrada);
+
+		void setSalida(Parcela* parcelaDeSalida);
 
 		//Post: Devuelve el tipo de portal
 		char getTipo();
@@ -26,6 +33,11 @@ class Portal{
 
 		//Post: Devuelve un puntero a la parcela de salida del portal
 		Parcela* getSalida();
+
+		void activarPortal(Parcela* llamadoDesde);
+
+	private:
+		bool estadoValido(char estado);
 
 };
 

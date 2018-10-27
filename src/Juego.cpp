@@ -2,15 +2,19 @@
 using namespace std;
 
 Juego::Juego(Tablero* tablero){
+
 	estadoDeJuego = 'C';
 	turno = 0;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
+	totalCelulasMuertas = 0;
+	totalCelulasNacidas = 0;
 	this->tablero = tablero;
 }
 
 
 void Juego::actualizarTablero(){
+
 	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
@@ -30,6 +34,7 @@ void Juego::actualizarTablero(){
 }
 
 void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
+
 	int celulasVivasLindantes;
 	bool estaViva;
 
@@ -48,8 +53,8 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 	}
 }
 
-
 void Juego::nuevoTurno(){
+
 	int cantidadDeTurnos;
 	cantidadDeTurnos = pedirCantidadDeTurnos();
 	while(!cantidadDeTurnoEsValida(cantidadDeTurnos)){
@@ -60,12 +65,14 @@ void Juego::nuevoTurno(){
 }
 
 void Juego::reiniciarJuego(){
-	estadoDeJuego = 'R';
+
+	estadoDeJuego = REINICIAR;
 	turno = 0;
 }
 
 void Juego::finalizarJuego(){
-	estadoDeJuego = 'T';
+
+	estadoDeJuego = TERMINAR;
 }
 
 void Juego::inicializarJuego(){
@@ -73,14 +80,17 @@ void Juego::inicializarJuego(){
 }
 
 char Juego::getEstado(){
+
 	return estadoDeJuego;
 }
 
 bool Juego::cantidadDeTurnoEsValida(int cantidadDeTurnos){
+
 	return cantidadDeTurnos > 0;
 }
 
 int Juego::pedirCantidadDeTurnos(){
+
 	int turno;
 	cout <<"Ingrese la cantidad de turnos a ejecutar:";
 	cin >> turno;
@@ -88,6 +98,7 @@ int Juego::pedirCantidadDeTurnos(){
 }
 
 void Juego::ejecutarTurnos(int cantidadDeTurnos){
+
 	for(int i=0; i<cantidadDeTurnos; i++){
 		actualizarTablero();
 		turno ++;
@@ -95,19 +106,43 @@ void Juego::ejecutarTurnos(int cantidadDeTurnos){
 }
 
 float Juego::calcularPromedio(int numero){
-	float promedio;
-	if(turno ==0){
-		promedio = 0;
-	}
-	else{
-		promedio = float(numero)/float(turno);
-	}
-	return promedio;
+
+	return (float(numero)/float(turno));
 }
 
-void imprimirResumen(){
-	int celulasNacidas = cantidadDeCelulasVivas - celulasVivasTurnoAnterior;
-	cout << "Cantidad de celulas vivas:" << cantidadDeCelulasVivas << endl;
-	cout << "Cantidad de celulas nacidas en el último turno:" <<
+bool Juego::tableroCongelado(int celulasNacidas, int celulasMuertas){
+
+	return((celulasNacidas == 0) && (celulasMuertas == 0));
+}
+
+void validarCelulas(int celulas){
+
+	if(celulas < 0){
+			celulas = 0;
+		}
+}
+
+void Juego :: imprimirResumen(){
+
+	int celulasNacidas = (cantidadDeCelulasVivas - celulasVivasTurnoAnterior);
+	int celulasMuertas = (celulasVivasTurnoAnterior - cantidadDeCelulasVivas);
+
+	cout << "Cantidad de celulas vivas: " << cantidadDeCelulasVivas << endl;
+
+	validarCelulas(celulasNacidas);
+	cout << "Cantidad de celulas nacidas en el último turno: " << celulasNacidas << endl;
+
+	validarCelulas(celulasNacidas);
+	cout << "Cantidad de celulas que murieron en el último turno: " << celulasMuertas << endl;
+
+	totalCelulasNacidas += celulasNacidas;
+	cout << "Promedio de nacimientos a lo largo del juego: " << calcularPromedio(totalCelulasNacidas) << endl;
+
+	totalCelulasMuertas += celulasMuertas;
+	cout << "Promedio de muertes a lo largo del juego: " << calcularPromedio(totalCelulasMuertas) << endl;
+
+	if(tableroCongelado(celulasNacidas, celulasMuertas)){
+		cout << "Juego congelado, no sufrió modificaciones en dos turnos consecutivos";
+	}
 }
 
