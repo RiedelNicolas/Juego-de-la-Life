@@ -7,7 +7,7 @@ Portal::Portal(){
 }
 
 void Portal::setEstado(char nuevoEstado){
-	if(estadoValido(nuevoEstado)){
+	if(estadoEsValido(nuevoEstado)){
 		estado = nuevoEstado;
 	}
 	else{
@@ -59,6 +59,6 @@ void Portal::activarPortal(Parcela* llamadoDesde){
 	}
 }
 
-bool Portal::estadoValido(char estado){
+bool Portal::estadoEsValido(char estado){
 	return estado == 'A' || estado == 'N' || estado == 'P' || estado == 'I';
 }

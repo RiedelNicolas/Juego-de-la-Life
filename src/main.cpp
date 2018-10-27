@@ -8,10 +8,7 @@ int main(){
 	Malla tablero;
 	Juego juegoDeLaVida;
 
-
 	cout << tablero.getCantidadDeCelulasVivas() << endl;
-
-	//NicoCarolo
 
 	return 0;
 }
