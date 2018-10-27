@@ -10,6 +10,7 @@ class Juego{
 	private:
 		char estadoDeJuego; // C = continuar; R=reiniciar; T=terminar
 		unsigned turno;
+		int cantidadDeCelulasMuertas;
 		int cantidadDeCelulasVivas;
 		int totalCelulasMuertas;
 		int totalCelulasNacidas;

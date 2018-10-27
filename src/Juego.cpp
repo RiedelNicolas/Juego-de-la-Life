@@ -6,6 +6,7 @@ Juego::Juego(Tablero* tablero){
 	estadoDeJuego = 'C';
 	turno = 0;
 	celulasVivasTurnoAnterior = 0;
+	cantidadDeCelulasMuertas= 0;
 	cantidadDeCelulasVivas = 0;
 	totalCelulasMuertas = 0;
 	totalCelulasNacidas = 0;
@@ -18,6 +19,7 @@ void Juego::actualizarTablero(){
 	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
+	cantidadDeCelulasMuertas = 0;
 	Malla* malla = tablero//TERMINAR;
 //OLI HUGUI
 	while(malla){ //REVISAR CUANDO TABLERO.H ESTÉ TERMINADO
@@ -45,9 +47,12 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 
 			if(estaViva && (celulasVivasLindantes<2 || celulasVivasLindantes>3)){
 				malla->getParcela(i, j)->reducirVidaDeCelula();
+				if(!malla->getParcela(i, j)->getEstadoDeCelula()){
+					cantidadDeCelulasMuertas++;
+				}
 			}
 			else if(!estaViva && celulasVivasLindantes==3){
-				malla->getParcela(i, j)->setCelulaNacida();
+				malla->getParcela(i, j)->setEstadoDeCelula(false);
 			}
 		}
 	}
