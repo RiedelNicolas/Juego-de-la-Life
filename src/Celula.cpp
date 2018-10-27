@@ -18,7 +18,12 @@ float Celula::getVida(){
 }
 
 void Celula::setVida(float nuevaVida){
-	this->vida = nuevaVida;
+	if(vidaEsValida(nuevaVida)){
+		this->vida = nuevaVida;
+	}
+	else{
+		throw std::string("Vida No Valida");
+	}
 }
 
 Rgb Celula::getRgb(){
@@ -33,4 +38,8 @@ void Celula::setVerde(int verde){
 }
 void Celula::setAzul(int azul){
 	color.setAzul(azul);
+}
+
+bool Celula::vidaEsValida(float vida){
+	return vida >= 0.0;
 }

@@ -1,6 +1,6 @@
 
-#ifndef ARCHIVO_H_
-#define ARCHIVO_H_
+#ifndef Inicializador_H_
+#define Inicializador_H_
 #include <fstream>
 #include <iostream>
 
@@ -11,35 +11,32 @@
 #include "Parcela.h"
 #include "Portal.h"
 
-class Archivo{
+class Inicializador{
 	private:
 		std::ifstream file;
 		std::string ruta;
 		unsigned cantidadDeMallas;
 		Tablero* tablero;
 	public:
-		/*pre: Recibe el path donde esta ubicado el archivo en forma de string.
+		/*pre: Recibe el path donde esta ubicado el Inicializador en forma de string.
 	 	 post : intenta abrir dicha ruta en modo de lectura, en caso que no pueda
 	       	   tira una excepcion.*/
-		Archivo(std::string ruta,Tablero*);
+		Inicializador(std::string ruta,Tablero*);
 
-		/*post :devuelve la cantidad de tableros que se pudo levantar del archivo*/
+		/*post :devuelve la cantidad de tableros que se pudo levantar del Inicializador*/
 		unsigned getCantidadDeMallas();
 
-		/*post : devuelve un pointer a tablero, si no habia archivos en el tablero devuelve NULL*/
+		/*post : devuelve un pointer a tablero, si no habia Inicializadors en el tablero devuelve NULL*/
 		 Tablero* getTablero();
 
 		//destructor
-		~Archivo();
+		~Inicializador();
 	private:
-		/*crea dicho tableros dinamicos y asigna la direccion de memoria correspondiente a el inicio del array a "tableros"*/
-		void crearTablero();
-
-		/*cuenta cuantas veces aparece la palabra "Tablero" en el archivo.*/
+		/*cuenta cuantas veces aparece la palabra "Tablero" en el Inicializador.*/
 		unsigned contarCantidadDeMallas();
 
 		void levantarTablero();
-		/*levanta una malla del archivo , que en el archivo se llaman "Tablero".*/
+		/*levanta una malla del Inicializador , que en el Inicializador se llaman "Tablero".*/
 		void levantarMalla();
 		void levantarPortal();
 		void levantarParcela();
@@ -47,4 +44,4 @@ class Archivo{
 
 };
 
-#endif /* ARCHIVO_H_ */
+#endif /* Inicializador_H_ */

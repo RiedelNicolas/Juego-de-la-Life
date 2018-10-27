@@ -29,6 +29,7 @@ class Celula{
 		 */
 		float getVida();
 		/*
+		 * Pre "nuevaVida" debe ser mayor o igual 0
 		 * Post: Modifica el parametro "vida" por nueva "nuevaVida".
 		 */
 		void setVida(float nuevaVida);
@@ -42,6 +43,12 @@ class Celula{
 		void setRojo(int rojo);
 		void setVerde(int verde);
 		void setAzul(int azul);
+
+	private:
+		/*
+		 * Post: verifica si la vida es valida, es decir si esta es mayor o igual a 0
+		 */
+		bool vidaEsValida(float vida);
 };
 
 #endif /* CELULA_H_ */
