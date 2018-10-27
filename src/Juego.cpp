@@ -20,9 +20,13 @@ void Juego::actualizarTablero(){
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
 	cantidadDeCelulasMuertas = 0;
-	Malla* malla = tablero//TERMINAR;
-//OLI HUGUI
-	while(malla){ //REVISAR CUANDO TABLERO.H ESTÉ TERMINADO
+	Malla* malla;
+
+	tablero->iniciarCursor();
+
+	while(tablero->avanzarCursor()){
+
+		malla = tablero->obtenerCursor();
 
 		celulasVivasTurnoAnterior += malla->getCantidadDeCelulasVivas();
 		filas = malla->getCantidadDeFilas();
