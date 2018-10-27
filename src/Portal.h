@@ -72,5 +72,4 @@ class Portal{
 };
 
 
-
 #endif /* PORTAL_H_ */

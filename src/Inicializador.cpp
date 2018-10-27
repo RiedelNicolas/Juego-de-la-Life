@@ -1,4 +1,5 @@
-#include "Archivo.h"
+#include "Inicializador.h"
+
 #include <iostream>
 
 #define MALLA "Tablero"
