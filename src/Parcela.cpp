@@ -48,4 +48,3 @@ Rgb Parcela::getRgb(){
 void Parcela::setRgb(Rgb color){
 	this->color=color;
 }
-

@@ -13,9 +13,9 @@ class Portal{
 		Parcela* salida;
 
 	public:
-// P = pasivo; N = normal; A = Activo; I=Inactivo
-
-		//Post: Crea un portal de tipo "tipoDePortal" con entrada "parcelaDeEntrada" y salida "parcelaDeSalida"
+		/*
+		*Post: Crea un portal de tipo "tipoDePortal" con entrada "parcelaDeEntrada" y salida "parcelaDeSalida"
+		*/
 		Portal();
 		/*
 		 * Pre: El estado debe ser un estado valido. A saber:
@@ -53,7 +53,6 @@ class Portal{
 		 * Post: Devuelve si el estado ingresado es un estado valido o no
 		 */
 		bool estadoEsValido(char estado);
-
 };
 
 
