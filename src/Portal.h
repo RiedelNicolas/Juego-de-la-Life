@@ -27,6 +27,8 @@ class Portal{
 		//Post: Devuelve un puntero a la parcela de salida del portal
 		Parcela* getSalida();
 
+		void activarPortal(Parcela* llamadoDesde);
+
 };
 
 
