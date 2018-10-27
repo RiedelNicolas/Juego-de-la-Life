@@ -157,7 +157,7 @@ void Juego::imprimirMalla(Malla* malla){
 
 	int i, j, x, y;
 	BMP Imagen;
-	std::string nombreMalla = malla->getNombre(); + ".bmp";
+	std::string nombreMalla = malla->getNombre() + ".bmp";
 
 	Imagen.SetSize(ANCHO_CELULA*malla->getCantidadDeColumnas(), ALTO_CELULA*malla->getCantidadDeFilas());
 
