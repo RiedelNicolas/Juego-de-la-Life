@@ -7,18 +7,18 @@
 #define PARCELA "Parcela"
 
 
-unsigned Archivo::getCantidadDeMallas(){
+unsigned Inicializador::getCantidadDeMallas(){
 	return cantidadDeMallas;
 }
 
-Tablero* Archivo::getTablero(){
+Tablero* Inicializador::getTablero(){
 	return tablero;
 }
 
-Archivo::Archivo(std::string ruta,Tablero* tablero){
+Inicializador::Inicializador(std::string ruta,Tablero* tablero){
 	file.open( ruta.c_str() );
 	if( !file.is_open() ){
-		throw std::string( "No se pudo abrir el archivo");
+		throw std::string( "No se pudo abrir el Inicializador");
 	}
 	cantidadDeMallas = contarCantidadDeMallas();
 	this->tablero = tablero;
@@ -26,12 +26,11 @@ Archivo::Archivo(std::string ruta,Tablero* tablero){
 }
 
 
-Archivo::~Archivo(){
+Inicializador::~Inicializador(){
 	file.close();
-	delete  tablero; //ojo al piojo, si cambia de scope se pierde,usar en main.
 }
 
-unsigned Archivo::contarCantidadDeMallas(){
+unsigned Inicializador::contarCantidadDeMallas(){
 	file.seekg(0);/*rewind*/
 	std::string palabraAuxiliar;
 	unsigned contador = 0;
@@ -43,7 +42,7 @@ unsigned Archivo::contarCantidadDeMallas(){
 	return contador;
 }
 
-void Archivo::levantarTablero(){
+void Inicializador::levantarTablero(){
 	file.seekg(0);/*rewind*/
 	std::string palabraAuxiliar;
 	while( !file.eof() ){
@@ -60,7 +59,7 @@ void Archivo::levantarTablero(){
 	}
 }
 
-void Archivo::levantarMalla(){
+void Inicializador::levantarMalla(){
 	std::string nombre;
 	int filas,columnas;
 	file>>nombre>>columnas>>filas;
@@ -68,7 +67,7 @@ void Archivo::levantarMalla(){
 	tablero->agregarMalla(malla);
 }
 
-void Archivo::levantarParcela(){
+void Inicializador::levantarParcela(){
 	std::string nombreDeLaMalla;
 	float natalidad,mortalidad;
 	int x,y;
@@ -86,7 +85,7 @@ void Archivo::levantarParcela(){
 
 }
 
-void Archivo ::levantarPortal(){
+void Inicializador ::levantarPortal(){
 	std::string nombreDeLaMallaOrigen, nombreDeLaMallaDestino;
 	int xOrigen,yOrigen,xDestino,yDestino;
 	char estado;
@@ -108,10 +107,11 @@ void Archivo ::levantarPortal(){
 	portal->setEstado(estado);
 	portal->setEntrada(parcelaOrigen);
 	portal->setSalida(parcelaDestino);
-	}
+
+}
 
 
-Rgb Archivo::levantarColor(){
+Rgb Inicializador::levantarColor(){
 	Rgb color;
 	int rojo,azul,verde;
 	file>>rojo>>verde>>azul;
