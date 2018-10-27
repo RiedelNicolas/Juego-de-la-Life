@@ -30,6 +30,9 @@ public:
 	int getVerde();
 	int getAzul();
 
+	//redefinir el operador
+
+
 };
 
 

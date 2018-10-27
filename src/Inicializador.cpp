@@ -89,20 +89,25 @@ void Archivo::levantarParcela(){
 void Archivo ::levantarPortal(){
 	std::string nombreDeLaMallaOrigen, nombreDeLaMallaDestino;
 	int xOrigen,yOrigen,xDestino,yDestino;
-	char tipoDePortal;
+	char estado;
 	Malla* mallaDestino;
 	Malla* mallaOrigen;
-	Parcela* parcelaOrigen,parcelaDestino;
+	Parcela* parcelaOrigen;
+	Parcela* parcelaDestino;
+	Portal* portal;
 
 	file>>nombreDeLaMallaOrigen>>xOrigen>>yOrigen;
-	file>>tipoDePortal;
+	file>>estado;
 	file>>nombreDeLaMallaDestino>>xDestino>>yDestino;
 
 	mallaOrigen =  tablero->buscarMalla(nombreDeLaMallaOrigen);
 	mallaDestino = tablero->buscarMalla(nombreDeLaMallaDestino);
 	parcelaOrigen  = mallaOrigen->getParcela(yOrigen-1,xOrigen-1);
 	parcelaDestino = mallaDestino->getParcela(yDestino-1,xDestino-1);
-
+	portal=parcelaOrigen->getPortal();
+	portal->setEstado(estado);
+	portal->setEntrada(parcelaOrigen);
+	portal->setSalida(parcelaDestino);
 	}
 
 
