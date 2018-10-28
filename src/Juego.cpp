@@ -141,6 +141,7 @@ void Juego :: imprimirResumen(){
 
 	int celulasNacidas = (cantidadDeCelulasVivas - celulasVivasTurnoAnterior);
 
+	cout << "Turno:" << turno << endl;
 	cout << "Cantidad de celulas vivas: " << cantidadDeCelulasVivas << endl;
 
 	validarCelulasNegativas(celulasNacidas);
