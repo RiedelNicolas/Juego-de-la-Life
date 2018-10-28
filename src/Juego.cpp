@@ -115,8 +115,14 @@ void Juego::ejecutarTurnos(int cantidadDeTurnos){
 }
 
 float Juego::calcularPromedio(int numero){
-
-	return (float(numero)/float(turno));
+	float promedio;
+	if(turno == 0){
+		promedio = 0;
+	}
+	else{
+		promedio = float(numero)/float(turno);
+	}
+	return promedio;
 }
 
 bool Juego::tableroCongelado(int celulasNacidas, int celulasMuertas){
@@ -149,7 +155,10 @@ void Juego :: imprimirResumen(){
 	cout << "Promedio de muertes a lo largo del juego: " << calcularPromedio(totalCelulasMuertas) << endl;
 
 	if(tableroCongelado(celulasNacidas, cantidadDeCelulasMuertas)){
-		cout << "Juego congelado, no sufrió modificaciones en dos turnos consecutivos";
+		cout << "El juego no se ha congelado" << endl;
+	}
+	else{
+		cout << "El juego se ha congelado" << endl;
 	}
 }
 
