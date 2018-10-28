@@ -3,13 +3,13 @@
 
 #include <iostream>
 #include "Rgb.hpp"
+#include "Portal.h"
 
 class Celula{
 
 	private:
 		float vida;
 		Rgb color;
-
 	public:
 		//ver porque
 		bool estaViva;

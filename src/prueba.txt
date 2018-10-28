@@ -1,9 +1,9 @@
 Tablero primero 3 3
 Tablero segundo 2 2
 Tablero tercero 2 3
-Portal primero 1 1 activo
-Portal segundo 2 2 normal
-Portal tercero 2 1 pasivo
+Portal primero 1 1 A segundo 1 1
+Portal segundo 2 2 N tercero 2 2
+Portal tercero 2 1 P primero 2 1
 Parcela primero 0 0 55 98 4
 Parcela primero 0 1 66 55 8
 Parcela primero 0 2 33 2 55

@@ -2,7 +2,6 @@
 #ifndef RGB_HPP_
 #define RGB_HPP_
 
-//redefinir operador
 #include <iostream>
 
 class Rgb{
