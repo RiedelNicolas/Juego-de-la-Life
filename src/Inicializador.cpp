@@ -29,7 +29,6 @@ void Inicializador::levantarTablero(){
 	std::string palabraAuxiliar;
 	while( !file.eof() ){
 		file>>palabraAuxiliar;
-		std::cout << palabraAuxiliar;
 		if( !palabraAuxiliar.compare(MALLA) ){
 			levantarMalla();
 		}
