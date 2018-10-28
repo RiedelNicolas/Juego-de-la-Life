@@ -25,7 +25,7 @@ void Portal::setEntrada(Parcela* parcelaDeEntrada){
 }
 
 void Portal::setSalida(Parcela* parcelaDeSalida){
-	entrada = parcelaDeSalida;
+	salida = parcelaDeSalida;
 }
 
 char Portal::getTipo(){

@@ -1,43 +1,43 @@
-Tablero primero 3 3
-Tablero segundo 2 2
-Tablero tercero 2 3
+Tablero primero 4 4
+Tablero segundo 3 3
+Tablero tercero 3 4
 Portal primero 1 1 A segundo 1 1
 Portal segundo 2 2 N tercero 2 2
 Portal tercero 2 1 P primero 2 1
-Parcela primero 0 0 55 98 4
-Parcela primero 0 1 66 55 8
-Parcela primero 0 2 33 2 55
-Parcela primero 0 3 69 5 2
-Parcela primero 1 0 5 2 3
-Parcela primero 1 1 88 5 9
-Parcela primero 1 2 4 2 3
-Parcela primero 1 3 22 5 10
-Parcela primero 2 0 41 6 3
-Parcela primero 2 1 30 0 8
-Parcela primero 2 2 5 120 5
-Parcela primero 2 3 99 52 74
-Parcela primero 3 0 55 4 1
-Parcela primero 3 1 82 22 2
-Parcela primero 3 2 33 3 3
-Parcela primero 3 3 0 0 0
-Parcela segundo 0 0 22 4 0
-Parcela segundo 0 1 17 200 96
-Parcela segundo 0 2 230 5 69
-Parcela segundo 1 0 2 2 2
-Parcela segundo 1 1 55 5 5
-Parcela segundo 1 2 6 66 6
-Parcela segundo 2 0 33 8 9
-Parcela segundo 2 1 4 44 7
-Parcela segundo 2 2 6 66 6
-Parcela tercero 0 0 213 32 156
-Parcela tercero 0 1 120 240
-Parcela tercero 0 2 230 152 222
-Parcela tercero 0 3 240 255 255
-Parcela tercero 1 0 85 65 213
-Parcela tercero 1 1 230 230 230
-Parcela tercero 1 2 155 148 123
-Parcela tercero 1 3 20 200 230
-Parcela tercero 2 0 45 200 170
-Parcela tercero 2 1 46 122 122
-Parcela tercero 2 2 140 140 80
-Parcela tercero 2 3 200 210 255
+Parcela primero 1 1 55 98 4
+Parcela primero 1 2 66 55 8
+Parcela primero 1 3 33 2 55
+Parcela primero 1 4 69 5 2
+Parcela primero 2 1 5 2 3
+Parcela primero 2 2 88 5 9
+Parcela primero 2 3 4 2 3
+Parcela primero 2 4 5 10
+Parcela primero 3 1 41 6 3
+Parcela primero 3 2 30 0 8
+Parcela primero 3 3 5 120 5
+Parcela primero 3 4 99 52 74
+Parcela primero 4 1 55 4 1
+Parcela primero 4 2 82 22 2
+Parcela primero 4 3 33 3 3
+Parcela primero 4 4 0 0 0
+Parcela segundo 1 1 22 4 0
+Parcela segundo 1 2 17 200 96
+Parcela segundo 1 3 230 5 69
+Parcela segundo 2 1 2 2 2
+Parcela segundo 2 2 55 5 5
+Parcela segundo 2 3 6 66 6
+Parcela segundo 3 1 33 8 9
+Parcela segundo 3 2 4 44 7
+Parcela segundo 3 3 6 66 6
+Parcela tercero 1 1 213 32 156
+Parcela tercero 1 2 120 240
+Parcela tercero 1 3 230 152 222
+Parcela tercero 1 4 240 255 255
+Parcela tercero 2 1 85 65 213
+Parcela tercero 2 2 230 230 230
+Parcela tercero 2 3 155 148 123
+Parcela tercero 2 4 20 200 230
+Parcela tercero 3 1 45 200 170
+Parcela tercero 3 2 46 122 122
+Parcela tercero 3 3 140 140 80
+Parcela tercero 3 4 200 210 255

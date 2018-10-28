@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "Rgb.hpp"
-#include "Portal.h"
 
 class Celula{
 

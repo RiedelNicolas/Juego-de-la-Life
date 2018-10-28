@@ -5,6 +5,8 @@
 #include "Parcela.h"
 #include <string>
 
+class Parcela;
+
 class Portal{
 	private:
 		char estado;
