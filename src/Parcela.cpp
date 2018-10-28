@@ -4,6 +4,7 @@
 Parcela::Parcela(){
 	vidaAlNacer = 100 * NATALIDAD_POR_DEFAULT;
 	vidaARestar = 100 * MORTALIDAD_POR_DEFAULT;
+	portal=NULL;
 }
 
 bool Parcela::getEstadoDeCelula(){

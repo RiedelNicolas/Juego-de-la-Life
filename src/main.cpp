@@ -9,7 +9,7 @@ int main(){
 	Tablero tablero;
 	try{
 		//string texto = "../prueba.txt";
-		Inicializador leeArchivo( "/home/gonzams/git/Juego-de-la-Life/src/prueba.txt", &tablero);
+		Inicializador leeArchivo( "/home/riedel/git/Juego-de-la-Life/src/prueba.txt", &tablero);
 		cout << "No pasó nada raro." << endl;
 	}catch(string mensaje){
 		cout << mensaje << endl;
