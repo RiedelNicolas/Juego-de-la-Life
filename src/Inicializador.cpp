@@ -7,10 +7,6 @@
 #define PARCELA "Parcela"
 
 
-/*unsigned Inicializador::getCantidadDeMallas(){
-	return cantidadDeMallas;
-}*/
-
 Tablero* Inicializador::getTablero(){
 	return tablero;
 }
@@ -20,7 +16,6 @@ Inicializador::Inicializador(std::string ruta,Tablero* tablero){
 	if( !file.is_open() ){
 		throw std::string( "No se pudo abrir el Inicializador");
 	}
-	//cantidadDeMallas = contarCantidadDeMallas();
 	this->tablero = tablero;
 	levantarTablero();
 }
@@ -30,20 +25,7 @@ Inicializador::~Inicializador(){
 	file.close();
 }
 
-unsigned Inicializador::contarCantidadDeMallas(){
-	file.seekg(0);/*rewind*/
-	std::string palabraAuxiliar;
-	unsigned contador = 0;
-	while( file >> palabraAuxiliar ){
-		if( !palabraAuxiliar.compare(MALLA) ){
-			contador++;
-		}
-	}
-	return contador;
-}
-
 void Inicializador::levantarTablero(){
-	file.seekg(0);/*rewind*/
 	std::string palabraAuxiliar;
 	while( !file.eof() ){
 		file>>palabraAuxiliar;
@@ -104,6 +86,7 @@ void Inicializador ::levantarPortal(){
 	mallaDestino = tablero->buscarMalla(nombreDeLaMallaDestino);
 	parcelaOrigen  = mallaOrigen->getParcela(yOrigen-1,xOrigen-1);
 	parcelaDestino = mallaDestino->getParcela(yDestino-1,xDestino-1);
+
 	portal=parcelaOrigen->getPortal();
 	portal->setEstado(estado);
 	portal->setEntrada(parcelaOrigen);

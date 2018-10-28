@@ -15,16 +15,12 @@ class Inicializador{
 	private:
 		std::ifstream file;
 		std::string ruta;
-		//unsigned cantidadDeMallas;
 		Tablero* tablero;
 	public:
-		/*pre: Recibe el path donde esta ubicado el Inicializador en forma de string.
+		/*pre: Recibe el path donde esta ubicado el Inicializador en forma de string y un puntero a Tablero.
 	 	 post : intenta abrir dicha ruta en modo de lectura, en caso que no pueda
-	       	   tira una excepcion.*/
+	       	   tira una excepcion. en caso de que pueda, carga el Tablero con los datos ob*/
 		Inicializador(std::string ruta,Tablero*);
-
-		/*post :devuelve la cantidad de tableros que se pudo levantar del Inicializador*/
-		unsigned getCantidadDeMallas();
 
 		/*post : devuelve un pointer a tablero, si no habia Inicializadors en el tablero devuelve NULL*/
 		 Tablero* getTablero();
@@ -32,16 +28,12 @@ class Inicializador{
 		//destructor
 		~Inicializador();
 	private:
-		/*cuenta cuantas veces aparece la palabra "Tablero" en el Inicializador.*/
-		unsigned contarCantidadDeMallas();
-
 		void levantarTablero();
-		/*levanta una malla del Inicializador , que en el Inicializador se llaman "Tablero".*/
+		/*levanta una malla del Inicializador*/
 		void levantarMalla();
 		void levantarPortal();
 		void levantarParcela();
 		Rgb  levantarColor();
-
 };
 
 #endif /* Inicializador_H_ */
