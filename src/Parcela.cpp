@@ -4,7 +4,7 @@
 Parcela::Parcela(){
 	vidaAlNacer = 100 * NATALIDAD_POR_DEFAULT;
 	vidaARestar = 100 * MORTALIDAD_POR_DEFAULT;
-	portal=NULL;
+	portal = NULL;
 }
 
 bool Parcela::getEstadoDeCelula(){
@@ -48,6 +48,21 @@ Rgb Parcela::getRgb(){
 void Parcela::setRgb(Rgb color){
 	this->color=color;
 }
+
+Parcela::~Parcela(){
+		if( !(portal==NULL) ){
+			delete portal;
+		}
+	}
+
+Portal* Parcela::getPortal(){
+	/*si no existe el portal, lo crea*/
+	if(portal == NULL){
+		portal = new Portal;
+	}
+	return portal;
+}
+
 
 //Esto no estoy seguro si funca, sino hay que hacer un metodo que ande que
 // devuelva un puntero a la celula o algo para poder modificar la celula.

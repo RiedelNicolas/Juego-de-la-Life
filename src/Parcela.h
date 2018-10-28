@@ -6,8 +6,8 @@
 #include "Rgb.hpp"
 #include "Portal.h"
 
+//explicarle a mariano que hacemos aca
 class Portal;
-class Celula;
 
 class Parcela {
 
@@ -24,6 +24,11 @@ class Parcela {
 		 * con indice de nacimiento "nacimiento" e indice de mortalidad "mortalidad"
 		 */
 		Parcela();
+
+		/*
+		 * destructor
+		 */
+		~Parcela();
 
 		/*
 		 * Post: Devuelve el estado de la celula que contiene
@@ -61,10 +66,13 @@ class Parcela {
 		 */
 		void setMortalidad(float nuevaMortalidad);
 
-		Portal* getPortal(){
-			return portal;
-		}
+		/*
+		 * devuelve la direccion a el portal correspondiente a
+		 * dicha parcela, si el portal no existe lo crea.
+		 */
+		Portal* getPortal();
 
 		Celula* getCelula();
+
 };
 #endif /* PARCELA_H_ */
