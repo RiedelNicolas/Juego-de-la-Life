@@ -44,7 +44,7 @@ void Inicializador::levantarMalla(){
 	std::string nombre;
 	int filas,columnas;
 	file>>nombre>>columnas>>filas;
-	Malla* malla = new Malla (filas,columnas,nombre) ;
+	Malla* malla = new Malla (filas,columnas,nombre);
 	tablero->agregarMalla(malla);
 }
 

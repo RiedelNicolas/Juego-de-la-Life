@@ -6,6 +6,7 @@ Nodo::Nodo(Malla* malla){
 }
 
 Nodo::~Nodo(){
+	delete malla;
 }
 
 Malla* Nodo::getMalla(){
