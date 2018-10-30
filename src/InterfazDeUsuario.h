@@ -5,33 +5,31 @@
 #include <iostream>
 #include "Malla.h"
 
-class Interfaz{
-	private:
-		int filaDeCelula;
-		int columnaDeCelula;
+class InterfazDeUsuario{
 	public:
 
-		Interfaz();
+		InterfazDeUsuario();
 
 		/*
-		 * Post: Pide al usuario que ingrese la fila de célula
+		 * Post: Imprime el mensaje de bienvenida al juego.
 		 */
-		void pedirFila(Malla*);
+		void mensajeDeBienvenida();
 
 		/*
-		 * Post: Pide al usuario que ingrese la columna de célula
+		 * Post: Devuelve un bool de acuerdo a la respuesta del usuario a
+		 * 		 la pregunta "¿Desea ingresar una célula?"
 		 */
-		void pedirColumna(Malla*);
+		bool deseaAgregarCelula();
 
 		/*
 		 * Post: Devuelve la fila de la célula ingresada por el usuario.
 		 */
-		int getFila();
+		int pedirFila(Malla*);
 
 		/*
 		 * Post: Devuelve la columna de la célula ingresada por el usuario.
 		 */
-		int getColumna();
+		int pedirColumna(Malla*);
 
 		void imprimirResumen();
 };

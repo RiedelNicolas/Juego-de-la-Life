@@ -11,7 +11,7 @@ int main(){
 		//string texto = "../prueba.txt";
 		Inicializador leeArchivo( "/home/gonzams/git/Juego-de-la-Life/src/prueba.txt", &tablero);
 		Juego elJuegoDeLaVida(&tablero);
-		elJuegoDeLaVida.imprimirResumen();
+		elJuegoDeLaVida.inicializarJuego();
 		cout << "No pasó nada raro." << endl;
 	}catch(string mensaje){
 		cout << mensaje << endl;

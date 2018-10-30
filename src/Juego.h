@@ -3,6 +3,7 @@
 #include "Tablero.h"
 #include "Malla.h"
 #include "EasyBMP.h"
+#include "InterfazDeUsuario.h"
 
 #define REINICIAR 'R'
 #define TERMINAR 'T'
@@ -20,10 +21,13 @@ class Juego{
 		int totalCelulasNacidas;
 		int celulasVivasTurnoAnterior;
 		Tablero* tablero;
+		InterfazDeUsuario* interfaz;
 
 	public:
 
 		Juego(Tablero* tablero);
+
+		~Juego();
 
 		void nuevoTurno();
 
@@ -104,7 +108,7 @@ class Juego{
 		/*
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
-		void validarCelulasNegativas(int cantidadDeCelulas);
+		void validarCelulasNegativas(int &cantidadDeCelulas);
 };
 
 

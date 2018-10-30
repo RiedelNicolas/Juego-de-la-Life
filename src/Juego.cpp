@@ -1,4 +1,5 @@
 #include "Juego.h"
+#define VIVA true
 using namespace std;
 
 Juego::Juego(Tablero* tablero){
@@ -11,6 +12,11 @@ Juego::Juego(Tablero* tablero){
 	totalCelulasMuertas = 0;
 	totalCelulasNacidas = 0;
 	this->tablero = tablero;
+	interfaz = new InterfazDeUsuario();
+}
+
+Juego::~Juego(){
+	delete interfaz;
 }
 
 
@@ -85,7 +91,24 @@ void Juego::finalizarJuego(){
 }
 
 void Juego::inicializarJuego(){
-	//ALGO
+	int fila, columna;
+	Malla* malla;
+
+	interfaz->mensajeDeBienvenida();
+	tablero->iniciarCursor();
+
+	while(tablero->avanzarCursor()){
+		malla = tablero->obtenerCursor();
+		cout << "Ingreso de células para el tablero '" << malla->getNombre() << "':" << endl;
+
+		while(interfaz->deseaAgregarCelula()){
+				fila = interfaz->pedirFila(malla);
+				columna = interfaz->pedirColumna(malla);
+				malla->getParcela(fila, columna)->setEstadoDeCelula(VIVA);
+				cantidadDeCelulasVivas++;
+			}
+	}
+	imprimirResumen();
 }
 
 char Juego::getEstado(){
@@ -99,11 +122,12 @@ bool Juego::cantidadDeTurnoEsValida(int cantidadDeTurnos){
 }
 
 int Juego::pedirCantidadDeTurnos(){
+	int turnos;
 
-	int turno;
 	cout <<"Ingrese la cantidad de turnos a ejecutar:";
-	cin >> turno;
-	return turno;
+	cin >> turnos;
+
+	return turnos;
 }
 
 void Juego::ejecutarTurnos(int cantidadDeTurnos){
@@ -130,7 +154,7 @@ bool Juego::tableroCongelado(int celulasNacidas, int celulasMuertas){
 	return((celulasNacidas == 0) && (celulasMuertas == 0));
 }
 
-void Juego::validarCelulasNegativas(int cantidadDeCelulas){
+void Juego::validarCelulasNegativas(int& cantidadDeCelulas){
 
 	if(cantidadDeCelulas < 0){
 			cantidadDeCelulas = 0;
@@ -156,9 +180,6 @@ void Juego :: imprimirResumen(){
 	cout << "Promedio de muertes a lo largo del juego: " << calcularPromedio(totalCelulasMuertas) << endl;
 
 	if(tableroCongelado(celulasNacidas, cantidadDeCelulasMuertas)){
-		cout << "El juego no se ha congelado" << endl;
-	}
-	else{
 		cout << "El juego se ha congelado" << endl;
 	}
 }
