@@ -9,7 +9,6 @@ Malla::Malla(int filas, int columnas, string nombre){
 	alto = filas;
 	celulasVivas = 0;
 	parcelas = new Parcela*[alto];
-	mallaSiguiente = NULL;
 
 	for(int i = 0; i < alto; i++){
 		parcelas[i] = new Parcela[ancho];
@@ -23,14 +22,6 @@ Malla::~Malla(){
 		delete[] parcelas[i];
 	}
 	delete[] parcelas;
-}
-
-void Malla::setSiguienteMalla(Malla* nuevaMalla){
-	mallaSiguiente = nuevaMalla;
-}
-
-Malla* Malla::getSiguienteMalla(){
-	return mallaSiguiente;
 }
 
 int Malla::getCantidadDeFilas(){

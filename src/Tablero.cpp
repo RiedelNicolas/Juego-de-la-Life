@@ -59,6 +59,7 @@ int Tablero::getTamanio(){
 }
 
 void Tablero::iniciarCursor(){
+
 	cursor=NULL;
 }
 
@@ -85,7 +86,3 @@ Malla* Tablero::obtenerCursor(){
 
 	return malla;
 }
-
-
-
-

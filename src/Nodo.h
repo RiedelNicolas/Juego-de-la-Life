@@ -29,7 +29,7 @@ class Nodo {
 
 		/*
 		 * Pre: Malla creada
-		 * Post: Devuelve un pontero a malla
+		 * Post: Devuelve un puntero a malla
 		 */
 		Malla* getMalla();
 
