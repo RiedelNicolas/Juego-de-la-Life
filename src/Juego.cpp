@@ -90,6 +90,14 @@ void Juego::finalizarJuego(){
 	estadoDeJuego = TERMINAR;
 }
 
+void Juego::contadorCelulasVivas(Malla* malla, int fila, int columna){
+
+	if(!(malla->getParcela(fila, columna)->getEstadoDeCelula())){
+
+		cantidadDeCelulasVivas++;
+	}
+}
+
 void Juego::inicializarJuego(){
 	int fila, columna;
 	Malla* malla;
@@ -105,7 +113,8 @@ void Juego::inicializarJuego(){
 				fila = interfaz->pedirFila(malla);
 				columna = interfaz->pedirColumna(malla);
 				malla->getParcela(fila, columna)->setEstadoDeCelula(VIVA);
-				cantidadDeCelulasVivas++;
+
+				contadorCelulasVivas(malla, fila, columna);
 			}
 	}
 	imprimirResumen();

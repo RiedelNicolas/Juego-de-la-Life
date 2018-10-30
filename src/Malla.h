@@ -25,7 +25,6 @@ class Malla {
 		*/
 		int getCantidadDeFilas();
 
-
 		/* Pre: Malla creada.
 		*  Post: Devuelve la cantidad de columnas de la malla.
 		*/

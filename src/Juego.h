@@ -109,6 +109,8 @@ class Juego{
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
 		void validarCelulasNegativas(int &cantidadDeCelulas);
+
+		void contadorCelulasVivas(Malla* malla, int fila, int columna);
 };
 
 
