@@ -12,19 +12,16 @@ void InterfazDeUsuario::mensajeDeBienvenida(){
 	//PODRÍAMOS ROBAR ALGO DEL INFORME PARA PONER ACÁ
 }
 
-bool InterfazDeUsuario::deseaAgregarCelula(){ //ESTO QUEDÓ RE VILLERO, CHEQUEENLO
-	char respuesta = NO;
+bool InterfazDeUsuario::deseaAgregarCelula(){
+	char respuesta;
+	cout << "¿Desea ingresar una célula? (S/N)" << endl;
+	cin >> respuesta;
+	respuesta = toupper(respuesta);
 
-	do{
-		if((respuesta != SI) && (respuesta != NO)){
-			cout << "Ingreso inválido. Intente de nuevo. ";
-		}
-
-		cout << "¿Desea ingresar una célula? (S/N)" << endl;
-		cin >> respuesta;
-		respuesta = toupper(respuesta);
-
-	}while((respuesta != SI) && (respuesta != NO));
+	if((respuesta != SI) && (respuesta != NO)){
+		cout << "Error! Ingreso inválido. Intente de nuevo. ";
+		deseaAgregarCelula();
+	}
 
 	return (respuesta == SI);
 }

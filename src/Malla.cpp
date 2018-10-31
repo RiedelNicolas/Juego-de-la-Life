@@ -43,16 +43,11 @@ Parcela* Malla::getParcela(int fila,int columna){ //ESTO NO ESTA CHEQUEADO. WARN
 int Malla::getCantidadDeCelulasVivas(){
 
 	celulasVivas = 0;
-	Parcela parcela;
-	bool celulaViva;
 
 	for(int i=0; i<alto; i++){
 		for(int j=0; j<ancho; j++){
 
-			parcela = parcelas[i][j];
-			celulaViva = parcela.getEstadoDeCelula();
-
-			if(celulaViva){
+			if(parcelas[i][j].getEstadoDeCelula()){
 				celulasVivas++;
 			}
 		}
@@ -65,10 +60,8 @@ int Malla::contarCelulasVivasLindantes(int fila, int columna){
 
 	for(int i=-1; i<2; i++){
 			for(int j=-1; j<2; j++){
-				if((fila+i >= 0) && (fila+i < alto) && (columna+j >= 0) && (columna+j < ancho)){
-					if(parcelas[fila+i][columna+j].getEstadoDeCelula()){
-								contadorCelulasVivas++;
-					}
+				if(posicionValida(fila+i,columna+j) && parcelas[fila+i][columna+j].getEstadoDeCelula()){
+					contadorCelulasVivas++;
 				}
 			}
 		}
@@ -77,5 +70,9 @@ int Malla::contarCelulasVivasLindantes(int fila, int columna){
 			contadorCelulasVivas--;
 		}
 	return contadorCelulasVivas;
+}
+
+bool Malla::posicionValida(int fila, int columna){
+	return ((fila >= 0) && (fila < alto) && (columna >= 0) && (columna < ancho));
 }
 

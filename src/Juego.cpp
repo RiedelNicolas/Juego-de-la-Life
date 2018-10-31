@@ -193,16 +193,17 @@ void Juego :: imprimirResumen(){
 	}
 }
 
+void Juego:
+
 void Juego::imprimirMalla(Malla* malla){
 
-	int i, j, x, y;
 	BMP Imagen;
 	std::string nombreMalla = malla->getNombre() + ".bmp";
 
 	Imagen.SetSize(ANCHO_CELULA*malla->getCantidadDeColumnas(), ALTO_CELULA*malla->getCantidadDeFilas());
 
-	for(i = 0; i < ANCHO_CELULA*malla->getCantidadDeColumnas(); i++){
-		for(j = 0; j < ALTO_CELULA*malla->getCantidadDeFilas(); j++){
+	for(int i = 0; i < ANCHO_CELULA*malla->getCantidadDeColumnas(); i++){
+		for(int j = 0; j < ALTO_CELULA*malla->getCantidadDeFilas(); j++){
 			//El color de fondo del tablero es por defecto blanco
 			Imagen(i, j) -> Red = 255;
 			Imagen(i, j) -> Green = 255;
@@ -211,13 +212,13 @@ void Juego::imprimirMalla(Malla* malla){
 		}
 	}
 
-	for(i = 0; i < malla->getCantidadDeFilas(); i++){
-		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
+	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
+		for(int j = 0; j < malla->getCantidadDeColumnas(); j++){
 
 			if(malla->getParcela(i, j)->getCelula()->getEstado()){
 
-				for(x = 1; x <= ANCHO_CELULA; x++){
-					for(y = 1; y <= ALTO_CELULA; y++){
+				for(int x = 1; x <= ANCHO_CELULA; x++){
+					for(int y = 1; y <= ALTO_CELULA; y++){
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Red = malla->getParcela(i, j)->getCelula()->getRgb().getRojo();
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Green = malla->getParcela(i, j)->getCelula()->getRgb().getVerde();
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Blue = malla->getParcela(i, j)->getCelula()->getRgb().getAzul();
