@@ -32,14 +32,23 @@ class InterfazDeUsuario{
 		int pedirColumna(Malla*);
 
 		void imprimirResumen();
+
 		/*
-		* Post: Pide una cantidad de turnos al usuario y la devuelve
-		*/
+		 * Post: Pide una cantidad de turnos al usuario y la devuelve
+		 */
 		int pedirCantidadDeTurnos();
+
+		/*
+		 * Post: Devuelve un bool de acuerdo a la respuesta del usuario a
+		 * 		 la pregunta "¿Olvido ingresar células en un tablero?"
+		 */
+		bool olvidoIngresarCelulas();
 
 	private:
 
-		bool cantidadDeTurnosEsValida(int turnos);
+	bool cantidadDeTurnosEsValida(int turnos);
+
+	bool preguntarPorPantalla(std::string mensaje);
 };
 
 

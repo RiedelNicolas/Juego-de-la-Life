@@ -12,18 +12,29 @@ void InterfazDeUsuario::mensajeDeBienvenida(){
 	//PODRÍAMOS ROBAR ALGO DEL INFORME PARA PONER ACÁ
 }
 
-bool InterfazDeUsuario::deseaAgregarCelula(){
+bool InterfazDeUsuario::preguntarPorPantalla(string mensaje){
+
 	char respuesta;
-	cout << "¿Desea ingresar una célula? (S/N)" << endl;
+
+	cout << mensaje << endl;
 	cin >> respuesta;
 	respuesta = toupper(respuesta);
 
-	if((respuesta != SI) && (respuesta != NO)){
+	if((respuesta != SI) || (respuesta != NO)){
 		cout << "Error! Ingreso inválido. Intente de nuevo. ";
 		deseaAgregarCelula();
 	}
+		return(respuesta == SI);
+}
 
-	return (respuesta == SI);
+bool InterfazDeUsuario::deseaAgregarCelula(){
+
+	return preguntarPorPantalla("¿Desea ingresar una célula? (S/N)");
+}
+
+bool InterfazDeUsuario::olvidoIngresarCelulas(){
+
+	return preguntarPorPantalla("¿Olvidó ingresar celulas en un tablero? (S/N)");
 }
 
 int InterfazDeUsuario::pedirFila(Malla* malla){
@@ -55,6 +66,7 @@ int InterfazDeUsuario::pedirColumna(Malla* malla){
 
 	return columna-1;
 }
+
 
 int InterfazDeUsuario::pedirCantidadDeTurnos(){
 	int turnos;

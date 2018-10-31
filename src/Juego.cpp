@@ -89,8 +89,29 @@ void Juego::contadorCelulasVivas(Malla* malla, int fila, int columna){
 
 	if(!(malla->getParcela(fila, columna)->getEstadoDeCelula())){
 
+		malla->getParcela(fila, columna)->setEstadoDeCelula(VIVA);
 		cantidadDeCelulasVivas++;
 	}
+}
+
+void Juego::agregarCelulasEnTablero(){
+
+	while(interfaz->olvidoIngresarCelulas()){
+
+	}
+}
+
+
+void Juego::ingresoDeCelulas(Malla* malla){
+
+	int fila, columna;
+	cout << "Ingreso de células para el tablero '" << malla->getNombre() << "':" << endl;
+	while(interfaz->deseaAgregarCelula()){
+			fila = interfaz->pedirFila(malla);
+			columna = interfaz->pedirColumna(malla);
+
+			contadorCelulasVivas(malla, fila, columna);
+		}
 }
 
 void Juego::inicializarJuego(){
@@ -100,6 +121,7 @@ void Juego::inicializarJuego(){
 	tablero->iniciarCursor();
 
 	while(tablero->avanzarCursor()){
+
 		malla = tablero->obtenerCursor();
 		ingresoDeCelulas(malla);
 	}
@@ -120,7 +142,9 @@ void Juego::ejecutarTurnos(int cantidadDeTurnos){
 }
 
 float Juego::calcularPromedio(int numero){
+
 	float promedio;
+
 	if(turno == 0){
 		promedio = 0;
 	}
@@ -139,10 +163,10 @@ void Juego::validarCelulasNegativas(int& cantidadDeCelulas){
 
 	if(cantidadDeCelulas < 0){
 			cantidadDeCelulas = 0;
-		}
+	}
 }
 
-void Juego :: imprimirResumen(){
+void Juego::imprimirResumen(){
 
 	int celulasNacidas = (cantidadDeCelulasVivas - celulasVivasTurnoAnterior);
 
@@ -165,27 +189,16 @@ void Juego :: imprimirResumen(){
 	}
 }
 
-void Juego::ingresoDeCelulas(Malla* malla){
-	int fila, columna;
-	cout << "Ingreso de células para el tablero '" << malla->getNombre() << "':" << endl;
-	while(interfaz->deseaAgregarCelula()){
-			fila = interfaz->pedirFila(malla);
-			columna = interfaz->pedirColumna(malla);
-			malla->getParcela(fila, columna)->setEstadoDeCelula(VIVA);
-
-			contadorCelulasVivas(malla, fila, columna);
-		}
-}
-
 void Juego::imprimirMalla(Malla* malla){
 
+	int i, j, x, y;
 	BMP Imagen;
 	std::string nombreMalla = malla->getNombre() + ".bmp";
 
 	Imagen.SetSize(ANCHO_CELULA*malla->getCantidadDeColumnas(), ALTO_CELULA*malla->getCantidadDeFilas());
 
-	for(int i = 0; i < ANCHO_CELULA*malla->getCantidadDeColumnas(); i++){
-		for(int j = 0; j < ALTO_CELULA*malla->getCantidadDeFilas(); j++){
+	for(i = 0; i < ANCHO_CELULA*malla->getCantidadDeColumnas(); i++){
+		for(j = 0; j < ALTO_CELULA*malla->getCantidadDeFilas(); j++){
 			//El color de fondo del tablero es por defecto blanco
 			Imagen(i, j) -> Red = 255;
 			Imagen(i, j) -> Green = 255;
@@ -194,13 +207,13 @@ void Juego::imprimirMalla(Malla* malla){
 		}
 	}
 
-	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
-		for(int j = 0; j < malla->getCantidadDeColumnas(); j++){
+	for(i = 0; i < malla->getCantidadDeFilas(); i++){
+		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
 
 			if(malla->getParcela(i, j)->getCelula()->getEstado()){
 
-				for(int x = 1; x <= ANCHO_CELULA; x++){
-					for(int y = 1; y <= ALTO_CELULA; y++){
+				for(x = 1; x <= ANCHO_CELULA; x++){
+					for(y = 1; y <= ALTO_CELULA; y++){
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Red = malla->getParcela(i, j)->getCelula()->getRgb().getRojo();
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Green = malla->getParcela(i, j)->getCelula()->getRgb().getVerde();
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Blue = malla->getParcela(i, j)->getCelula()->getRgb().getAzul();
