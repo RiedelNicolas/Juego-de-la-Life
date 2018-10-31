@@ -56,3 +56,19 @@ int InterfazDeUsuario::pedirColumna(Malla* malla){
 	return columna-1;
 }
 
+int InterfazDeUsuario::pedirCantidadDeTurnos(){
+	int turnos;
+
+	cout <<"Ingrese la cantidad de turnos a ejecutar:";
+	cin >> turnos;
+	while(!cantidadDeTurnosEsValida(turnos)){
+		cout<< "CANTIDAD DE TURNOS NO VALIDA"<<endl;
+		turnos = pedirCantidadDeTurnos();
+	}
+
+	return turnos;
+}
+
+bool InterfazDeUsuario::cantidadDeTurnosEsValida(int turnos){
+	return turnos > 0;
+}

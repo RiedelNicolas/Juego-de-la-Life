@@ -7,9 +7,6 @@
 
 class InterfazDeUsuario{
 	public:
-
-		InterfazDeUsuario();
-
 		/*
 		 * Post: Imprime el mensaje de bienvenida al juego.
 		 */
@@ -32,6 +29,16 @@ class InterfazDeUsuario{
 		int pedirColumna(Malla*);
 
 		void imprimirResumen();
+		/*
+		* Post: Pide una cantidad de turnos al usuario y la devuelve
+		*/
+		int pedirCantidadDeTurnos();
+
+	private:
+		/*
+		 * Post: Valida si la cantidad de turnos a ejecutarse es mayor a 0
+		 */
+		bool cantidadDeTurnosEsValida(int turnos);
 };
 
 

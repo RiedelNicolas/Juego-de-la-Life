@@ -70,12 +70,7 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 
 void Juego::nuevoTurno(){
 
-	int cantidadDeTurnos;
-	cantidadDeTurnos = pedirCantidadDeTurnos();
-	while(!cantidadDeTurnoEsValida(cantidadDeTurnos)){
-		cout<< "CANTIDAD DE TURNOS NO VALIDA"<<endl;
-		cantidadDeTurnos = pedirCantidadDeTurnos();
-	}
+	int cantidadDeTurnos = interfaz->pedirCantidadDeTurnos();
 	ejecutarTurnos(cantidadDeTurnos);
 }
 
@@ -114,20 +109,6 @@ void Juego::inicializarJuego(){
 char Juego::getEstado(){
 
 	return estadoDeJuego;
-}
-
-bool Juego::cantidadDeTurnoEsValida(int cantidadDeTurnos){
-
-	return cantidadDeTurnos > 0;
-}
-
-int Juego::pedirCantidadDeTurnos(){
-	int turnos;
-
-	cout <<"Ingrese la cantidad de turnos a ejecutar:";
-	cin >> turnos;
-
-	return turnos;
 }
 
 void Juego::ejecutarTurnos(int cantidadDeTurnos){
