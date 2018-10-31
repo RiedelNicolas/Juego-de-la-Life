@@ -75,4 +75,3 @@ int Malla::contarCelulasVivasLindantes(int fila, int columna){
 bool Malla::posicionValida(int fila, int columna){
 	return ((fila >= 0) && (fila < alto) && (columna >= 0) && (columna < ancho));
 }
-

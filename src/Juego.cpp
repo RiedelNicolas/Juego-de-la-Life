@@ -96,8 +96,12 @@ void Juego::contadorCelulasVivas(Malla* malla, int fila, int columna){
 
 void Juego::agregarCelulasEnTablero(){
 
+	Malla* malla;
+
 	while(interfaz->olvidoIngresarCelulas()){
 
+		malla = interfaz->pedirNombreTablero(tablero);
+		ingresoDeCelulas(malla);
 	}
 }
 
@@ -125,6 +129,7 @@ void Juego::inicializarJuego(){
 		malla = tablero->obtenerCursor();
 		ingresoDeCelulas(malla);
 	}
+	agregarCelulasEnTablero();
 	imprimirResumen();
 }
 

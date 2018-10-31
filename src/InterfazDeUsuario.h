@@ -4,8 +4,10 @@
 
 #include <iostream>
 #include "Malla.h"
+#include "Tablero.h"
 
 class InterfazDeUsuario{
+
 	public:
 
 		InterfazDeUsuario();
@@ -49,6 +51,8 @@ class InterfazDeUsuario{
 	bool cantidadDeTurnosEsValida(int turnos);
 
 	bool preguntarPorPantalla(std::string mensaje);
+
+	Malla* pedirNombreTablero(Tablero* tablero);
 };
 
 

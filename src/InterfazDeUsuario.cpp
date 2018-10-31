@@ -21,7 +21,7 @@ bool InterfazDeUsuario::preguntarPorPantalla(string mensaje){
 	respuesta = toupper(respuesta);
 
 	if((respuesta != SI) || (respuesta != NO)){
-		cout << "Error! Ingreso inválido. Intente de nuevo. ";
+		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
 		deseaAgregarCelula();
 	}
 		return(respuesta == SI);
@@ -35,6 +35,21 @@ bool InterfazDeUsuario::deseaAgregarCelula(){
 bool InterfazDeUsuario::olvidoIngresarCelulas(){
 
 	return preguntarPorPantalla("¿Olvidó ingresar celulas en un tablero? (S/N)");
+}
+
+Malla* InterfazDeUsuario::pedirNombreTablero(Tablero* tablero){
+
+	string nombreTablero;
+	cout << "Ingrese el nombre del tablero" << endl;
+	cin >> nombreTablero;
+
+	while(tablero->buscarMalla(nombreTablero) == NULL){
+		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
+		cout << "Ingrese el nombre del tablero" << endl;
+		cin >> nombreTablero;
+	}
+
+	return (tablero->buscarMalla(nombreTablero));
 }
 
 int InterfazDeUsuario::pedirFila(Malla* malla){

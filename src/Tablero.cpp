@@ -36,7 +36,7 @@ void Tablero::agregarMalla(Malla* nuevaMalla){
 Malla* Tablero::buscarMalla(std::string nombreMalla){
 
 	bool mallaEncontrada = false;
-	Malla* mallaADevolver;
+	Malla* mallaADevolver = NULL;
 	Nodo* auxiliar = primerElemento;
 
 	if(primerElemento){

@@ -47,7 +47,9 @@ class Malla {
  		 * Post: devuelve la cantidad de células vivas alrededor de la célula dentro de la parcela especificada.
 		 */
 		int contarCelulasVivasLindantes(int fila, int columna);
+
 	private:
+
 		bool posicionValida(int fila, int columna);
 
 };
