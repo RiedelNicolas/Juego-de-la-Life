@@ -15,7 +15,8 @@ class Portal{
 
 	public:
 		/*
-		*Post: Crea un portal de tipo "tipoDePortal" con entrada "parcelaDeEntrada" y salida "parcelaDeSalida"
+		*Post: Crea un portal de tipo Inactivo ('I') y con tanto entrada y salida
+		*nulas
 		*/
 		Portal();
 		/*
@@ -61,17 +62,21 @@ class Portal{
 		 * Los cambios de la celula de la salida del portal no afectan a la celula de la
 		 * parcela de entrada
 		 */
-		void atravesarPortalNormal();
+		void atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
+
+		void atravesarPortalActivo(Parcela* llamadoDesde);
 		/*
-		 *
+		 *Post: Si la celula en "parcelaDeEntrada" esta viva
+		 *	entonces nace la celula de "parcelaDeSalida". De Estar muerta la celula en
+		 *	"parcelaDeEntrada" no hace nada.
 		 */
 		void hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
 		/*
-		 *
+		 *Post: Si la celula en "parcelaDeEntrada" esta muerta
+		 *	entonces mata a  la celula de "parcelaDeSalida". De Estar viva la celula en
+		 *	"parcelaDeEntrada" no hace nada.
 		 */
 		void matarCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
-
-
 };
 
 

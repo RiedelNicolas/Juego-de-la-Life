@@ -26,7 +26,7 @@ class Parcela {
 		Parcela();
 
 		/*
-		 * destructor
+		 * Post: Libera los recursos tomados
 		 */
 		~Parcela();
 
@@ -67,8 +67,8 @@ class Parcela {
 		void setMortalidad(float nuevaMortalidad);
 
 		/*
-		 * devuelve la direccion a el portal correspondiente a
-		 * dicha parcela, si el portal no existe lo crea.
+		 * Post: devuelve la direccion a el portal correspondiente a
+		 * dicha parcela. Si el portal no existe lo crea.
 		 */
 		Portal* getPortal();
 

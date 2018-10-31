@@ -59,16 +59,16 @@ int Malla::contarCelulasVivasLindantes(int fila, int columna){
 	int contadorCelulasVivas = 0;
 
 	for(int i=-1; i<2; i++){
-			for(int j=-1; j<2; j++){
-				if(posicionValida(fila+i,columna+j) && parcelas[fila+i][columna+j].getEstadoDeCelula()){
-					contadorCelulasVivas++;
-				}
+		for(int j=-1; j<2; j++){
+			if(posicionValida(fila+i,columna+j) && parcelas[fila+i][columna+j].getEstadoDeCelula()){
+				contadorCelulasVivas++;
 			}
 		}
+	}
 
-		if(parcelas[fila][columna].getEstadoDeCelula()){
-			contadorCelulasVivas--;
-		}
+	if(parcelas[fila][columna].getEstadoDeCelula()){
+		contadorCelulasVivas--;
+	}
 	return contadorCelulasVivas;
 }
 

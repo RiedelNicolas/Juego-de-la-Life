@@ -72,8 +72,7 @@ class Juego{
 		 */
 		void actualizarTablero();
 
-		/* Pre: -
-		*  Post: Modifica el estado de todas las células de una malla teniendo en cuenta los índices
+		/* Post: Modifica el estado de todas las células de una malla teniendo en cuenta los índices
 		* 		 de natalidad y mortalidad de cada parcela, así como los siguientes preceptos:
 		* 		 Una célula muerta con 3 células vecinas vivas, nace.
 		* 		 Una célula viva con 2 o 3 células vecinas vivas, permanece en ese estado.
