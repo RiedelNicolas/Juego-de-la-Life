@@ -41,7 +41,6 @@ void Juego::actualizarTablero(){
 		actualizarMalla(filas, columnas, malla);
 
 		cantidadDeCelulasVivas += malla->getCantidadDeCelulasVivas();
-		malla->getSiguienteMalla();
 	}
 }
 

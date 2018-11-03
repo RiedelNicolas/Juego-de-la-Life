@@ -40,7 +40,7 @@ class Malla {
 		 */
 		Parcela* getParcela(int fila,int columna);
 
-		//Post: Devuelve la cantidad de celulas vivas que hay en el Malla
+		//Post: Devuelve la cantidad de celulas vivas que hay en la Malla
 		int getCantidadDeCelulasVivas();
 
 		/* Pre: 'fila' y 'columna' deben ser mayores a 0 y encontrarse dentro de la malla NO TIENE MUCHO SENTIDO ESTA PRE PORQUE EL USUARIO NO METE MANO ACA, LO HACE TODO EL PROGRAMA
