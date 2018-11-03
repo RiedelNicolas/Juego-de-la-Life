@@ -79,6 +79,11 @@ class Juego{
 		*/
 		void actualizarMalla(int filas, int columnas, Malla* malla);
 
+		/* Pre: el tablero está creado e inicializado.
+		 * Post: muestra en una imagen BMP el estado de todas las Mallas.
+		 */
+		void imprimirTablero();
+
 		/*
 		 * Post: Se ejecutan "cantidadDeTurnos" turnos
 		 */

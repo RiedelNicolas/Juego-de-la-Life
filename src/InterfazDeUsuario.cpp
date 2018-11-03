@@ -71,7 +71,7 @@ int InterfazDeUsuario::pedirColumna(Malla* malla){
 	int columna, columnaMax;
 
 	columnaMax = malla->getCantidadDeColumnas();
-	cout << "Ingrese el número de columna (1-" << columnaMax << ")";
+	cout << "Ingrese el número de columna (1-" << columnaMax << ")" << endl;
 	cin >> columna;
 
 	if((columna<1) || (columna > columnaMax)){

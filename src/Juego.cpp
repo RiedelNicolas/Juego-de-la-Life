@@ -77,15 +77,16 @@ void Juego::imprimirResumen(){
 	cout << "Promedio de muertes a lo largo del juego: " << calcularPromedio(totalCelulasMuertas) << endl;
 
 	if(tableroCongelado(celulasNacidas, cantidadDeCelulasMuertas)){
-		cout << "El juego se ha congelado" << endl;
+		cout << "El juego se ha congelado." << endl;
 	}
+	cout << endl;
 }
 
 void Juego::imprimirMalla(Malla* malla){
 
 	int i, j, x, y;
 	BMP Imagen;
-	std::string nombreMalla = malla->getNombre() + ".bmp";
+	string nombreMalla = malla->getNombre() + ".bmp";
 
 	Imagen.SetSize(ANCHO_CELULA*malla->getCantidadDeColumnas(), ALTO_CELULA*malla->getCantidadDeFilas());
 
@@ -165,6 +166,15 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 	}
 }
 
+void Juego::imprimirTablero(){
+	Malla* malla;
+	tablero->iniciarCursor();
+
+	while(tablero->avanzarCursor()){
+		malla = tablero->obtenerCursor();
+		imprimirMalla(malla);
+	}
+}
 
 void Juego::ejecutarTurnos(int cantidadDeTurnos){
 
@@ -172,6 +182,8 @@ void Juego::ejecutarTurnos(int cantidadDeTurnos){
 		actualizarTablero();
 		turno ++;
 	}
+	imprimirTablero();
+	imprimirResumen();
 }
 
 float Juego::calcularPromedio(int numero){
@@ -226,7 +238,7 @@ void Juego::olvidoAgregarCelulasEnTablero(){
 
 	while(interfaz->olvidoIngresarCelulas()){
 
-		//malla = interfaz->pedirMallaPorNombre(tablero);
+		malla = interfaz->pedirMallaPorNombre(tablero);
 		ingresoDeCelulas(malla);
 	}
 }

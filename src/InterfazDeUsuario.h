@@ -46,13 +46,15 @@ class InterfazDeUsuario{
 		 */
 		bool olvidoIngresarCelulas();
 
+		Malla* pedirMallaPorNombre(Tablero* tablero);
+
+
 	private:
 
 	bool cantidadDeTurnosEsValida(int turnos);
 
 	bool preguntarPorPantalla(std::string mensaje);
 
-	Malla* pedirMallaPorNombre(Tablero* tablero);
 };
 
 
