@@ -69,6 +69,7 @@ int Malla::contarCelulasVivasLindantes(int fila, int columna){
 	if(parcelas[fila][columna].getEstadoDeCelula()){
 		contadorCelulasVivas--;
 	}
+	//cout << fila << ", " << columna << ": "<< contadorCelulasVivas << endl;
 	return contadorCelulasVivas;
 }
 
