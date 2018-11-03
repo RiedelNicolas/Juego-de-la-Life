@@ -104,7 +104,7 @@ class Juego{
 		 */
 		void validarCelulasNegativas(int &cantidadDeCelulas);
 
-		void contadorCelulasVivas(Malla* malla, int fila, int columna);
+		void contarCelulasVivas();
 
 		void ingresoDeCelulas(Malla* malla);
 

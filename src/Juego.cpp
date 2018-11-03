@@ -60,6 +60,7 @@ void Juego::inicializarJuego(){
 
 void Juego::imprimirResumen(){
 
+	contarCelulasVivas();
 	int celulasNacidas = (cantidadDeCelulasVivas - celulasVivasTurnoAnterior);
 
 	cout << "Turno:" << turno << endl;
@@ -211,24 +212,30 @@ void Juego::validarCelulasNegativas(int& cantidadDeCelulas){
 	}
 }
 
-void Juego::contadorCelulasVivas(Malla* malla, int fila, int columna){
+void Juego::contarCelulasVivas(){
+	Malla* malla;
+	cantidadDeCelulasVivas = 0;
+	tablero->iniciarCursor();
 
-	if(!(malla->getParcela(fila, columna)->getEstadoDeCelula())){
-
-		malla->getParcela(fila, columna)->setEstadoDeCelula(VIVA);
-		cantidadDeCelulasVivas++;
+	while(tablero->avanzarCursor()){
+		malla = tablero->obtenerCursor();
+		cantidadDeCelulasVivas += malla->getCantidadDeCelulasVivas();
 	}
 }
 
 void Juego::ingresoDeCelulas(Malla* malla){
 
 	int fila, columna;
+	Parcela* parcela;
 	cout << "Ingreso de células para el tablero '" << malla->getNombre() << "':" << endl;
+
 	while(interfaz->deseaAgregarCelula()){
+
 			fila = interfaz->pedirFila(malla);
 			columna = interfaz->pedirColumna(malla);
 
-			contadorCelulasVivas(malla, fila, columna);
+			parcela = malla->getParcela(fila, columna);
+			parcela->setEstadoDeCelula(VIVA);
 		}
 }
 
