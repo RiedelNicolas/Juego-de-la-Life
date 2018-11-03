@@ -37,19 +37,19 @@ bool InterfazDeUsuario::olvidoIngresarCelulas(){
 	return preguntarPorPantalla("¿Olvidó ingresar celulas en un tablero? (S/N)");
 }
 
-Malla* InterfazDeUsuario::pedirNombreTablero(Tablero* tablero){
+Malla* InterfazDeUsuario::pedirMallaPorNombre(Tablero* tablero){
 
-	string nombreTablero;
-	cout << "Ingrese el nombre del tablero" << endl;
-	cin >> nombreTablero;
+	string nombreMalla;
+	cout << "Ingrese el nombre del tablero:" << endl;
+	cin >> nombreMalla;
 
-	while(tablero->buscarMalla(nombreTablero) == NULL){
+	while(tablero->buscarMalla(nombreMalla) == NULL){
 		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
-		cout << "Ingrese el nombre del tablero" << endl;
-		cin >> nombreTablero;
+		cout << "Ingrese el nombre del tablero:" << endl;
+		cin >> nombreMalla;
 	}
 
-	return (tablero->buscarMalla(nombreTablero));
+	return (tablero->buscarMalla(nombreMalla));
 }
 
 int InterfazDeUsuario::pedirFila(Malla* malla){

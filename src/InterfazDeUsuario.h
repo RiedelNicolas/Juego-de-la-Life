@@ -52,7 +52,7 @@ class InterfazDeUsuario{
 
 	bool preguntarPorPantalla(std::string mensaje);
 
-	Malla* pedirNombreTablero(Tablero* tablero);
+	Malla* pedirMallaPorNombre(Tablero* tablero);
 };
 
 

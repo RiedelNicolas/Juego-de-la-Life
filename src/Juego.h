@@ -103,7 +103,7 @@ class Juego{
 
 		void ingresoDeCelulas(Malla* malla);
 
-		void agregarCelulasEnTablero();
+		void olvidoAgregarCelulasEnTablero();
 };
 
 
