@@ -6,6 +6,10 @@
 #include "Malla.h"
 #include "Tablero.h"
 
+#define TERMINAR 'T'
+#define CONTINUAR 'C'
+#define REINICIAR 'R'
+
 class InterfazDeUsuario{
 
 	public:
@@ -48,7 +52,7 @@ class InterfazDeUsuario{
 
 		Malla* pedirMallaPorNombre(Tablero* tablero);
 
-
+		char preguntarEstadoDeJuego();
 	private:
 
 	bool cantidadDeTurnosEsValida(int turnos);

@@ -8,10 +8,9 @@ int main(){
 
 	Tablero tablero;
 	try{
-		Inicializador leeArchivo( "/home/gonzams/git/Juego-de-la-Life/src/prueba.txt", &tablero);
+		Inicializador leeArchivo( "/home/hugo/git/Juego-de-la-Life/src/prueba.txt", &tablero);
 		Juego elJuegoDeLaVida(&tablero);
-		elJuegoDeLaVida.inicializarJuego();
-		elJuegoDeLaVida.nuevoTurno();
+		elJuegoDeLaVida.jugar();
 	}catch(string mensaje){
 		cout << mensaje << endl;
 	}

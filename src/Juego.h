@@ -5,15 +5,13 @@
 #include "EasyBMP.h"
 #include "InterfazDeUsuario.h"
 
-#define REINICIAR 'R'
-#define TERMINAR 'T'
-#define CONTINUAR 'C'
 #define ANCHO_CELULA 10
 #define ALTO_CELULA 10
 
 class Juego{
 	private:
-		char estadoDeJuego; // 'C': continuar; 'R': reiniciar; 'T': terminar
+		bool reiniciar;
+		bool terminar;
 		unsigned turno;
 		int cantidadDeCelulasMuertas;
 		int cantidadDeCelulasVivas;
@@ -42,11 +40,6 @@ class Juego{
 		void finalizarJuego();
 
 		/*
-		 * Post: Devuelve el estado del juego
-		 */
-		char getEstado();
-
-		/*
 		 *Post: Inicializa el juego
 		 */
 		void inicializarJuego();
@@ -61,6 +54,8 @@ class Juego{
 		 * Post: Imprime la malla en una imagen con el formato nombreMalla.bmp
 		 */
 		void imprimirMalla(Malla* malla);
+
+		void jugar();
 
 	private:
 
