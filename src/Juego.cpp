@@ -226,7 +226,7 @@ void Juego::olvidoAgregarCelulasEnTablero(){
 
 	while(interfaz->olvidoIngresarCelulas()){
 
-		malla = interfaz->pedirMallaPorNombre(tablero);
+		//malla = interfaz->pedirMallaPorNombre(tablero);
 		ingresoDeCelulas(malla);
 	}
 }

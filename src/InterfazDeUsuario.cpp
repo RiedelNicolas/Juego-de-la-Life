@@ -20,7 +20,7 @@ bool InterfazDeUsuario::preguntarPorPantalla(string mensaje){
 	cin >> respuesta;
 	respuesta = toupper(respuesta);
 
-	if((respuesta != SI) || (respuesta != NO)){
+	if((respuesta != SI) && (respuesta != NO)){
 		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
 		deseaAgregarCelula();
 	}
