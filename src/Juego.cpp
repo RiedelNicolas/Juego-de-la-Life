@@ -106,8 +106,8 @@ void Juego::imprimirMalla(Malla* malla){
 
 			if(malla->getParcela(i, j)->getCelula()->getEstado()){
 
-				for(x = 1; x <= ANCHO_CELULA; x++){
-					for(y = 1; y <= ALTO_CELULA; y++){
+				for(x = 0; x < ANCHO_CELULA; x++){
+					for(y = 0; y < ALTO_CELULA; y++){
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Red = malla->getParcela(i, j)->getCelula()->getRgb().getRojo();
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Green = malla->getParcela(i, j)->getCelula()->getRgb().getVerde();
 						Imagen(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Blue = malla->getParcela(i, j)->getCelula()->getRgb().getAzul();
@@ -236,6 +236,8 @@ void Juego::ingresoDeCelulas(Malla* malla){
 
 			parcela = malla->getParcela(fila, columna);
 			parcela->setEstadoDeCelula(VIVA);
+
+			imprimirTablero();
 		}
 }
 

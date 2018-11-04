@@ -1,6 +1,7 @@
 #include "Celula.h"
 
 Celula::Celula(){
+
 	this->estaViva=false;
 	this->vida=0.0;
 }
@@ -18,6 +19,7 @@ float Celula::getVida(){
 }
 
 void Celula::setVida(float nuevaVida){
+
 	if(vidaEsValida(nuevaVida)){
 		this->vida = nuevaVida;
 	}
@@ -30,12 +32,18 @@ Rgb Celula::getRgb(){
 	return color;
 }
 
+void Celula::setRgb(Rgb color){
+	this->color = color;
+}
+
 void Celula::setRojo(int rojo){
 	color.setRojo(rojo);
 }
+
 void Celula::setVerde(int verde){
 	color.setVerde(verde);
 }
+
 void Celula::setAzul(int azul){
 	color.setAzul(azul);
 }

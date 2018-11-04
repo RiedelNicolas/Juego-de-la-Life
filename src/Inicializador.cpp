@@ -60,6 +60,9 @@ void Inicializador::levantarParcela(){
 
 	Malla* malla = tablero->buscarMalla(nombreDeLaMalla);
 	Parcela* parcela = malla->getParcela(y-1,x-1);
+
+	parcela->getCelula()->setRgb(color);
+
 	parcela->setRgb(color);
 	parcela->setNatalidad(natalidad);
 	parcela->setMortalidad(mortalidad);

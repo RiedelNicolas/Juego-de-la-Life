@@ -8,7 +8,7 @@ int main(){
 
 	Tablero tablero;
 	try{
-		Inicializador leeArchivo( "/home/gonzams/git/Juego-de-la-Life/src/prueba.txt", &tablero);
+		Inicializador leeArchivo( "/home/ezezbogar/git/Juego-de-la-Life/src/prueba.txt", &tablero);
 		Juego elJuegoDeLaVida(&tablero);
 		elJuegoDeLaVida.inicializarJuego();
 		elJuegoDeLaVida.nuevoTurno();

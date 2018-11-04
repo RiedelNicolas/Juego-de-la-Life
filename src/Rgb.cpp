@@ -6,7 +6,7 @@
 #define POS_AZUL 2
 #define MIN_RGB 0
 #define MAX_RGB 255
-#define COLOR_DEFECTO 255
+#define COLOR_DEFECTO 128
 
 /*pre: recibe un int, correspondiente al valor de un color.
  * post:si el valor del color no se encuentra en el rango, tira una excepción . Siendo el rango (MIN_RGB, MAX_RGB)
