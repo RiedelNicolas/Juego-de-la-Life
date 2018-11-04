@@ -51,13 +51,13 @@ class Parcela {
 		 */
 		void reducirVidaDeCelula();
 		/*
-		 *
+		 *Post: Devuelve el Rgb de la parcela
 		 */
 		Rgb getRgb();
 		/*
-		 *
+		 *Post: cambia el atributo Rgb de la parcela por "nuevoRgb"
 		 */
-		void setRgb(Rgb);
+		void setRgb(Rgb nuevoRgb);
 		/*
 		 * Post: modifica el indice de natalidad de la parcela por "nuavaNatalidad"
 		 */
@@ -72,7 +72,9 @@ class Parcela {
 		 * dicha parcela. Si el portal no existe lo crea.
 		 */
 		Portal* getPortal();
-
+		/*
+		 * Post: Devuelve la direccion de la celula que contiene
+		 */
 		Celula* getCelula();
 
 };

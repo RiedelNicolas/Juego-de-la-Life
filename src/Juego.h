@@ -30,7 +30,10 @@ class Juego{
 		 * Post: Libera los recursos tomados
 		 */
 		~Juego();
-
+		/*
+		 * Post: Ejecuta "n" turnos. Donde "n" es un numero entero
+		 * mayor a 0 ingresado por el usuario
+		 */
 		void nuevoTurno();
 
 		/*
@@ -62,7 +65,7 @@ class Juego{
 		void imprimirResumen();
 
 		/*
-		 * Pre: Recibe un puntero a malla inicializado
+		 * Pre: Recibe un puntero a malla inicializada
 		 * Post: Imprime la malla en una imagen con el formato nombreMalla.bmp
 		 */
 		void imprimirMalla(Malla* malla);
@@ -77,15 +80,21 @@ class Juego{
 		/* Pre: el tablero está creado.
 		 * Post: Modifica el estado de todas las células del juego teniendo en cuenta los índices
 		 * 		 de natalidad y mortalidad de cada parcela, así como los siguientes preceptos:
-		 * 		 Una célula muerta con 3 células vecinas vivas, nace.
-		 * 		 Una célula viva con 2 o 3 células vecinas vivas, permanece en ese estado.
+		 * 		 - Una célula muerta con 3 células vecinas vivas, nace.
+		 * 		 - Una célula viva con 2 o 3 células vecinas vivas, permanece en ese estado.
+		 * 		 - En cualquier otro caso su vida resulta reducida segun el indice de mortalidad
+		 * 		 de la parcela que la contiene. De no poder reducir mas su vida(esta no puede ser
+		 * 		 menor a 0) o ser esta 0 la celula muere
 		 */
 		void actualizarTablero();
 
 		/* Post: Modifica el estado de todas las células de una malla teniendo en cuenta los índices
 		* 		 de natalidad y mortalidad de cada parcela, así como los siguientes preceptos:
-		* 		 Una célula muerta con 3 células vecinas vivas, nace.
-		* 		 Una célula viva con 2 o 3 células vecinas vivas, permanece en ese estado.
+		 * 		 - Una célula muerta con 3 células vecinas vivas, nace.
+		 * 		 - Una célula viva con 2 o 3 células vecinas vivas, permanece en ese estado.
+		 * 		 - En cualquier otro caso su vida resulta reducida segun el indice de mortalidad
+		 * 		 de la parcela que la contiene. De no poder reducir mas su vida(esta no puede ser
+		 * 		 menor a 0) o ser esta 0 la celula muere
 		*/
 		void actualizarMalla(int filas, int columnas, Malla* malla);
 

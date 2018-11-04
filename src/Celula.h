@@ -10,8 +10,6 @@ class Celula{
 		float vida;
 		Rgb color;
 	public:
-		//ver porque
-		bool estaViva;
 		/*
 		 * Post: Se crea una celula "muerta" y con 0.0 de vida.
 		 */
@@ -38,7 +36,7 @@ class Celula{
 		 */
 		Rgb getRgb();
 		/*
-		 * Post: Modifican el color especificado  por el parametro pasado.
+		 * Post: Modifican el color especificado por el parametro pasado.
 		 */
 		void setRojo(int rojo);
 		void setVerde(int verde);

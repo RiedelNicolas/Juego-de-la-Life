@@ -14,7 +14,7 @@ class InterfazDeUsuario{
 
 	public:
 		/*
-		 *
+		 *Post: Crea una interfaz de usuario lista para ser usada
 		 */
 		InterfazDeUsuario();
 		/*
@@ -51,7 +51,8 @@ class InterfazDeUsuario{
 		 */
 		bool olvidoIngresarCelulas();
 		/*
-		 *
+		 *Post: Devuelve un puntero a la malla cuyo nombre ingresa el
+		 *		ususario
 		 */
 		Malla* pedirMallaPorNombre(Tablero* tablero);
 		/*
