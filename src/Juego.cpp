@@ -173,6 +173,11 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 				if(!malla->getParcela(i, j)->getEstadoDeCelula()){
 					cantidadDeCelulasMuertas++;
 				}
+				Parcela* parcela = malla->getParcela(i,j);
+				Portal* portal = malla->getParcela(i,j)->getPortal();
+				if(portal->getTipo() != 'I'){
+					portal->atravesarPortal(parcela);
+				}
 			}
 			else if(!estaViva && celulasVivasLindantes==3){
 				malla->getParcela(i, j)->setEstadoDeCelula(true);
