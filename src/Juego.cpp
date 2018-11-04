@@ -165,24 +165,28 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 
 	for(int i=0; i<filas; i++){
 		for(int j=0; j<columnas; j++){
+			Parcela* parcelaAOperar = malla->getParcela(i,j);
 			celulasVivasLindantes = malla->contarCelulasVivasLindantes(i, j);
-			estaViva = malla->getParcela(i, j)->getEstadoDeCelula();
+			estaViva = parcelaAOperar->getEstadoDeCelula();
 
 			if(estaViva && (celulasVivasLindantes<2 || celulasVivasLindantes>3)){
-				malla->getParcela(i, j)->reducirVidaDeCelula();
-				if(!malla->getParcela(i, j)->getEstadoDeCelula()){
+				parcelaAOperar->reducirVidaDeCelula();
+				if(parcelaAOperar->getEstadoDeCelula()){
 					cantidadDeCelulasMuertas++;
 				}
-				Parcela* parcela = malla->getParcela(i,j);
 				Portal* portal = malla->getParcela(i,j)->getPortal();
 				if(portal->getTipo() != 'I'){
-					portal->atravesarPortal(parcela);
+					portal->atravesarPortal(parcelaAOperar);
 				}
 			}
 			else if(!estaViva && celulasVivasLindantes==3){
-				malla->getParcela(i, j)->setEstadoDeCelula(true);
-				Celula* celula = malla->getParcela(i, j)->getCelula();
+				parcelaAOperar->setEstadoDeCelula(true);
+				Celula* celula = parcelaAOperar->getCelula();
 				celula->setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
+				Portal* portal = malla->getParcela(i,j)->getPortal();
+				if(portal->getTipo() != 'I'){
+					portal->atravesarPortal(parcelaAOperar);
+				}
 			}
 		}
 	}
