@@ -1,6 +1,11 @@
 #include "InterfazDeUsuario.h"
+
 #define SI 'S'
 #define NO 'N'
+#define TERMINAR 'T'
+#define CONTINUAR 'C'
+#define REINICIAR 'R'
+
 using namespace std;
 
 
@@ -53,19 +58,25 @@ Malla* InterfazDeUsuario::pedirMallaPorNombre(Tablero* tablero){
 	return (tablero->buscarMalla(nombreMalla));
 }
 
+
 char InterfazDeUsuario::preguntarEstadoDeJuego(){
 	char respuesta;
 	cout << "Presione T para terminar, R para reiniciar o C para continuar" << endl;
 	cin >> respuesta;
 	respuesta = toupper(respuesta);
+<<<<<<< HEAD
 
 	if((respuesta != TERMINAR) && (respuesta != REINICIAR) && (respuesta != CONTINUAR)){
+=======
+	if( (respuesta != TERMINAR) && (respuesta != REINICIAR) && (respuesta != CONTINUAR) ){
+>>>>>>> f466f11d295e61d9be93fff3ab39f552b809b106
 		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
 		respuesta = preguntarEstadoDeJuego();
 	}
 
 	return respuesta;
 }
+
 
 int InterfazDeUsuario::pedirFila(Malla* malla){
 	int fila, filaMax;
@@ -76,11 +87,12 @@ int InterfazDeUsuario::pedirFila(Malla* malla){
 
 	if((fila<1) || (fila > filaMax)){
 		cout << "Valor fuera del rango. Intente de nuevo. " << endl;
-		fila = pedirFila(malla) + 1;
+		fila = (pedirFila(malla) + 1);
 	}
 
-	return fila-1;
+	return (fila-1);
 }
+
 
 int InterfazDeUsuario::pedirColumna(Malla* malla){
 	int columna, columnaMax;
@@ -94,7 +106,7 @@ int InterfazDeUsuario::pedirColumna(Malla* malla){
 		columna = pedirColumna(malla) + 1;
 	}
 
-	return columna-1;
+	return (columna-1) ;
 }
 
 
@@ -103,7 +115,7 @@ int InterfazDeUsuario::pedirCantidadDeTurnos(){
 
 	cout <<"Ingrese la cantidad de turnos a ejecutar:";
 	cin >> turnos;
-	while(!cantidadDeTurnosEsValida(turnos)){
+	while( !cantidadDeTurnosEsValida(turnos) ){
 		cout<< "CANTIDAD DE TURNOS NO VALIDA"<<endl;
 		turnos = pedirCantidadDeTurnos();
 	}
@@ -111,6 +123,7 @@ int InterfazDeUsuario::pedirCantidadDeTurnos(){
 	return turnos;
 }
 
+
 bool InterfazDeUsuario::cantidadDeTurnosEsValida(int turnos){
-	return turnos > 0;
+	return (turnos > 0) ;
 }

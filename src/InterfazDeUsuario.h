@@ -6,9 +6,7 @@
 #include "Malla.h"
 #include "Tablero.h"
 
-#define TERMINAR 'T'
-#define CONTINUAR 'C'
-#define REINICIAR 'R'
+
 
 class InterfazDeUsuario{
 
