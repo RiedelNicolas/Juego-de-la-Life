@@ -52,6 +52,18 @@ Malla* InterfazDeUsuario::pedirMallaPorNombre(Tablero* tablero){
 	return (tablero->buscarMalla(nombreMalla));
 }
 
+char InterfazDeUsuario::preguntarEstadoDeJuego(){
+	char respuesta;
+	cout << "Presione T para terminar, R para reiniciar o C para continuar" << endl;
+	cin >> respuesta;
+	respuesta = toupper(respuesta);
+	if((respuesta != TERMINAR) && (respuesta != REINICIAR) && (respuesta != CONTINUAR)){
+		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
+		preguntarEstadoDeJuego();
+	}
+		return respuesta;
+}
+
 int InterfazDeUsuario::pedirFila(Malla* malla){
 	int fila, filaMax;
 

@@ -15,20 +15,17 @@ class Nodo {
 	public:
 
 		/*
-		 * Constructor
 		 * Pre: Recibe un puntero a Malla
 		 * Post: Asigna ese puntero al puntero a malla del Nodo
 		 */
 		Nodo(Malla* malla);
 
 		/*
-		 * Destructor
 		 * Post: Libera los recursos utilizados por el Nodo
 		 */
 		~Nodo();
 
 		/*
-		 * Pre: Malla creada
 		 * Post: Devuelve un puntero a malla
 		 */
 		Malla* getMalla();

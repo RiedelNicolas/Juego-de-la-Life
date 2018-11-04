@@ -17,7 +17,6 @@ class Tablero {
 	public:
 
 	/*
-	 * Constructor
 	 * Post: Crea una lista vacia con el primer elemento apuntando a NULL;
 	 */
 	Tablero();

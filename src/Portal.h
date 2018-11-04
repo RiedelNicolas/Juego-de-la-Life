@@ -57,24 +57,23 @@ class Portal{
 		 */
 		bool estadoEsValido(char estado);
 		/*
-		 * Post: Si la celula de la parcela de entrada nacio, nacera una celula en la parcela salida del portal
-		 * Si la celula de la entrada murio, morira la celula de la salida del portal
-		 * Los cambios de la celula de la salida del portal no afectan a la celula de la
-		 * parcela de entrada
+		 * Post: Si la celula de "parcelaDeEntrada" nacio, nacera una celula en "parcelaDeSalida" del portal
+		 * Si la celula de "parcelaDeEntrada"  murio, morira la celula de "parcelaDeSalida" del portal
+		 * Los cambios de la celula en "parcelaDeSalida" no afectan a la celula de "parcelaDeEntrada"
 		 */
 		void atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
 
 		void atravesarPortalActivo(Parcela* llamadoDesde);
 		/*
 		 *Post: Si la celula en "parcelaDeEntrada" esta viva
-		 *	entonces nace la celula de "parcelaDeSalida". De Estar muerta la celula en
-		 *	"parcelaDeEntrada" no hace nada.
+		 *entonces nace la celula de "parcelaDeSalida". De Estar muerta la celula en
+		 *"parcelaDeEntrada" no hace nada.
 		 */
 		void hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
 		/*
 		 *Post: Si la celula en "parcelaDeEntrada" esta muerta
-		 *	entonces mata a  la celula de "parcelaDeSalida". De Estar viva la celula en
-		 *	"parcelaDeEntrada" no hace nada.
+		 *entonces mata a  la celula de "parcelaDeSalida". De Estar viva la celula en
+		 *"parcelaDeEntrada" no hace nada.
 		 */
 		void matarCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
 };

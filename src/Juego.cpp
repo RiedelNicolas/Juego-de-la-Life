@@ -4,7 +4,8 @@ using namespace std;
 
 Juego::Juego(Tablero* tablero){
 
-	estadoDeJuego = CONTINUAR;
+	reiniciar = false;
+	terminar = false;
 	turno = 0;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasMuertas= 0;
@@ -27,18 +28,14 @@ void Juego::nuevoTurno(){
 
 void Juego::reiniciarJuego(){
 
-	estadoDeJuego = REINICIAR;
+	reiniciar = true;
 	turno = 0;
 }
 
 void Juego::finalizarJuego(){
 
-	estadoDeJuego = TERMINAR;
-}
-
-char Juego::getEstado(){
-
-	return estadoDeJuego;
+	reiniciar = true;
+	terminar = true;
 }
 
 void Juego::inicializarJuego(){
@@ -57,6 +54,22 @@ void Juego::inicializarJuego(){
 	imprimirResumen();
 }
 
+void Juego::jugar(){
+	while(!terminar){
+		inicializarJuego();
+		while(!reiniciar){
+			nuevoTurno();
+			char estado = interfaz->preguntarEstadoDeJuego();
+			if(estado  == 'R'){
+				reiniciarJuego();
+			}
+			if( estado == 'T'){
+				finalizarJuego();
+			}
+		}
+
+	}
+}
 
 void Juego::imprimirResumen(){
 
@@ -185,6 +198,7 @@ void Juego::ejecutarTurnos(int cantidadDeTurnos){
 	}
 	imprimirTablero();
 	imprimirResumen();
+
 }
 
 float Juego::calcularPromedio(int numero){
