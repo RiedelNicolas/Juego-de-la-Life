@@ -9,21 +9,13 @@ class Celula{
 	private:
 
 		float vida;
-<<<<<<< HEAD
-
-=======
 		bool estaViva;
->>>>>>> fc8fca996f58657889c340aaa073266b63132525
 		Rgb color;
 
 	public:
-<<<<<<< HEAD
-
 		//ver porque
 		bool estaViva;
 
-=======
->>>>>>> fc8fca996f58657889c340aaa073266b63132525
 		/*
 		 * Post: Se crea una celula "muerta" y con 0.0 de vida.
 		 */

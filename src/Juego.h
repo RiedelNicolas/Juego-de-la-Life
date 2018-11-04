@@ -5,16 +5,13 @@
 #include "EasyBMP.h"
 #include "InterfazDeUsuario.h"
 
-<<<<<<< HEAD
 #define REINICIAR 'R'
 #define TERMINAR 'T'
 #define CONTINUAR 'C'
 #define ANCHO_CELULA 50
 #define ALTO_CELULA 50
-=======
 #define ANCHO_CELULA 10
 #define ALTO_CELULA 10
->>>>>>> fc8fca996f58657889c340aaa073266b63132525
 
 class Juego{
 	private:

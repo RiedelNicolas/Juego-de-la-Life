@@ -8,11 +8,9 @@ int main(){
 
 	Tablero tablero;
 	try{
-<<<<<<< HEAD
-		Inicializador leeArchivo( "/home/ezezbogar/git/Juego-de-la-Life/src/prueba.txt", &tablero);
-=======
-		Inicializador leeArchivo( "/home/hugo/git/Juego-de-la-Life/src/prueba.txt", &tablero);
->>>>>>> fc8fca996f58657889c340aaa073266b63132525
+
+		Inicializador leeArchivo( "/home/gonzams/git/Juego-de-la-Life/src/prueba.txt", &tablero);
+//		Inicializador leeArchivo( "/home/hugo/git/Juego-de-la-Life/src/prueba.txt", &tablero);
 		Juego elJuegoDeLaVida(&tablero);
 		elJuegoDeLaVida.jugar();
 	}catch(string mensaje){
