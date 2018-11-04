@@ -131,6 +131,8 @@ class Juego{
 		void ingresoDeCelulas(Malla* malla);
 
 		void olvidoAgregarCelulasEnTablero();
+
+
 };
 
 

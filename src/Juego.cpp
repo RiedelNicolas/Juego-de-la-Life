@@ -175,7 +175,9 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 				}
 			}
 			else if(!estaViva && celulasVivasLindantes==3){
-				malla->getParcela(i, j)->setEstadoDeCelula(false);
+				malla->getParcela(i, j)->setEstadoDeCelula(true);
+				Celula* celula = malla->getParcela(i, j)->getCelula();
+				celula->setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
 			}
 		}
 	}

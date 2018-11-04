@@ -76,3 +76,39 @@ int Malla::contarCelulasVivasLindantes(int fila, int columna){
 bool Malla::posicionValida(int fila, int columna){
 	return ((fila >= 0) && (fila < alto) && (columna >= 0) && (columna < ancho));
 }
+
+Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
+	Rgb colorPromedio(0,0,0);
+	int celulasVivas = 0;
+	int rojo = 0, azul = 0, verde = 0;
+
+	for(int i=-1; i<2; i++){
+		for(int j=-1; j<2; j++){
+			if(posicionValida(fila+i,columna+j) && parcelas[fila+i][columna+j].getEstadoDeCelula()){
+				Rgb colorAOperar = parcelas[fila+i][columna+j].getCelula()->getRgb();
+				rojo += colorAOperar.getRojo();
+				azul += colorAOperar.getAzul();
+				verde += colorAOperar.getVerde();
+				celulasVivas ++;
+			}
+		}
+	}
+
+	if(parcelas[fila][columna].getEstadoDeCelula()){
+		Rgb colorAOperar = parcelas[fila][columna].getCelula()->getRgb();
+		rojo -= colorAOperar.getRojo();
+		azul -= colorAOperar.getAzul();
+		verde -= colorAOperar.getVerde();
+		celulasVivas--;
+	}
+
+	rojo = rojo/celulasVivas;
+	verde = verde/celulasVivas;
+	azul = azul/celulasVivas;
+
+	colorPromedio.setRojo(rojo);
+	colorPromedio.setVerde(verde);
+	colorPromedio.setAzul(azul);
+
+	return colorPromedio;
+}

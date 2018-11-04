@@ -53,6 +53,8 @@ class Malla {
 		 */
 		int contarCelulasVivasLindantes(int fila, int columna);
 
+		Rgb obtenerColorPromedioDeVecinasVivas(int fila, int columna);
+
 	private:
 		/*
 		 * Post: Devuelve un bool que responde a la pregunta:
