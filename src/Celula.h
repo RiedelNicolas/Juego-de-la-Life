@@ -14,7 +14,7 @@ class Celula{
 
 	public:
 		//ver porque
-		bool estaViva;
+		//bool estaViva;
 
 		/*
 		 * Post: Se crea una celula "muerta" y con 0.0 de vida.
