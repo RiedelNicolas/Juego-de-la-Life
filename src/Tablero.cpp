@@ -15,13 +15,13 @@ void Tablero::vaciarTablero(){
 
 	Nodo* auxiliar = primerElemento;
 
-		if(!this->tableroVacio()){
-			while(auxiliar){
-				primerElemento = primerElemento->getSigNodo();
-				delete auxiliar;
-				auxiliar = primerElemento;
-			}
+	if(!this->tableroVacio()){
+		while(auxiliar){
+			primerElemento = primerElemento->getSigNodo();
+			delete auxiliar;
+			auxiliar = primerElemento;
 		}
+	}
 }
 
 bool Tablero::tableroVacio(){
