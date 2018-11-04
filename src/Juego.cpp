@@ -193,8 +193,13 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 }
 
 void Juego::imprimirTablero(){
-	Malla* malla= tablero->obtenerCursor();
-	imprimirMalla(malla);
+	Malla* malla;
+	tablero->iniciarCursor();
+
+	while(tablero->avanzarCursor()){
+		malla = tablero->obtenerCursor();
+		imprimirMalla(malla);
+	}
 }
 
 void Juego::ejecutarTurnos(int cantidadDeTurnos){
@@ -252,16 +257,14 @@ void Juego::ingresoDeCelulas(Malla* malla){
 
 	while(interfaz->deseaAgregarCelula()){
 
-			fila = interfaz->pedirFila(malla);
-			columna = interfaz->pedirColumna(malla);
+		fila = interfaz->pedirFila(malla);
+		columna = interfaz->pedirColumna(malla);
 
-			cout << fila << ", " << columna;
+		parcela = malla->getParcela(fila, columna);
+		parcela->setEstadoDeCelula(VIVA);
 
-			parcela = malla->getParcela(fila, columna);
-			parcela->setEstadoDeCelula(VIVA);
-
-			imprimirTablero();
-		}
+		imprimirMalla(tablero->obtenerCursor());
+	}
 }
 
 void Juego::olvidoAgregarCelulasEnTablero(){
