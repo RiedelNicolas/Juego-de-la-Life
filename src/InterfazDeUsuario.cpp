@@ -73,7 +73,7 @@ int InterfazDeUsuario::pedirFila(Malla* malla){
 
 	if((fila<1) || (fila > filaMax)){
 		cout << "Valor fuera del rango. Intente de nuevo. " << endl;
-		fila = pedirFila(malla);
+		fila = pedirFila(malla) + 1;
 	}
 
 	return fila-1;
@@ -88,7 +88,7 @@ int InterfazDeUsuario::pedirColumna(Malla* malla){
 
 	if((columna<1) || (columna > columnaMax)){
 		cout << "Valor fuera del rango. Intente de nuevo. " << endl;
-		columna = pedirColumna(malla);
+		columna = pedirColumna(malla) + 1;
 	}
 
 	return columna-1;

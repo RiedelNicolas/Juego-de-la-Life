@@ -260,6 +260,8 @@ void Juego::ingresoDeCelulas(Malla* malla){
 			fila = interfaz->pedirFila(malla);
 			columna = interfaz->pedirColumna(malla);
 
+			cout << fila << ", " << columna;
+
 			parcela = malla->getParcela(fila, columna);
 			parcela->setEstadoDeCelula(VIVA);
 
