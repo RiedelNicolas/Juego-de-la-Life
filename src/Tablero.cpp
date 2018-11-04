@@ -8,6 +8,10 @@ Tablero::Tablero(){
 }
 
 Tablero::~Tablero(){
+	this->vaciarTablero();
+}
+
+void Tablero::vaciarTablero(){
 
 	Nodo* auxiliar = primerElemento;
 

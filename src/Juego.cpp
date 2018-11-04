@@ -221,14 +221,14 @@ float Juego::calcularPromedio(int numero){
 		promedio = 0;
 	}
 	else{
-		promedio = float(numero)/float(turno);
+		promedio = ( (float)numero)/ turno ;
 	}
 	return promedio;
 }
 
 bool Juego::tableroCongelado(int celulasNacidas, int celulasMuertas){
 
-	return((celulasNacidas == 0) && (celulasMuertas == 0));
+	return( (celulasNacidas == 0) && (celulasMuertas == 0) );
 }
 
 void Juego::validarCelulasNegativas(int& cantidadDeCelulas){

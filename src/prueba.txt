@@ -1,12 +1,5 @@
-Tablero primero 4 4
-Tablero segundo 3 3
-Tablero tercero 3 4
-Portal primero 1 1 A segundo 1 1
-Portal segundo 2 2 N tercero 2 2
-Portal tercero 2 1 P primero 2 1
-Parcela primero 1 1 55 98 4 1.0 1.0
-Parcela primero 1 2 66 55 8 1.0 1.0
-Parcela primero 1 3 33 2 55 0.5 0.5
-Parcela primero 1 4 69 5 2 0.5 0.5
-Parcela primero 2 1 5 2 3 0.5 0.5
+Tablero primero 6 6
+Tablero segundo 20 20
+Tablero tercero 10 10
+
 fin

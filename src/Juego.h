@@ -124,6 +124,8 @@ class Juego{
 		/*
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
+
+		//ESTO ES UNA PORONGA
 		void validarCelulasNegativas(int &cantidadDeCelulas);
 
 		void contarCelulasVivas();
