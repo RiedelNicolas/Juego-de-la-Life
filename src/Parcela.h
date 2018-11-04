@@ -36,7 +36,8 @@ class Parcela {
 		 */
 		bool getEstadoDeCelula();
 		/*
-		 * Pre: Recibe un bool, indicando si la celula esta viva o muerta.
+		 * Pre: Recibe un bool, indicando si se quiere hacer nacer (true)
+		 * o matar (false) a la celula
 		 * Post: si es true :La que contiene celula esta viva y
 		 * con una vida de 100 * indiceDeNacimiento
 		 * 	ej: Si el indiceDeNacimiento de la parcela es de 0.5 entonces la celula tendra 50 de vida

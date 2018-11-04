@@ -13,9 +13,10 @@
 class InterfazDeUsuario{
 
 	public:
-
+		/*
+		 *
+		 */
 		InterfazDeUsuario();
-
 		/*
 		 * Post: Imprime el mensaje de bienvenida al juego.
 		 */
@@ -49,15 +50,25 @@ class InterfazDeUsuario{
 		 * 		 la pregunta "¿Olvido ingresar células en un tablero?"
 		 */
 		bool olvidoIngresarCelulas();
-
+		/*
+		 *
+		 */
 		Malla* pedirMallaPorNombre(Tablero* tablero);
-
+		/*
+		 * Post: Pregunta al usuario si desea continuar, reiniciar o terminar la
+		 *  ejecucion del juego. Devuelve su respuesta a saber: 'C' continuar;
+		 *  'R' reiniciar  o 'T' terminar
+		 */
 		char preguntarEstadoDeJuego();
 	private:
+		/*
+		 * Post: Devuelve un bool que responde a la pregunta:
+		 * Es "turnos" una cantidad de turnos valida?
+		 * Para que una cantidad de turnos sea valida debe ser mayor a 0
+	 	 */
+		bool cantidadDeTurnosEsValida(int turnos);
 
-	bool cantidadDeTurnosEsValida(int turnos);
-
-	bool preguntarPorPantalla(std::string mensaje);
+		bool preguntarPorPantalla(std::string mensaje);
 
 };
 

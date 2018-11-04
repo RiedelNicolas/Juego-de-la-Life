@@ -14,23 +14,25 @@ class Malla {
 
 	public:
 
-		// Crea un Malla con un numero de filas y columnas indicadas y cuyo nombre es "nombre"
+		/*
+		 * Post: Crea un Malla con un numero de filas y columnas indicadas y cuyo nombre es "nombre"
+		 */
 		Malla(int filas ,int columnas, std::string nombre);
 
-		// Post: Libera los recursos pedidos
+		/*
+		 * Post: Libera los recursos pedidos
+		 */
 		~Malla();
-
-		/* Pre: Malla creada.
+		/*
 		*  Post: Devuelve la cantidad de filas de la malla.
 		*/
 		int getCantidadDeFilas();
-
-		/* Pre: Malla creada.
+		/*
 		*  Post: Devuelve la cantidad de columnas de la malla.
 		*/
 		int getCantidadDeColumnas();
 
-		/* Pre: Malla creada.
+		/*
 		*  Post: Devuelve el nombre de la malla.
 		*/
 		std::string getNombre();
@@ -40,16 +42,26 @@ class Malla {
 		 */
 		Parcela* getParcela(int fila,int columna);
 
-		//Post: Devuelve la cantidad de celulas vivas que hay en la Malla
+		/*
+		 * Post: Devuelve la cantidad de celulas vivas que hay en la Malla
+		 */
 		int getCantidadDeCelulasVivas();
 
-		/* Pre: 'fila' y 'columna' deben ser mayores a 0 y encontrarse dentro de la malla NO TIENE MUCHO SENTIDO ESTA PRE PORQUE EL USUARIO NO METE MANO ACA, LO HACE TODO EL PROGRAMA
- 		 * Post: devuelve la cantidad de células vivas alrededor de la célula dentro de la parcela especificada.
+		/* Pre: 'fila' y 'columna' deben ser mayores a 0 y encontrarse dentro de la malla
+ 		 * Post: devuelve la cantidad de células vivas alrededor de la célula dentro de la
+ 		 * parcela especificada.
 		 */
 		int contarCelulasVivasLindantes(int fila, int columna);
 
 	private:
-
+		/*
+		 * Post: Devuelve un bool que responde a la pregunta:
+		 * Es ("fila", "columna") una posicion valida?
+		 * Para que sea valida ambas deben ser mayores a 0,
+		 * "fila" debe ser menor que el alto y "columna" menor al ancho
+		 *  WARNING: NO ESTOY SEGURO PERO CREO QUE "FILA" DEBERIA SER MENOR O IGUAL
+		 *  AL ALTO Y "COLUMNA" MENOR O IGUAL  AL ANCHO
+		 */
 		bool posicionValida(int fila, int columna);
 
 };

@@ -22,9 +22,13 @@ class Juego{
 		InterfazDeUsuario* interfaz;
 
 	public:
-
+		/*
+		 * Post: Crea un juego con "tablero" listo para ejecutarse
+		 */
 		Juego(Tablero* tablero);
-
+		/*
+		 * Post: Libera los recursos tomados
+		 */
 		~Juego();
 
 		void nuevoTurno();
@@ -40,12 +44,20 @@ class Juego{
 		void finalizarJuego();
 
 		/*
-		 *Post: Inicializa el juego
+		 *Post: Inicializa el juego. Es decir, muestra un mensaje de bienvenida
+		 * y le permite al usuario realizar el ingreso de las celulas deseadas
+		 * en cada tablero siempre y cuando la posicion en la que se quiere
+		 * ingresarla sea una valida en el tablero dado.
 		 */
 		void inicializarJuego();
 
 		/*
-		 * Post: imprime el resumen de juego con cada ejecucion de turno
+		 * Post: imprime el resumen de un turno. Esto es:
+		 * 		- La cantidad de celulas vivas
+		 * 		- La cantidad de celulas que nacieron y murieron en el ultimo turno
+		 * 		- El promedio de los nacimiento y muertes a lo largo del juego
+		 * 		- Si el juego se ha congelado o no (es decir que los tableros no
+		 * 		hayan recibido ningun cambio en dos turnos)
 		 */
 		void imprimirResumen();
 
@@ -54,7 +66,10 @@ class Juego{
 		 * Post: Imprime la malla en una imagen con el formato nombreMalla.bmp
 		 */
 		void imprimirMalla(Malla* malla);
-
+		/*
+		 * Post: Ejecuta El Juego de la Vida hasta que este termine o el usuario
+		 * decida salir
+		 */
 		void jugar();
 
 	private:
@@ -85,7 +100,7 @@ class Juego{
 		void ejecutarTurnos(int cantidadDeTurnos);
 
 		/*
-		 * Post: Devuelve el promedio de "numero" por la cantidad de turnos
+		 * Post: Devuelve el promedio de "numero" por la cantidad de turnos actuales
 		 */
 		float calcularPromedio(int numero);
 
