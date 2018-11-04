@@ -64,12 +64,8 @@ char InterfazDeUsuario::preguntarEstadoDeJuego(){
 	cout << "Presione T para terminar, R para reiniciar o C para continuar" << endl;
 	cin >> respuesta;
 	respuesta = toupper(respuesta);
-<<<<<<< HEAD
 
-	if((respuesta != TERMINAR) && (respuesta != REINICIAR) && (respuesta != CONTINUAR)){
-=======
 	if( (respuesta != TERMINAR) && (respuesta != REINICIAR) && (respuesta != CONTINUAR) ){
->>>>>>> f466f11d295e61d9be93fff3ab39f552b809b106
 		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
 		respuesta = preguntarEstadoDeJuego();
 	}
