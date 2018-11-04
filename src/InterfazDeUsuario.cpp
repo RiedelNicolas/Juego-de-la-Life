@@ -20,11 +20,12 @@ bool InterfazDeUsuario::preguntarPorPantalla(string mensaje){
 	cin >> respuesta;
 	respuesta = toupper(respuesta);
 
-	if((respuesta != SI) && (respuesta != NO)){
-		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
-		deseaAgregarCelula();
+	while((respuesta != SI) && (respuesta != NO)){
+		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl << mensaje << endl;
+		cin >> respuesta;
+		respuesta = toupper(respuesta);
 	}
-		return(respuesta == SI);
+	return(respuesta == SI);
 }
 
 bool InterfazDeUsuario::deseaAgregarCelula(){
@@ -57,11 +58,13 @@ char InterfazDeUsuario::preguntarEstadoDeJuego(){
 	cout << "Presione T para terminar, R para reiniciar o C para continuar" << endl;
 	cin >> respuesta;
 	respuesta = toupper(respuesta);
+
 	if((respuesta != TERMINAR) && (respuesta != REINICIAR) && (respuesta != CONTINUAR)){
 		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl;
-		preguntarEstadoDeJuego();
+		respuesta = preguntarEstadoDeJuego();
 	}
-		return respuesta;
+
+	return respuesta;
 }
 
 int InterfazDeUsuario::pedirFila(Malla* malla){
