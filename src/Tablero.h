@@ -29,6 +29,11 @@ class Tablero {
 	~Tablero();
 
 	/*
+	 * Post: Elimina todos los elementos del tablero.
+	 */
+	void vaciarTablero();
+
+	/*
 	 * Pre: Lista creada
 	 * Post: Devuelve un bool con la respuesta a la pregunta... El tablero esta vacio??
 	 */
