@@ -10,8 +10,6 @@
 #define CONTINUAR 'C'
 #define ANCHO_CELULA 50
 #define ALTO_CELULA 50
-#define ANCHO_CELULA 10
-#define ALTO_CELULA 10
 
 class Juego{
 	private:
