@@ -8,6 +8,7 @@ class Celula{
 
 	private:
 		float vida;
+		bool estaViva;
 		Rgb color;
 	public:
 		/*
