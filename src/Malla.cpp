@@ -86,10 +86,10 @@ Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 			if(posicionValida(fila+i,columna+j) && parcelas[fila+i][columna+j].getEstadoDeCelula()){
 				if( parcelas[fila+i][columna+j].getEstadoDeCelula() && !(i==0 && j ==0 ) ){ //si la parcela esta viva y no es la que estoy parado.
 					rgbAuxiliar  = parcelas[fila+i][columna+j].getCelula()->getRgb();
-				rojoTotal += rgbAuxiliar.getRojo();
-				azulTotal += rgbAuxiliar.getAzul();
-				verdeTotal += rgbAuxiliar.getVerde();
-				vecinasvivas ++;
+					rojoTotal += rgbAuxiliar.getRojo();
+					azulTotal += rgbAuxiliar.getAzul();
+					verdeTotal += rgbAuxiliar.getVerde();
+					vecinasvivas ++;
 				}
 			}
 		}
