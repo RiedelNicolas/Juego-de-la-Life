@@ -95,6 +95,7 @@ Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 		}
 	}
 
+
 	if( vecinasVivas==0 ){ //si no hay celulas vivas, devuelvo el color que tiene la parcela.
 		colorPromedio = parcelas[fila][columna].getCelula()->getRgb() ;
 	}else{
