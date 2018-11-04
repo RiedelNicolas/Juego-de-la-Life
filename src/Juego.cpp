@@ -57,6 +57,7 @@ void Juego::inicializarJuego(){
 void Juego::jugar(){
 	while(!terminar){
 		inicializarJuego();
+		reiniciar = false;
 		while(!reiniciar){
 			nuevoTurno();
 			char estado = interfaz->preguntarEstadoDeJuego();
