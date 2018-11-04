@@ -193,13 +193,8 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 }
 
 void Juego::imprimirTablero(){
-	Malla* malla;
-	tablero->iniciarCursor();
-
-	while(tablero->avanzarCursor()){
-		malla = tablero->obtenerCursor();
-		imprimirMalla(malla);
-	}
+	Malla* malla= tablero->obtenerCursor();
+	imprimirMalla(malla);
 }
 
 void Juego::ejecutarTurnos(int cantidadDeTurnos){
