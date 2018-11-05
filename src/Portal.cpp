@@ -46,12 +46,15 @@ Parcela* Portal::getSalida(){
 void Portal::atravesarPortal(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
 	if(estado == ACTIVO){
 		atravesarPortalActivo(llamadoDesde, estadoEnQueAtraviesa);
+		std::cout << "entro1";
 	}
 	else if(estado == NORMAL && entrada == llamadoDesde){
 		atravesarPortalNormal(entrada, salida, estadoEnQueAtraviesa);
+		std::cout << "entro2";
 	}
-	else if(estado== PASIVO && entrada == llamadoDesde){
+	else if(estado== PASIVO && entrada == llamadoDesde && estadoEnQueAtraviesa==NACE){
 		hacerNacerCelula(entrada, salida);
+		std::cout << "entro3";
 	}
 }
 

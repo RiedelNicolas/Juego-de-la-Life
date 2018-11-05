@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+/*int main() {
 
 	GeneradorDeTableros generador("/home/gonza/git/Juego-de-la-Life/src/configuracion.txt");
 
@@ -14,3 +14,4 @@ int main() {
 
     return 0;
 }
+*/
