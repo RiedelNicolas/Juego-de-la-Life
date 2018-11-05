@@ -63,8 +63,10 @@ void GeneradorDeTableros::pedirPortales(){
 		cout << "Ingrese coordenada en y origen: " << endl;
 		cin >> yOrigen;
 
-		cout << "Ingrese estado (A - Activo, N - Normal - P - Pasivo): " << endl;
-		cin >> estado;
+		do{
+			cout << "Ingrese estado (A - Activo, N - Normal - P - Pasivo): " << endl;
+			cin >> estado;
+		}while( estado != 'A' && estado != 'P' && estado != 'N' );
 
 		cout << "Ingrese nombre del tablero destino: " << endl;
 		cin >> nombreTableroDestino;
