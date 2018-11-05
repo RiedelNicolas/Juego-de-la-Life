@@ -77,7 +77,7 @@ bool Malla::posicionValida(int fila, int columna){
 
 Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 	Rgb colorPromedio(0,0,0);
-	int vecinasvivas = 0;
+	int vecinasVivas = 0;
 	int rojoTotal = 0 , azulTotal = 0, verdeTotal = 0;
 	Rgb rgbAuxiliar;
 
@@ -89,15 +89,20 @@ Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 					rojoTotal += rgbAuxiliar.getRojo();
 					azulTotal += rgbAuxiliar.getAzul();
 					verdeTotal += rgbAuxiliar.getVerde();
-					vecinasvivas ++;
+					vecinasVivas ++;
 				}
 			}
 		}
 	}
 
-	colorPromedio.setRojo(rojoTotal/vecinasvivas);
-	colorPromedio.setVerde( verdeTotal/vecinasvivas);
-	colorPromedio.setAzul(azulTotal/vecinasvivas);
+
+	if( vecinasVivas==0 ){ //si no hay celulas vivas, devuelvo el color que tiene la parcela.
+		colorPromedio = parcelas[fila][columna].getCelula()->getRgb() ;
+	}else{
+		colorPromedio.setRojo(rojoTotal/vecinasVivas);
+		colorPromedio.setVerde( verdeTotal/vecinasVivas);
+		colorPromedio.setAzul(azulTotal/vecinasVivas);
+	}
 
 	return colorPromedio;
 }
