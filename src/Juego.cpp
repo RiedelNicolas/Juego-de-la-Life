@@ -190,6 +190,7 @@ void Juego::actualizarMalla(Malla* malla){
 					celulaAux.setVida(parcela->getVidaAlNacer());
 					if(parcela->contienePortal()){
 						parcela->getPortal()->atravesarPortal(parcela, NACE);
+						cout << "entró" << endl;
 					}
 				}
 				else{

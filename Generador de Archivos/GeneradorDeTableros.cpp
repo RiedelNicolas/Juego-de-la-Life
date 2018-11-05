@@ -50,7 +50,7 @@ void GeneradorDeTableros::generarParcelas(){
 void GeneradorDeTableros::pedirPortales(){
 
 	string nombreTableroDestino, nombreTableroOrigen;
-	int xOrigen, xDestino, yOrigen, yDestino
+	int xOrigen, xDestino, yOrigen, yDestino;
 	char estado;
 
 	while(preguntarAlUsuario("¿Desea ingresar un portal? (S/N)")){
