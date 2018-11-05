@@ -132,6 +132,8 @@ class Juego{
 
 		void olvidoAgregarCelulasEnTablero();
 
+		Celula calcularRestaVidaCelula(int fila, int columna, Malla* malla);
+
 
 };
 

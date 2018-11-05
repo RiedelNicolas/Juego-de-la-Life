@@ -1,8 +1,6 @@
 Tablero primero 10 10
-Tablero segundo 5 5
-Tablero tercero 10 5
 Parcela primero 3 2 55 98 4 1.0 1.0
 Parcela primero 3 4 66 55 8 1.0 1.0
-Parcela primero 3 3 33 2 55 0.5 0.5
+Parcela primero 3 3 33 2 55 0.7 0.5
 
 fin
