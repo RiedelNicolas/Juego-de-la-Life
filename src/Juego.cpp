@@ -4,10 +4,7 @@
 using namespace std;
 
 Juego::Juego(Tablero* tablero){
-
-	reiniciar = false;
-	terminar = false;
-	turno = 0;
+	turno = 0 ;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasMuertas= 0;
 	cantidadDeCelulasVivas = 0;
@@ -27,18 +24,6 @@ void Juego::nuevoTurno(){
 	ejecutarTurnos(cantidadDeTurnos);
 }
 
-void Juego::reiniciarJuego(){
-
-	reiniciar = true;
-	turno = 0;
-}
-
-void Juego::finalizarJuego(){
-
-	reiniciar = true;
-	terminar = true;
-}
-
 void Juego::inicializarJuego(){
 	Malla* malla;
 
@@ -55,21 +40,17 @@ void Juego::inicializarJuego(){
 	imprimirResumen();
 }
 
-void Juego::jugar(){
-	while(!terminar){
-		inicializarJuego();
-		reiniciar = false;
-		while(!reiniciar){
-			nuevoTurno();
-			char estado = interfaz->preguntarEstadoDeJuego();
-			if(estado  == 'R'){
-				reiniciarJuego();
-			}
-			if( estado == 'T'){
-				finalizarJuego();
-			}
-		}
 
+
+void Juego::jugar(){
+	char caracterIngresado ='R';
+	while( caracterIngresado!='T' ){
+		if(caracterIngresado =='R'){
+			inicializarJuego();
+			this->turno = 0;
+		}
+		nuevoTurno();
+		caracterIngresado = interfaz->preguntarEstadoDeJuego();
 	}
 }
 
@@ -93,9 +74,8 @@ void Juego::imprimirResumen(){
 	cout << "Promedio de muertes a lo largo del juego: " << calcularPromedio(totalCelulasMuertas) << endl;
 
 	if(tableroCongelado(celulasNacidas, cantidadDeCelulasMuertas)){
-		cout << "El juego se ha congelado." << endl;
+		cout << "El juego se ha congelado." << endl << endl;
 	}
-	cout << endl;
 }
 
 void Juego::imprimirMalla(Malla* malla){

@@ -81,12 +81,5 @@ bool Tablero::avanzarCursor(){
 }
 
 Malla* Tablero::obtenerCursor(){
-
-	Malla* malla;
-
-	if(cursor!=NULL){
-		malla = cursor->getMalla();
-	}
-
-	return malla;
+	return cursor->getMalla();
 }

@@ -13,8 +13,6 @@
 
 class Juego{
 	private:
-		bool reiniciar;
-		bool terminar;
 		unsigned turno;
 		int cantidadDeCelulasMuertas;
 		int cantidadDeCelulasVivas;
