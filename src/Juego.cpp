@@ -173,7 +173,7 @@ void Juego::actualizarMalla(Malla* malla){
 			estaViva = malla->getParcela(i, j)->getCelula()->getEstado();
 			Parcela* parcela = malla->getParcela(i, j);
 
-			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3) && !parcela->getCelula()->nacePorPortal()){ // OJO CON ESTA CONDICION
+			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3)){ // OJO CON ESTA CONDICION
 				celulaAux = calcularRestaVidaCelula(i, j, malla);
 				if(parcela->contienePortal() && !celulaAux.getEstado()){
 						parcela->getPortal()->atravesarPortal(parcela, MUERE);
@@ -197,7 +197,7 @@ void Juego::actualizarMalla(Malla* malla){
 					celulaAux.setVida(parcela->getCelula()->getVida());
 				}
 			}
-			parcela->getCelula()->nacioMediantePortal(false); ///OJO ACA TAMBIÉN XD
+			//parcela->getCelula()->nacioMediantePortal(false); ///OJO ACA TAMBIÉN XD
 			auxiliar[i][j] = celulaAux;
 		}
 	}
