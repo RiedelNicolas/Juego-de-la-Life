@@ -5,10 +5,10 @@ using namespace std;
 Malla::Malla(int filas, int columnas, string nombre){
 
 	this->nombre = nombre;
-	ancho = columnas;
-	alto = filas;
-	celulasVivas = 0;
-	parcelas = new Parcela*[alto];
+	this->ancho = columnas;
+	this->alto = filas;
+	this->celulasVivas = 0;
+	this->parcelas = new Parcela*[alto];
 
 	for(int i = 0; i < alto; i++){
 		parcelas[i] = new Parcela[ancho];
@@ -25,15 +25,15 @@ Malla::~Malla(){
 }
 
 int Malla::getCantidadDeFilas(){
-	return alto;
+	return (this->alto);
 }
 
 int Malla::getCantidadDeColumnas(){
-	return ancho;
+	return (this->ancho);
 }
 
 std::string Malla::getNombre(){
-	return nombre;
+	return (this->nombre);
 }
 
 Parcela* Malla::getParcela(int fila,int columna){ //ESTO NO ESTA CHEQUEADO. WARNING!! EXPERIMENTAL.
@@ -42,17 +42,17 @@ Parcela* Malla::getParcela(int fila,int columna){ //ESTO NO ESTA CHEQUEADO. WARN
 
 int Malla::getCantidadDeCelulasVivas(){
 
-	celulasVivas = 0;
+	(this->celulasVivas) = 0;
 
 	for(int i=0; i<alto; i++){
 		for(int j=0; j<ancho; j++){
 
 			if(parcelas[i][j].getEstadoDeCelula()){
-				celulasVivas++;
+				(this->celulasVivas)++;
 			}
 		}
 	}
-	return celulasVivas;
+	return (this->celulasVivas);
 }
 
 int Malla::contarCelulasVivasLindantes(int fila, int columna){
@@ -66,20 +66,18 @@ int Malla::contarCelulasVivasLindantes(int fila, int columna){
 			}
 		}
 	}
-	//cout << fila << ", " << columna << ": "<< contadorCelulasVivas << endl;
 	return contadorCelulasVivas;
 }
 
 bool Malla::posicionValida(int fila, int columna){
-	return ((fila >= 0) && (fila < alto) && (columna >= 0) && (columna < ancho));
+	return ( (fila >= 0) && (fila < alto) && (columna >= 0) && (columna < ancho) );
 }
 
 
 Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
-	Rgb colorPromedio(0,0,0);
+	Rgb colorPromedio(0,0,0), rgbAuxiliar;
 	int vecinasVivas = 0;
 	int rojoTotal = 0 , azulTotal = 0, verdeTotal = 0;
-	Rgb rgbAuxiliar;
 
 	for(int i=-1; i<2; i++){
 		for(int j=-1; j<2; j++){
@@ -95,9 +93,9 @@ Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 		}
 	}
 
-
-	if( vecinasVivas==0 ){ //si no hay celulas vivas, devuelvo el color que tiene la parcela.
-		colorPromedio = parcelas[fila][columna].getCelula()->getRgb() ;
+	 /*si no hay celulas vivas, devuelvo el color que tiene la parcela, y evito dividir por cero.*/
+	if( vecinasVivas==0 ){
+		colorPromedio = ( parcelas[fila][columna].getCelula()->getRgb() ) ;
 	}else{
 		colorPromedio.setRojo(rojoTotal/vecinasVivas);
 		colorPromedio.setVerde( verdeTotal/vecinasVivas);
