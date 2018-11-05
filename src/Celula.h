@@ -62,7 +62,7 @@ class Celula{
 
 	private:
 		/*
-		 * Post: verifica si la vida es valida, es decir si esta es mayor o igual a 0
+		 * Post: verifica si la vida es valida, es decir si esta es mayor o igual a cero
 		 */
 		bool vidaEsValida(float vida);
 };

@@ -37,8 +37,8 @@ class Parcela {
 		bool getEstadoDeCelula();
 		/*
 		 * Pre: Recibe un bool, indicando si se quiere hacer nacer (true)
-		 * o matar (false) a la celula
-		 * Post: si es true :La que contiene celula esta viva y
+		 * o matar (false) a la celula.
+		 * Post: si es true : La que contiene celula esta viva y
 		 * con una vida de 100 * indiceDeNacimiento
 		 * 	ej: Si el indiceDeNacimiento de la parcela es de 0.5 entonces la celula tendra 50 de vida
 		 * si es false:	 La celula que contiene esta muerta y con 0.0 de vida
@@ -61,7 +61,7 @@ class Parcela {
 		 */
 		void reducirVidaDeCelula();
 		/*
-		 *Post: Devuelve el Rgb de la parcela
+		 *Post: Devuelve el Rgb de la parcela.
 		 */
 		Rgb getRgb();
 		/*
@@ -69,11 +69,11 @@ class Parcela {
 		 */
 		void setRgb(Rgb nuevoRgb);
 		/*
-		 * Post: modifica el indice de natalidad de la parcela por "nuavaNatalidad"
+		 * Post: modifica el indice de natalidad de la parcela por "nuavaNatalidad".
 		 */
 		void setNatalidad(float nuevaNatalidad);
 		/*
-		 * Post: modifica el indice de mortalidad de la parcela por "nuevaMortalidad"
+		 * Post: modifica el indice de mortalidad de la parcela por "nuevaMortalidad".
 		 */
 		void setMortalidad(float nuevaMortalidad);
 
@@ -84,7 +84,7 @@ class Parcela {
 		Portal* getPortal();
 
 		/*
-		 * Post: Devuelve la direccion de la celula que contiene
+		 * Post: Devuelve un puntero a la celula que contiene la parcela
 		 */
 		Celula* getCelula();
 

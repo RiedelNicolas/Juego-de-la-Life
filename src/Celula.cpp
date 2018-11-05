@@ -2,8 +2,13 @@
 
 Celula::Celula(){
 
+<<<<<<< HEAD
 	this->estaViva=false;
 	this->vida = 0.0;
+=======
+	this->estaViva = false;
+	this->vida = (0.0);
+>>>>>>> ef10a5c4c8782dbe4b63df47f41414ee5aab359a
 }
 
 bool Celula::getEstado(){

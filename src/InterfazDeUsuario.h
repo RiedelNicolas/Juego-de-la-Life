@@ -59,6 +59,7 @@ class InterfazDeUsuario{
 		 *  'R' reiniciar  o 'T' terminar
 		 */
 		char preguntarEstadoDeJuego();
+
 	private:
 		/*
 		 * Post: Devuelve un bool que responde a la pregunta:
@@ -66,6 +67,9 @@ class InterfazDeUsuario{
 		 * Para que una cantidad de turnos sea valida debe ser mayor a 0
 	 	 */
 		bool cantidadDeTurnosEsValida(int turnos);
+		/*pre:Recibe una pregunta para el usuario.
+		 * post : Muestra dicha pregunta por consola y le da opcion a el usuario de responder S/N, en caso de respuesta
+		 * afirmativa devuelve true. En el caso contrario devuelve false. */
 
 		bool preguntarPorPantalla(std::string mensaje);
 
