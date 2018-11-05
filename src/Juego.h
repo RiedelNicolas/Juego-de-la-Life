@@ -70,13 +70,7 @@ class Juego{
 		 * Post: Imprime la malla en una imagen con el formato nombreMalla.bmp
 		 */
 		void imprimirMalla(Malla* malla);
-		/*
-		 * Post: Ejecuta El Juego de la Vida hasta que este termine o el usuario
-		 * decida salir
-		 */
-		void jugar();
 
-	private:
 
 		/* Pre: el tablero está creado.
 		 * Post: Modifica el estado de todas las células del juego teniendo en cuenta los índices
@@ -123,7 +117,7 @@ class Juego{
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
 
-		//ESTO ES UNA PORONGA
+
 		void validarCelulasNegativas(int &cantidadDeCelulas);
 
 		void contarCelulasVivas();
@@ -132,8 +126,12 @@ class Juego{
 
 		void olvidoAgregarCelulasEnTablero();
 
+<<<<<<< HEAD
 		Celula calcularRestaVidaCelula(int fila, int columna, Malla* malla);
 
+=======
+		char obtenerOrdenPorPantalla();
+>>>>>>> c3ec92a0ecac6a1ba8871764bb9976d00bf1ea43
 
 };
 
