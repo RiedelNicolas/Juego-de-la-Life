@@ -134,7 +134,7 @@ void Juego::actualizarTablero(){
 		filas = malla->getCantidadDeFilas();
 		columnas = malla->getCantidadDeColumnas();
 
-		actualizarMalla(filas, columnas, malla);
+		actualizarMalla(malla);
 
 		cantidadDeCelulasVivas += malla->getCantidadDeCelulasVivas();
 	}
@@ -162,7 +162,7 @@ Celula Juego::calcularRestaVidaCelula(int fila, int columna, Malla* malla){
 	return celula;
 }
 
-void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
+void Juego::actualizarMalla(Malla* malla){
 
 	int celulasVivasLindantes;
 	//float nuevaVida;
@@ -183,7 +183,7 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 			estaViva = malla->getParcela(i, j)->getCelula()->getEstado();
 
 			if(celulasVivasLindantes < 2 || celulasVivasLindantes > 3){
-				celulaAux = calcularRestaVidaCelula(i, j, malla);
+				celulaAux = calcularRestaVidaCelula(i, j, malla);  //ACA MUERE
 			}
 			else if(!estaViva && celulasVivasLindantes == 2 ){
 				celulaAux.setEstado(MUERTA);
@@ -191,7 +191,7 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 			}
 			else{
 				celulaAux.setEstado(VIVA);
-				if(!estaViva){
+				if(!estaViva){ // ACA NACE
 					celulaAux.setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
 					celulaAux.setVida(malla->getParcela(i, j)->getVidaAlNacer());
 				}
@@ -212,7 +212,7 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 
 	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
 			delete[] auxiliar[i];
-		}
+	}
 	delete[] auxiliar;
 
 
@@ -319,7 +319,7 @@ void Juego::ingresoDeCelulas(Malla* malla){
 		parcela = malla->getParcela(fila, columna);
 		parcela->setEstadoDeCelula(VIVA);
 
-		imprimirMalla(tablero->obtenerCursor());
+		imprimirMalla(malla);
 	}
 }
 
