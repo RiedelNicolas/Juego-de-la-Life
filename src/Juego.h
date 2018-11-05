@@ -91,7 +91,7 @@ class Juego{
 		 * 		 de la parcela que la contiene. De no poder reducir mas su vida(esta no puede ser
 		 * 		 menor a 0) o ser esta 0 la celula muere
 		*/
-		void actualizarMalla(int filas, int columnas, Malla* malla);
+		void actualizarMalla(Malla* malla);
 
 		/* Pre: el tablero está creado e inicializado.
 		 * Post: muestra en una imagen BMP el estado de todas las Mallas.
@@ -117,7 +117,6 @@ class Juego{
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
 
-
 		void validarCelulasNegativas(int &cantidadDeCelulas);
 
 		void contarCelulasVivas();
@@ -126,7 +125,14 @@ class Juego{
 
 		void olvidoAgregarCelulasEnTablero();
 
+		Celula calcularRestaVidaCelula(int fila, int columna, Malla* malla);
+
 		char obtenerOrdenPorPantalla();
+
+		/*
+		 * Post: hace nacer una célula en el portal destino.
+		 */
+		void nacimientoEnPortal(Parcela* parcela);
 
 };
 

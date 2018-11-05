@@ -94,5 +94,10 @@ class Parcela {
 		 */
 		void setCelula(Celula nuevaCelula);
 
+		/*
+		 * Post: responde a la pregunta: '¿La parcela contiene un portal?'
+		 */
+		bool contienePortal();
+
 };
 #endif /* PARCELA_H_ */
