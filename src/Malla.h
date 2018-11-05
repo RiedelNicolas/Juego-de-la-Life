@@ -53,16 +53,18 @@ class Malla {
 		 */
 		int contarCelulasVivasLindantes(int fila, int columna);
 
+		/*
+		 * pre:Recibe una posicion valida de la malla.
+		 * post:Devuelve el color promedio de todas sus celulas vecinas vivas
+		 */
+
 		Rgb obtenerColorPromedioDeVecinasVivas(int fila, int columna);
 
 	private:
 		/*
 		 * Post: Devuelve un bool que responde a la pregunta:
 		 * Es ("fila", "columna") una posicion valida?
-		 * Para que sea valida ambas deben ser mayores a 0,
-		 * "fila" debe ser menor que el alto y "columna" menor al ancho
-		 *  WARNING: NO ESTOY SEGURO PERO CREO QUE "FILA" DEBERIA SER MENOR O IGUAL
-		 *  AL ALTO Y "COLUMNA" MENOR O IGUAL  AL ANCHO
+		 * Para que sea valida debe pertencer a la malla.
 		 */
 		bool posicionValida(int fila, int columna);
 
