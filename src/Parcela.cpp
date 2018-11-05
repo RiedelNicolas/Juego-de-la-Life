@@ -34,6 +34,14 @@ void Parcela::reducirVidaDeCelula(){
 	}
 }
 
+float Parcela::getVidaARestar(){
+	return this->vidaARestar;
+}
+
+float Parcela::getVidaAlNacer(){
+	return this->vidaAlNacer;
+}
+
 void Parcela::setMortalidad(float nuevaMortalidad){
 	vidaARestar= 100*nuevaMortalidad;
 }
@@ -69,6 +77,10 @@ Portal* Parcela::getPortal(){
 // devuelva un puntero a la celula o algo para poder modificar la celula.
 Celula* Parcela::getCelula(){
 	return (&celula);
+}
+
+void Parcela::setCelula(Celula nuevaCelula){
+	this->celula = nuevaCelula;
 }
 
 

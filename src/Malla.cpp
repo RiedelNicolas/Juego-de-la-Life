@@ -60,7 +60,7 @@ int Malla::contarCelulasVivasLindantes(int fila, int columna){
 
 	for(int i=-1; i<2; i++){
 		for(int j=-1; j<2; j++){
-			if((j!=0) && (i!=0) && posicionValida(fila+i,columna+j)
+			if( !(j==0 && i==0) && posicionValida(fila+i,columna+j)
 				&& parcelas[fila+i][columna+j].getEstadoDeCelula()){
 					contadorCelulasVivas++;
 			}

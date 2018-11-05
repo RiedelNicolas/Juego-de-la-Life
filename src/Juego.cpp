@@ -1,5 +1,6 @@
 #include "Juego.h"
 #define VIVA true
+#define MUERTA false
 using namespace std;
 
 Juego::Juego(Tablero* tablero){
@@ -161,9 +162,59 @@ void Juego::actualizarTablero(){
 void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 
 	int celulasVivasLindantes;
+	float nuevaVida;
+	int i, j;
 	bool estaViva;
+	Celula celulaAux;
 
-	for(int i=0; i<filas; i++){
+	Celula** auxiliar = new Celula*[malla->getCantidadDeFilas()];
+
+	for(i = 0; i < malla->getCantidadDeFilas(); i++){
+		auxiliar[i] = new Celula[malla->getCantidadDeColumnas()];
+	}
+
+	for(i = 0; i < malla->getCantidadDeFilas(); i++){
+		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
+
+			celulasVivasLindantes = malla->contarCelulasVivasLindantes(i, j);
+			estaViva = malla->getParcela(i, j)->getCelula()->getEstado();
+
+			if(celulasVivasLindantes < 2 || celulasVivasLindantes > 3){
+				celulaAux.setEstado(MUERTA);
+			}
+			else if(!estaViva && celulasVivasLindantes == 2 ){
+				celulaAux.setEstado(MUERTA);
+			}
+			else{
+				celulaAux.setEstado(VIVA);
+				if(!estaViva){
+					celulaAux.setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
+				}
+				else{
+					celulaAux.setRgb(malla->getParcela(i, j)->getCelula()->getRgb());
+				}
+			}
+
+			auxiliar[i][j] = celulaAux;
+		}
+	}
+
+	for(i = 0; i < malla->getCantidadDeFilas(); i++){
+		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
+			malla->getParcela(i, j)->setCelula(auxiliar[i][j]);
+		}
+	}
+
+	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
+			delete[] auxiliar[i];
+		}
+		delete[] auxiliar;
+
+
+
+
+
+	/*for(int i=0; i<filas; i++){
 		for(int j=0; j<columnas; j++){
 			Parcela* parcelaAOperar = malla->getParcela(i,j);
 			celulasVivasLindantes = malla->contarCelulasVivasLindantes(i, j);
@@ -189,7 +240,7 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 				}
 			}
 		}
-	}
+	}*/
 }
 
 void Juego::imprimirTablero(){

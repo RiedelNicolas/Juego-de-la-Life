@@ -44,6 +44,16 @@ class Parcela {
 		 * si es false:	 La celula que contiene esta muerta y con 0.0 de vida
 		 */
 		void setEstadoDeCelula(bool estado);
+
+		/*
+		 * Post: Devuelve "vidaARestar" de la parcela
+		 */
+		float getVidaARestar();
+
+		/*
+		 * Post: Devuelve "vidaAlNacer" de la parcela
+		 */
+		float getVidaAlNacer();
 		/*
 		 * Post: Reduce la vida de la celula en 100 * indiceDeMortalidad.
 		 * En el caso de que no tuviera vida suficiente para ser reducida,
@@ -72,10 +82,17 @@ class Parcela {
 		 * dicha parcela. Si el portal no existe lo crea.
 		 */
 		Portal* getPortal();
+
 		/*
 		 * Post: Devuelve la direccion de la celula que contiene
 		 */
 		Celula* getCelula();
+
+		/*
+		 * Pre: Recibe un tipo de dato "Celula" valido
+		 * Post: Cambia la celula por la pasada por parametro
+		 */
+		void setCelula(Celula nuevaCelula);
 
 };
 #endif /* PARCELA_H_ */
