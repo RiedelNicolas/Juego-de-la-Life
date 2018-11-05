@@ -3,8 +3,8 @@
 #define  MORTALIDAD_POR_DEFAULT 1.0
 
 Parcela::Parcela(){
-	vidaAlNacer = 100 * NATALIDAD_POR_DEFAULT;
-	vidaARestar = 100 * MORTALIDAD_POR_DEFAULT;
+	vidaAlNacer = (100 * NATALIDAD_POR_DEFAULT);
+	vidaARestar = (100 * MORTALIDAD_POR_DEFAULT);
 	portal = NULL;
 }
 
@@ -26,7 +26,7 @@ void Parcela::reducirVidaDeCelula(){
 	float nuevaVida;
 
 	nuevaVida =  celula.getVida()- vidaARestar;
-	if (nuevaVida<=0.0){
+	if (nuevaVida <= 0.0){
 		setEstadoDeCelula(false);
 	}
 	else{
@@ -43,11 +43,11 @@ float Parcela::getVidaAlNacer(){
 }
 
 void Parcela::setMortalidad(float nuevaMortalidad){
-	vidaARestar= 100*nuevaMortalidad;
+	vidaARestar = (100*nuevaMortalidad);
 }
 
 void Parcela::setNatalidad(float nuevaNatalidad){
-	vidaAlNacer=100*nuevaNatalidad;
+	vidaAlNacer = (100*nuevaNatalidad);
 }
 
 Rgb Parcela::getRgb(){
@@ -55,14 +55,14 @@ Rgb Parcela::getRgb(){
 }
 
 void Parcela::setRgb(Rgb color){
-	this->color=color;
+	this->color = color;
 }
 
 Parcela::~Parcela(){
-		if( !(portal==NULL) ){
+		if( (portal != NULL) ){
 			delete portal;
 		}
-	}
+}
 
 Portal* Parcela::getPortal(){
 	/*si no existe el portal, lo crea*/
@@ -72,11 +72,8 @@ Portal* Parcela::getPortal(){
 	return portal;
 }
 
-
-//Esto no estoy seguro si funca, sino hay que hacer un metodo que ande que
-// devuelva un puntero a la celula o algo para poder modificar la celula.
 Celula* Parcela::getCelula(){
-	return (&celula);
+	return ( &celula );
 }
 
 void Parcela::setCelula(Celula nuevaCelula){

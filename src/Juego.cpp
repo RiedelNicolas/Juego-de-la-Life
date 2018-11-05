@@ -3,7 +3,7 @@
 #define MUERTA false
 using namespace std;
 
-Juego::Juego(Tablero* tablero){
+Juego::Juego(Tablero* tablero ){
 	turno = 0 ;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasMuertas= 0;
@@ -13,6 +13,7 @@ Juego::Juego(Tablero* tablero){
 	this->tablero = tablero;
 	interfaz = new InterfazDeUsuario();
 }
+
 
 Juego::~Juego(){
 	delete interfaz;
@@ -36,23 +37,12 @@ void Juego::inicializarJuego(){
 		ingresoDeCelulas(malla);
 	}
 
+	this->turno = 0;
 	olvidoAgregarCelulasEnTablero();
 	imprimirResumen();
 }
 
 
-
-void Juego::jugar(){
-	char caracterIngresado ='R';
-	while( caracterIngresado!='T' ){
-		if(caracterIngresado =='R'){
-			inicializarJuego();
-			this->turno = 0;
-		}
-		nuevoTurno();
-		caracterIngresado = interfaz->preguntarEstadoDeJuego();
-	}
-}
 
 void Juego::imprimirResumen(){
 
@@ -307,6 +297,10 @@ void Juego::olvidoAgregarCelulasEnTablero(){
 		malla = interfaz->pedirMallaPorNombre(tablero);
 		ingresoDeCelulas(malla);
 	}
+}
+
+char Juego::obtenerOrdenPorPantalla(){
+	return interfaz->preguntarEstadoDeJuego();
 }
 
 
