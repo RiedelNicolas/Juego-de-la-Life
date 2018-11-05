@@ -78,13 +78,11 @@ int InterfazDeUsuario::pedirFila(Malla* malla){
 	int fila, filaMax;
 
 	filaMax = malla->getCantidadDeFilas();
-	cout << "Ingrese el numero de fila (1-" << filaMax << ")" << endl;
-	cin >> fila;
 
-	if((fila<1) || (fila > filaMax)){
-		cout << "Valor fuera del rango. Intente de nuevo. " << endl;
-		fila = (pedirFila(malla) + 1);
-	}
+	do{
+		cout << "Ingrese el numero de fila (1-" << filaMax << ")" << endl;
+		cin>>fila;
+	}while((fila<1) || (fila > filaMax));
 
 	return (fila-1);
 }
@@ -94,15 +92,13 @@ int InterfazDeUsuario::pedirColumna(Malla* malla){
 	int columna, columnaMax;
 
 	columnaMax = malla->getCantidadDeColumnas();
-	cout << "Ingrese el número de columna (1-" << columnaMax << ")" << endl;
-	cin >> columna;
 
-	if((columna<1) || (columna > columnaMax)){
-		cout << "Valor fuera del rango. Intente de nuevo. " << endl;
-		columna = pedirColumna(malla) + 1;
-	}
+	do{
+		cout << "Ingrese el numero de columna (1-" << columnaMax << ")" << endl;
+		cin>>columna;
+	}while((columna<1) || (columna > columnaMax));
 
-	return (columna-1) ;
+	return (columna-1);
 }
 
 
