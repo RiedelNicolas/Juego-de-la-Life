@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#define COLOR_POR_DEFECTO 128
+
 class Rgb{
 private:
 	int rojo;
@@ -11,7 +13,8 @@ private:
 	int azul;
 public:
 	/*constructor,
-	 * pre : recibe los 3 enteros correspondiente a los valores del Rgb. Rango(0-255), inicializa en negro si no se reciben parametros.
+	 * pre : recibe los 3 enteros correspondiente a los valores del Rgb. Rango(0-255),
+	 *  inicializa en "COLOR_DEFECTO" si no se reciben parametros.
 	 * post:asigna los valores recibidos a el RGB, luego de crear el mismo.
 	 */
 	Rgb(int rojo ,int verde ,int azul);
@@ -30,7 +33,6 @@ public:
 	int getVerde();
 	int getAzul();
 
-	//redefinir el operador
 
 
 };
