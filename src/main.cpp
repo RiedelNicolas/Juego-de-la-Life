@@ -16,7 +16,7 @@ int main(){
 
 			if(ordenIngresada == REINICIAR ){
 				tablero.vaciarTablero();
-				Inicializador leeArchivo("/home/gonza/git/Juego-de-la-Life/src/prueba2.txt", &tablero);
+				Inicializador leeArchivo("/home/riedel/git/Juego-de-la-Life/src/prueba2.txt", &tablero);
 				elJuegoDeLaVida.inicializarJuego();
 			}
 
