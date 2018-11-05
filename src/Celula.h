@@ -10,6 +10,7 @@ class Celula{
 
 		float vida;
 		bool estaViva;
+		bool nacioPorPortal;
 		Rgb color;
 
 	public:
@@ -59,6 +60,17 @@ class Celula{
 		void setRojo(int rojo);
 		void setVerde(int verde);
 		void setAzul(int azul);
+
+		/*
+		 *	Post: modifica el valor del 'nacioPorPortal' de acuerdo al bool que recibe.
+		 */
+		void nacioMediantePortal(bool);
+
+		/*
+		 *  Post: responde a la pregunta: '¿La célula nació por un portal?'.
+		 */
+		bool nacePorPortal();
+
 
 	private:
 		/*

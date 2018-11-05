@@ -15,11 +15,14 @@ Inicializador::Inicializador(std::string ruta,Tablero* tablero){
 	}
 	this->tablero = tablero;
 	levantarTablero();
+	file.close();
 }
 
 
 Inicializador::~Inicializador(){
-	file.close();
+	if(file.is_open() ){
+		file.close();
+	}
 }
 
 void Inicializador::levantarTablero(){

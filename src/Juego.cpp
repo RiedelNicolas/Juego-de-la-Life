@@ -2,9 +2,11 @@
 #define VIVA true
 #define MUERTA false
 #define VIDA_MUERTA 0
+#define NACE 'N'
+#define MUERE 'M'
 using namespace std;
 
-Juego::Juego(Tablero* tablero){
+Juego::Juego(Tablero* tablero ){
 	turno = 0 ;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasMuertas= 0;
@@ -14,6 +16,7 @@ Juego::Juego(Tablero* tablero){
 	this->tablero = tablero;
 	interfaz = new InterfazDeUsuario();
 }
+
 
 Juego::~Juego(){
 	delete interfaz;
@@ -38,23 +41,12 @@ void Juego::inicializarJuego(){
 
 	}
 
+	this->turno = 0;
 	olvidoAgregarCelulasEnTablero();
 	imprimirResumen();
 }
 
 
-
-void Juego::jugar(){
-	char caracterIngresado ='R';
-	while( caracterIngresado!='T' ){
-		if(caracterIngresado =='R'){
-			inicializarJuego();
-			this->turno = 0;
-		}
-		nuevoTurno();
-		caracterIngresado = interfaz->preguntarEstadoDeJuego();
-	}
-}
 
 void Juego::imprimirResumen(){
 
@@ -119,7 +111,6 @@ void Juego::imprimirMalla(Malla* malla){
 
 void Juego::actualizarTablero(){
 
-	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
 	cantidadDeCelulasMuertas = 0;
@@ -132,10 +123,8 @@ void Juego::actualizarTablero(){
 		malla = tablero->obtenerCursor();
 
 		celulasVivasTurnoAnterior += malla->getCantidadDeCelulasVivas();
-		filas = malla->getCantidadDeFilas();
-		columnas = malla->getCantidadDeColumnas();
 
-		actualizarMalla(filas, columnas, malla);
+		actualizarMalla(malla);
 
 		cantidadDeCelulasVivas += malla->getCantidadDeCelulasVivas();
 	}
@@ -163,7 +152,8 @@ Celula Juego::calcularRestaVidaCelula(int fila, int columna, Malla* malla){
 	return celula;
 }
 
-void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
+
+void Juego::actualizarMalla(Malla* malla){
 
 	int celulasVivasLindantes;
 	//float nuevaVida;
@@ -182,9 +172,14 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 
 			celulasVivasLindantes = malla->contarCelulasVivasLindantes(i, j);
 			estaViva = malla->getParcela(i, j)->getCelula()->getEstado();
+			Parcela* parcela = malla->getParcela(i, j);
 
-			if(celulasVivasLindantes < 2 || celulasVivasLindantes > 3){
+			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3)){ // OJO CON ESTA CONDICION
 				celulaAux = calcularRestaVidaCelula(i, j, malla);
+				if(parcela->contienePortal() && !celulaAux.getEstado()){
+						parcela->getPortal()->atravesarPortal(parcela, MUERE);
+						cout << "entro";
+				}//ACA MUERE
 			}
 			else if(!estaViva && celulasVivasLindantes == 2 ){
 				celulaAux.setEstado(MUERTA);
@@ -192,15 +187,19 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 			}
 			else{
 				celulaAux.setEstado(VIVA);
-				if(!estaViva){
+				if(!estaViva){ // ACA NACE
 					celulaAux.setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
-					celulaAux.setVida(malla->getParcela(i, j)->getVidaAlNacer());
+					celulaAux.setVida(parcela->getVidaAlNacer());
+					if(parcela->contienePortal()){
+						parcela->getPortal()->atravesarPortal(parcela, NACE);
+					}
 				}
 				else{
-					celulaAux.setRgb(malla->getParcela(i, j)->getCelula()->getRgb());
-					celulaAux.setVida(malla->getParcela(i, j)->getCelula()->getVida());
+					celulaAux.setRgb(parcela->getCelula()->getRgb());
+					celulaAux.setVida(parcela->getCelula()->getVida());
 				}
 			}
+			//parcela->getCelula()->nacioMediantePortal(false); ///OJO ACA TAMBIÉN XD
 			auxiliar[i][j] = celulaAux;
 		}
 	}
@@ -213,9 +212,8 @@ void Juego::actualizarMalla(int filas, int columnas, Malla* malla){
 
 	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
 			delete[] auxiliar[i];
-		}
+	}
 	delete[] auxiliar;
-
 
 
 
@@ -333,6 +331,10 @@ void Juego::olvidoAgregarCelulasEnTablero(){
 		malla = interfaz->pedirMallaPorNombre(tablero);
 		ingresoDeCelulas(malla);
 	}
+}
+
+char Juego::obtenerOrdenPorPantalla(){
+	return interfaz->preguntarEstadoDeJuego();
 }
 
 

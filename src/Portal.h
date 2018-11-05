@@ -49,7 +49,7 @@ class Portal{
 		 * Post:
 		 * WARNING HABRIA QUE VER LO DE QUE COPIE LOS COLORES DE LAS CELULAS CIRCUNDANTES
 		 */
-		void atravesarPortal(Parcela* llamadoDesde);
+		void atravesarPortal(Parcela* llamadoDesde, char estadoEnQueAtraviesa);
 
 	private:
 		/*
@@ -61,9 +61,9 @@ class Portal{
 		 * Si la celula de "parcelaDeEntrada"  murio, morira la celula de "parcelaDeSalida" del portal
 		 * Los cambios de la celula en "parcelaDeSalida" no afectan a la celula de "parcelaDeEntrada"
 		 */
-		void atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida);
+		void atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida, char estadoEnQueAtraviesa);
 
-		void atravesarPortalActivo(Parcela* llamadoDesde);
+		void atravesarPortalActivo(Parcela* llamadoDesde, char estadoEnQueAtraviesa);
 		/*
 		 *Post: Si la celula en "parcelaDeEntrada" esta viva
 		 *entonces nace la celula de "parcelaDeSalida". De Estar muerta la celula en

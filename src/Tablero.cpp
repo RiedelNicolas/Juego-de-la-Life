@@ -15,7 +15,7 @@ void Tablero::vaciarTablero(){
 
 	Nodo* auxiliar = primerElemento;
 
-	if(!this->tableroVacio()){
+	if( !this->tableroVacio() ){
 		while(auxiliar){
 			primerElemento = primerElemento->getSigNodo();
 			delete auxiliar;
@@ -26,7 +26,7 @@ void Tablero::vaciarTablero(){
 
 bool Tablero::tableroVacio(){
 
-	return (primerElemento == NULL);
+	return ( primerElemento == NULL );
 }
 
 void Tablero::agregarMalla(Malla* nuevaMalla){
@@ -64,7 +64,7 @@ int Tablero::getTamanio(){
 
 void Tablero::iniciarCursor(){
 
-	cursor=NULL;
+	cursor = NULL;
 }
 
 bool Tablero::avanzarCursor(){
