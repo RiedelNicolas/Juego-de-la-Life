@@ -129,10 +129,6 @@ class Juego{
 
 		char obtenerOrdenPorPantalla();
 
-		/*
-		 * Post: hace nacer una célula en el portal destino.
-		 */
-		void nacimientoEnPortal(Parcela* parcela);
 
 };
 

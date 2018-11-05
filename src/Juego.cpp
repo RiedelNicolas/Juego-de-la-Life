@@ -110,7 +110,6 @@ void Juego::imprimirMalla(Malla* malla){
 
 void Juego::actualizarTablero(){
 
-	int filas, columnas;
 	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
 	cantidadDeCelulasMuertas = 0;
@@ -123,8 +122,6 @@ void Juego::actualizarTablero(){
 		malla = tablero->obtenerCursor();
 
 		celulasVivasTurnoAnterior += malla->getCantidadDeCelulasVivas();
-		filas = malla->getCantidadDeFilas();
-		columnas = malla->getCantidadDeColumnas();
 
 		actualizarMalla(malla);
 
@@ -154,11 +151,6 @@ Celula Juego::calcularRestaVidaCelula(int fila, int columna, Malla* malla){
 	return celula;
 }
 
-void Juego::nacimientoEnPortal(Parcela* parcela){
-}
-
-
-
 
 void Juego::actualizarMalla(Malla* malla){
 
@@ -181,7 +173,7 @@ void Juego::actualizarMalla(Malla* malla){
 			estaViva = malla->getParcela(i, j)->getCelula()->getEstado();
 			Parcela* parcela = malla->getParcela(i, j);
 
-			if(celulasVivasLindantes < 2 || celulasVivasLindantes > 3){
+			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3) && !parcela->getCelula()->nacePorPortal()){ // OJO CON ESTA CONDICION
 				celulaAux = calcularRestaVidaCelula(i, j, malla);
 				if(parcela->contienePortal() && !celulaAux.getEstado()){
 						parcela->getPortal()->atravesarPortal(parcela, MUERE);
@@ -205,6 +197,7 @@ void Juego::actualizarMalla(Malla* malla){
 					celulaAux.setVida(parcela->getCelula()->getVida());
 				}
 			}
+			parcela->getCelula()->nacioMediantePortal(false); ///OJO ACA TAMBIÉN XD
 			auxiliar[i][j] = celulaAux;
 		}
 	}

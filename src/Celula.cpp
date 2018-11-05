@@ -4,8 +4,7 @@ Celula::Celula(){
 
 	this->estaViva=false;
 	this->vida = 0.0;
-	this->estaViva = false;
-	this->vida = (0.0);
+	this->nacioPorPortal = false;
 }
 
 bool Celula::getEstado(){
@@ -52,4 +51,12 @@ void Celula::setAzul(int azul){
 
 bool Celula::vidaEsValida(float vida){
 	return vida >= 0.0;
+}
+
+void Celula::nacioMediantePortal(bool respuesta){
+	nacioPorPortal = respuesta;
+}
+
+bool Celula::nacePorPortal(){
+	return nacioPorPortal;
 }
