@@ -9,7 +9,7 @@ int main(){
 	Tablero tablero;
 	try{
 
-		Inicializador leeArchivo( "/home/ezezbogar/git/Juego-de-la-Life/src/prueba.txt", &tablero);
+		Inicializador leeArchivo( "/home/hugo/git/Juego-de-la-Life/src/prueba.txt", &tablero);
 		Juego elJuegoDeLaVida(&tablero);
 		elJuegoDeLaVida.jugar();
 
