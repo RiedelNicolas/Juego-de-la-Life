@@ -7,9 +7,6 @@
 #define PARCELA "Parcela"
 
 
-Tablero* Inicializador::getTablero(){
-	return tablero;
-}
 
 Inicializador::Inicializador(std::string ruta,Tablero* tablero){
 	file.open( ruta.c_str() );
