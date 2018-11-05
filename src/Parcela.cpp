@@ -80,4 +80,7 @@ void Parcela::setCelula(Celula nuevaCelula){
 	this->celula = nuevaCelula;
 }
 
+bool Parcela::contienePortal(){
+	return (portal!=NULL);
+}
 

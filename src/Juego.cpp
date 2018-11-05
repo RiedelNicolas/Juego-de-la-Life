@@ -2,6 +2,8 @@
 #define VIVA true
 #define MUERTA false
 #define VIDA_MUERTA 0
+#define NACE 'N'
+#define MUERE 'M'
 using namespace std;
 
 Juego::Juego(Tablero* tablero ){
@@ -152,6 +154,12 @@ Celula Juego::calcularRestaVidaCelula(int fila, int columna, Malla* malla){
 	return celula;
 }
 
+void Juego::nacimientoEnPortal(Parcela* parcela){
+}
+
+
+
+
 void Juego::actualizarMalla(Malla* malla){
 
 	int celulasVivasLindantes;
@@ -171,9 +179,13 @@ void Juego::actualizarMalla(Malla* malla){
 
 			celulasVivasLindantes = malla->contarCelulasVivasLindantes(i, j);
 			estaViva = malla->getParcela(i, j)->getCelula()->getEstado();
+			Parcela* parcela = malla->getParcela(i, j);
 
 			if(celulasVivasLindantes < 2 || celulasVivasLindantes > 3){
-				celulaAux = calcularRestaVidaCelula(i, j, malla);  //ACA MUERE
+				celulaAux = calcularRestaVidaCelula(i, j, malla);
+				if(parcela->contienePortal() && !celulaAux.getEstado()){
+						parcela->getPortal()->atravesarPortal(parcela, MUERE);
+				}//ACA MUERE
 			}
 			else if(!estaViva && celulasVivasLindantes == 2 ){
 				celulaAux.setEstado(MUERTA);
@@ -183,11 +195,14 @@ void Juego::actualizarMalla(Malla* malla){
 				celulaAux.setEstado(VIVA);
 				if(!estaViva){ // ACA NACE
 					celulaAux.setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
-					celulaAux.setVida(malla->getParcela(i, j)->getVidaAlNacer());
+					celulaAux.setVida(parcela->getVidaAlNacer());
+					if(parcela->contienePortal()){
+						parcela->getPortal()->atravesarPortal(parcela, NACE);
+					}
 				}
 				else{
-					celulaAux.setRgb(malla->getParcela(i, j)->getCelula()->getRgb());
-					celulaAux.setVida(malla->getParcela(i, j)->getCelula()->getVida());
+					celulaAux.setRgb(parcela->getCelula()->getRgb());
+					celulaAux.setVida(parcela->getCelula()->getVida());
 				}
 			}
 			auxiliar[i][j] = celulaAux;
@@ -204,7 +219,6 @@ void Juego::actualizarMalla(Malla* malla){
 			delete[] auxiliar[i];
 	}
 	delete[] auxiliar;
-
 
 
 

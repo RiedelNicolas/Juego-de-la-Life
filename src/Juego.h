@@ -117,7 +117,6 @@ class Juego{
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
 
-
 		void validarCelulasNegativas(int &cantidadDeCelulas);
 
 		void contarCelulasVivas();
@@ -126,12 +125,14 @@ class Juego{
 
 		void olvidoAgregarCelulasEnTablero();
 
-<<<<<<< HEAD
 		Celula calcularRestaVidaCelula(int fila, int columna, Malla* malla);
 
-=======
 		char obtenerOrdenPorPantalla();
->>>>>>> c3ec92a0ecac6a1ba8871764bb9976d00bf1ea43
+
+		/*
+		 * Post: hace nacer una célula en el portal destino.
+		 */
+		void nacimientoEnPortal(Parcela* parcela);
 
 };
 
