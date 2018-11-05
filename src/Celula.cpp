@@ -2,8 +2,8 @@
 
 Celula::Celula(){
 
-	this->estaViva=false;
-	this->vida=0.0;
+	this->estaViva = false;
+	this->vida = (0.0);
 }
 
 bool Celula::getEstado(){

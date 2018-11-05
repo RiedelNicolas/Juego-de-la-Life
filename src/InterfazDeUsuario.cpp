@@ -25,7 +25,7 @@ bool InterfazDeUsuario::preguntarPorPantalla(string mensaje){
 	cin >> respuesta;
 	respuesta = toupper(respuesta);
 
-	while((respuesta != SI) && (respuesta != NO)){
+	while( (respuesta != SI) && (respuesta != NO) ){
 		cout << "Error! Ingreso inválido. Intente de nuevo. " << endl << mensaje << endl;
 		cin >> respuesta;
 		respuesta = toupper(respuesta);
