@@ -35,6 +35,7 @@ void Juego::inicializarJuego(){
 
 		malla = tablero->obtenerCursor();
 		ingresoDeCelulas(malla);
+
 	}
 
 	olvidoAgregarCelulasEnTablero();
@@ -319,7 +320,7 @@ void Juego::ingresoDeCelulas(Malla* malla){
 		parcela = malla->getParcela(fila, columna);
 		parcela->setEstadoDeCelula(VIVA);
 
-		imprimirMalla(tablero->obtenerCursor());
+		imprimirMalla(malla);
 	}
 }
 
