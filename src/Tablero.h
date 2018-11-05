@@ -8,7 +8,7 @@ class Tablero {
 
 	private:
 
-		Nodo* primerElemento; // Primer elemento de la lista
+		Nodo* primerElemento;
 
 		unsigned tamanio; // Tamaño de la lista
 
@@ -17,19 +17,19 @@ class Tablero {
 	public:
 
 	/*
-	 * Post: Crea una lista vacia con el primer elemento apuntando a NULL;
+	 * Post: Crea una lista de tableros vacia con el primer elemento apuntando a NULL;
 	 */
 	Tablero();
 
 	/*
 	 * Destructor
-	 * Pre: Lista creada
-	 * Post: Libera los recursos utilizados por al lista.
+	 * Pre: Lista creada.
+	 * Post: Libera los recursos utilizados por la lista.
 	 */
 	~Tablero();
 
 	/*
-	 * Post: Elimina todos los elementos del tablero.
+	 * Post: Elimina todos los elementos del tablero, devolviendo los recursos al sistema operativo.
 	 */
 	void vaciarTablero();
 
@@ -55,7 +55,6 @@ class Tablero {
 	 * Pre: Lista creada
 	 * Post: Devuelve el tamaño de la lista (cantidad de nodos de la lista)
 	 */
-
 	int getTamanio();
 
 	/*
