@@ -88,10 +88,17 @@ void Inicializador ::levantarPortal(){
 	parcelaOrigen  = mallaOrigen->getParcela(yOrigen-1,xOrigen-1);
 	parcelaDestino = mallaDestino->getParcela(yDestino-1,xDestino-1);
 
-	portal= ( parcelaOrigen->getPortal() );
+	portal = ( parcelaOrigen->getPortal() );
 	portal->setEstado(estado);
 	portal->setEntrada(parcelaOrigen);
 	portal->setSalida(parcelaDestino);
+
+	if(estado == ACTIVO ){
+		Portal* portalSecundario =parcelaDestino->getPortal();
+		portalSecundario->setEstado( ACTIVO );
+		portal->setEntrada(parcelaDestino);
+		portal->setSalida(parcelaOrigen);
+	}
 
 }
 
