@@ -36,7 +36,7 @@ std::string Malla::getNombre(){
 	return (this->nombre);
 }
 
-Parcela* Malla::getParcela(int fila,int columna){ //ESTO NO ESTA CHEQUEADO. WARNING!! EXPERIMENTAL.
+Parcela* Malla::getParcela(int fila,int columna){
 	return &(parcelas[fila][columna]);
 }
 
@@ -82,7 +82,7 @@ Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 	for(int i=-1; i<2; i++){
 		for(int j=-1; j<2; j++){
 			if(posicionValida(fila+i,columna+j) && parcelas[fila+i][columna+j].getEstadoDeCelula()){
-				if( parcelas[fila+i][columna+j].getEstadoDeCelula() && !(i==0 && j ==0 ) ){ //si la parcela esta viva y no es la que estoy parado.
+				if( parcelas[fila+i][columna+j].getEstadoDeCelula() && !(i==0 && j ==0 ) ){
 					rgbAuxiliar  = parcelas[fila+i][columna+j].getCelula()->getRgb();
 					rojoTotal += rgbAuxiliar.getRojo();
 					azulTotal += rgbAuxiliar.getAzul();
@@ -93,7 +93,6 @@ Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 		}
 	}
 
-	 /*si no hay celulas vivas, devuelvo el color que tiene la parcela, y evito dividir por cero.*/
 	if( vecinasVivas==0 ){
 		colorPromedio = ( parcelas[fila][columna].getCelula()->getRgb() ) ;
 	}else{
