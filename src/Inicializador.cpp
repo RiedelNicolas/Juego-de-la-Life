@@ -96,10 +96,9 @@ void Inicializador ::levantarPortal(){
 	if(estado == ACTIVO ){
 		Portal* portalSecundario =parcelaDestino->getPortal();
 		portalSecundario->setEstado( ACTIVO );
-		portal->setEntrada(parcelaDestino);
-		portal->setSalida(parcelaOrigen);
+		portalSecundario->setEntrada(parcelaDestino);
+		portalSecundario->setSalida(parcelaOrigen);
 	}
-
 }
 
 

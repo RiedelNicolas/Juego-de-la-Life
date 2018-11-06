@@ -166,4 +166,4 @@ Parcela Chico 4 1 201 206 232 1.00 1.00
 Parcela Chico 4 2 87 42 209 1.00 1.00
 Parcela Chico 4 3 44 13 56  1.00 1.00
 Parcela Chico 4 4 105 154 20 1.00 1.00 
-Portal Grande 4 3 N Chico 4 3
+Portal Grande 2 2 P Chico 2 2

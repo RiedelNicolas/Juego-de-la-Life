@@ -39,7 +39,7 @@ Parcela* Portal::getSalida(){
 
 void Portal::atravesarPortal(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
 	if(estado == ACTIVO){
-		atravesarPortalActivo(llamadoDesde, estadoEnQueAtraviesa);
+		atravesarPortalNormal(entrada, salida, estadoEnQueAtraviesa);
 		std::cout << "entro1";
 	}
 	else if(estado == NORMAL && entrada == llamadoDesde){
@@ -52,14 +52,14 @@ void Portal::atravesarPortal(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
 	}
 }
 
-void Portal::atravesarPortalActivo(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
+/*void Portal::atravesarPortalActivo(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
 	if(entrada == llamadoDesde){
 		atravesarPortalNormal(entrada, salida, estadoEnQueAtraviesa);
 	}
 	else{
 		atravesarPortalNormal(salida, entrada, estadoEnQueAtraviesa);
 	}
-}
+}*/
 
 void Portal::atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida, char estadoEnQueAtraviesa){
 	if(estadoEnQueAtraviesa == NACE){
@@ -72,6 +72,7 @@ void Portal::atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDe
 
 void Portal::hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
 		parcelaDeSalida->setEstadoDeCelula(true);
+		parcelaDeSalida->getCelula()->setRgb(parcelaDeSalida->getRgb());
 		parcelaDeSalida->getCelula()->nacioMediantePortal(true);
 }
 
