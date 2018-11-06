@@ -6,7 +6,7 @@
 #include "Portal.h"
 #include "Rgb.h"
 
-//explicarle a mariano que hacemos aca
+
 class Portal;
 
 class Parcela {
