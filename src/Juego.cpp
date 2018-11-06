@@ -165,6 +165,16 @@ void Juego::destruirAuxiliar(Celula** auxiliar, Malla* malla){
 	delete[] auxiliar;
 }
 
+void Juego::reemplazarAuxiliar(Celula** auxiliar, Malla* malla){
+
+	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
+		for(int j = 0; j < malla->getCantidadDeColumnas(); j++){
+			malla->getParcela(i, j)->setCelula(auxiliar[i][j]);
+		}
+	}
+
+}
+
 void Juego::actualizarMalla(Malla* malla){
 
 	int celulasVivasLindantes;
@@ -212,11 +222,7 @@ void Juego::actualizarMalla(Malla* malla){
 			auxiliar[i][j] = celulaAux;
 		}
 	}
-	for(i = 0; i < malla->getCantidadDeFilas(); i++){
-		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
-			malla->getParcela(i, j)->setCelula(auxiliar[i][j]);
-		}
-	}
+	reemplazarAuxiliar(auxiliar, malla);
 	destruirAuxiliar(auxiliar, malla);
 }
 

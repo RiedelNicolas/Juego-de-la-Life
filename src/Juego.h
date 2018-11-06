@@ -141,6 +141,12 @@ class Juego{
 		 */
 		void destruirAuxiliar(Celula** auxiliar , Malla* malla);
 
+		/*
+		 * Pre: Recibe un puntero a un array bidimensional de "Celula" valido y un puntero a malla valido.
+		 * Post: Reemplaza las celulas de "malla" por las de "auxiliar"
+		 */
+		void reemplazarAuxiliar(Celula** auxiliar, Malla* malla);
+
 };
 
 #endif /* SRC_JUEGO_H_ */
