@@ -129,12 +129,18 @@ class Juego{
 
 	private:
 
+		/*
+		 * Pre: Recibe un puntero a malla valido
+		 * Post: Devuelve un puntero a un array bidimensional de "Celulas" de las dimensiones de la malla
+		 */
 		Celula** crearAuxiliar(Malla* malla);
 
+		/*
+		 * Pre: Recibe un puntero a malla valido y un puntero a un array bidimensional de "Celulas"
+		 * Post: Libera la memoria ocupada por "auxiliar"
+		 */
 		void destruirAuxiliar(Celula** auxiliar , Malla* malla);
 
 };
-
-
 
 #endif /* SRC_JUEGO_H_ */
