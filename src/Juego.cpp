@@ -218,7 +218,6 @@ void Juego::actualizarMalla(Malla* malla){
 		}
 	}
 	destruirAuxiliar(auxiliar, malla);
-
 }
 
 void Juego::imprimirTablero(){
