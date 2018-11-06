@@ -177,6 +177,7 @@ void Juego::actualizarMalla(Malla* malla){
 				celulaAux = calcularRestaVidaCelula(i, j, malla);
 				if(parcela->contienePortal() && !celulaAux.getEstado()){
 						parcela->getPortal()->atravesarPortal(parcela, MUERE);
+						cout << "entro";
 				}//ACA MUERE
 			}
 			else if(!estaViva && celulasVivasLindantes == 2 ){
@@ -188,7 +189,9 @@ void Juego::actualizarMalla(Malla* malla){
 				if(!estaViva){ // ACA NACE
 					celulaAux.setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
 					celulaAux.setVida(parcela->getVidaAlNacer());
+					cout << "PAPA";
 					if(parcela->contienePortal()){
+						cout << "mabel";
 						parcela->getPortal()->atravesarPortal(parcela, NACE);
 					}
 				}

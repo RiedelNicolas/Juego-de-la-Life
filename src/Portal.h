@@ -5,6 +5,13 @@
 #include "Parcela.h"
 #include <string>
 
+#define INACTIVO 'I'
+#define ACTIVO 'A'
+#define NORMAL 'N'
+#define PASIVO 'P'
+#define NACE 'N'
+#define MUERE 'M'
+
 class Parcela;
 
 class Portal{

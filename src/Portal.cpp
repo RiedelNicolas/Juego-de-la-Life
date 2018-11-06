@@ -1,12 +1,6 @@
 #include "Portal.h"
 #include <iostream>
 
-#define INACTIVO 'I'
-#define ACTIVO 'A'
-#define NORMAL 'N'
-#define PASIVO 'P'
-#define NACE 'N'
-#define MUERE 'M'
 
 Portal::Portal(){
 	estado = INACTIVO;
@@ -45,24 +39,27 @@ Parcela* Portal::getSalida(){
 
 void Portal::atravesarPortal(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
 	if(estado == ACTIVO){
-		atravesarPortalActivo(llamadoDesde, estadoEnQueAtraviesa);
+		atravesarPortalNormal(entrada, salida, estadoEnQueAtraviesa);
+		std::cout << "entro1";
 	}
 	else if(estado == NORMAL && entrada == llamadoDesde){
 		atravesarPortalNormal(entrada, salida, estadoEnQueAtraviesa);
+		std::cout << "entro2";
 	}
-	else if(estado== PASIVO && entrada == llamadoDesde){
+	else if(estado== PASIVO && entrada == llamadoDesde && estadoEnQueAtraviesa==NACE){
 		hacerNacerCelula(entrada, salida);
+		std::cout << "entro3";
 	}
 }
 
-void Portal::atravesarPortalActivo(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
+/*void Portal::atravesarPortalActivo(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
 	if(entrada == llamadoDesde){
 		atravesarPortalNormal(entrada, salida, estadoEnQueAtraviesa);
 	}
 	else{
 		atravesarPortalNormal(salida, entrada, estadoEnQueAtraviesa);
 	}
-}
+}*/
 
 void Portal::atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida, char estadoEnQueAtraviesa){
 	if(estadoEnQueAtraviesa == NACE){
@@ -75,6 +72,7 @@ void Portal::atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDe
 
 void Portal::hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
 		parcelaDeSalida->setEstadoDeCelula(true);
+		parcelaDeSalida->getCelula()->setRgb(parcelaDeSalida->getRgb());
 		parcelaDeSalida->getCelula()->nacioMediantePortal(true);
 }
 
