@@ -127,6 +127,11 @@ class Juego{
 
 		char obtenerOrdenPorPantalla();
 
+	private:
+
+		Celula** crearAuxiliar(Malla* malla);
+
+		void destruirAuxiliar(Celula** auxiliar , Malla* malla);
 
 };
 

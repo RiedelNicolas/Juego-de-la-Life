@@ -146,6 +146,24 @@ Celula Juego::calcularRestaVidaCelula(int fila, int columna, Malla* malla){
 	return celula;
 }
 
+Celula** Juego::crearAuxiliar(Malla* malla){
+
+	Celula** auxiliar = new Celula* [malla->getCantidadDeFilas()];
+
+	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
+		auxiliar[i] = new Celula[malla->getCantidadDeColumnas()];
+	}
+
+	return auxiliar;
+}
+
+void Juego::destruirAuxiliar(Celula** auxiliar, Malla* malla){
+
+	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
+		delete[] auxiliar[i];
+	}
+	delete[] auxiliar;
+}
 
 void Juego::actualizarMalla(Malla* malla){
 
@@ -153,12 +171,7 @@ void Juego::actualizarMalla(Malla* malla){
 	int i, j;
 	bool estaViva;
 	Celula celulaAux;
-
-	Celula** auxiliar = new Celula*[malla->getCantidadDeFilas()];
-
-	for(i = 0; i < malla->getCantidadDeFilas(); i++){
-		auxiliar[i] = new Celula[malla->getCantidadDeColumnas()];
-	}
+	Celula** auxiliar = crearAuxiliar(malla);
 
 	for(i = 0; i < malla->getCantidadDeFilas(); i++){
 		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
@@ -199,17 +212,13 @@ void Juego::actualizarMalla(Malla* malla){
 			auxiliar[i][j] = celulaAux;
 		}
 	}
-
 	for(i = 0; i < malla->getCantidadDeFilas(); i++){
 		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
 			malla->getParcela(i, j)->setCelula(auxiliar[i][j]);
 		}
 	}
+	destruirAuxiliar(auxiliar, malla);
 
-	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
-			delete[] auxiliar[i];
-	}
-	delete[] auxiliar;
 }
 
 void Juego::imprimirTablero(){
