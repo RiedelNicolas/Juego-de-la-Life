@@ -1,12 +1,6 @@
 #include "Portal.h"
 #include <iostream>
 
-#define INACTIVO 'I'
-#define ACTIVO 'A'
-#define NORMAL 'N'
-#define PASIVO 'P'
-#define NACE 'N'
-#define MUERE 'M'
 
 Portal::Portal(){
 	estado = INACTIVO;
