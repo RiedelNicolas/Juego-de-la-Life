@@ -99,7 +99,6 @@ void Inicializador ::levantarPortal(){
 		portalSecundario->setEntrada(parcelaDestino);
 		portalSecundario->setSalida(parcelaOrigen);
 	}
-
 }
 
 
