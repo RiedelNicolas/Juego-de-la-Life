@@ -7,8 +7,9 @@
 using namespace std;
 
 Juego::Juego(Tablero* tablero ){
+
 	turno = 0 ;
-	celulasVivasTurnoAnterior = 0;
+	cantidadDeCelulasNacidas = 0;
 	cantidadDeCelulasMuertas= 0;
 	cantidadDeCelulasVivas = 0;
 	totalCelulasMuertas = 0;
@@ -49,24 +50,20 @@ void Juego::inicializarJuego(){
 
 void Juego::imprimirResumen(){
 
-	contarCelulasVivas();
-	int celulasNacidas = (cantidadDeCelulasVivas - celulasVivasTurnoAnterior);
-
 	cout << "Turno:" << turno << endl;
 	cout << "Cantidad de celulas vivas: " << cantidadDeCelulasVivas << endl;
 
-	validarCelulasNegativas(celulasNacidas);
-	cout << "Cantidad de celulas nacidas en el último turno: " << celulasNacidas << endl;
+	cout << "Cantidad de celulas nacidas en el último turno: " << cantidadDeCelulasNacidas << endl;
 
 	cout << "Cantidad de celulas que murieron en el último turno: " << cantidadDeCelulasMuertas << endl;
 
-	totalCelulasNacidas += celulasNacidas;
+	totalCelulasNacidas += cantidadDeCelulasNacidas;
 	cout << "Promedio de nacimientos a lo largo del juego: " << calcularPromedio(totalCelulasNacidas) << endl;
 
 	totalCelulasMuertas += cantidadDeCelulasMuertas;
 	cout << "Promedio de muertes a lo largo del juego: " << calcularPromedio(totalCelulasMuertas) << endl;
 
-	if(tableroCongelado(celulasNacidas, cantidadDeCelulasMuertas)){
+	if(tableroCongelado(cantidadDeCelulasNacidas, cantidadDeCelulasMuertas)){
 		cout << "El juego se ha congelado." << endl << endl;
 	}
 }
@@ -110,9 +107,9 @@ void Juego::imprimirMalla(Malla* malla){
 
 void Juego::actualizarTablero(){
 
-	celulasVivasTurnoAnterior = 0;
 	cantidadDeCelulasVivas = 0;
 	cantidadDeCelulasMuertas = 0;
+	cantidadDeCelulasNacidas = 0;
 	Malla* malla;
 
 	tablero->iniciarCursor();
@@ -120,8 +117,6 @@ void Juego::actualizarTablero(){
 	while(tablero->avanzarCursor()){
 
 		malla = tablero->obtenerCursor();
-
-		celulasVivasTurnoAnterior += malla->getCantidadDeCelulasVivas();
 
 		actualizarMalla(malla);
 
@@ -155,7 +150,6 @@ Celula Juego::calcularRestaVidaCelula(int fila, int columna, Malla* malla){
 void Juego::actualizarMalla(Malla* malla){
 
 	int celulasVivasLindantes;
-	//float nuevaVida;
 	int i, j;
 	bool estaViva;
 	Celula celulaAux;
@@ -173,12 +167,14 @@ void Juego::actualizarMalla(Malla* malla){
 			estaViva = malla->getParcela(i, j)->getCelula()->getEstado();
 			Parcela* parcela = malla->getParcela(i, j);
 
-			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3) && !parcela->getCelula()->nacePorPortal()){ // OJO CON ESTA CONDICION
+			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3) && !parcela->getCelula()->nacePorPortal()){
 				celulaAux = calcularRestaVidaCelula(i, j, malla);
 				if(parcela->contienePortal() && !celulaAux.getEstado()){
 						parcela->getPortal()->atravesarPortal(parcela, MUERE);
-						cout << "entro";
-				}//ACA MUERE
+				}
+				if(malla->getParcela(i, j)->getCelula()->getEstado() == VIVA  && celulaAux.getEstado() == MUERTA){
+					cantidadDeCelulasMuertas++;
+				}
 			}
 			else if(!estaViva && celulasVivasLindantes == 2 ){
 				celulaAux.setEstado(MUERTA);
@@ -186,12 +182,11 @@ void Juego::actualizarMalla(Malla* malla){
 			}
 			else{
 				celulaAux.setEstado(VIVA);
-				if(!estaViva){ // ACA NACE
+				if(!estaViva){
+					cantidadDeCelulasNacidas++;
 					celulaAux.setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
 					celulaAux.setVida(parcela->getVidaAlNacer());
-					cout << "PAPA";
 					if(parcela->contienePortal()){
-						cout << "mabel";
 						parcela->getPortal()->atravesarPortal(parcela, NACE);
 					}
 				}
@@ -200,7 +195,7 @@ void Juego::actualizarMalla(Malla* malla){
 					celulaAux.setVida(parcela->getCelula()->getVida());
 				}
 			}
-			parcela->getCelula()->nacioMediantePortal(false); ///OJO ACA TAMBIÉN XD
+			parcela->getCelula()->nacioMediantePortal(false);
 			auxiliar[i][j] = celulaAux;
 		}
 	}
@@ -215,37 +210,6 @@ void Juego::actualizarMalla(Malla* malla){
 			delete[] auxiliar[i];
 	}
 	delete[] auxiliar;
-
-
-
-
-	/*for(int i=0; i<filas; i++){
-		for(int j=0; j<columnas; j++){
-			Parcela* parcelaAOperar = malla->getParcela(i,j);
-			celulasVivasLindantes = malla->contarCelulasVivasLindantes(i, j);
-			estaViva = parcelaAOperar->getEstadoDeCelula();
-
-			if(estaViva && (celulasVivasLindantes<2 || celulasVivasLindantes>3)){
-				parcelaAOperar->reducirVidaDeCelula();
-				if(parcelaAOperar->getEstadoDeCelula()){
-					cantidadDeCelulasMuertas++;
-				}
-				Portal* portal = malla->getParcela(i,j)->getPortal();
-				if(portal->getTipo() != 'I'){
-					portal->atravesarPortal(parcelaAOperar);
-				}
-			}
-			else if(!estaViva && celulasVivasLindantes==3){
-				parcelaAOperar->setEstadoDeCelula(true);
-				Celula* celula = parcelaAOperar->getCelula();
-				celula->setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
-				Portal* portal = malla->getParcela(i,j)->getPortal();
-				if(portal->getTipo() != 'I'){
-					portal->atravesarPortal(parcelaAOperar);
-				}
-			}
-		}
-	}*/
 }
 
 void Juego::imprimirTablero(){
@@ -285,13 +249,6 @@ float Juego::calcularPromedio(int numero){
 bool Juego::tableroCongelado(int celulasNacidas, int celulasMuertas){
 
 	return( (celulasNacidas == 0) && (celulasMuertas == 0) );
-}
-
-void Juego::validarCelulasNegativas(int& cantidadDeCelulas){
-
-	if(cantidadDeCelulas < 0){
-			cantidadDeCelulas = 0;
-	}
 }
 
 void Juego::contarCelulasVivas(){
@@ -337,8 +294,3 @@ void Juego::olvidoAgregarCelulasEnTablero(){
 char Juego::obtenerOrdenPorPantalla(){
 	return interfaz->preguntarEstadoDeJuego();
 }
-
-
-
-
-

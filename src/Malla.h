@@ -22,11 +22,13 @@ class Malla {
 		/*
 		 * Post: Libera los recursos pedidos
 		 */
+
 		~Malla();
 		/*
 		*  Post: Devuelve la cantidad de filas de la malla.
 		*/
 		int getCantidadDeFilas();
+
 		/*
 		*  Post: Devuelve la cantidad de columnas de la malla.
 		*/
@@ -57,10 +59,10 @@ class Malla {
 		 * pre:Recibe una posicion valida de la malla.
 		 * post:Devuelve el color promedio de todas sus celulas vecinas vivas
 		 */
-
 		Rgb obtenerColorPromedioDeVecinasVivas(int fila, int columna);
 
 	private:
+
 		/*
 		 * Post: Devuelve un bool que responde a la pregunta:
 		 * Es ("fila", "columna") una posicion valida?

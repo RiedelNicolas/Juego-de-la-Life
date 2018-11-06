@@ -2,20 +2,22 @@
 #define CELULA_H_
 
 #include <iostream>
-#include "Rgb.hpp"
+
+#include "Rgb.h"
 
 class Celula{
 
 	private:
 
 		float vida;
+
 		bool estaViva;
+
 		bool nacioPorPortal;
+
 		Rgb color;
 
 	public:
-		//ver porque
-		//bool estaViva;
 
 		/*
 		 * Post: Se crea una celula "muerta" y con 0.0 de vida.

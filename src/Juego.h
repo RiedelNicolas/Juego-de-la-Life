@@ -15,10 +15,10 @@ class Juego{
 	private:
 		unsigned turno;
 		int cantidadDeCelulasMuertas;
+		int cantidadDeCelulasNacidas;
 		int cantidadDeCelulasVivas;
 		int totalCelulasMuertas;
 		int totalCelulasNacidas;
-		int celulasVivasTurnoAnterior;
 		Tablero* tablero;
 		InterfazDeUsuario* interfaz;
 
@@ -116,8 +116,6 @@ class Juego{
 		/*
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
-
-		void validarCelulasNegativas(int &cantidadDeCelulas);
 
 		void contarCelulasVivas();
 
