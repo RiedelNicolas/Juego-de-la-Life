@@ -52,15 +52,6 @@ void Portal::atravesarPortal(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
 	}
 }
 
-/*void Portal::atravesarPortalActivo(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
-	if(entrada == llamadoDesde){
-		atravesarPortalNormal(entrada, salida, estadoEnQueAtraviesa);
-	}
-	else{
-		atravesarPortalNormal(salida, entrada, estadoEnQueAtraviesa);
-	}
-}*/
-
 void Portal::atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida, char estadoEnQueAtraviesa){
 	if(estadoEnQueAtraviesa == NACE){
 		hacerNacerCelula(parcelaDeEntrada, parcelaDeSalida);

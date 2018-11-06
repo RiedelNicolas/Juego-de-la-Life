@@ -1,5 +1,5 @@
 
-#include "Rgb.hpp"
+#include "Rgb.h"
 
 
 #define MIN_RGB 0
@@ -8,7 +8,6 @@
 /*pre: recibe un int, correspondiente al valor de un color.
  * post:si el valor del color no se encuentra en el rango, tira una excepción . Siendo el rango (MIN_RGB, MAX_RGB)
  */
-
 void verificarRango(int color);
 
 Rgb::Rgb(int rojoIngresado, int verdeIngresado, int azulIngresado){

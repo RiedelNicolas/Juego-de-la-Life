@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include "Celula.h"
-#include "Rgb.hpp"
 #include "Portal.h"
+#include "Rgb.h"
 
 //explicarle a mariano que hacemos aca
 class Portal;
@@ -12,13 +12,19 @@ class Portal;
 class Parcela {
 
 	private:
+
 		float vidaAlNacer;
+
 		float vidaARestar;
+
 		Celula celula;
+
 		Rgb color;
+
 		Portal* portal;
 
 	public:
+
 		/*
 		 * Post: Crea una parcela lista para usarse
 		 * con indice de nacimiento "nacimiento" e indice de mortalidad "mortalidad"
@@ -35,6 +41,7 @@ class Parcela {
 		 * Dicho estado responde a la pregunta "Esta viva?"
 		 */
 		bool getEstadoDeCelula();
+
 		/*
 		 * Pre: Recibe un bool, indicando si se quiere hacer nacer (true)
 		 * o matar (false) a la celula.
@@ -54,24 +61,29 @@ class Parcela {
 		 * Post: Devuelve "vidaAlNacer" de la parcela
 		 */
 		float getVidaAlNacer();
+
 		/*
 		 * Post: Reduce la vida de la celula en 100 * indiceDeMortalidad.
 		 * En el caso de que no tuviera vida suficiente para ser reducida,
 		 * cambia el estado de la celula a muerta y con vida 0
 		 */
 		void reducirVidaDeCelula();
+
 		/*
 		 *Post: Devuelve el Rgb de la parcela.
 		 */
 		Rgb getRgb();
+
 		/*
 		 *Post: cambia el atributo Rgb de la parcela por "nuevoRgb"
 		 */
 		void setRgb(Rgb nuevoRgb);
+
 		/*
 		 * Post: modifica el indice de natalidad de la parcela por "nuavaNatalidad".
 		 */
 		void setNatalidad(float nuevaNatalidad);
+
 		/*
 		 * Post: modifica el indice de mortalidad de la parcela por "nuevaMortalidad".
 		 */
