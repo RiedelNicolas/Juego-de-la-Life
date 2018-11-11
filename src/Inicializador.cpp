@@ -69,6 +69,16 @@ void Inicializador::levantarParcela(){
 
 }
 
+void crearPortal(char estado, Parcela* parcelaDestino, Parcela* parcelaOrigen){
+
+	if(estado == ACTIVO ){
+		Portal* portalSecundario =parcelaDestino->getPortal();
+		portalSecundario->setEstado( ACTIVO );
+		portalSecundario->setEntrada(parcelaDestino);
+		portalSecundario->setSalida(parcelaOrigen);
+	}
+}
+
 void Inicializador ::levantarPortal(){
 	std::string nombreDeLaMallaOrigen, nombreDeLaMallaDestino;
 	int xOrigen,yOrigen,xDestino,yDestino;
@@ -93,12 +103,7 @@ void Inicializador ::levantarPortal(){
 	portal->setEntrada(parcelaOrigen);
 	portal->setSalida(parcelaDestino);
 
-	if(estado == ACTIVO ){
-		Portal* portalSecundario =parcelaDestino->getPortal();
-		portalSecundario->setEstado( ACTIVO );
-		portalSecundario->setEntrada(parcelaDestino);
-		portalSecundario->setSalida(parcelaOrigen);
-	}
+	crearPortal(estado, parcelaDestino, parcelaOrigen);
 }
 
 
