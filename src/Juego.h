@@ -148,12 +148,14 @@ class Juego{
 		void reemplazarAuxiliar(Celula** auxiliar, Malla* malla);
 
 		/*
-		 *
+		 *	Pre: Recibe un puntero a un BMP y un puntero a una malla validos.
+		 *	Post: Carga el color por defecto de todo el BMP a blanco.
 		 */
 		void establecerColorMallaPorDefecto(BMP *Imagen, Malla* malla);
 
 		/*
-		 *
+		 *	Pre: Recibe un puntero a un BMP y un puntero a una malla validos.
+		 *	Post: Carga en el BMP la informacion de la malla.
 		 */
 		void cargarMallaEnImagen(BMP *Imagen, Malla* malla);
 
