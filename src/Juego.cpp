@@ -137,12 +137,12 @@ void Juego::actualizarTablero(){
 	}
 }
 
-Celula Juego::calcularRestaVidaCelula(int fila, int columna, Malla* malla){
+Celula Juego::calcularRestaVidaCelula(Parcela* parcela){
 
 	Celula celula;
 	float vidaFinal;
-	float vidaInicial = malla->getParcela(fila, columna)->getCelula()->getVida();
-	float vidaARestar = malla->getParcela(fila, columna)->getVidaARestar();
+	float vidaInicial = parcela->getCelula()->getVida();
+	float vidaARestar = parcela->getVidaARestar();
 
 	vidaFinal = vidaInicial - vidaARestar;
 
@@ -153,7 +153,7 @@ Celula Juego::calcularRestaVidaCelula(int fila, int columna, Malla* malla){
 	else{
 		celula.setEstado(VIVA);
 		celula.setVida(vidaFinal);
-		celula.setRgb(malla->getParcela(fila, columna)->getCelula()->getRgb());
+		celula.setRgb(parcela->getCelula()->getRgb());
 	}
 
 	return celula;
@@ -204,7 +204,7 @@ void Juego::actualizarMalla(Malla* malla){
 			Parcela* parcela = malla->getParcela(i, j);
 
 			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3) && !parcela->getCelula()->nacePorPortal()){
-				celulaAux = calcularRestaVidaCelula(i, j, malla);
+				celulaAux = calcularRestaVidaCelula(malla->getParcela(i, j));
 				if(parcela->contienePortal() && !celulaAux.getEstado()){
 						parcela->getPortal()->atravesarPortal(parcela, MUERE);
 				}
