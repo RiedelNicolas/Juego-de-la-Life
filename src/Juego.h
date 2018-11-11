@@ -15,10 +15,10 @@ class Juego{
 	private:
 		unsigned turno;
 		int cantidadDeCelulasMuertas;
+		int cantidadDeCelulasNacidas;
 		int cantidadDeCelulasVivas;
 		int totalCelulasMuertas;
 		int totalCelulasNacidas;
-		int celulasVivasTurnoAnterior;
 		Tablero* tablero;
 		InterfazDeUsuario* interfaz;
 
@@ -117,8 +117,6 @@ class Juego{
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
 
-		void validarCelulasNegativas(int &cantidadDeCelulas);
-
 		void contarCelulasVivas();
 
 		void ingresoDeCelulas(Malla* malla);
@@ -129,9 +127,36 @@ class Juego{
 
 		char obtenerOrdenPorPantalla();
 
+	private:
+
+		/*
+		 * Pre: Recibe un puntero a malla valido
+		 * Post: Devuelve un puntero a un array bidimensional de "Celulas" de las dimensiones de la malla
+		 */
+		Celula** crearAuxiliar(Malla* malla);
+
+		/*
+		 * Pre: Recibe un puntero a malla valido y un puntero a un array bidimensional de "Celulas"
+		 * Post: Libera la memoria ocupada por "auxiliar"
+		 */
+		void destruirAuxiliar(Celula** auxiliar , Malla* malla);
+
+		/*
+		 * Pre: Recibe un puntero a un array bidimensional de "Celula" valido y un puntero a malla valido.
+		 * Post: Reemplaza las celulas de "malla" por las de "auxiliar"
+		 */
+		void reemplazarAuxiliar(Celula** auxiliar, Malla* malla);
+
+		/*
+		 *
+		 */
+		void establecerColorMallaPorDefecto(BMP *Imagen, Malla* malla);
+
+		/*
+		 *
+		 */
+		void cargarMallaEnImagen(BMP *Imagen, Malla* malla);
 
 };
-
-
 
 #endif /* SRC_JUEGO_H_ */

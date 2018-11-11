@@ -42,7 +42,11 @@ void GeneradorDeTableros::generarParcelas(){
 	while( leer >> palabraAuxiliar ){
 			if( !palabraAuxiliar.compare("Tablero") ){
 				leer >> nombre >> fila >> columna;
-				salida << "Parcela " << nombre << " " << columna << " " << fila << " " << rand()%256 << " " << rand()%256 << " " << rand()%256 << " " << (float)rand()/RAND_MAX << " " << (float)rand()/RAND_MAX<< endl;
+				for(int i=1; i<=fila; i++){
+					for(int j=1; j<=columna; j++){
+						salida << "Parcela " << nombre << " " << j << " " << i << " " << rand()%256 << " " << rand()%256 << " " << rand()%256 << " " << (float)rand()/RAND_MAX << " " << (float)rand()/RAND_MAX<< endl;
+					}
+				}
 			}
 	}
 }

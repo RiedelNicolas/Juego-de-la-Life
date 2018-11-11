@@ -14,7 +14,6 @@ InterfazDeUsuario::InterfazDeUsuario(){
 
 void InterfazDeUsuario::mensajeDeBienvenida(){
 	cout << "..:: Bienvenido al Juego de la Vida 1.0 ::.." << endl;
-	//PODRÍAMOS ROBAR ALGO DEL INFORME PARA PONER ACÁ
 }
 
 bool InterfazDeUsuario::preguntarPorPantalla(string mensaje){

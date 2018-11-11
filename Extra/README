@@ -1,0 +1,9 @@
+El Generador de Tableros es un pequeño programa desarrollado para elaborar un archivo de texto que contenga la información necesaria para jugar al Juego de la Vida.
+
+Para ello, una vez compilado, deberá ingresar el nombre y cantidad de filas y columnas de los tableros que se deseen crear. Automáticamente se generarán las parcelas 
+pertenecientes a dichos tableros con valores RGB e índices de mortalidad y natalidad aleatorios. Finalmente, se le preguntará si desea ingresar un portal, indicando 
+tablero y coordenadas de origen y destino, y tipo de portal.
+
+Aclaración: Los nombres no deben incluir espacios.
+            Las portales deben crearse respetando los límites de cada tablero. 
+            El archivo de texto generado debe introducirse dentro de la carpeta "src" junto con los archivos fuente de "El Juego de la Vida".

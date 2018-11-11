@@ -22,7 +22,6 @@ class Tablero {
 	Tablero();
 
 	/*
-	 * Destructor
 	 * Pre: Lista creada.
 	 * Post: Libera los recursos utilizados por la lista.
 	 */

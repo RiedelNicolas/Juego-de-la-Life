@@ -9,6 +9,7 @@ class Nodo {
 	private:
 
 		Malla* malla;
+
 		Nodo* siguiente;
 
 	public:
