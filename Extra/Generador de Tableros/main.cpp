@@ -1,7 +1,7 @@
 #include "GeneradorDeTableros.h"
 #include <iostream>
 using namespace std;
-
+/*
 int main() {
 
 	GeneradorDeTableros generador("src/configuracion.txt");
@@ -14,3 +14,4 @@ int main() {
 
     return 0;
 }
+*/

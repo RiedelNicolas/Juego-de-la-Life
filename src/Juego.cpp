@@ -289,8 +289,12 @@ void Juego::ingresoDeCelulas(Malla* malla){
 		columna = interfaz->pedirColumna(malla);
 
 		parcela = malla->getParcela(fila, columna);
-		parcela->setEstadoDeCelula(VIVA);
 
+		if(!parcela->getEstadoDeCelula()){
+			parcela->setEstadoDeCelula(VIVA);
+			cantidadDeCelulasNacidas++;
+			cantidadDeCelulasVivas++;
+		}
 		imprimirMalla(malla);
 	}
 }
