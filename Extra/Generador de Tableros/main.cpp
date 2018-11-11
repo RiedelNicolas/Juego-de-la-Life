@@ -1,10 +1,10 @@
 #include "GeneradorDeTableros.h"
 #include <iostream>
 using namespace std;
-/*
+
 int main() {
 
-	GeneradorDeTableros generador("/home/gonza/git/Juego-de-la-Life/src/configuracion.txt");
+	GeneradorDeTableros generador("src/configuracion.txt");
 
 	generador.pedirTableros();
 	generador.generarParcelas();
@@ -14,4 +14,3 @@ int main() {
 
     return 0;
 }
-*/
