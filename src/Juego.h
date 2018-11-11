@@ -147,6 +147,16 @@ class Juego{
 		 */
 		void reemplazarAuxiliar(Celula** auxiliar, Malla* malla);
 
+		/*
+		 *
+		 */
+		void establecerColorMallaPorDefecto(BMP *Imagen, Malla* malla);
+
+		/*
+		 *
+		 */
+		void cargarMallaEnImagen(BMP *Imagen, Malla* malla);
+
 };
 
 #endif /* SRC_JUEGO_H_ */
