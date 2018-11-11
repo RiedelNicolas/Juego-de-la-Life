@@ -31,35 +31,48 @@ class Inicializador{
 	     */
 		Inicializador(std::string ruta,Tablero*);
 
-		//Destructor, devuelve los recursos tomados a el sistema operativo.
+		/*
+		 * Post: Destructor, devuelve los recursos tomados a el sistema operativo.
+		 */
 		~Inicializador();
 
 	private:
 
-		/*Pre: el archivo fue abierto correctamente y tiene el formato adecuado.
-		 * post: Carga los datos del archivo en el Tablero del juego/.
+		/*
+		 * Pre: el archivo fue abierto correctamente y tiene el formato adecuado.
+		 * Post: Carga los datos del archivo en el Tablero del juego/.
 		 */
 		void levantarTablero();
 
-		/*pre:Archivo correctamente formado.
-		 * post:carga la malla correspondiente con los datos obtenidos del archivo.
+		/*
+		 * Pre: Archivo correctamente formado.
+		 * Post: carga la malla correspondiente con los datos obtenidos del archivo.
 		 */
 		void levantarMalla();
 
-		/*pre:Archivo correctamente formado.
-		 * post:carga el portal correspondiente con los datos obtenidos del archivo.
+		/*
+		 * Pre: Archivo correctamente formado.
+		 * Post: Carga el portal correspondiente con los datos obtenidos del archivo.
 		 */
 		void levantarPortal();
 
-		/*pre:Archivo correctamente formado.
-		 * post:carga la parcelacorrespondiente con los datos obtenidos del archivo.
+		/*
+		 * Pre: Archivo correctamente formado.
+		 * Post: Carga la parcela correspondiente con los datos obtenidos del archivo.
 		*/
 		void levantarParcela();
 
-		/*pre:Archivo correctamente formado.
-		 * post:carga el color correspondiente (en formato RGB) con los datos obtenidos del archivo.
+		/*
+		 * Pre: Archivo correctamente formado.
+		 * Post: Carga el color correspondiente (en formato RGB) con los datos obtenidos del archivo.
 		 */
 		Rgb  levantarColor();
+
+
+		/*
+		 * Post: crea un portal asignando su estado, su entrada y su salida.
+		 */
+		void crearPortal(char estado, Parcela* parcelaDestino, Parcela* parcelaOrigen);
 };
 
 #endif /* Inicializador_H_ */
