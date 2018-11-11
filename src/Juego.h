@@ -159,6 +159,14 @@ class Juego{
 		 */
 		void cargarMallaEnImagen(BMP *Imagen, Malla* malla);
 
+		/*
+		 *  Pre: Recibe un puntero a Celula y un puntero a Parcela Validos
+		 *  Post: Carga en la "celula" la vida con la que quedaria la celula de la "parcela" al pasar de turno,
+		 *  	  Es importante aclarar que esta funcion se invoca solo si la celula sufre daño por estar rodeada
+		 *  	  de menos de 2 celulas vivas o mas de 3 celulas vivas
+		 */
+		void reducirVidaCelula(Celula* celula, Parcela* parcela);
+
 };
 
 #endif /* SRC_JUEGO_H_ */

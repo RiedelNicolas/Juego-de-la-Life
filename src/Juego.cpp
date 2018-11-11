@@ -188,6 +188,17 @@ void Juego::reemplazarAuxiliar(Celula** auxiliar, Malla* malla){
 
 }
 
+void Juego::reducirVidaCelula(Celula* celulaAux, Parcela* parcela){
+
+	*celulaAux = calcularRestaVidaCelula(parcela);
+	if(parcela->contienePortal() && !celulaAux->getEstado()){
+		parcela->getPortal()->atravesarPortal(parcela, MUERE);
+	}
+	if(parcela->getCelula()->getEstado() == VIVA  && celulaAux->getEstado() == MUERTA){
+		this->cantidadDeCelulasMuertas++;
+	}
+}
+
 void Juego::actualizarMalla(Malla* malla){
 
 	int celulasVivasLindantes;
@@ -204,13 +215,7 @@ void Juego::actualizarMalla(Malla* malla){
 			Parcela* parcela = malla->getParcela(i, j);
 
 			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3) && !parcela->getCelula()->nacePorPortal()){
-				celulaAux = calcularRestaVidaCelula(malla->getParcela(i, j));
-				if(parcela->contienePortal() && !celulaAux.getEstado()){
-						parcela->getPortal()->atravesarPortal(parcela, MUERE);
-				}
-				if(malla->getParcela(i, j)->getCelula()->getEstado() == VIVA  && celulaAux.getEstado() == MUERTA){
-					cantidadDeCelulasMuertas++;
-				}
+				reducirVidaCelula(&celulaAux, parcela);
 			}
 			else if(!estaViva && celulasVivasLindantes == 2 ){
 				celulaAux.setEstado(MUERTA);
