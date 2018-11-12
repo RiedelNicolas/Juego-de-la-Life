@@ -16,7 +16,7 @@ int main(){
 
 			if(ordenIngresada == REINICIAR){
 				tablero.vaciarTablero();
-				Inicializador leeArchivo("src/configuracion.txt", &tablero);
+				Inicializador leeArchivo("src/configurion.txt", &tablero);
 				elJuegoDeLaVida.inicializarJuego();
 			}
 
@@ -24,7 +24,7 @@ int main(){
 			ordenIngresada = elJuegoDeLaVida.obtenerOrdenPorPantalla();
 		}
 
-	}catch(string* mensaje){
+	}catch(string mensaje){
 		cout << mensaje << endl;
 	}
 

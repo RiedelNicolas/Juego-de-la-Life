@@ -30,6 +30,7 @@ void Juego::nuevoTurno(){
 }
 
 void Juego::inicializarJuego(){
+
 	Malla* malla;
 
 	interfaz->mensajeDeBienvenida();
@@ -39,7 +40,6 @@ void Juego::inicializarJuego(){
 
 		malla = tablero->obtenerCursor();
 		ingresoDeCelulas(malla);
-
 	}
 
 	this->turno = 0;
