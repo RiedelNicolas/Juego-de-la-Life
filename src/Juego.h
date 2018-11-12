@@ -107,14 +107,35 @@ class Juego{
 		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
 		 */
 
+		/*pre: Tablero correctamente cargado
+		 * post:actualiza el valor del atributo "cantidadDeCelulasVivas"
+		 */
 		void contarCelulasVivas();
 
+		/*
+		 * pre: se le pasa por parametro una malla valida.
+		 * Post: le permite a el usuario ingresar celulas vivas a eleccion.
+		 */
 		void ingresoDeCelulas(Malla* malla);
 
+		/*
+		 * pre: Tablero correctamente formado.
+		 * post: da la opcion a el usuario de cargar celulas en un tablero a eleccion.
+		 */
 		void olvidoAgregarCelulasEnTablero();
+
+		/*
+		 * Pre: Recibe un puntero a parcela valido
+		 * Post: Calcula cuanto debe variar la vida de la celula correspondiente a la parcela
+		 * en dicho turno y aplica los cambios correspondientes. Devuelve un equivalente a dicha celula.
+		 */
 
 		Celula calcularRestaVidaCelula(Parcela* parcela);
 
+		/*
+		 * Pregunta ,por consola, como se desea continuar con el juego.
+		 * Devuelve la respuesta seleccionada por el usuario en forma de char.
+		 */
 		char obtenerOrdenPorPantalla();
 
 	private:
@@ -156,6 +177,12 @@ class Juego{
 		 *  	  de menos de 2 celulas vivas o mas de 3 celulas vivas
 		 */
 		void reducirVidaCelula(Celula* celula, Parcela* parcela);
+
+		/*
+		 * pre: Recibe una celula, una parcela y un RGB por parametros.
+		 * post: Da la vida y el color correspondiente a la celula por nacer,
+		 * realiza las interacciones correspondientes con el portal.
+		 */
 
 		void hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColorCelula);
 
