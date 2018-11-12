@@ -198,20 +198,33 @@ void Juego::reducirVidaCelula(Celula* celulaAux, Parcela* parcela){
 	}
 }
 
+void Juego::hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColorCelula){
+
+	this->cantidadDeCelulasNacidas++;
+	celulaAux->setRgb(*nuevoColorCelula);
+	celulaAux->setVida(parcela->getVidaAlNacer());
+
+	if(parcela->contienePortal()){
+		parcela->getPortal()->atravesarPortal(parcela, NACE);
+	}
+}
+
 void Juego::actualizarMalla(Malla* malla){
 
 	int celulasVivasLindantes;
 	int i, j;
 	bool estaViva;
+	Parcela* parcela = NULL;
 	Celula celulaAux;
 	Celula** auxiliar = crearAuxiliar(malla);
+	Rgb nuevoColorCelula;
 
 	for(i = 0; i < malla->getCantidadDeFilas(); i++){
 		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
 
 			celulasVivasLindantes = malla->contarCelulasVivasLindantes(i, j);
 			estaViva = malla->getParcela(i, j)->getCelula()->getEstado();
-			Parcela* parcela = malla->getParcela(i, j);
+			parcela = malla->getParcela(i, j);
 
 			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3) && !parcela->getCelula()->nacePorPortal()){
 				reducirVidaCelula(&celulaAux, parcela);
@@ -223,12 +236,8 @@ void Juego::actualizarMalla(Malla* malla){
 			else{
 				celulaAux.setEstado(VIVA);
 				if(!estaViva){
-					cantidadDeCelulasNacidas++;
-					celulaAux.setRgb(malla->obtenerColorPromedioDeVecinasVivas(i, j));
-					celulaAux.setVida(parcela->getVidaAlNacer());
-					if(parcela->contienePortal()){
-						parcela->getPortal()->atravesarPortal(parcela, NACE);
-					}
+					nuevoColorCelula = malla->obtenerColorPromedioDeVecinasVivas(i, j);
+					hacerNacerCelula(&celulaAux, parcela, &nuevoColorCelula);
 				}
 				else{
 					celulaAux.setRgb(parcela->getCelula()->getRgb());

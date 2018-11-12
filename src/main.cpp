@@ -16,7 +16,7 @@ int main(){
 
 			if(ordenIngresada == REINICIAR){
 				tablero.vaciarTablero();
-				Inicializador leeArchivo("src/configurion.txt", &tablero);
+				Inicializador leeArchivo("src/configuracion.txt", &tablero);
 				elJuegoDeLaVida.inicializarJuego();
 			}
 

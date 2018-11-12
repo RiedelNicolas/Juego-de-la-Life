@@ -167,6 +167,8 @@ class Juego{
 		 */
 		void reducirVidaCelula(Celula* celula, Parcela* parcela);
 
+		void hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColorCelula);
+
 };
 
 #endif /* SRC_JUEGO_H_ */
