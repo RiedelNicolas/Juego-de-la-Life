@@ -51,6 +51,7 @@ void Juego::inicializarJuego(){
 
 void Juego::imprimirResumen(){
 
+	contarCelulasVivas();
 	cout << "Turno:" << turno << endl;
 	cout << "Cantidad de celulas vivas: " << cantidadDeCelulasVivas << endl;
 
@@ -130,10 +131,8 @@ void Juego::actualizarTablero(){
 	while(tablero->avanzarCursor()){
 
 		malla = tablero->obtenerCursor();
-
 		actualizarMalla(malla);
 
-		cantidadDeCelulasVivas += malla->getCantidadDeCelulasVivas();
 	}
 }
 
