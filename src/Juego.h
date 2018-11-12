@@ -38,16 +38,6 @@ class Juego{
 		void nuevoTurno();
 
 		/*
-		 *Post: cambia el estado del juego a Reiniciar
-		 */
-		void reiniciarJuego();
-
-		/*
-		 * Post: Cambia el estado del juego a Terminar
-		 */
-		void finalizarJuego();
-
-		/*
 		 *Post: Inicializa el juego. Es decir, muestra un mensaje de bienvenida
 		 * y le permite al usuario realizar el ingreso de las celulas deseadas
 		 * en cada tablero siempre y cuando la posicion en la que se quiere

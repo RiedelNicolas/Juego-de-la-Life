@@ -229,7 +229,7 @@ void Juego::actualizarMalla(Malla* malla){
 			if((celulasVivasLindantes < 2 || celulasVivasLindantes > 3) && !parcela->getCelula()->nacePorPortal()){
 				reducirVidaCelula(&celulaAux, parcela);
 			}
-			else if(!estaViva && celulasVivasLindantes == 2 ){
+			else if(!estaViva && celulasVivasLindantes == 2){
 				celulaAux.setEstado(MUERTA);
 				celulaAux.setVida(VIDA_MUERTA);
 			}
