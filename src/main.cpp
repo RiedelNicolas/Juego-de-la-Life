@@ -14,7 +14,7 @@ int main(){
 	try{
 		while(ordenIngresada != TERMINAR){
 
-			if(ordenIngresada == REINICIAR ){
+			if(ordenIngresada == REINICIAR){
 				tablero.vaciarTablero();
 				Inicializador leeArchivo("src/configuracion.txt", &tablero);
 				elJuegoDeLaVida.inicializarJuego();
@@ -24,10 +24,10 @@ int main(){
 			ordenIngresada = elJuegoDeLaVida.obtenerOrdenPorPantalla();
 		}
 
-	}catch(string mensaje){
+	}catch(string* mensaje){
 		cout << mensaje << endl;
 	}
 
-	cout<< "Game Over"<<endl;
+	cout<< "Game Over."<<endl;
 	return 0;
 }
