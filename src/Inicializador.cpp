@@ -69,17 +69,8 @@ void Inicializador::levantarParcela(){
 
 }
 
-void crearPortal(char estado, Parcela* parcelaDestino, Parcela* parcelaOrigen){
 
-	if(estado == ACTIVO ){
-		Portal* portalSecundario =parcelaDestino->getPortal();
-		portalSecundario->setEstado( ACTIVO );
-		portalSecundario->setEntrada(parcelaDestino);
-		portalSecundario->setSalida(parcelaOrigen);
-	}
-}
-
-void Inicializador ::levantarPortal(){
+void Inicializador::levantarPortal(){
 	std::string nombreDeLaMallaOrigen, nombreDeLaMallaDestino;
 	int xOrigen,yOrigen,xDestino,yDestino;
 	char estado;
@@ -98,13 +89,13 @@ void Inicializador ::levantarPortal(){
 	parcelaOrigen  = mallaOrigen->getParcela(yOrigen-1,xOrigen-1);
 	parcelaDestino = mallaDestino->getParcela(yDestino-1,xDestino-1);
 
-	portal = ( parcelaOrigen->getPortal() );
-	portal->setEstado(estado);
-	portal->setEntrada(parcelaOrigen);
-	portal->setSalida(parcelaDestino);
+	crearPortal(estado, parcelaOrigen, parcelaDestino);
 
-	crearPortal(estado, parcelaDestino, parcelaOrigen);
+	if(estado == ACTIVO){
+		crearPortal(estado, parcelaDestino, parcelaOrigen);
+	}
 }
+
 
 
 Rgb Inicializador::levantarColor(){
@@ -115,3 +106,12 @@ Rgb Inicializador::levantarColor(){
 	return color;
 }
 
+
+void Inicializador::crearPortal(char estado, Parcela* parcelaOrigen, Parcela* parcelaDestino){
+
+	Portal* portal = parcelaOrigen->getPortal();
+	portal->setEstado(estado);
+	portal->setEntrada(parcelaOrigen);
+	portal->setSalida(parcelaDestino);
+
+}
