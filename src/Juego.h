@@ -61,6 +61,18 @@ class Juego{
 		 */
 		void imprimirMalla(Malla* malla);
 
+		/* Pre: el tablero está creado e inicializado.
+		 * Post: muestra en una imagen BMP el estado de todas las Mallas.
+		 */
+		void imprimirTablero();
+
+		/*
+		 * Pregunta ,por consola, como se desea continuar con el juego.
+		 * Devuelve la respuesta seleccionada por el usuario en forma de char.
+		 */
+		char obtenerOrdenPorPantalla();
+
+	private:
 
 		/* Pre: el tablero está creado.
 		 * Post: Modifica el estado de todas las células del juego teniendo en cuenta los índices
@@ -83,11 +95,6 @@ class Juego{
 		*/
 		void actualizarMalla(Malla* malla);
 
-		/* Pre: el tablero está creado e inicializado.
-		 * Post: muestra en una imagen BMP el estado de todas las Mallas.
-		 */
-		void imprimirTablero();
-
 		/*
 		 * Post: Se ejecutan "cantidadDeTurnos" turnos
 		 */
@@ -102,10 +109,6 @@ class Juego{
 		 * Post: Devuelve un bool con la respuesta a la pregunta "¿El tablero está congelado?"
 		 */
 		bool tableroCongelado(int celulasNacidas, int celulasMuertas);
-
-		/*
-		 * Post: si "cantidadDeCelulas" es negativa, le asigna 0
-		 */
 
 		/*pre: Tablero correctamente cargado
 		 * post:actualiza el valor del atributo "cantidadDeCelulasVivas"
@@ -131,14 +134,6 @@ class Juego{
 		 */
 
 		Celula calcularRestaVidaCelula(Parcela* parcela);
-
-		/*
-		 * Pregunta ,por consola, como se desea continuar con el juego.
-		 * Devuelve la respuesta seleccionada por el usuario en forma de char.
-		 */
-		char obtenerOrdenPorPantalla();
-
-	private:
 
 		/*
 		 * Pre: Recibe un puntero a malla valido
