@@ -5,6 +5,13 @@ Grafo::Grafo(int dimension){
 	adyacencias = new int[dimension];
 
 	for(int i=0; i<dimension; i++){
-		adyacencias[i] = new int[dimension];
+		adyacencias[i] = new int*[dimension];
 	}
+}
+
+Grafo::~Grafo(){
+	for(int i=0; i<dimension; i++){
+		delete[] adyacencias[i];
+	}
+	delete[] adyacencias;
 }

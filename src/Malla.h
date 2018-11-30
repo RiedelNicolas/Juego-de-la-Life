@@ -22,8 +22,8 @@ class Malla {
 		/*
 		 * Post: Libera los recursos pedidos
 		 */
-
 		~Malla();
+
 		/*
 		*  Post: Devuelve la cantidad de filas de la malla.
 		*/

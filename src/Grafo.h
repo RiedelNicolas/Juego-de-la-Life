@@ -4,13 +4,20 @@
 class Grafo{
 
 	public:
+
 		int cantidadDeVertices;
-		int* adyacencias;
+		int** adyacencias;
+
 	private:
 		/*
 		 * Post: genera el grafo vacío.
 		 */
 		Grafo(int dimension);
+
+		/* Pre: grafo creado.
+		 * Post: destruye el grafo y libera los recursos pedidos.
+		 */
+		~Grafo();
 
 };
 
