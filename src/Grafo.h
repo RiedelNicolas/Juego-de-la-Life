@@ -1,26 +1,52 @@
-#ifndef GRAFO_H_
-#define GRAFO_H_
 
-//class Grafo{
-//
-//	public:
-//
-//		int cantidadDeVertices;
-//		int** adyacencias;
-//
-//	private:
-//		/*
-//		 * Post: genera el grafo vacío.
-//		 */
-//		Grafo(int dimension);
-//
-//		/* Pre: grafo creado.
-//		 * Post: destruye el grafo y libera los recursos pedidos.
-//		 */
-//		~Grafo();
-//
-//};
+#ifndef GRAFO2_H_
+#define GRAFO2_H_
+
+#include "Vertice.h"
+#include "Arista.h"
+
+class Grafo{
+
+private:
+
+	Vertice* primero;
+	Vertice* cursor;
+	unsigned int tamanio;
+
+public:
+
+	Grafo();
+
+	bool estaVacio();
+
+	unsigned int obtenerTamanio();
+
+	Vertice* buscarVertice(std::string nombreTablero);
+
+	void insertarArista(std::string origen, std::string destino, unsigned int peso);
+
+	void insertarVertice(std::string verticeAInsertar);
+
+	void iniciarCursor();
+
+	bool avanzarCursor();
+
+	Vertice* obtenerCursor();
+
+	~Grafo();
+
+private:
+
+	bool existeVertice(std::string);
+
+	Vertice* obtenerVertice(unsigned int posicion);
+
+};
 
 
 
-#endif /* GRAFO_H_ */
+#endif /* GRAFO2_H_ */
+
+
+
+
