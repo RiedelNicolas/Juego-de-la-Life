@@ -7,17 +7,17 @@ CaminoMinimo::CaminoMinimo(Grafo* grafo){
 	tamanio = grafo->obtenerTamanio();
 	elementos = new ElementoFloyd*[tamanio];
 
-	for(int i=0; i<tamanio; i++){
+	for(unsigned int i=0; i<tamanio; i++){
 		elementos[i] = new ElementoFloyd[tamanio];
 	}
 
 	grafo->iniciarCursor();
 
-	for(int i=0; i<tamanio; i++){
+	for(unsigned int i=0; i<tamanio; i++){
 		grafo->avanzarCursor();
 		Vertice* verticeActual = grafo->obtenerCursor();
 
-		for(int j=0; j<tamanio; j++){
+		for(unsigned int j=0; j<tamanio; j++){
 			elementos[j][i].setNombreDestino(verticeActual->obtenerNombreVertice());
 		}
 	}
@@ -27,7 +27,7 @@ CaminoMinimo::CaminoMinimo(Grafo* grafo){
 
 CaminoMinimo::~CaminoMinimo(){
 
-	for(int i=0; i<tamanio; i++){
+	for(unsigned int i=0; i<tamanio; i++){
 		delete[] elementos[i];
 	}
 
@@ -38,13 +38,13 @@ void CaminoMinimo::completarMatriz(Grafo* grafo){
 
 	grafo->iniciarCursor();
 
-	for(int i=0; i<tamanio; i++){
+	for(unsigned int i=0; i<tamanio; i++){
 		grafo->avanzarCursor();
 		Vertice* verticeActual = grafo->obtenerCursor();
 		verticeActual->iniciarCursor();
 
 		while(verticeActual->avanzarCursor()){
-			int j=0;
+			unsigned int j=0;
 			Arista* aristaActual = verticeActual->obtenerCursor();
 			Vertice* verticeAdyacente = aristaActual->obtenerVerticeAdyacente();
 

@@ -72,6 +72,11 @@ public:
 	Vertice* obtenerCursor();
 
 	/*
+	 * Post: aumenta en uno el peso de la arista
+	 */
+	void aumentarEnUnoElPeso(Arista* arista);
+
+	/*
 	 * Post: libera los recursos asociados a Grafo
 	 */
 	~Grafo();
@@ -89,10 +94,6 @@ private:
 	 */
 	Vertice* obtenerVertice(unsigned int posicion);
 
-	/*
-	 * Post: aumenta en uno el peso de la arista
-	 */
-	void aumentarEnUnoElPeso(Arista* arista);
 
 };
 
