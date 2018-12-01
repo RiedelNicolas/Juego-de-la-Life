@@ -1,33 +1,33 @@
 Tablero Chico 3 3
 Tablero Mediano 3 3
 Tablero Grande 3 3
-Parcela Chico 1 1 81 115 105 0.39 0.84
-Parcela Chico 2 1 205 41 236 0.34 0.20
-Parcela Chico 3 1 227 251 242 0.63 0.48
-Parcela Chico 4 1 248 84 194 0.64 0.92
-Parcela Chico 1 2 118 141 231 0.24 0.02
-Parcela Chico 2 2 159 51 99 0.13 0.40
-Parcela Chico 3 2 13 50 102 0.84 0.51
-Parcela Chico 4 2 90 163 88 0.49 0.52
-Parcela Chico 1 3 88 23 5 0.77 0.53
-Parcela Mediano 1 1 236 42 92 0.17 0.69
-Parcela Mediano 2 1 175 50 251 0.23 0.33
-Parcela Mediano 3 1 219 24 236 0.59 0.96
-Parcela Mediano 4 1 67 254 26 0.40 0.92
-Parcela Mediano 5 1 251 58 170 0.22 0.48
-Parcela Mediano 6 1 60 5 230 0.64 0.88
-Parcela Mediano 7 1 190 216 117 0.31 0.79
-Parcela Mediano 1 2 187 92 249 0.56 0.28
-Parcela Mediano 2 2 177 149 15 0.13 0.10
-Parcela Grande 1 1 80 153 183 0.14 0.12
-Parcela Grande 2 1 217 211 20 0.62 0.91
-Parcela Grande 3 1 242 160 94 0.39 0.33
-Parcela Grande 4 1 148 5 246 0.07 0.15
-Parcela Grande 5 1 68 188 180 0.33 0.29
-Parcela Grande 6 1 230 105 73 0.27 0.58
-Parcela Grande 7 1 105 218 26 0.88 0.16
-Parcela Grande 8 1 81 126 76 0.43 0.56
-Parcela Grande 9 1 83 132 72 0.73 0.33
-Portal Chico 2 2 P Mediano 6 3
-Portal Mediano 1 3 A Grande 8 2
-Portal Grande 7 1 N Chico 2 4
+Parcela Chico 1 1 81 115 105 1.00 1.00
+Parcela Chico 2 1 205 41 236 1.00 1.00
+Parcela Chico 3 1 227 251 242 1.00 1.00
+Parcela Chico 1 2 248 84 194 1.00 1.00
+Parcela Chico 2 2 118 141 231 1.00 1.00
+Parcela Chico 3 2 159 51 99 1.00 1.00
+Parcela Chico 1 3 13 50 102 1.00 1.00
+Parcela Chico 2 3 90 163 88 1.00 1.00
+Parcela Chico 3 3 88 23 5 1.00 1.00
+Parcela Mediano 1 1 236 42 92 1.00 1.00
+Parcela Mediano 2 1 175 50 251 1.00 1.00
+Parcela Mediano 3 1 219 24 236 1.00 1.00
+Parcela Mediano 1 2 67 254 26 1.00 1.00
+Parcela Mediano 2 2 251 58 170 1.00 1.00
+Parcela Mediano 3 2 60 5 230 1.00 1.00
+Parcela Mediano 1 3 190 216 117 1.00 1.00
+Parcela Mediano 2 3 187 92 249 1.00 1.00
+Parcela Mediano 3 3 177 149 15 1.00 1.00
+Parcela Grande 1 1 80 153 183 1.00 1.00
+Parcela Grande 2 1 217 211 20 1.00 1.00
+Parcela Grande 3 1 242 160 94 1.00 1.00
+Parcela Grande 1 2 148 5 246 1.00 1.00
+Parcela Grande 2 2 68 188 180 1.00 1.00
+Parcela Grande 3 2 230 105 73 1.00 1.00
+Parcela Grande 1 3 105 218 26 1.00 1.00
+Parcela Grande 2 3 81 126 76 1.00 1.00
+Parcela Grande 3 3 83 132 72 1.00 1.00
+Portal Chico 1 1 P Mediano 2 3
+Portal Mediano 1 3 P Grande 2 2
+Portal Chico 2 2 P Grande 2 4
