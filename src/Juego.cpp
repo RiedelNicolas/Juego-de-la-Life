@@ -6,6 +6,7 @@
 #define MUERE 'M'
 using namespace std;
 
+
 Juego::Juego(Tablero* tablero, Grafo* grafo){
 
 	turno = 0 ;
@@ -232,7 +233,7 @@ void Juego::hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColo
 		string salida = portal->getMallaDeSalida();
 		Vertice* verticeDeEntrada = grafo->buscarVertice(entrada);
 		// BUSCAR LA ARISTA  DE SALIDA EN EL GRAFO
-		grafo->aumentarEnUnoElPeso(arista);
+		//grafo->aumentarEnUnoElPeso(arista);
 	}
 }
 

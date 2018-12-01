@@ -4,12 +4,11 @@
 #include <iostream>
 #include "Malla.h"
 
-class Nodo {
+template <class T> class Nodo {
 
 	private:
 
-		Malla* malla;
-
+		T* elemento;
 		Nodo* siguiente;
 
 	public:
@@ -18,7 +17,7 @@ class Nodo {
 		 * Pre: Recibe un puntero a Malla
 		 * Post: Asigna ese puntero al puntero a malla del Nodo
 		 */
-		Nodo(Malla*);
+		Nodo(T*);
 
 		/*
 		 * Post: Libera los recursos utilizados por el Nodo
@@ -28,7 +27,7 @@ class Nodo {
 		/*
 		 * Post: Devuelve un puntero a la malla correspondiente al nodo
 		 */
-		Malla* getMalla();
+		T* getElemento();
 
 		/*
 		 * Post: Devuelve un puntero al siguiente Nodo, en caso
@@ -41,5 +40,27 @@ class Nodo {
 		 */
 		void setSigNodo(Nodo*);
 };
+
+template<class T> Nodo<T>::Nodo(T* elementoRecibido){
+	this->elemento = elementoRecibido;
+	this->siguiente = NULL;
+}
+
+template<class T> Nodo<T>::~Nodo(){
+	delete (this->elemento);
+}
+
+template<class T> T* Nodo<T>::getElemento(){
+	return (this->elemento);
+}
+
+template<class T> Nodo<T>* Nodo<T>::getSigNodo(){
+	return (this->siguiente);
+}
+
+template <class T> void Nodo<T>::setSigNodo(Nodo* siguienteRecibido){
+	this->siguiente = siguienteRecibido;
+}
+
 
 #endif /* SRC_NODO_H_ */
