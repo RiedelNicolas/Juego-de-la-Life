@@ -69,10 +69,10 @@ void CaminoMinimo::calcularTransferenciaMinima() {
 		for(int i = 0; i < this->tamanio; i++){
 			for(int j = 0; j < this->tamanio; j++){
 
-				aux = elementos[i][k].peso + elementos[k][j].peso;
+				aux = elementos[i][k].getPeso() + elementos[k][j].getPeso();
 
-				if(elementos[i][j].peso > aux) {
-					elementos[i][j].peso = aux;
+				if(elementos[i][j].getPeso() > aux) {
+					elementos[i][j].getPeso() = aux;
 				}
 			}
 		}
