@@ -32,7 +32,7 @@ void Portal::setMallaDeEntrada(std::string nombre){
 }
 
 void Portal::setMallaDeSalida(std::string nombre){
-	mallaDeEntrada = nombre;
+	mallaDeSalida = nombre;
 }
 
 std::string Portal::getMallaDeEntrada(){
