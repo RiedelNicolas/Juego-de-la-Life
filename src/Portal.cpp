@@ -6,6 +6,7 @@ Portal::Portal(){
 	estado = INACTIVO;
 	entrada = NULL;
 	salida = NULL;
+	celulasTransferidas = 0;
 }
 
 void Portal::setEstado(char nuevoEstado){
@@ -52,6 +53,7 @@ void Portal::atravesarPortal(Parcela* llamadoDesde, char estadoEnQueAtraviesa){
 void Portal::atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida, char estadoEnQueAtraviesa){
 	if(estadoEnQueAtraviesa == NACE){
 		hacerNacerCelula(parcelaDeEntrada, parcelaDeSalida);
+		celulasTransferidas++;
 	}
 	else{
 		matarCelula(parcelaDeEntrada, parcelaDeSalida);

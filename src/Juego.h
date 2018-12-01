@@ -1,6 +1,7 @@
 #ifndef JUEGO_H_
 #define JUEGO_H_
 #include "Tablero.h"
+#include "Grafo.h
 #include "Malla.h"
 #include "EasyBMP.h"
 #include "InterfazDeUsuario.h"
@@ -20,13 +21,14 @@ class Juego{
 		int totalCelulasMuertas;
 		int totalCelulasNacidas;
 		Tablero* tablero;
+		Grafo* grafo;
 		InterfazDeUsuario* interfaz;
 
 	public:
 		/*
 		 * Post: Crea un juego con "tablero" listo para ejecutarse
 		 */
-		Juego(Tablero* tablero);
+		Juego(Tablero* tablero, Grafo* grafo);
 		/*
 		 * Post: Libera los recursos tomados
 		 */

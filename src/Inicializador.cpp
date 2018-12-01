@@ -5,15 +5,17 @@
 #define MALLA "Tablero"
 #define PORTAL "Portal"
 #define PARCELA "Parcela"
+#define PESO_INICIAL 0
 
 
 
-Inicializador::Inicializador(std::string ruta,Tablero* tablero){
+Inicializador::Inicializador(std::string ruta,Tablero* tablero, Grafo* grafo){
 	file.open( ruta.c_str() );
 	if( !file.is_open() ){
 		throw std::string( "No se pudo abrir el Inicializador");
 	}
 	this->tablero = tablero;
+	this->grafo = grafo;
 	levantarTablero();
 	file.close();
 }
@@ -46,6 +48,8 @@ void Inicializador::levantarMalla(){
 	file>>nombre>>columnas>>filas;
 	Malla* malla = new Malla (filas,columnas,nombre);
 	tablero->agregarMalla(malla);
+	grafo->insertarVertice(nombre);
+
 }
 
 void Inicializador::levantarParcela(){
@@ -90,9 +94,11 @@ void Inicializador::levantarPortal(){
 	parcelaDestino = mallaDestino->getParcela(yDestino-1,xDestino-1);
 
 	crearPortal(estado, parcelaOrigen, parcelaDestino);
+	grafo->insertarArista(nombreDeLaMallaOrigen, nombreDeLaMallaDestino, PESO_INICIAL);
 
 	if(estado == ACTIVO){
 		crearPortal(estado, parcelaDestino, parcelaOrigen);
+		grafo->insertarArista(nombreDeLaMallaDestino, nombreDeLaMallaOrigen, PESO_INICIAL);
 	}
 }
 

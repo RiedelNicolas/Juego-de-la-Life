@@ -6,7 +6,7 @@
 #define MUERE 'M'
 using namespace std;
 
-Juego::Juego(Tablero* tablero ){
+Juego::Juego(Tablero* tablero, Grafo* grafo){
 
 	turno = 0 ;
 	cantidadDeCelulasNacidas = 0;
@@ -15,6 +15,7 @@ Juego::Juego(Tablero* tablero ){
 	totalCelulasMuertas = 0;
 	totalCelulasNacidas = 0;
 	this->tablero = tablero;
+	this->grafo = grafo;
 	interfaz = new InterfazDeUsuario();
 }
 

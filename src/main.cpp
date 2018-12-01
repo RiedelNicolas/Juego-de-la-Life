@@ -2,13 +2,15 @@
 #include "Parcela.h"
 #include "Juego.h"
 #include "Inicializador.h"
+#include "Grafo.h"
 
 using namespace std;
 
 int main(){
 
 	Tablero tablero;
-	Juego elJuegoDeLaVida (&tablero);
+	Grafo grafo;
+	Juego elJuegoDeLaVida (&tablero, &grafo);
 	char ordenIngresada = REINICIAR;
 
 	try{
@@ -16,7 +18,7 @@ int main(){
 
 			if(ordenIngresada == REINICIAR){
 				tablero.vaciarTablero();
-				Inicializador leeArchivo("src/configuracion.txt", &tablero);
+				Inicializador leeArchivo("src/configuracion.txt", &tablero, &grafo);
 				elJuegoDeLaVida.inicializarJuego();
 			}
 

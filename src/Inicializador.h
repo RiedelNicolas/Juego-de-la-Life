@@ -7,6 +7,7 @@
 
 #include "Malla.h"
 #include "Tablero.h"
+#include "Grafo.h"
 #include "Celula.h"
 #include "Parcela.h"
 #include "Portal.h"
@@ -17,19 +18,19 @@ class Inicializador{
 	private:
 
 		std::ifstream file;
-
 		std::string ruta;
-
 		Tablero* tablero;
+		Grafo* grafo;
 
 	public:
 
-		/* Pre: Recibe el path donde esta ubicado el archivo con los datos iniciales y un puntero a Tablero.
+		/* Pre: Recibe el path donde esta ubicado el archivo con los datos iniciales, un puntero a Tablero
+		 * y un puntero a Grafo.
 		 * Si existe un archivo el mismo debe tener el formato especificado en el manual de usuario.
 	 	 * Post : intenta abrir dicha ruta en modo de lectura, en caso que no pueda
 	     * tira una excepcion. En caso de que pueda, carga el Tablero con los datos obtenidos
 	     */
-		Inicializador(std::string ruta,Tablero*);
+		Inicializador(std::string ruta,Tablero*, Grafo*);
 
 		/*
 		 * Post: Destructor, devuelve los recursos tomados a el sistema operativo.

@@ -1,6 +1,6 @@
 
-#ifndef GRAFO2_H_
-#define GRAFO2_H_
+#ifndef GRAFO_H_
+#define GRAFO_H_
 
 #include "Vertice.h"
 #include "Arista.h"

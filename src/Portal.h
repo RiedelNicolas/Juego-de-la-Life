@@ -19,10 +19,9 @@ class Portal{
 	private:
 
 		char estado;
-
 		Parcela* entrada;
-
 		Parcela* salida;
+		int celulasTransferidas;
 
 	public:
 

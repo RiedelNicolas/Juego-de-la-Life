@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "Grafo2.h"
+#include "Grafo.h"
 
 using namespace std;
 
