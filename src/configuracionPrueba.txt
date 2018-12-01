@@ -30,4 +30,4 @@ Parcela Grande 2 3 81 126 76 1.00 1.00
 Parcela Grande 3 3 83 132 72 1.00 1.00
 Portal Chico 1 1 P Mediano 2 3
 Portal Mediano 1 3 P Grande 2 2
-Portal Chico 2 2 P Grande 2 4
+Portal Chico 2 2 P Grande 1 1
