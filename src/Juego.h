@@ -5,6 +5,7 @@
 #include "Malla.h"
 #include "EasyBMP.h"
 #include "InterfazDeUsuario.h"
+#include "CaminoMinimo.h"
 
 #define REINICIAR 'R'
 #define TERMINAR 'T'

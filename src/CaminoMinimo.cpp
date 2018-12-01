@@ -4,6 +4,7 @@
 
 CaminoMinimo::CaminoMinimo(Grafo* grafo){
 
+	this-> grafo = grafo;
 	tamanio = grafo->obtenerTamanio();
 	elementos = new ElementoFloyd*[tamanio];
 
@@ -22,7 +23,7 @@ CaminoMinimo::CaminoMinimo(Grafo* grafo){
 		}
 	}
 
-	completarMatriz(grafo);
+	completarMatriz();
 }
 
 CaminoMinimo::~CaminoMinimo(){
@@ -34,7 +35,7 @@ CaminoMinimo::~CaminoMinimo(){
 	delete[] elementos;
 }
 
-void CaminoMinimo::completarMatriz(Grafo* grafo){
+void CaminoMinimo::completarMatriz(){
 
 	grafo->iniciarCursor();
 
@@ -61,20 +62,57 @@ void CaminoMinimo::completarMatriz(Grafo* grafo){
 	}
 }
 
-void CaminoMinimo::calcularTransferenciaMinima() {
+unsigned int CaminoMinimo::calcularTransferenciaMinima(std::string origen, std::string destino){
 
-	int aux;
+	unsigned int aux;
+	ElementoFloyd elementoBuscado;
 
-	for(int k = 0; k < this->tamanio; k++){
-		for(int i = 0; i < this->tamanio; i++){
-			for(int j = 0; j < this->tamanio; j++){
+	for(unsigned int k = 0; k < tamanio; k++){
+		for(unsigned int i = 0; i < tamanio; i++){
+			for(unsigned int j = 0; j < tamanio; j++){
 
 				aux = elementos[i][k].getPeso() + elementos[k][j].getPeso();
 
 				if(elementos[i][j].getPeso() > aux) {
-					elementos[i][j].getPeso() = aux;
+					elementos[i][j].setPeso(aux);
 				}
 			}
 		}
 	}
+
+	elementoBuscado = buscarElemento(origen, destino);
+
+	return elementoBuscado.getPeso();
 }
+
+ElementoFloyd CaminoMinimo::buscarElemento(std::string origen, std::string destino){
+
+	ElementoFloyd buscado;
+	unsigned int i=0, j=0;
+	bool encontrado = false;
+
+	grafo->iniciarCursor();
+
+	while(grafo->avanzarCursor() && i<tamanio && !encontrado){
+		Vertice* verticeActual = grafo->obtenerCursor();
+
+		if(verticeActual->obtenerNombreVertice() == origen){
+			while(j<tamanio && !encontrado){
+				encontrado = (elementos[i][j].getNombreDestino() == destino);
+				j++;
+			}
+		}
+		i++;
+	}
+
+	buscado = elementos[i-1][j-1];
+
+	return buscado;
+}
+
+
+
+
+
+
+

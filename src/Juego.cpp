@@ -124,13 +124,14 @@ void Juego::calcularCaminoMinimo(){
 
 	if(interfaz->deseaCalcularCaminoMinimo()){
 
-		string NombreMallaOrigen = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
-		string NombreMallaDestino = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
+		CaminoMinimo caminoMinimo(grafo);
+		string nombreMallaOrigen = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
+		string nombreMallaDestino = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
 
-		/*
-		 * ESPACIO PARA DIJKSTRA
-		 */
+		unsigned int transferenciaMinima = caminoMinimo.calcularTransferenciaMinima(nombreMallaOrigen, nombreMallaDestino);
 
+		cout << "La transferencia mínima de células entre '" << nombreMallaOrigen << "' y '" << nombreMallaDestino
+				<< "' es de " << transferenciaMinima << " células." << endl;
 	}
 }
 

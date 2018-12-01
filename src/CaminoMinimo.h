@@ -9,6 +9,7 @@ private:
 
 	unsigned int tamanio;
 	ElementoFloyd** elementos;
+	Grafo* grafo;
 
 public:
 
@@ -23,15 +24,21 @@ public:
 	 */
 	~CaminoMinimo();
 
-	void calcularTransferenciaMinima();
+	unsigned int calcularTransferenciaMinima(std::string origen, std::string destino);
 
 private:
 
 	/*
-	 * Pre: CaminoMinimo creado
-	 * Post: completa 'pesoAristas' de acuerdo a los pesos de las aristas del grafo recibido.
+	 * Pre: CaminoMinimo creado.
+	 * Post: completa el arreglo de elementos de acuerdo a los pesos de las aristas del grafo.
 	 */
-	void completarMatriz(Grafo*);
+	void completarMatriz();
+
+	/*
+	 * Pre: CaminoMinimo creado.
+	 * Post: devuelve el elemento correspondiente al origen y destino recibidos.
+	 */
+	ElementoFloyd buscarElemento(std::string origen, std::string destino);
 
 };
 
