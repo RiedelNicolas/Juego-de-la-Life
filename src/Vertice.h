@@ -28,6 +28,8 @@ public:
 
 	void insertarArista(unsigned int peso, Vertice* destino);
 
+	bool esVerticeAdyacente(Vertice* verticeABuscar);
+
 	Arista* buscarAristaAdyacente(Vertice* vertice);
 
 	void iniciarCursor();

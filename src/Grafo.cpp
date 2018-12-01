@@ -47,7 +47,9 @@ void Grafo::insertarArista(std::string origen, std::string destino, unsigned int
 		Vertice* verticeDeOrigen = buscarVertice(origen);
 		Vertice* verticeDeDestino = buscarVertice(destino);
 
-		verticeDeOrigen->insertarArista(peso, verticeDeDestino);
+		if(!(verticeDeOrigen->esVerticeAdyacente(verticeDeDestino))){
+			verticeDeOrigen->insertarArista(peso, verticeDeDestino);
+		}
 	}
 }
 

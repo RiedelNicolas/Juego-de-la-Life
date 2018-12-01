@@ -45,6 +45,20 @@ void Vertice::insertarArista(unsigned int peso, Vertice* destino){
 	this->iniciarCursor();
 }
 
+bool Vertice::esVerticeAdyacente(Vertice* verticeABuscar){
+
+	bool encontrado = false;
+	iniciarCursor();
+
+	while(avanzarCursor() && !encontrado){
+			Arista* aristaActual = obtenerCursor();
+			if(aristaActual->obtenerVerticeAdyacente() == verticeABuscar){
+				encontrado = true;
+			}
+		}
+	return encontrado;
+}
+
 Arista* Vertice::buscarAristaAdyacente(Vertice* vertice){
 
 	bool encontrado = false;
