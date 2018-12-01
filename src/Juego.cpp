@@ -125,7 +125,10 @@ void Juego::calcularCaminoMinimo(){
 	if(interfaz->deseaCalcularCaminoMinimo()){
 
 		CaminoMinimo caminoMinimo(grafo);
+
+		cout << "Primer tablero (origen). ";
 		string nombreMallaOrigen = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
+		cout << "Segundo tablero (destino). ";
 		string nombreMallaDestino = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
 
 		unsigned int transferenciaMinima = caminoMinimo.calcularTransferenciaMinima(nombreMallaOrigen, nombreMallaDestino);
