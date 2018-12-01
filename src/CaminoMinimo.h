@@ -23,6 +23,8 @@ public:
 	 */
 	~CaminoMinimo();
 
+	void calcularTransferenciaMinima();
+
 private:
 
 	/*

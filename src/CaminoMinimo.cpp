@@ -59,5 +59,22 @@ void CaminoMinimo::completarMatriz(Grafo* grafo){
 			}
 		}
 	}
+}
 
+void CaminoMinimo::calcularTransferenciaMinima() {
+
+	int aux;
+
+	for(int k = 0; k < this->tamanio; k++){
+		for(int i = 0; i < this->tamanio; i++){
+			for(int j = 0; j < this->tamanio; j++){
+
+				aux = elementos[i][k] + elementos[k][j];
+
+				if(elementos[i][j] > aux) {
+					elementos[i][j] = aux;
+				}
+			}
+		}
+	}
 }
