@@ -12,17 +12,21 @@
 ElementoFloyd::ElementoFloyd() {
 	this->peso = UINT_MAX;
 }
+
 unsigned ElementoFloyd::getPeso(){
 	return this->peso;
 }
+
 void ElementoFloyd::setPeso(unsigned pesoIngresado){
 	this->peso = pesoIngresado;
 }
-void ElementoFloyd::setNombreOrigen(std::string origenRecibido){
-	this->nombreOrigen = origenRecibido;
+
+void ElementoFloyd::setnombreDestino(std::string origenRecibido){
+	this->nombreDestino = origenRecibido;
 }
-std::string ElementoFloyd::getNombreOrigen(){
-	return this->nombreOrigen;
+
+std::string ElementoFloyd::getnombreDestino(){
+	return this->nombreDestino;
 }
 
 ElementoFloyd::~ElementoFloyd() {
