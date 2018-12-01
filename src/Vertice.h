@@ -74,6 +74,10 @@ public:
      */
 	Arista* obtenerCursor();
 
+	/*
+	 * Post: devuelve un bool con la respuesta a la pregunta "¿el vértice es adyacente?"
+	 */
+	bool esVerticeAdyacente(Vertice* verticeABuscar);
 
     /*
      * Post: libera los recursos asociados a Vertice
@@ -88,10 +92,7 @@ private:
 	 */
 	Arista* obtenerArista(unsigned int posicion);
 
-	/*
-	 * Post: devuelve un bool con la respuesta a la pregunta "¿el vértice es adyacente?"
-	 */
-	bool esVerticeAdyacente(Vertice* verticeABuscar);
+
 };
 
 

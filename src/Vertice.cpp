@@ -33,7 +33,7 @@ void Vertice::insertarArista(unsigned int peso, Vertice* destino){
 
 	}else{
 
-		Arista* anterior = this->obtenerArista(tamanio -1);
+		Arista* anterior = this->obtenerArista(tamanio);
 		nuevaArista->cambiarSiguiente(anterior->obtenerSiguiente());
 		anterior->cambiarSiguiente(nuevaArista);
 	}

@@ -46,10 +46,10 @@ void Grafo::insertarVertice(std::string verticeAInsertar){
 		this->primero = nuevoVertice;
 
 	}else{
-		Vertice* anterior = this->obtenerVertice(tamanio -1);
+		Vertice* anterior = this->obtenerVertice(tamanio);
 		nuevoVertice->cambiarSiguiente(anterior->obtenerSiguiente());
 		anterior->cambiarSiguiente(nuevoVertice);
-		}
+	}
 
 	tamanio ++;
 	this->iniciarCursor();

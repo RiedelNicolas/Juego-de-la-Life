@@ -98,7 +98,7 @@ private:
 
 
 
-#endif /* GRAFO2_H_ */
+#endif /* GRAFO_H_ */
 
 
 
