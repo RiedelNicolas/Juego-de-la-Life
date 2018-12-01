@@ -42,6 +42,11 @@ bool InterfazDeUsuario::olvidoIngresarCelulas(){
 	return preguntarPorPantalla("¿Olvidó ingresar celulas en un tablero? (S/N)");
 }
 
+bool InterfazDeUsuario::deseaCalcularCaminoMinimo(){
+
+	return preguntarPorPantalla("¿Desea calcular la mínima transferencia de células entre dos tableros(S/N)?");
+}
+
 Malla* InterfazDeUsuario::pedirMallaPorNombre(Tablero* tablero){
 
 	string nombreMalla;

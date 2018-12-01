@@ -78,7 +78,7 @@ class Juego{
 		 * Si el usuario desea, pide nombres de tablero y resuelve la mínima transferencia de células entre ellos.
 		 * Post: Muestra por pantalla el recorrido realizado y la cantidad de células nacidas.
 		 */
-		void calcularCaminosMinimos();
+		void calcularCaminoMinimo();
 
 	private:
 
@@ -188,6 +188,11 @@ class Juego{
 		 */
 
 		void hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColorCelula);
+
+		/*
+		 * Post: carga los pesos en las aristas del grafo.
+		 */
+		void completarGrafo();
 
 };
 

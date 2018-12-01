@@ -119,8 +119,24 @@ void Juego::imprimirMalla(Malla* malla){
 	Imagen.WriteToFile( nombreMalla.c_str() );
 }
 
-void Juego::calcularCaminosMinimos(){
-	interfaz->
+void Juego::calcularCaminoMinimo(){
+
+	if(interfaz->deseaCalcularCaminoMinimo()){
+
+		completarGrafo();
+
+		string NombreMallaOrigen = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
+		string NombreMallaDestino = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
+
+		/*
+		 * ESPACIO PARA DIJKSTRA
+		 */
+
+	}
+}
+
+void Juego::completarGrafo(){
+	///////////////////////////////////////////////////////////////////////////////FALTA ESTO
 }
 
 void Juego::actualizarTablero(){

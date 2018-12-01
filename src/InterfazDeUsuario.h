@@ -53,6 +53,12 @@ class InterfazDeUsuario{
 		bool olvidoIngresarCelulas();
 
 		/*
+		 * Post: Devuelve un bool de acuerdo a la respuesta del usuario a
+		 * 		 la pregunta "¿Desea calcular la mínima transferencia de células entre dos tableros?"
+		 */
+		bool deseaCalcularCaminoMinimo();
+
+		/*
 		 *Post: Devuelve un puntero a la malla cuyo nombre ingresa el
 		 *		ususario
 		 */
