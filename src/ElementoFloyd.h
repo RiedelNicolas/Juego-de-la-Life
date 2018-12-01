@@ -32,12 +32,12 @@ public:
 	 * pre: Recibe un string correctamente formado.
 	 * post: Asigna dicho string al nombre del destino que representa la arista.
 	 */
-	void setnombreDestino(std::string);
+	void setNombreDestino(std::string);
 	/*
 	 * pre:El elemento contiene un string valido.
 	 * post:Devuelve del nombre de destino en forma de string
 	 */
-	std::string getnombreDestino();
+	std::string getNombreDestino();
 
 	virtual ~ElementoFloyd();
 };
