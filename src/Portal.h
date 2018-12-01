@@ -23,7 +23,6 @@ class Portal{
 		Parcela* salida;
 		std::string mallaDeEntrada;
 		std::string mallaDeSalida;
-		int celulasTransferidas;
 
 	public:
 
