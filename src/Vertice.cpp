@@ -1,8 +1,4 @@
-
-#include <iostream>
 #include "Vertice.h"
-
-using namespace std;
 
 Vertice::Vertice(std::string nombreTablero){
 
@@ -63,7 +59,7 @@ Arista* Vertice::buscarAristaAdyacente(Vertice* vertice){
 
 	bool encontrado = false;
 
-	if(!verticeEsAdyacente(vertice)){
+	if(!esVerticeAdyacente(vertice)){
 		throw std::string("El vertice no es adyacente");
 	}
 
@@ -111,20 +107,6 @@ bool Vertice::avanzarCursor(){
 	}
 
 	return (this->cursor != NULL);
-}
-
-bool Vertice::verticeEsAdyacente(Vertice* vertice){
-
-	iniciarCursor();
-	bool esta = false;
-
-	while(avanzarCursor() && !esta){
-		Arista* actual = obtenerCursor();
-		if(actual->obtenerVerticeAdyacente() == vertice){
-			esta = true;
-		}
-	}
-	return esta;
 }
 
 Vertice::~Vertice(){

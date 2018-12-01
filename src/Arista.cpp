@@ -1,7 +1,4 @@
-#include <iostream>
 #include "Arista.h"
-
-using namespace std;
 
 Arista::Arista(unsigned int peso, Vertice* adyacente){
 

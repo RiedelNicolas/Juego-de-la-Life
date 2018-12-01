@@ -37,22 +37,6 @@ Vertice* Grafo::buscarVertice(std::string nombreTablero){
 	return verticeActual;
 }
 
-void Grafo::insertarArista(std::string origen, std::string destino, unsigned int peso){
-
-	if(!existeVertice(origen) || !existeVertice(destino)){
-		throw std::string("Los vertices no existen");
-
-	}else{
-
-		Vertice* verticeDeOrigen = buscarVertice(origen);
-		Vertice* verticeDeDestino = buscarVertice(destino);
-
-		if(!(verticeDeOrigen->esVerticeAdyacente(verticeDeDestino))){
-			verticeDeOrigen->insertarArista(peso, verticeDeDestino);
-		}
-	}
-}
-
 void Grafo::insertarVertice(std::string verticeAInsertar){
 
 	Vertice* nuevoVertice = new Vertice(verticeAInsertar);
@@ -69,6 +53,22 @@ void Grafo::insertarVertice(std::string verticeAInsertar){
 
 	tamanio ++;
 	this->iniciarCursor();
+}
+
+void Grafo::insertarArista(std::string origen, std::string destino, unsigned int peso){
+
+	if(!existeVertice(origen) || !existeVertice(destino)){
+		throw std::string("Los vertices no existen");
+
+	}else{
+
+		Vertice* verticeDeOrigen = buscarVertice(origen);
+		Vertice* verticeDeDestino = buscarVertice(destino);
+
+		if(!(verticeDeOrigen->esVerticeAdyacente(verticeDeDestino))){
+			verticeDeOrigen->insertarArista(peso, verticeDeDestino);
+		}
+	}
 }
 
 void Grafo::iniciarCursor(){
@@ -91,6 +91,15 @@ bool Grafo::avanzarCursor(){
 Vertice* Grafo::obtenerCursor(){
 
 	return this->cursor;
+}
+
+Grafo::~Grafo(){
+
+	while(primero != NULL){
+		Vertice* verticeAEliminar = primero;
+		primero = this->primero->obtenerSiguiente();
+		delete verticeAEliminar;
+	}
 }
 
 bool Grafo::existeVertice(std::string verticeABuscar){
@@ -125,14 +134,4 @@ void Grafo::aumentarEnUnoElPeso(Arista* arista){
 	pesoNuevo ++;
 	arista->cambiarPeso(pesoNuevo);
 }
-
-Grafo::~Grafo(){
-
-	while(primero != NULL){
-		Vertice* verticeAEliminar = primero;
-		primero = this->primero->obtenerSiguiente();
-		delete verticeAEliminar;
-	}
-}
-
 
