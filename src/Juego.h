@@ -74,6 +74,12 @@ class Juego{
 		 */
 		char obtenerOrdenPorPantalla();
 
+		/*
+		 * Si el usuario desea, pide nombres de tablero y resuelve la mínima transferencia de células entre ellos.
+		 * Post: Muestra por pantalla el recorrido realizado y la cantidad de células nacidas.
+		 */
+		void calcularCaminosMinimos();
+
 	private:
 
 		/* Pre: el tablero está creado.

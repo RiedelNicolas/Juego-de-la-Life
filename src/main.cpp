@@ -26,6 +26,8 @@ int main(){
 			ordenIngresada = elJuegoDeLaVida.obtenerOrdenPorPantalla();
 		}
 
+		elJuegoDeLaVida.calcularCaminosMinimos();
+
 	}catch(string mensaje){
 		cout << mensaje << endl;
 	}

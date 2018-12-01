@@ -119,6 +119,9 @@ void Juego::imprimirMalla(Malla* malla){
 	Imagen.WriteToFile( nombreMalla.c_str() );
 }
 
+void Juego::calcularCaminosMinimos(){
+	interfaz->
+}
 
 void Juego::actualizarTablero(){
 
