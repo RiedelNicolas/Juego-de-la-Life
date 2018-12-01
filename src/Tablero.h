@@ -8,9 +8,9 @@ class Tablero {
 
 	private:
 
-		Nodo<Malla>* primerElemento;
+		Nodo<Malla*>* primerElemento;
 		unsigned tamanio; // Tamaño de la lista
-		Nodo<Malla>* cursor;
+		Nodo<Malla*>* cursor;
 
 	public:
 
