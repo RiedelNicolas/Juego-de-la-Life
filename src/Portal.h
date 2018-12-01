@@ -21,6 +21,8 @@ class Portal{
 		char estado;
 		Parcela* entrada;
 		Parcela* salida;
+		std::string mallaDeEntrada;
+		std::string mallaDeSalida;
 		int celulasTransferidas;
 
 	public:
@@ -48,6 +50,13 @@ class Portal{
 		 */
 		void setSalida(Parcela* parcelaDeSalida);
 
+		void setMallaDeEntrada(std::string nombre);
+
+		void setMallaDeSalida(std::string nombre);
+
+		std::string getMallaDeSalida();
+
+		std::string getMallaDeEntrada();
 		/*
 		 * Post: Devuelve el tipo de portal
 		 */

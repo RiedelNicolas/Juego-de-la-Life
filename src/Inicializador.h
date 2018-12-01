@@ -73,7 +73,7 @@ class Inicializador{
 		/*
 		 * Post: crea un portal asignando su estado, su entrada y su salida.
 		 */
-		void crearPortal(char estado, Parcela* parcelaDestino, Parcela* parcelaOrigen);
+		void crearPortal(char estado, Parcela* parcelaDestino, Parcela* parcelaOrigen, std::string nombreDeLaMallaOrigen, std::string nombreDeLaMallaDestino);
 };
 
 #endif /* Inicializador_H_ */

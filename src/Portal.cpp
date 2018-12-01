@@ -7,6 +7,8 @@ Portal::Portal(){
 	entrada = NULL;
 	salida = NULL;
 	celulasTransferidas = 0;
+	mallaDeEntrada = "";
+	mallaDeSalida = "";
 }
 
 void Portal::setEstado(char nuevoEstado){
@@ -24,6 +26,22 @@ void Portal::setEntrada(Parcela* parcelaDeEntrada){
 
 void Portal::setSalida(Parcela* parcelaDeSalida){
 	salida = parcelaDeSalida;
+}
+
+void Portal::setMallaDeEntrada(std::string nombre){
+	mallaDeEntrada = nombre;
+}
+
+void Portal::setMallaDeSalida(std::string nombre){
+	mallaDeEntrada = nombre;
+}
+
+std::string Portal::getMallaDeEntrada(){
+	return mallaDeEntrada;
+}
+
+std::string Portal::getMallaDeSalida(){
+	return mallaDeSalida;
 }
 
 char Portal::getTipo(){

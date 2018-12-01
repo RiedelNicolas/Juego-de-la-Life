@@ -35,6 +35,8 @@ public:
 
 	~Grafo();
 
+	void aumentarEnUnoElPeso(Arista* arista);
+
 private:
 
 	bool existeVertice(std::string);

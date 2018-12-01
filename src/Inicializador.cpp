@@ -93,11 +93,11 @@ void Inicializador::levantarPortal(){
 	parcelaOrigen  = mallaOrigen->getParcela(yOrigen-1,xOrigen-1);
 	parcelaDestino = mallaDestino->getParcela(yDestino-1,xDestino-1);
 
-	crearPortal(estado, parcelaOrigen, parcelaDestino);
+	crearPortal(estado, parcelaOrigen, parcelaDestino, nombreDeLaMallaOrigen, nombreDeLaMallaDestino);
 	grafo->insertarArista(nombreDeLaMallaOrigen, nombreDeLaMallaDestino, PESO_INICIAL);
 
 	if(estado == ACTIVO){
-		crearPortal(estado, parcelaDestino, parcelaOrigen);
+		crearPortal(estado, parcelaDestino, parcelaOrigen, nombreDeLaMallaOrigen, nombreDeLaMallaDestino);
 		grafo->insertarArista(nombreDeLaMallaDestino, nombreDeLaMallaOrigen, PESO_INICIAL);
 	}
 }
@@ -113,11 +113,13 @@ Rgb Inicializador::levantarColor(){
 }
 
 
-void Inicializador::crearPortal(char estado, Parcela* parcelaOrigen, Parcela* parcelaDestino){
+void Inicializador::crearPortal(char estado, Parcela* parcelaOrigen, Parcela* parcelaDestino,
+		                       std::string nombreDeLaMallaOrigen, std::string nombreDeLaMallaDestino){
 
 	Portal* portal = parcelaOrigen->getPortal();
 	portal->setEstado(estado);
 	portal->setEntrada(parcelaOrigen);
 	portal->setSalida(parcelaDestino);
-
+	portal->setMallaDeEntrada(nombreDeLaMallaOrigen);
+	portal->setMallaDeSalida(nombreDeLaMallaDestino);
 }

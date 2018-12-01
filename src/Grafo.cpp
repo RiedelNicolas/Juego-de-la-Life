@@ -120,6 +120,12 @@ Vertice* Grafo::obtenerVertice(unsigned int posicion){
 	return actual;
 }
 
+void Grafo::aumentarEnUnoElPeso(Arista* arista){
+	unsigned int pesoNuevo = arista->obtenerPeso();
+	pesoNuevo ++;
+	arista->cambiarPeso(pesoNuevo);
+}
+
 Grafo::~Grafo(){
 
 	while(primero != NULL){
