@@ -82,7 +82,6 @@ void Inicializador::levantarPortal(){
 	Malla* mallaOrigen;
 	Parcela* parcelaOrigen;
 	Parcela* parcelaDestino;
-	Portal* portal;
 
 	file>>nombreDeLaMallaOrigen>>xOrigen>>yOrigen;
 	file>>estado;
