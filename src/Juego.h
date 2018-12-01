@@ -189,11 +189,6 @@ class Juego{
 
 		void hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColorCelula);
 
-		/*
-		 * Post: carga los pesos en las aristas del grafo.
-		 */
-		void completarGrafo();
-
 };
 
 #endif /* SRC_JUEGO_H_ */

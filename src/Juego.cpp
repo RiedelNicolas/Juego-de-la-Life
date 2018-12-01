@@ -124,8 +124,6 @@ void Juego::calcularCaminoMinimo(){
 
 	if(interfaz->deseaCalcularCaminoMinimo()){
 
-		completarGrafo();
-
 		string NombreMallaOrigen = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
 		string NombreMallaDestino = (interfaz->pedirMallaPorNombre(tablero))->getNombre();
 
@@ -134,11 +132,6 @@ void Juego::calcularCaminoMinimo(){
 		 */
 
 	}
-}
-
-void Juego::completarGrafo(){
-	//Como no sabia como ingrasar a los portales desde otra parte entonces se va actualizando el grafo durante la ejecucion
-	//Falta una cosa que esta comentada en el error de mas abajo :3
 }
 
 void Juego::actualizarTablero(){
@@ -227,13 +220,18 @@ void Juego::hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColo
 	celulaAux->setVida(parcela->getVidaAlNacer());
 
 	if(parcela->contienePortal()){
+
 		Portal* portal = parcela->getPortal();
 		portal->atravesarPortal(parcela, NACE);
+
 		string entrada = portal->getMallaDeEntrada();
 		string salida = portal->getMallaDeSalida();
+
 		Vertice* verticeDeEntrada = grafo->buscarVertice(entrada);
-		// BUSCAR LA ARISTA  DE SALIDA EN EL GRAFO
-		//grafo->aumentarEnUnoElPeso(arista);
+		Vertice* verticeDeSalida = grafo->buscarVertice(salida);
+		Arista* arista = verticeDeEntrada->buscarAristaAdyacente(verticeDeSalida);
+
+		grafo->aumentarEnUnoElPeso(arista);
 	}
 }
 
