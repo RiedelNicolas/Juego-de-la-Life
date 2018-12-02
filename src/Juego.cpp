@@ -231,8 +231,6 @@ void Juego::hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColo
 		string entrada = portal->getMallaDeEntrada();
 		string salida = portal->getMallaDeSalida();
 
-		//cout << entrada << salida << endl;
-
 		Vertice* verticeDeEntrada = grafo->buscarVertice(entrada);
 		Vertice* verticeDeSalida = grafo->buscarVertice(salida);
 		Arista* arista = verticeDeEntrada->buscarAristaAdyacente(verticeDeSalida);

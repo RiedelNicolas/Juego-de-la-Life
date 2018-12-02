@@ -1,7 +1,5 @@
 #include "CaminoMinimo.h"
 
-#define INFINITO 65535
-
 CaminoMinimo::CaminoMinimo(Grafo* grafo){
 
 	this-> grafo = grafo;

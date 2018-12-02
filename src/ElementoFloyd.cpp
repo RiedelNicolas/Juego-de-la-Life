@@ -1,8 +1,9 @@
 #include "ElementoFloyd.h"
 #include <climits>
+#define INFINITO 65535
 
 ElementoFloyd::ElementoFloyd() {
-	this->peso = UINT_MAX;
+	this->peso = INFINITO;
 }
 
 unsigned ElementoFloyd::getPeso(){
