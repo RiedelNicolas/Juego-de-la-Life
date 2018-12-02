@@ -79,7 +79,9 @@ void Portal::atravesarPortalNormal(Parcela* parcelaDeEntrada, Parcela* parcelaDe
 void Portal::hacerNacerCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
 		parcelaDeSalida->setEstadoDeCelula(true);
 		parcelaDeSalida->getCelula()->setRgb(parcelaDeSalida->getRgb());
-		parcelaDeSalida->getCelula()->nacioMediantePortal(true);
+		if(estado =! PASIVO){
+			parcelaDeSalida->getCelula()->nacioMediantePortal(true);
+		}
 }
 
 void Portal::matarCelula(Parcela* parcelaDeEntrada, Parcela* parcelaDeSalida){
