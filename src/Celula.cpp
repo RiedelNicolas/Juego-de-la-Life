@@ -37,18 +37,6 @@ void Celula::setRgb(Rgb color){
 	this->color = color;
 }
 
-void Celula::setRojo(int rojo){
-	color.setRojo(rojo);
-}
-
-void Celula::setVerde(int verde){
-	color.setVerde(verde);
-}
-
-void Celula::setAzul(int azul){
-	color.setAzul(azul);
-}
-
 bool Celula::vidaEsValida(float vida){
 	return vida >= 0.0;
 }

@@ -6,7 +6,6 @@
 #include "Portal.h"
 #include "Rgb.h"
 
-
 class Portal;
 
 class Parcela {
@@ -14,13 +13,9 @@ class Parcela {
 	private:
 
 		float vidaAlNacer;
-
 		float vidaARestar;
-
 		Celula celula;
-
 		Rgb color;
-
 		Portal* portal;
 
 	public:
@@ -112,4 +107,5 @@ class Parcela {
 		bool contienePortal();
 
 };
+
 #endif /* PARCELA_H_ */

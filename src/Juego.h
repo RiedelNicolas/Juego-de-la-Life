@@ -1,5 +1,6 @@
 #ifndef JUEGO_H_
 #define JUEGO_H_
+
 #include "Tablero.h"
 #include "Grafo.h"
 #include "Malla.h"
@@ -14,7 +15,9 @@
 #define ALTO_CELULA 50
 
 class Juego{
+
 	private:
+
 		unsigned turno;
 		int cantidadDeCelulasMuertas;
 		int cantidadDeCelulasNacidas;
@@ -189,7 +192,6 @@ class Juego{
 		 */
 
 		void hacerNacerCelula(Celula* celulaAux, Parcela* parcela, Rgb* nuevoColorCelula);
-
 };
 
 #endif /* SRC_JUEGO_H_ */

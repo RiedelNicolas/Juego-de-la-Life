@@ -13,10 +13,10 @@ bool Parcela::getEstadoDeCelula(){
 }
 
 void Parcela::setEstadoDeCelula(bool estado){
-	if (estado){
+	if(estado){
 	celula.setEstado(true);
 	celula.setVida(vidaAlNacer);
-	}else {
+	} else {
 		celula.setEstado(false);
 		celula.setVida(0.0);
 	}

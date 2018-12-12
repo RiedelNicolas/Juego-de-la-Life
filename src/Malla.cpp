@@ -75,6 +75,7 @@ bool Malla::posicionValida(int fila, int columna){
 
 
 Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
+
 	Rgb colorPromedio(0,0,0), rgbAuxiliar;
 	int vecinasVivas = 0;
 	int rojoTotal = 0 , azulTotal = 0, verdeTotal = 0;

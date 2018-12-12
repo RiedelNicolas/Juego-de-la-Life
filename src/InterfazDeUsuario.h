@@ -1,12 +1,9 @@
-
 #ifndef SRC_INTERFAZDEUSUARIO_H_
 #define SRC_INTERFAZDEUSUARIO_H_
 
 #include <iostream>
 #include "Malla.h"
 #include "Tablero.h"
-
-
 
 class InterfazDeUsuario{
 
@@ -85,9 +82,6 @@ class InterfazDeUsuario{
 		 * afirmativa devuelve true. En el caso contrario devuelve false. */
 
 		bool preguntarPorPantalla(std::string mensaje);
-
 };
-
-
 
 #endif /* SRC_INTERFAZDEUSUARIO_H_ */

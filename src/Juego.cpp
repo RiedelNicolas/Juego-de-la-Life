@@ -49,8 +49,6 @@ void Juego::inicializarJuego(){
 	imprimirResumen();
 }
 
-
-
 void Juego::imprimirResumen(){
 
 	contarCelulasVivas();

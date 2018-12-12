@@ -3,9 +3,11 @@
 
 #include "Parcela.h"
 #include <iostream>
+
 class Malla {
 
 	private:
+
 		std::string nombre;
 		int ancho;
 		int alto;
@@ -69,7 +71,6 @@ class Malla {
 		 * Para que sea valida debe pertencer a la malla.
 		 */
 		bool posicionValida(int fila, int columna);
-
 };
 
 #endif /* Malla_H_ */

@@ -72,7 +72,6 @@ bool Tablero::avanzarCursor(){
 	if(cursor == NULL){
 		cursor = primerElemento;
 	}
-
 	else{
 		cursor = cursor->getSigNodo();
 	}

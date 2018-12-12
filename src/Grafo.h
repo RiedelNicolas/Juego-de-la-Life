@@ -1,4 +1,3 @@
-
 #ifndef GRAFO_H_
 #define GRAFO_H_
 
@@ -26,7 +25,7 @@ public:
 	bool estaVacio();
 
 	/*
-	 * Post: devuelve el tamanio de Grafo
+	 * Post: devuelve el tamanio de Grafo (Cantidad de vertices)
 	 */
 	unsigned int obtenerTamanio();
 
@@ -93,14 +92,6 @@ private:
 	 * Pre: devuelve Vertice en la posicion indicada
 	 */
 	Vertice* obtenerVertice(unsigned int posicion);
-
-
 };
 
-
-
 #endif /* GRAFO_H_ */
-
-
-
-

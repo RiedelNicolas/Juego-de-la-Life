@@ -44,7 +44,7 @@ bool InterfazDeUsuario::olvidoIngresarCelulas(){
 
 bool InterfazDeUsuario::deseaCalcularCaminoMinimo(){
 
-	return preguntarPorPantalla("¿Desea calcular la mínima transferencia de células entre dos tableros(S/N)?");
+	return preguntarPorPantalla("¿Desea calcular la mínima transferencia de células entre dos tableros? (S/N)");
 }
 
 Malla* InterfazDeUsuario::pedirMallaPorNombre(Tablero* tablero){

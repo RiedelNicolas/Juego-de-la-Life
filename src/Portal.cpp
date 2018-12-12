@@ -1,7 +1,6 @@
 #include "Portal.h"
 #include <iostream>
 
-
 Portal::Portal(){
 	estado = INACTIVO;
 	entrada = NULL;
@@ -11,6 +10,7 @@ Portal::Portal(){
 }
 
 void Portal::setEstado(char nuevoEstado){
+
 	if(estadoEsValido(nuevoEstado)){
 		estado = nuevoEstado;
 	}

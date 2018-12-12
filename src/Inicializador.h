@@ -69,7 +69,6 @@ class Inicializador{
 		 */
 		Rgb  levantarColor();
 
-
 		/*
 		 * Post: crea un portal asignando su estado, su entrada y su salida.
 		 */

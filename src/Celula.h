@@ -10,11 +10,8 @@ class Celula{
 	private:
 
 		float vida;
-
 		bool estaViva;
-
 		bool nacioPorPortal;
-
 		Rgb color;
 
 	public:
@@ -57,13 +54,6 @@ class Celula{
 		void setRgb(Rgb color);
 
 		/*
-		 * Post: Modifican el color especificado por el parametro pasado.
-		 */
-		void setRojo(int rojo);
-		void setVerde(int verde);
-		void setAzul(int azul);
-
-		/*
 		 *	Post: modifica el valor del 'nacioPorPortal' de acuerdo al bool que recibe.
 		 */
 		void nacioMediantePortal(bool);
@@ -73,8 +63,8 @@ class Celula{
 		 */
 		bool nacePorPortal();
 
-
 	private:
+
 		/*
 		 * Post: verifica si la vida es valida, es decir si esta es mayor o igual a cero
 		 */

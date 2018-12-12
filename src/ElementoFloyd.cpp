@@ -22,7 +22,6 @@ std::string ElementoFloyd::getNombreDestino(){
 	return this->nombreDestino;
 }
 
-ElementoFloyd::~ElementoFloyd() {
-	// TODO Auto-generated destructor stub
+ElementoFloyd::~ElementoFloyd(){
 }
 
