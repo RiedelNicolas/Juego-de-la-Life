@@ -40,22 +40,37 @@ class Portal{
 		void setEstado(char nuevoEstado);
 
 		/*
-		 * Post: Se actualiza la entrada del portal por "parcelaDeEntrada"
+		 * Post: Se actualiza la parcela de entrada del portal por "parcelaDeEntrada"
 		 */
 		void setEntrada(Parcela* parcelaDeEntrada);
 
 		/*
-		 * Post: Se actualiza la salida del portal por "parcelaDeSalida"
+		 * Post: Se actualiza la parcela de salida del portal por "parcelaDeSalida"
 		 */
 		void setSalida(Parcela* parcelaDeSalida);
 
-		void setMallaDeEntrada(std::string nombre);
+		/*
+		 * Post: Se actualiza la malla de entrada del portal por "MallaDeEntrada"
+		 */
+		void setMallaDeEntrada(std::string MallaDeEntrada);
 
-		void setMallaDeSalida(std::string nombre);
+		/*
+		 * Post: Se actualiza la malla de salida del portal por "MallaDeSalida"
+		 */
+		void setMallaDeSalida(std::string MallaDeSalida);
 
+		/*
+		 * Pre: el nombre de la malla de salida fue actualizado al menos una vez.
+		 * Post: devuelve el nombre de la malla de salida.
+		 */
 		std::string getMallaDeSalida();
 
+		/*
+		 * Pre: el nombre de la malla de entrada fue actualizado al menos una vez.
+		 * Post: devuelve el nombre de la malla de entrada.
+		 */
 		std::string getMallaDeEntrada();
+
 		/*
 		 * Post: Devuelve el tipo de portal
 		 */
@@ -72,8 +87,8 @@ class Portal{
 		Parcela* getSalida();
 
 		/*
-		 * Pre: Recibe una parcela valida con un portal, y el estado en que la celula atraviesa el portal.
-		 * Post: Efectua la accion de que una celula atraviese el portal .Ejemplo: si la celula nace, nace del otro lado
+		 * Pre: Recibe una parcela válida con un portal, y el estado en que la celula atraviesa el portal (nace/muere).
+		 * Post: Efectúa la acción de que una celula atraviese el portal. Ejemplo: si la celula nace, nace del otro lado
 		 * del portal, y si muere, muere del otro lado del portal.
 		 */
 		void atravesarPortal(Parcela* llamadoDesde, char estadoEnQueAtraviesa);
@@ -81,7 +96,7 @@ class Portal{
 	private:
 
 		/*
-		 * Post: Devuelve si el estado ingresado es un estado valido o no
+		 * Post: Devuelve si el estado ingresado es un estado valido o no.
 		 */
 		bool estadoEsValido(char estado);
 
