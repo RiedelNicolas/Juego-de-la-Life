@@ -1,4 +1,5 @@
 #include "CaminoMinimo.h"
+#define INFINITO 65535
 
 CaminoMinimo::CaminoMinimo(Grafo* grafo){
 
@@ -59,7 +60,7 @@ void CaminoMinimo::completarMatriz(){
 
 unsigned int CaminoMinimo::calcularTransferenciaMinima(std::string origen, std::string destino){
 
-	unsigned int aux;
+	unsigned int aux, pesoElementoBuscado;
 	ElementoFloyd elementoBuscado;
 
 	for(unsigned int k = 0; k < tamanio; k++){
@@ -76,8 +77,13 @@ unsigned int CaminoMinimo::calcularTransferenciaMinima(std::string origen, std::
 	}
 
 	elementoBuscado = buscarElemento(origen, destino);
+	pesoElementoBuscado = elementoBuscado.getPeso();
 
-	return elementoBuscado.getPeso();
+	if(pesoElementoBuscado == INFINITO){
+		pesoElementoBuscado = 0;
+	}
+
+	return pesoElementoBuscado;
 }
 
 ElementoFloyd CaminoMinimo::buscarElemento(std::string origen, std::string destino){
