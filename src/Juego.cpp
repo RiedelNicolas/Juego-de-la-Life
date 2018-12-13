@@ -134,7 +134,7 @@ void Juego::calcularCaminoMinimo(){
 
 		if(transferenciaMinima == INFINITO){
 
-			cout << "No hay portales que conecten dichos tableros. No hay transferencia de células."
+			cout << "No hay portales que conecten dichos tableros. No hay transferencia de células.";
 
 		}else{
 
