@@ -52,10 +52,7 @@ void CaminoMinimo::completarMatriz(){
 			}
 
 			elementos[i][j].setPeso(aristaActual->obtenerPeso());
-
-			if(i==j){
-				elementos[i][j].setPeso(0);
-			}
+			elementos[i][i].setPeso(0);
 		}
 	}
 }
