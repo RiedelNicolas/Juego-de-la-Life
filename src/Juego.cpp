@@ -4,6 +4,7 @@
 #define VIDA_MUERTA 0
 #define NACE 'N'
 #define MUERE 'M'
+#define INFINITO 65535
 using namespace std;
 
 
@@ -131,8 +132,15 @@ void Juego::calcularCaminoMinimo(){
 
 		unsigned int transferenciaMinima = caminoMinimo.calcularTransferenciaMinima(nombreMallaOrigen, nombreMallaDestino);
 
-		cout << "La transferencia mínima de células entre '" << nombreMallaOrigen << "' y '" << nombreMallaDestino
-				<< "' es de " << transferenciaMinima << " células." << endl;
+		if(transferenciaMinima == INFINITO){
+
+			cout << "No hay portales que conecten dichos tableros. No hay transferencia de células."
+
+		}else{
+
+			cout << "La transferencia mínima de células entre '" << nombreMallaOrigen << "' y '" << nombreMallaDestino
+							<< "' es de " << transferenciaMinima << " células." << endl;
+		}
 	}
 }
 
