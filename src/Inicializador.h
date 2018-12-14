@@ -64,6 +64,12 @@ class Inicializador{
 		void levantarParcela();
 
 		/*
+		 * Pre: Archivo correctamente formado
+		 * Post: Carga la celula correspondiente en la parcela indicada y se aumenta en
+		 * 1 la cantidad de celulas vivas de su malla correspondiente
+		 */
+		void levantarCelula();
+		/*
 		 * Pre: Archivo correctamente formado.
 		 * Post: Carga el color correspondiente (en formato RGB) con los datos obtenidos del archivo.
 		 */

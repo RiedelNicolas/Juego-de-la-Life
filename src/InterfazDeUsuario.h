@@ -34,11 +34,6 @@ class InterfazDeUsuario{
 		int pedirColumna(Malla*);
 
 		/*
-		 *  Post: Imprime por pantalla un resumen con las estadisticas del juego.
-		 */
-		void imprimirResumen();
-
-		/*
 		 * Post: Pide una cantidad de turnos al usuario y la devuelve
 		 */
 		int pedirCantidadDeTurnos();
@@ -67,6 +62,7 @@ class InterfazDeUsuario{
 		 * 'R' reiniciar  o 'T' terminar
 		 */
 		char preguntarEstadoDeJuego();
+
 
 	private:
 

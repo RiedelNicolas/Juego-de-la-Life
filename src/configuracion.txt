@@ -172,3 +172,10 @@ Portal Grande 7 1 N Chico 2 4
 Portal Grande 9 5 P Mediano 4 6
 Portal Mediano 3 3 A Chico 4 4
 Portal Mediano 1 5 N Grande 7 8
+Celula Grande 1 1
+Celula Grande 1 2
+Celula Grande 2 1
+Celula Grande 2 2
+Celula Mediano 2 3
+Celula Mediano 2 1
+Celula Chico 1 1

@@ -32,15 +32,15 @@ bool InterfazDeUsuario::preguntarPorPantalla(string mensaje){
 	return(respuesta == SI);
 }
 
-bool InterfazDeUsuario::deseaAgregarCelula(){
+/*bool InterfazDeUsuario::deseaAgregarCelula(){
 
 	return preguntarPorPantalla("¿Desea ingresar una célula? (S/N)");
-}
+}*/
 
-bool InterfazDeUsuario::olvidoIngresarCelulas(){
+/*bool InterfazDeUsuario::olvidoIngresarCelulas(){
 
 	return preguntarPorPantalla("¿Olvidó ingresar celulas en un tablero? (S/N)");
-}
+}*/
 
 bool InterfazDeUsuario::deseaCalcularCaminoMinimo(){
 
@@ -78,7 +78,7 @@ char InterfazDeUsuario::preguntarEstadoDeJuego(){
 }
 
 
-int InterfazDeUsuario::pedirFila(Malla* malla){
+/*int InterfazDeUsuario::pedirFila(Malla* malla){
 	int fila, filaMax;
 
 	filaMax = malla->getCantidadDeFilas();
@@ -89,10 +89,10 @@ int InterfazDeUsuario::pedirFila(Malla* malla){
 	}while((fila<1) || (fila > filaMax));
 
 	return (fila-1);
-}
+}*/
 
 
-int InterfazDeUsuario::pedirColumna(Malla* malla){
+/*int InterfazDeUsuario::pedirColumna(Malla* malla){
 	int columna, columnaMax;
 
 	columnaMax = malla->getCantidadDeColumnas();
@@ -103,7 +103,7 @@ int InterfazDeUsuario::pedirColumna(Malla* malla){
 	}while((columna<1) || (columna > columnaMax));
 
 	return (columna-1);
-}
+}*/
 
 
 int InterfazDeUsuario::pedirCantidadDeTurnos(){

@@ -5,8 +5,9 @@
 #define MALLA "Tablero"
 #define PORTAL "Portal"
 #define PARCELA "Parcela"
+#define CELULA "Celula"
 #define PESO_INICIAL 0
-
+#define VIVA true
 
 
 Inicializador::Inicializador(std::string ruta,Tablero* tablero, Grafo* grafo){
@@ -38,6 +39,9 @@ void Inicializador::levantarTablero(){
 		}
 		else if( !palabraAuxiliar.compare(PARCELA)){
 			levantarParcela();
+		}
+		else if(!palabraAuxiliar.compare(CELULA)){
+			levantarCelula();
 		}
 	}
 }
@@ -101,7 +105,19 @@ void Inicializador::levantarPortal(){
 	}
 }
 
+void Inicializador::levantarCelula(){
+	int x, y;
+	std::string nombreDeLaMalla;
+	Malla* malla;
 
+	file >> nombreDeLaMalla;
+	file >> x >> y;
+
+	malla = tablero->buscarMalla(nombreDeLaMalla);
+	Parcela* parcela = malla->getParcela(x-1,y-1);
+	parcela->setEstadoDeCelula(VIVA);
+	malla->aumentarEnUnoLasCelulasVivas(); //SE ASUME QUE NO HAY CELULAS REPETIDAS EN EL ARCHIVO. SI QUIEREN PODEMOS IMPLEMENTAR PARA QUE CHEQUEE
+}
 
 Rgb Inicializador::levantarColor(){
 	Rgb color;

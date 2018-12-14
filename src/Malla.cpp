@@ -73,7 +73,9 @@ bool Malla::posicionValida(int fila, int columna){
 	return ( (fila >= 0) && (fila < alto) && (columna >= 0) && (columna < ancho) );
 }
 
-
+void Malla::aumentarEnUnoLasCelulasVivas(){
+	celulasVivas++;
+}
 Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 
 	Rgb colorPromedio(0,0,0), rgbAuxiliar;
@@ -104,3 +106,4 @@ Rgb Malla::obtenerColorPromedioDeVecinasVivas(int fila, int columna){
 
 	return colorPromedio;
 }
+

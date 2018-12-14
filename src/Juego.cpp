@@ -42,11 +42,13 @@ void Juego::inicializarJuego(){
 	while(tablero->avanzarCursor()){
 
 		malla = tablero->obtenerCursor();
-		ingresoDeCelulas(malla);
+		imprimirMalla(malla);
+		cantidadDeCelulasNacidas += malla->getCantidadDeCelulasVivas();
+		//ingresoDeCelulas(malla);//
 	}
 
 	this->turno = 0;
-	olvidoAgregarCelulasEnTablero();
+	//olvidoAgregarCelulasEnTablero();//
 	imprimirResumen();
 }
 
@@ -338,7 +340,7 @@ void Juego::contarCelulasVivas(){
 	}
 }
 
-void Juego::ingresoDeCelulas(Malla* malla){
+/*void Juego::ingresoDeCelulas(Malla* malla){
 
 	int fila, columna;
 	Parcela* parcela;
@@ -358,9 +360,9 @@ void Juego::ingresoDeCelulas(Malla* malla){
 		}
 		imprimirMalla(malla);
 	}
-}
+}*/
 
-void Juego::olvidoAgregarCelulasEnTablero(){
+/*void Juego::olvidoAgregarCelulasEnTablero(){
 
 	Malla* malla;
 
@@ -369,7 +371,7 @@ void Juego::olvidoAgregarCelulasEnTablero(){
 		malla = interfaz->pedirMallaPorNombre(tablero);
 		ingresoDeCelulas(malla);
 	}
-}
+}*/
 
 char Juego::obtenerOrdenPorPantalla(){
 	return interfaz->preguntarEstadoDeJuego();

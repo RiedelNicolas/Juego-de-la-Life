@@ -63,6 +63,11 @@ class Malla {
 		 */
 		Rgb obtenerColorPromedioDeVecinasVivas(int fila, int columna);
 
+		/*
+		 * Post: aumenta en 1 la cantidad de celulas vivas de la malla
+		 */
+		void aumentarEnUnoLasCelulasVivas();
+
 	private:
 
 		/*
