@@ -24,6 +24,7 @@ class Juego{
 		int cantidadDeCelulasVivas;
 		int totalCelulasMuertas;
 		int totalCelulasNacidas;
+		Lista<Malla*>* mallas;
 		Tablero* tablero;
 		Grafo* grafo;
 		InterfazDeUsuario* interfaz;

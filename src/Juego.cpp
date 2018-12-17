@@ -1,4 +1,5 @@
 #include "Juego.h"
+#include <sstream>
 #define VIVA true
 #define MUERTA false
 #define VIDA_MUERTA 0
@@ -17,6 +18,7 @@ Juego::Juego(Tablero* tablero, Grafo* grafo){
 	totalCelulasMuertas = 0;
 	totalCelulasNacidas = 0;
 	this->tablero = tablero;
+	this->mallas = tablero->obtenerMallas();
 	this->grafo = grafo;
 	interfaz = new InterfazDeUsuario();
 }
@@ -37,11 +39,11 @@ void Juego::inicializarJuego(){
 	Malla* malla;
 
 	interfaz->mensajeDeBienvenida();
-	tablero->iniciarCursor();
+	mallas->iniciarCursor();
 
-	while(tablero->avanzarCursor()){
+	while(mallas->avanzarCursor()){
 
-		malla = tablero->obtenerCursor();
+		malla = mallas->obtenerCursor();
 		imprimirMalla(malla);
 		cantidadDeCelulasNacidas += malla->getCantidadDeCelulasVivas();
 		//ingresoDeCelulas(malla);//
@@ -109,8 +111,13 @@ void Juego::cargarMallaEnImagen(BMP* Imagen, Malla* malla){
 
 void Juego::imprimirMalla(Malla* malla){
 
+	string turnosString;
+	stringstream turnosInt;
+	turnosInt << turno;
+	turnosString = turnosInt.str();
+
 	BMP Imagen;
-	string nombreMalla = malla->getNombre() + ".bmp";
+	string nombreMalla = malla->getNombre() + " - Turno " + turnosString + ".bmp";
 
 	Imagen.SetSize(ANCHO_CELULA*malla->getCantidadDeColumnas(), ALTO_CELULA*malla->getCantidadDeFilas());
 
@@ -153,11 +160,11 @@ void Juego::actualizarTablero(){
 	cantidadDeCelulasNacidas = 0;
 	Malla* malla;
 
-	tablero->iniciarCursor();
+	mallas->iniciarCursor();
 
-	while(tablero->avanzarCursor()){
+	while(mallas->avanzarCursor()){
 
-		malla = tablero->obtenerCursor();
+		malla = mallas->obtenerCursor();
 		actualizarMalla(malla);
 
 	}
@@ -292,10 +299,10 @@ void Juego::actualizarMalla(Malla* malla){
 
 void Juego::imprimirTablero(){
 	Malla* malla;
-	tablero->iniciarCursor();
+	mallas->iniciarCursor();
 
-	while(tablero->avanzarCursor()){
-		malla = tablero->obtenerCursor();
+	while(mallas->avanzarCursor()){
+		malla = mallas->obtenerCursor();
 		imprimirMalla(malla);
 	}
 }
@@ -332,10 +339,10 @@ bool Juego::tableroCongelado(int celulasNacidas, int celulasMuertas){
 void Juego::contarCelulasVivas(){
 	Malla* malla;
 	cantidadDeCelulasVivas = 0;
-	tablero->iniciarCursor();
+	mallas->iniciarCursor();
 
-	while(tablero->avanzarCursor()){
-		malla = tablero->obtenerCursor();
+	while(mallas->avanzarCursor()){
+		malla = mallas->obtenerCursor();
 		cantidadDeCelulasVivas += malla->getCantidadDeCelulasVivas();
 	}
 }

@@ -32,13 +32,13 @@ template <class T> class Nodo {
 		/*
 		 * Post: Devuelve un puntero al siguiente Nodo, en caso
 		 * de que no exista un siguiente Nodo, ese puntero va a ser NULL */
-		Nodo<T>* getSigNodo();
+		Nodo<T>* getSiguiente();
 
 		/*
 		 * Pre: Recibe un puntero a un Nodo
 		 * Post: Asigna ese puntero a Nodo como siguiente Nodo
 		 */
-		void setSigNodo(Nodo<T>* nuevoSiguiente);
+		void setSiguiente(Nodo<T>* nuevoSiguiente);
 };
 
 template<class T> Nodo<T>::Nodo(T elementoRecibido){
@@ -47,18 +47,18 @@ template<class T> Nodo<T>::Nodo(T elementoRecibido){
 }
 
 template<class T> Nodo<T>::~Nodo(){
-	delete (this->elemento);
+	delete (this->elemento); //ESTO ESTÁ CHEQUEADO??
 }
 
 template<class T> T Nodo<T>::getElemento(){
 	return (this->elemento);
 }
 
-template<class T> Nodo<T>* Nodo<T>::getSigNodo(){
+template<class T> Nodo<T>* Nodo<T>::getSiguiente(){
 	return (this->siguiente);
 }
 
-template <class T> void Nodo<T>::setSigNodo(Nodo<T>* nuevoSiguiente){
+template <class T> void Nodo<T>::setSiguiente(Nodo<T>* nuevoSiguiente){
 	this->siguiente = nuevoSiguiente;
 }
 

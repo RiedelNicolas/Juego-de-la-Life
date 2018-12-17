@@ -3,23 +3,12 @@
 
 #include "Nodo.h"
 
-/*
- * Una Lista es una colección dinámica de elementos dispuestos en una secuencia.
- *
- * Define operaciones para agregar, remover, acceder y cambiar elementos
- * en cualquier posición.
- *
- * Tiene un cursor que permite recorrer todos los elementos secuencialmente.
- *
- */
 template<class T> class Lista {
 
     private:
 
         Nodo<T>* primero;
-
         unsigned int tamanio;
-
         Nodo<T>* cursor;
 
     public:
@@ -110,6 +99,12 @@ template<class T> class Lista {
         T obtenerCursor();
 
         /*
+         * Pre: Lista creada.
+         * Post: Elimina todos los elementos de la lista, devolviendo los recursos al sistema operativo.
+         */
+        void vaciarLista();
+
+        /*
          * post: libera los recursos asociados a la Lista.
          */
         ~Lista();
@@ -163,14 +158,14 @@ template<class T> void Lista<T>::agregar(T elemento, unsigned int posicion) {
 
         if (posicion == 1) {
 
-            nuevo->cambiarSiguiente(this->primero);
+            nuevo->setSiguiente(this->primero);
             this->primero = nuevo;
 
         } else {
 
             Nodo<T>* anterior = this->obtenerNodo(posicion - 1);
-            nuevo->cambiarSiguiente(anterior->obtenerSiguiente());
-            anterior->cambiarSiguiente(nuevo);
+            nuevo->setSiguiente(anterior->getSiguiente());
+            anterior->setSiguiente(nuevo);
         }
 
         this->tamanio++;
@@ -218,13 +213,13 @@ template<class T> void Lista<T>::remover(unsigned int posicion) {
         if (posicion == 1) {
 
             removido = this->primero;
-            this->primero = removido->obtenerSiguiente();
+            this->primero = removido->getSiguiente();
 
         } else {
 
             Nodo<T>* anterior = this->obtenerNodo(posicion - 1);
-            removido = anterior->obtenerSiguiente();
-            anterior->cambiarSiguiente(removido->obtenerSiguiente());
+            removido = anterior->getSiguiente();
+            anterior->setSiguiente(removido->getSiguiente());
         }
 
         delete removido;
@@ -248,7 +243,7 @@ template<class T> bool Lista<T>::avanzarCursor() {
 
     } else {
 
-        this->cursor = this->cursor->obtenerSiguiente();
+        this->cursor = this->cursor->getSiguiente();
     }
 
     /* pudo avanzar si el cursor ahora apunta a un nodo */
@@ -261,34 +256,39 @@ template<class T> T Lista<T>::obtenerCursor() {
 
     if (this->cursor != NULL) {
 
-        elemento = this->cursor->obtenerDato();
+        elemento = this->cursor->getElemento();
     }
 
     return elemento;
 }
 
-template<class T> Lista<T>::~Lista() {
-
-    while (this->primero != NULL) {
-
-        Nodo<T>* aBorrar = this->primero;
-        this->primero = this->primero->obtenerSiguiente();
-
-        delete aBorrar;
-    }
-}
 
 template<class T> Nodo<T>* Lista<T>::obtenerNodo(unsigned int posicion) {
 
     Nodo<T>* actual = this->primero;
     for (unsigned int i = 1; i < posicion; i++) {
 
-        actual = actual->obtenerSiguiente();
+        actual = actual->getSiguiente();
     }
 
     return actual;
 }
 
+template<class T> void Lista<T>::vaciarLista(){
+
+	while (this->primero != NULL) {
+
+        Nodo<T>* aBorrar = this->primero;
+        this->primero = this->primero->getSiguiente();
+
+        delete aBorrar;
+    }
+}
+
+template<class T> Lista<T>::~Lista() {
+
+	vaciarLista();
+}
 
 
 

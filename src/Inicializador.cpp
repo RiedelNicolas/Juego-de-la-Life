@@ -50,8 +50,11 @@ void Inicializador::levantarMalla(){
 	std::string nombre;
 	int filas,columnas;
 	file>>nombre>>columnas>>filas;
+
+	Lista<Malla*>* mallas = tablero->obtenerMallas();
 	Malla* malla = new Malla (filas,columnas,nombre);
-	tablero->agregarMalla(malla);
+
+	mallas->agregar(malla);
 	grafo->insertarVertice(nombre);
 
 }
@@ -114,7 +117,7 @@ void Inicializador::levantarCelula(){
 	file >> x >> y;
 
 	malla = tablero->buscarMalla(nombreDeLaMalla);
-	Parcela* parcela = malla->getParcela(x-1,y-1);
+	Parcela* parcela = malla->getParcela(y-1,x-1);
 	parcela->setEstadoDeCelula(VIVA);
 	malla->aumentarEnUnoLasCelulasVivas(); //SE ASUME QUE NO HAY CELULAS REPETIDAS EN EL ARCHIVO. SI QUIEREN PODEMOS IMPLEMENTAR PARA QUE CHEQUEE
 }
