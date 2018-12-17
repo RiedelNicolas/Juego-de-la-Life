@@ -51,6 +51,7 @@ void Juego::inicializarJuego(){
 
 	this->turno = 0;
 	//olvidoAgregarCelulasEnTablero();//
+	imprimirTablero();
 	imprimirResumen();
 }
 
@@ -312,8 +313,8 @@ void Juego::ejecutarTurnos(int cantidadDeTurnos){
 	for(int i=0; i<cantidadDeTurnos; i++){
 		actualizarTablero();
 		turno ++;
+		imprimirTablero();
 	}
-	imprimirTablero();
 	imprimirResumen();
 
 }

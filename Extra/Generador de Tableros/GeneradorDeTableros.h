@@ -33,6 +33,12 @@ public:
 	 */
 	void pedirPortales();
 
+	/*
+	 * Pre: ya están cargados los tableros, las parcelas y los portales.
+	 * Post: carga las células ingresadas por el usuario en el archivo.
+	 */
+	void pedirCelulasVivas();
+
 private:
 
 	/*

@@ -85,6 +85,25 @@ void GeneradorDeTableros::pedirPortales(){
 	}
 }
 
+void GeneradorDeTableros::pedirCelulasVivas(){
+
+	string nombreTablero;
+	int x, y;
+
+	while(preguntarAlUsuario("¿Desea ingresar una célula? (S/N)")){
+		cout << "Ingrese nombre del tablero: " << endl;
+		cin >> nombreTablero;
+
+		cout << "Ingrese coordenada en x: " << endl;
+		cin >> x;
+
+		cout << "Ingrese coordenada en y: " << endl;
+		cin >> y;
+
+		salida << "Celula " << nombreTablero << " " << x << " " << y << endl;
+	}
+}
+
 bool GeneradorDeTableros::preguntarAlUsuario(string mensaje){
 
 	char respuesta;
