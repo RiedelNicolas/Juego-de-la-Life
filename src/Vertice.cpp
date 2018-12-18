@@ -2,11 +2,9 @@
 
 Vertice::Vertice(std::string nombreTablero){
 
+	adyacentes = new Lista<Arista*>;
 	this->nombreVertice = nombreTablero;
 	this->siguiente = NULL;
-	this->adyacente = NULL;
-	this->cursor = NULL;
-	this->tamanio = 0;
 }
 
 Vertice* Vertice::obtenerSiguiente(){
@@ -28,26 +26,16 @@ void Vertice::insertarArista(unsigned int peso, Vertice* destino){
 
 	Arista* nuevaArista = new Arista(peso, destino);
 
-	if(tamanio == 0){
-		adyacente = nuevaArista;
-
-	}else{
-
-		Arista* anterior = this->obtenerArista(tamanio);
-		nuevaArista->cambiarSiguiente(anterior->obtenerSiguiente());
-		anterior->cambiarSiguiente(nuevaArista);
-	}
-	tamanio ++;
-	this->iniciarCursor();
+	adyacentes->agregar(nuevaArista);
 }
 
 bool Vertice::esVerticeAdyacente(Vertice* verticeABuscar){
 
 	bool encontrado = false;
-	iniciarCursor();
+	adyacentes->iniciarCursor();
 
-	while(avanzarCursor() && !encontrado){
-			Arista* aristaActual = obtenerCursor();
+	while(adyacentes->avanzarCursor() && !encontrado){
+			Arista* aristaActual = adyacentes->obtenerCursor();
 			if(aristaActual->obtenerVerticeAdyacente() == verticeABuscar){
 				encontrado = true;
 			}
@@ -64,9 +52,9 @@ Arista* Vertice::buscarAristaAdyacente(Vertice* vertice){
 	}
 
 	Arista* aristaBuscada;
-	iniciarCursor();
-	while(avanzarCursor() && !encontrado){
-		Arista* aristaActual = obtenerCursor();
+	adyacentes->iniciarCursor();
+	while(adyacentes->avanzarCursor() && !encontrado){
+		Arista* aristaActual = adyacentes->obtenerCursor();
 		if(aristaActual->obtenerVerticeAdyacente() == vertice){
 			aristaBuscada = aristaActual;
 			encontrado = true;
@@ -76,48 +64,9 @@ Arista* Vertice::buscarAristaAdyacente(Vertice* vertice){
 	return aristaBuscada;
 }
 
-Arista* Vertice::obtenerArista(unsigned int posicion){
-
-    Arista* actual = this->adyacente;
-    for (unsigned int i = 1; i < posicion; i++) {
-
-        actual = actual->obtenerSiguiente();
-    }
-
-    return actual;
-}
-
-Arista* Vertice::obtenerCursor(){
-
-	return this->cursor;
-}
-
-void Vertice::iniciarCursor(){
-
-	this->cursor = NULL;
-}
-
-bool Vertice::avanzarCursor(){
-
-	if(this->cursor == NULL){
-		this->cursor = this->adyacente;
-
-	}else{
-		this->cursor = this->cursor->obtenerSiguiente();
-	}
-
-	return (this->cursor != NULL);
-}
-
 Vertice::~Vertice(){
 
-	while(adyacente != NULL){
-
-		Arista* aBorrar = adyacente;
-		adyacente = this-> adyacente->obtenerSiguiente();
-
-		delete aBorrar;
-	}
+	delete adyacentes;
 }
 
 

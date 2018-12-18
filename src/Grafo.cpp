@@ -6,30 +6,23 @@ using namespace std;
 
 Grafo::Grafo(){
 
-	this->primero = NULL;
-	this->tamanio = 0;
-	this->cursor = NULL;
+	vertice = new Lista<Vertice*>;
 }
 
 bool Grafo::estaVacio(){
 
-	return (this->primero == NULL);
-}
-
-unsigned int Grafo::obtenerTamanio(){
-
-	return (this->tamanio);
+	return (this->vertice == NULL);
 }
 
 Vertice* Grafo::buscarVertice(std::string nombreTablero){
 
 	Vertice* verticeActual = NULL;
-	iniciarCursor();
+	vertice->iniciarCursor();
 	bool verticeEncontrado = false;
 
-	while(!verticeEncontrado && avanzarCursor()){
+	while(!verticeEncontrado && vertice->avanzarCursor()){
 
-		verticeActual = obtenerCursor();
+		verticeActual = vertice->obtenerCursor();
 		if(verticeActual->obtenerNombreVertice() == nombreTablero){
 			verticeEncontrado = true;
 		}
@@ -41,18 +34,7 @@ void Grafo::insertarVertice(std::string verticeAInsertar){
 
 	Vertice* nuevoVertice = new Vertice(verticeAInsertar);
 
-	if(this->estaVacio()){
-
-		this->primero = nuevoVertice;
-
-	}else{
-		Vertice* anterior = this->obtenerVertice(tamanio);
-		nuevoVertice->cambiarSiguiente(anterior->obtenerSiguiente());
-		anterior->cambiarSiguiente(nuevoVertice);
-	}
-
-	tamanio ++;
-	this->iniciarCursor();
+	vertice->agregar(nuevoVertice);
 }
 
 void Grafo::insertarArista(std::string origen, std::string destino, unsigned int peso){
@@ -71,62 +53,26 @@ void Grafo::insertarArista(std::string origen, std::string destino, unsigned int
 	}
 }
 
-void Grafo::iniciarCursor(){
-
-	this->cursor = NULL;
-}
-
-bool Grafo::avanzarCursor(){
-
-	if(this->cursor == NULL){
-		this->cursor = this->primero;
-
-	}else{
-		this->cursor = this->cursor->obtenerSiguiente();
-	}
-
-	return (this->cursor != NULL);
-}
-
-Vertice* Grafo::obtenerCursor(){
-
-	return this->cursor;
-}
 
 Grafo::~Grafo(){
 
-	while(primero != NULL){
-		Vertice* verticeAEliminar = primero;
-		primero = this->primero->obtenerSiguiente();
-		delete verticeAEliminar;
-	}
+	delete vertice;
 }
 
 bool Grafo::existeVertice(std::string verticeABuscar){
 
-	iniciarCursor();
+	vertice->iniciarCursor();
 	bool verticeEncontrado = false;
 
-	while(avanzarCursor() && !verticeEncontrado){
+	while(vertice->avanzarCursor() && !verticeEncontrado){
 
-		Vertice* verticeActual = obtenerCursor();
-		if(verticeActual -> obtenerNombreVertice() == verticeABuscar){
+		Vertice* verticeActual = vertice->obtenerCursor();
+		if(verticeActual->obtenerNombreVertice() == verticeABuscar){
 			verticeEncontrado = true;
 		}
 	}
 
 	return verticeEncontrado;
-}
-
-Vertice* Grafo::obtenerVertice(unsigned int posicion){
-
-	Vertice* actual = this->primero;
-
-	for (unsigned int i = 1; i < posicion; i++) {
-		actual = actual->obtenerSiguiente();
-	}
-
-	return actual;
 }
 
 void Grafo::aumentarEnUnoElPeso(Arista* arista){
