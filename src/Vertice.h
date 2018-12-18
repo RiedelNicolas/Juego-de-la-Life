@@ -52,6 +52,11 @@ public:
 	 */
 	bool esVerticeAdyacente(Vertice* verticeABuscar);
 
+	/*
+	 * Post: devuelve una lista de Aristas
+	 */
+	Lista<Arista*>* obtenerAristas();
+
     /*
      * Post: libera los recursos asociados a Vertice
      */

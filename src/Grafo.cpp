@@ -58,6 +58,11 @@ unsigned int Grafo::obtenerTamanio(){
 	return (vertice->contarElementos());
 }
 
+Lista<Vertice*>* Grafo::obtenerVertices(){
+
+	return vertice;
+}
+
 Grafo::~Grafo(){
 
 	delete vertice;

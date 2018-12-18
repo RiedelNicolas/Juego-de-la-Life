@@ -10,11 +10,13 @@ CaminoMinimo::CaminoMinimo(Grafo* grafo){
 		elementos[i] = new ElementoFloyd[tamanio];
 	}
 
-	grafo->iniciarCursor();
+	Lista<Vertice*>* vertices = grafo->obtenerVertices();
+
+	vertices->iniciarCursor();
 
 	for(unsigned int i=0; i<tamanio; i++){
-		grafo->avanzarCursor();
-		Vertice* verticeActual = grafo->obtenerCursor();
+		vertices->avanzarCursor();
+		Vertice* verticeActual = vertices->obtenerCursor();
 
 		for(unsigned int j=0; j<tamanio; j++){
 			elementos[j][i].setNombreDestino(verticeActual->obtenerNombreVertice());
@@ -35,16 +37,18 @@ CaminoMinimo::~CaminoMinimo(){
 
 void CaminoMinimo::completarMatriz(){
 
-	grafo->iniciarCursor();
+	Lista<Vertice*>* vertices = grafo->obtenerVertices();
+
+	vertices->iniciarCursor();
 
 	for(unsigned int i=0; i<tamanio; i++){
-		grafo->avanzarCursor();
-		Vertice* verticeActual = grafo->obtenerCursor();
-		verticeActual->iniciarCursor();
+		vertices->avanzarCursor();
+		Vertice* verticeActual = vertices->obtenerCursor();
+		Lista<Arista*>* aristas = verticeActual->obtenerAristas();
 
-		while(verticeActual->avanzarCursor()){
+		while(aristas->avanzarCursor()){
 			unsigned int j=0;
-			Arista* aristaActual = verticeActual->obtenerCursor();
+			Arista* aristaActual = aristas->obtenerCursor();
 			Vertice* verticeAdyacente = aristaActual->obtenerVerticeAdyacente();
 
 			while(verticeAdyacente->obtenerNombreVertice() != elementos[i][j].getNombreDestino()){
@@ -86,10 +90,12 @@ ElementoFloyd CaminoMinimo::buscarElemento(std::string origen, std::string desti
 	unsigned int i=0, j=0;
 	bool encontrado = false;
 
-	grafo->iniciarCursor();
+	Lista<Vertice*>* vertices = grafo->obtenerVertices();
 
-	while(grafo->avanzarCursor() && i<tamanio && !encontrado){
-		Vertice* verticeActual = grafo->obtenerCursor();
+	vertices->iniciarCursor();
+
+	while(vertices->avanzarCursor() && i<tamanio && !encontrado){
+		Vertice* verticeActual = vertices->obtenerCursor();
 
 		if(verticeActual->obtenerNombreVertice() == origen){
 			while(j<tamanio && !encontrado){

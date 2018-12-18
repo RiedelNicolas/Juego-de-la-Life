@@ -64,6 +64,11 @@ Arista* Vertice::buscarAristaAdyacente(Vertice* vertice){
 	return aristaBuscada;
 }
 
+Lista<Arista*>* Vertice::obtenerAristas(){
+
+	return adyacentes;
+}
+
 Vertice::~Vertice(){
 
 	delete adyacentes;

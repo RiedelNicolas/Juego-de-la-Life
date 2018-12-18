@@ -51,6 +51,11 @@ public:
 	unsigned int obtenerTamanio();
 
 	/*
+	 * Post: devuelve la lista de vertices del grafo
+	 */
+	Lista<Vertice*>* obtenerVertices();
+
+	/*
 	 * Post: libera los recursos asociados a Grafo
 	 */
 	~Grafo();
