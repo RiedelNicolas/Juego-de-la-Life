@@ -46,6 +46,11 @@ public:
 	void aumentarEnUnoElPeso(Arista* arista);
 
 	/*
+	 * Post: devuelve el tamaño de vertices del grafo
+	 */
+	unsigned int obtenerTamanio();
+
+	/*
 	 * Post: libera los recursos asociados a Grafo
 	 */
 	~Grafo();

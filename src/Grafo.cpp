@@ -53,6 +53,10 @@ void Grafo::insertarArista(std::string origen, std::string destino, unsigned int
 	}
 }
 
+unsigned int Grafo::obtenerTamanio(){
+
+	return (vertice->contarElementos());
+}
 
 Grafo::~Grafo(){
 
