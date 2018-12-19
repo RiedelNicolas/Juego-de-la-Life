@@ -23,16 +23,6 @@ public:
 	Vertice(std::string nombreTablero);
 
 	/*
-	 * Post: devuelve el siguiente Vertice
-	 */
-	Vertice* obtenerSiguiente();
-
-	/*
-	 * Post: cambia siguiente Vertice por nuevoSiguiente
-	 */
-	void cambiarSiguiente(Vertice* nuevoSiguiente);
-
-	/*
 	 * Post: devuelve el nombre asignado a Vertice
 	 */
 	std::string obtenerNombreVertice();

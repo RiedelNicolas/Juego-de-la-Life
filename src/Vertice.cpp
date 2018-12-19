@@ -7,16 +7,6 @@ Vertice::Vertice(std::string nombreTablero){
 	this->siguiente = NULL;
 }
 
-Vertice* Vertice::obtenerSiguiente(){
-
-	return (this->siguiente);
-}
-
-void Vertice::cambiarSiguiente(Vertice* nuevoSiguiente){
-
-	this->siguiente = nuevoSiguiente;
-}
-
 std::string Vertice::obtenerNombreVertice(){
 
 	return this->nombreVertice;

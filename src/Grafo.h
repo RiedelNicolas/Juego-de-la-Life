@@ -9,7 +9,7 @@ class Grafo{
 
 private:
 
-	Lista<Vertice*>* vertice;
+	Lista<Vertice*>* vertices;
 
 public:
 
@@ -44,11 +44,6 @@ public:
 	 * Post: aumenta en uno el peso de la arista
 	 */
 	void aumentarEnUnoElPeso(Arista* arista);
-
-	/*
-	 * Post: devuelve el tamaño de vertices del grafo
-	 */
-	unsigned int obtenerTamanio();
 
 	/*
 	 * Post: devuelve la lista de vertices del grafo

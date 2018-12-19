@@ -2,8 +2,8 @@
 
 CaminoMinimo::CaminoMinimo(Grafo* grafo){
 
-	this-> grafo = grafo;
-	tamanio = grafo->obtenerTamanio();
+	vertices = grafo->obtenerVertices();
+	tamanio = vertices->contarElementos();
 	elementos = new ElementoFloyd*[tamanio];
 
 	for(unsigned int i=0; i<tamanio; i++){
@@ -36,8 +36,6 @@ CaminoMinimo::~CaminoMinimo(){
 }
 
 void CaminoMinimo::completarMatriz(){
-
-	Lista<Vertice*>* vertices = grafo->obtenerVertices();
 
 	vertices->iniciarCursor();
 
@@ -89,8 +87,6 @@ ElementoFloyd CaminoMinimo::buscarElemento(std::string origen, std::string desti
 	ElementoFloyd buscado;
 	unsigned int i=0, j=0;
 	bool encontrado = false;
-
-	Lista<Vertice*>* vertices = grafo->obtenerVertices();
 
 	vertices->iniciarCursor();
 

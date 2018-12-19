@@ -9,7 +9,7 @@ private:
 
 	unsigned int tamanio;
 	ElementoFloyd** elementos;
-	Grafo* grafo;
+	Lista<Vertice*>* vertices;
 
 public:
 
