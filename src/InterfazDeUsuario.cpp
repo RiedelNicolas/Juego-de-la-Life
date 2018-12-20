@@ -32,15 +32,20 @@ bool InterfazDeUsuario::preguntarPorPantalla(string mensaje){
 	return(respuesta == SI);
 }
 
-/*bool InterfazDeUsuario::deseaAgregarCelula(){
+bool InterfazDeUsuario::deseaAgregarCelula(){
 
 	return preguntarPorPantalla("¿Desea ingresar una célula? (S/N)");
-}*/
+}
 
-/*bool InterfazDeUsuario::olvidoIngresarCelulas(){
+bool InterfazDeUsuario::olvidoIngresarCelulas(){
 
 	return preguntarPorPantalla("¿Olvidó ingresar celulas en un tablero? (S/N)");
-}*/
+}
+
+bool InterfazDeUsuario::deseaIngresarCelulas(){
+
+	return preguntarPorPantalla("¿Además de las cargadas por el archivo, desea ingresar células adicionales en alguno de los tableros?");
+}
 
 bool InterfazDeUsuario::deseaCalcularCaminoMinimo(){
 
@@ -78,7 +83,7 @@ char InterfazDeUsuario::preguntarEstadoDeJuego(){
 }
 
 
-/*int InterfazDeUsuario::pedirFila(Malla* malla){
+int InterfazDeUsuario::pedirFila(Malla* malla){
 	int fila, filaMax;
 
 	filaMax = malla->getCantidadDeFilas();
@@ -89,10 +94,10 @@ char InterfazDeUsuario::preguntarEstadoDeJuego(){
 	}while((fila<1) || (fila > filaMax));
 
 	return (fila-1);
-}*/
+}
 
 
-/*int InterfazDeUsuario::pedirColumna(Malla* malla){
+int InterfazDeUsuario::pedirColumna(Malla* malla){
 	int columna, columnaMax;
 
 	columnaMax = malla->getCantidadDeColumnas();
@@ -103,7 +108,7 @@ char InterfazDeUsuario::preguntarEstadoDeJuego(){
 	}while((columna<1) || (columna > columnaMax));
 
 	return (columna-1);
-}*/
+}
 
 
 int InterfazDeUsuario::pedirCantidadDeTurnos(){

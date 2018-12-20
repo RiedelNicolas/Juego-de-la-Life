@@ -51,9 +51,17 @@ class InterfazDeUsuario{
 		bool deseaCalcularCaminoMinimo();
 
 		/*
-		 *Post: Devuelve un puntero a la malla cuyo nombre ingresa el
-		 *		ususario
+		 * Post: Devuelve un bool de acuerdo a la respuesta del usuario a
+		 * 		 la pregunta "¿Desea ingresar celulas en alguno de los tableros?"
 		 */
+
+		bool deseaIngresarCelulas();
+
+		/*
+		 *Post: Devuelve un puntero a la malla cuyo nombre ingresa el
+		 *		usuario
+		 */
+
 		Malla* pedirMallaPorNombre(Tablero* tablero);
 
 		/*
