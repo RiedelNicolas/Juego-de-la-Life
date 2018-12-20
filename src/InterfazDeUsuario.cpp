@@ -44,7 +44,7 @@ bool InterfazDeUsuario::olvidoIngresarCelulas(){
 
 bool InterfazDeUsuario::deseaIngresarCelulas(){
 
-	return preguntarPorPantalla("¿Además de las cargadas por el archivo, desea ingresar células adicionales en alguno de los tableros?");
+	return preguntarPorPantalla("¿Además de las cargadas por el archivo, desea ingresar células adicionales en alguno de los tableros? (S/N)");
 }
 
 bool InterfazDeUsuario::deseaCalcularCaminoMinimo(){
