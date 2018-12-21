@@ -1,0 +1,6 @@
+Tablero Primero 50 50
+Tablero Segundo 50 50 
+Tablero Tercero 50 50 
+Tablero Cuarto 50 50 
+Tablero Quinto 50 50 
+Celula Primero 1 1 

@@ -35,6 +35,10 @@ private:
 	 *	Post: Carga en el BMP la informacion de la malla.
 	 */
 	void cargarMallaEnImagen(BMP *Imagen, Malla* malla);
+
+	void imprimirParcela(BMP* Imagen ,Parcela* parcela ,int i ,int j);
 };
+
+
 
 #endif /* SRC_IMPRESORBMP_H_ */

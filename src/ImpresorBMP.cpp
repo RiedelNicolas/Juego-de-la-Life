@@ -19,21 +19,14 @@ void ImpresorBMP::establecerColorMallaPorDefecto(BMP* Imagen, Malla* malla){
 
 void ImpresorBMP::cargarMallaEnImagen(BMP* Imagen, Malla* malla){
 
-	int i, j, x, y;
+	int i, j;
 
 	for( i = 0; i < malla->getCantidadDeFilas(); i++){
 		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
 
-			if(malla->getParcela(i, j)->getCelula()->getEstado()){
+			Parcela* parcelaActual = malla->getParcela(i ,j);
+			imprimirParcela(Imagen, parcelaActual , i, j);
 
-				for(x = 0; x < ANCHO_CELULA; x++){
-					for(y = 0; y < ALTO_CELULA; y++){
-						(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Red = malla->getParcela(i, j)->getCelula()->getRgb().getRojo();
-						(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Green = malla->getParcela(i, j)->getCelula()->getRgb().getVerde();
-						(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Blue = malla->getParcela(i, j)->getCelula()->getRgb().getAzul();
-					}
-				}
-			}
 		}
 	}
 }
@@ -55,6 +48,21 @@ void ImpresorBMP::imprimirMalla(Malla* malla, unsigned turno){
 	cargarMallaEnImagen(&Imagen, malla);
 
 	Imagen.WriteToFile( nombreMalla.c_str() );
+}
+
+void ImpresorBMP::imprimirParcela(BMP* Imagen ,Parcela* parcela ,int i ,int j){
+
+	int x,y;
+
+	if(parcela->getCelula()->getEstado()){
+		for( x = 0; x < ANCHO_CELULA; x++){
+			for( y = 0; y < ALTO_CELULA; y++){
+				(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Red = parcela->getCelula()->getRgb().getRojo();
+				(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Green = parcela->getCelula()->getRgb().getVerde();
+				(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Blue = parcela->getCelula()->getRgb().getAzul();
+			}
+		}
+	}
 }
 
 ImpresorBMP::~ImpresorBMP() {
