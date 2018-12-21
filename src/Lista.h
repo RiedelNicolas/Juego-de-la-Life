@@ -283,6 +283,8 @@ template<class T> void Lista<T>::vaciarLista(){
 
         delete aBorrar;
     }
+
+	this->tamanio = 0;
 }
 
 template<class T> Lista<T>::~Lista() {

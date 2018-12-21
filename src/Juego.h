@@ -4,15 +4,14 @@
 #include "Tablero.h"
 #include "Grafo.h"
 #include "Malla.h"
-#include "EasyBMP.h"
+
+#include "ImpresorBMP.h"
 #include "InterfazDeUsuario.h"
 #include "CaminoMinimo.h"
 
 #define REINICIAR 'R'
 #define TERMINAR 'T'
 #define CONTINUAR 'C'
-#define ANCHO_CELULA 50
-#define ALTO_CELULA 50
 
 class Juego{
 
@@ -28,16 +27,20 @@ class Juego{
 		Tablero* tablero;
 		Grafo* grafo;
 		InterfazDeUsuario* interfaz;
+		ImpresorBMP* impresor;
 
 	public:
+
 		/*
 		 * Post: Crea un juego con "tablero" listo para ejecutarse
 		 */
 		Juego(Tablero* tablero, Grafo* grafo);
+
 		/*
 		 * Post: Libera los recursos tomados
 		 */
 		~Juego();
+
 		/*
 		 * Post: Ejecuta "n" turnos. Donde "n" es un numero entero
 		 * mayor a 0 ingresado por el usuario
@@ -61,12 +64,6 @@ class Juego{
 		 * 		hayan recibido ningun cambio en dos turnos)
 		 */
 		void imprimirResumen();
-
-		/*
-		 * Pre: Recibe un puntero a malla inicializada
-		 * Post: Imprime la malla en una imagen con el formato nombreMalla.bmp
-		 */
-		void imprimirMalla(Malla* malla);
 
 		/* Pre: el tablero está creado e inicializado.
 		 * Post: muestra en una imagen BMP el estado de todas las Mallas.
@@ -165,18 +162,6 @@ class Juego{
 		 * Post: Reemplaza las celulas de "malla" por las de "auxiliar"
 		 */
 		void reemplazarAuxiliar(Celula** auxiliar, Malla* malla);
-
-		/*
-		 *	Pre: Recibe un puntero a un BMP y un puntero a una malla validos.
-		 *	Post: Carga el color por defecto de todo el BMP a blanco.
-		 */
-		void establecerColorMallaPorDefecto(BMP *Imagen, Malla* malla);
-
-		/*
-		 *	Pre: Recibe un puntero a un BMP y un puntero a una malla validos.
-		 *	Post: Carga en el BMP la informacion de la malla.
-		 */
-		void cargarMallaEnImagen(BMP *Imagen, Malla* malla);
 
 		/*
 		 *  Pre: Recibe un puntero a Celula y un puntero a Parcela Validos

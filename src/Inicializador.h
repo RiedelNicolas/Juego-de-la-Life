@@ -37,13 +37,13 @@ class Inicializador{
 		 */
 		~Inicializador();
 
-	private:
-
 		/*
 		 * Pre: el archivo fue abierto correctamente y tiene el formato adecuado.
 		 * Post: Carga los datos del archivo en el Tablero del juego/.
 		 */
 		void levantarTablero();
+
+	private:
 
 		/*
 		 * Pre: Archivo correctamente formado.

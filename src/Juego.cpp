@@ -1,5 +1,5 @@
 #include "Juego.h"
-#include <sstream>
+
 #define VIVA true
 #define MUERTA false
 #define VIDA_MUERTA 0
@@ -7,7 +7,6 @@
 #define MUERE 'M'
 #define INFINITO 65535
 using namespace std;
-
 
 Juego::Juego(Tablero* tablero, Grafo* grafo){
 
@@ -21,11 +20,12 @@ Juego::Juego(Tablero* tablero, Grafo* grafo){
 	this->mallas = tablero->obtenerMallas();
 	this->grafo = grafo;
 	interfaz = new InterfazDeUsuario();
+	impresor = new ImpresorBMP();
 }
-
 
 Juego::~Juego(){
 	delete interfaz;
+	delete impresor;
 }
 
 void Juego::nuevoTurno(){
@@ -38,6 +38,7 @@ void Juego::inicializarJuego(){
 
 	Malla* malla;
 
+	this->turno = 0; //Probar como estaba antes
 	interfaz->mensajeDeBienvenida();
 	bool ingresarCelulasAdicionales = interfaz->deseaIngresarCelulas();
 	mallas->iniciarCursor();
@@ -45,18 +46,15 @@ void Juego::inicializarJuego(){
 	while(mallas->avanzarCursor()){
 
 		malla = mallas->obtenerCursor();
-		imprimirMalla(malla);
+		impresor->imprimirMalla(malla, turno);
 		cantidadDeCelulasNacidas += malla->getCantidadDeCelulasVivas();
 		if(ingresarCelulasAdicionales){
 			ingresoDeCelulas(malla);
 		}
 	}
-
-	this->turno = 0;
 	if(ingresarCelulasAdicionales){
 		olvidoAgregarCelulasEnTablero();
 	}
-
 	imprimirTablero();
 	imprimirResumen();
 }
@@ -82,59 +80,6 @@ void Juego::imprimirResumen(){
 	}
 }
 
-void Juego::establecerColorMallaPorDefecto(BMP* Imagen, Malla* malla){
-
-	for(int i = 0; i < ANCHO_CELULA*malla->getCantidadDeColumnas(); i++){
-		for(int j = 0; j < ALTO_CELULA*malla->getCantidadDeFilas(); j++){
-			//El color de fondo del tablero es por defecto blanco
-			(*Imagen)(i, j) -> Red = 255;
-			(*Imagen)(i, j) -> Green = 255;
-			(*Imagen)(i, j) -> Blue = 255;
-			(*Imagen)(i, j) -> Alpha = 0;
-		}
-	}
-}
-
-void Juego::cargarMallaEnImagen(BMP* Imagen, Malla* malla){
-
-	int i, j, x, y;
-
-	for( i = 0; i < malla->getCantidadDeFilas(); i++){
-		for(j = 0; j < malla->getCantidadDeColumnas(); j++){
-
-			if(malla->getParcela(i, j)->getCelula()->getEstado()){
-
-				for(x = 0; x < ANCHO_CELULA; x++){
-					for(y = 0; y < ALTO_CELULA; y++){
-						(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Red = malla->getParcela(i, j)->getCelula()->getRgb().getRojo();
-						(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Green = malla->getParcela(i, j)->getCelula()->getRgb().getVerde();
-						(*Imagen)(ANCHO_CELULA*j + x, ALTO_CELULA*i + y) -> Blue = malla->getParcela(i, j)->getCelula()->getRgb().getAzul();
-					}
-				}
-			}
-		}
-	}
-}
-
-void Juego::imprimirMalla(Malla* malla){
-
-	string turnosString;
-	stringstream turnosInt;
-	turnosInt << turno;
-	turnosString = turnosInt.str();
-
-	BMP Imagen;
-	string nombreMalla = malla->getNombre() + " - Turno " + turnosString + ".bmp";
-
-	Imagen.SetSize(ANCHO_CELULA*malla->getCantidadDeColumnas(), ALTO_CELULA*malla->getCantidadDeFilas());
-
-	establecerColorMallaPorDefecto(&Imagen, malla);
-
-	cargarMallaEnImagen(&Imagen, malla);
-
-	Imagen.WriteToFile( nombreMalla.c_str() );
-}
-
 void Juego::calcularCaminoMinimo(){
 
 	if(interfaz->deseaCalcularCaminoMinimo()){
@@ -149,11 +94,8 @@ void Juego::calcularCaminoMinimo(){
 		unsigned int transferenciaMinima = caminoMinimo.calcularTransferenciaMinima(nombreMallaOrigen, nombreMallaDestino);
 
 		if(transferenciaMinima == INFINITO){
-
 			cout << "No hay portales que conecten dichos tableros. No hay transferencia de células.";
-
-		}else{
-
+		} else {
 			cout << "La transferencia mínima de células entre '" << nombreMallaOrigen << "' y '" << nombreMallaDestino
 							<< "' es de " << transferenciaMinima << " células." << endl;
 		}
@@ -173,7 +115,6 @@ void Juego::actualizarTablero(){
 
 		malla = mallas->obtenerCursor();
 		actualizarMalla(malla);
-
 	}
 }
 
@@ -195,7 +136,6 @@ Celula Juego::calcularRestaVidaCelula(Parcela* parcela){
 		celula.setVida(vidaFinal);
 		celula.setRgb(parcela->getCelula()->getRgb());
 	}
-
 	return celula;
 }
 
@@ -206,7 +146,6 @@ Celula** Juego::crearAuxiliar(Malla* malla){
 	for(int i = 0; i < malla->getCantidadDeFilas(); i++){
 		auxiliar[i] = new Celula[malla->getCantidadDeColumnas()];
 	}
-
 	return auxiliar;
 }
 
@@ -225,7 +164,6 @@ void Juego::reemplazarAuxiliar(Celula** auxiliar, Malla* malla){
 			malla->getParcela(i, j)->setCelula(auxiliar[i][j]);
 		}
 	}
-
 }
 
 void Juego::reducirVidaCelula(Celula* celulaAux, Parcela* parcela){
@@ -310,7 +248,7 @@ void Juego::imprimirTablero(){
 
 	while(mallas->avanzarCursor()){
 		malla = mallas->obtenerCursor();
-		imprimirMalla(malla);
+		impresor->imprimirMalla(malla, turno);
 	}
 }
 
@@ -322,7 +260,6 @@ void Juego::ejecutarTurnos(int cantidadDeTurnos){
 		imprimirTablero();
 	}
 	imprimirResumen();
-
 }
 
 float Juego::calcularPromedio(int numero){
@@ -331,8 +268,7 @@ float Juego::calcularPromedio(int numero){
 
 	if(turno == 0){
 		promedio = 0;
-	}
-	else{
+	} else{
 		promedio = ( (float)numero)/ turno ;
 	}
 	return promedio;
@@ -372,7 +308,7 @@ void Juego::ingresoDeCelulas(Malla* malla){
 			cantidadDeCelulasNacidas++;
 			cantidadDeCelulasVivas++;
 		}
-		imprimirMalla(malla);
+		impresor->imprimirMalla(malla, turno);
 	}
 }
 
