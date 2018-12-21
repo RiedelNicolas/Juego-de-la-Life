@@ -12,9 +12,10 @@ class ImpresorBMP {
 
 public:
 
+	/*
+	 * Post: Crea el impresor de los archivos BMP.
+	 */
 	ImpresorBMP();
-
-	~ImpresorBMP();
 
 	/*
 	 * Pre: Recibe un puntero a una malla inicializada y el numero de turno en el que se encuantra el juego.
@@ -36,9 +37,11 @@ private:
 	 */
 	void cargarMallaEnImagen(BMP *Imagen, Malla* malla);
 
+	/*
+	 * Pre: Recibe un puntero a un BMP, un puntero a una malla, un numero de fila y numero de columna validos
+	 * Post:Imprime la parcela en el archivo BMP
+	 */
 	void imprimirParcela(BMP* Imagen ,Parcela* parcela ,int i ,int j);
 };
-
-
 
 #endif /* SRC_IMPRESORBMP_H_ */

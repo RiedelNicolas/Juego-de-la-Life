@@ -64,7 +64,3 @@ void ImpresorBMP::imprimirParcela(BMP* Imagen ,Parcela* parcela ,int i ,int j){
 		}
 	}
 }
-
-ImpresorBMP::~ImpresorBMP() {
-}
-
