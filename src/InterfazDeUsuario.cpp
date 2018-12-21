@@ -128,3 +128,14 @@ int InterfazDeUsuario::pedirCantidadDeTurnos(){
 bool InterfazDeUsuario::cantidadDeTurnosEsValida(int turnos){
 	return (turnos > 0) ;
 }
+
+string InterfazDeUsuario::pedirRuta(){
+	string ruta = "configuracion.txt";
+	mensajeDeBienvenida();
+	cout << "Existe un archivo de configuración inicial establecido por defecto." << endl;
+	if(preguntarPorPantalla("¿Desea elegir otra ruta para archivo con la configuración inicial? (S/N)")){
+		cout << "Ingrese la ruta del nuevo archivo:" << endl;
+		cin >> ruta;
+	}
+	return ruta;
+}

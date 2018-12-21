@@ -82,6 +82,11 @@ class Juego{
 		 */
 		void calcularCaminoMinimo();
 
+		/*
+		 * Post: pide al usuario que ingrese la ruta del archivo con la configuración inicial.
+		 */
+		std::string pedirRutaArchivo();
+
 	private:
 
 		/* Pre: el tablero está creado.

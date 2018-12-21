@@ -18,7 +18,8 @@ int main(){
 
 			if(ordenIngresada == REINICIAR){
 				tablero.vaciarTablero();
-				Inicializador leeArchivo("configuracion.txt", &tablero, &grafo);
+				string ruta = elJuegoDeLaVida.pedirRutaArchivo();
+				Inicializador leeArchivo(ruta, &tablero, &grafo);
 				elJuegoDeLaVida.inicializarJuego();
 			}
 

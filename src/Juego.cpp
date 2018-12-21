@@ -39,7 +39,6 @@ void Juego::inicializarJuego(){
 	Malla* malla;
 
 	this->turno = 0; //Probar como estaba antes
-	interfaz->mensajeDeBienvenida();
 	bool ingresarCelulasAdicionales = interfaz->deseaIngresarCelulas();
 	mallas->iniciarCursor();
 
@@ -325,4 +324,8 @@ void Juego::olvidoAgregarCelulasEnTablero(){
 
 char Juego::obtenerOrdenPorPantalla(){
 	return interfaz->preguntarEstadoDeJuego();
+}
+
+string Juego::pedirRutaArchivo(){
+	return interfaz->pedirRuta();
 }

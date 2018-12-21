@@ -12,6 +12,7 @@ class InterfazDeUsuario{
 		 *Post: Crea una interfaz de usuario lista para ser usada
 		 */
 		InterfazDeUsuario();
+
 		/*
 		 * Post: Imprime el mensaje de bienvenida al juego.
 		 */
@@ -70,6 +71,11 @@ class InterfazDeUsuario{
 		 * 'R' reiniciar  o 'T' terminar
 		 */
 		char preguntarEstadoDeJuego();
+
+		/*
+		 * Post: devuelve un string que contiene la ruta del archivo ingresada por el usuario.
+		 */
+		std::string pedirRuta();
 
 
 	private:
