@@ -1,4 +1,4 @@
-#include "GeneradorDeTableros.h"
+#include "GeneradorDeTablero.h"
 #include <iostream>
 using namespace std;
 /*

@@ -1,5 +1,5 @@
-#ifndef GENERADOR_DE_TABLEROS_H_
-#define GENERADOR_DE_TABLEROS_H_
+#ifndef GENERADOR_DE_TABLERO_H_
+#define GENERADOR_DE_TABLERO_H_
 
 #include <fstream>
 #include <string>
